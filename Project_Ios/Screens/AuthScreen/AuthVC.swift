@@ -83,6 +83,14 @@ class AuthVC: UIViewController, AuthViewProtocol {
         
     }
     
+    func showLoading() {
+        
+    }
+    
+    func hideLoading() {
+        
+    }
+    
     func delegateTextField() {
         usernameTextField.delegate = self
         passwordTextField.delegate = self

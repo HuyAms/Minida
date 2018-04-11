@@ -12,4 +12,5 @@ class URLConst {
     static let BASE_URL = "https://fin-recycler.herokuapp.com"
     static let USER_PATH = "/api/users"
     static let AUTH_PATH = "/auth/signin"
+    static let CENTER_PATH = "/api/centers"
 }

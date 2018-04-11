@@ -7,6 +7,7 @@ target 'Project_Ios' do
 
   # Pods for Project_Ios
   pod 'Kingfisher'
+  pod 'Alamofire'
 
   target 'Project_IosTests' do
     inherit! :search_paths

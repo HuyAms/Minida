@@ -399,14 +399,14 @@
                                         <rect key="frame" x="19.5" y="122" width="60" height="72"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jxQ-sv-CDg">
-                                                <rect key="frame" x="9" y="0.0" width="42" height="34.5"/>
-                                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="25"/>
+                                                <rect key="frame" x="8" y="0.0" width="44.5" height="34.5"/>
+                                                <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="25"/>
                                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="points" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p4j-0x-3ea">
                                                 <rect key="frame" x="0.0" y="37.5" width="60" height="34.5"/>
-                                                <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="0.34013805650684931" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="0.071784032534246575" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="60" id="u7E-I7-ROJ"/>
                                                 </constraints>
@@ -424,14 +424,14 @@
                                         <rect key="frame" x="19.5" y="236" width="60" height="72"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HzP-6Y-HVx">
-                                                <rect key="frame" x="23" y="0.0" width="14" height="34.5"/>
-                                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="25"/>
+                                                <rect key="frame" x="22.5" y="0.0" width="15" height="34.5"/>
+                                                <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="25"/>
                                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="recycles" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2fq-Ps-ZYl">
                                                 <rect key="frame" x="0.0" y="37.5" width="60" height="34.5"/>
-                                                <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="0.34013805650000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="0.071784032534246575" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="60" id="DUD-GC-94i"/>
                                                 </constraints>
@@ -477,21 +477,21 @@
                                         </constraints>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="jcV-kG-tnf">
-                                        <rect key="frame" x="35" y="458" width="30" height="110"/>
+                                        <rect key="frame" x="40" y="478" width="20" height="90"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="laB-gd-zvD">
-                                                <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="30" id="E7P-73-K9H"/>
-                                                    <constraint firstAttribute="height" constant="30" id="QA8-Fl-qo8"/>
+                                                    <constraint firstAttribute="width" constant="20" id="E7P-73-K9H"/>
+                                                    <constraint firstAttribute="height" constant="20" id="QA8-Fl-qo8"/>
                                                 </constraints>
                                                 <state key="normal" image="contact"/>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P7o-Pv-M0Y">
-                                                <rect key="frame" x="0.0" y="80" width="30" height="30"/>
+                                                <rect key="frame" x="0.0" y="70" width="20" height="20"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="30" id="HDP-aF-FW2"/>
-                                                    <constraint firstAttribute="height" constant="30" id="b83-si-MIE"/>
+                                                    <constraint firstAttribute="width" constant="20" id="HDP-aF-FW2"/>
+                                                    <constraint firstAttribute="height" constant="20" id="b83-si-MIE"/>
                                                 </constraints>
                                                 <state key="normal" image="logout"/>
                                             </button>

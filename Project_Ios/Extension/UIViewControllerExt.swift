@@ -25,11 +25,11 @@ extension UIViewController {
         dismiss(animated: animated, completion: completion)
     }
     
-    func showLoading() {
+    func showLoadingIndicator() {
         
     }
     
-    func hideLoading() {
+    func hideLoadingIndicator() {
         
     }
     

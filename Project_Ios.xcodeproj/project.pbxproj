@@ -19,6 +19,7 @@
 		12C53E0420754AB8005824E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12C53E0320754AB8005824E3 /* Assets.xcassets */; };
 		12C53E0720754AB8005824E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12C53E0520754AB8005824E3 /* LaunchScreen.storyboard */; };
 		12C53E1220754AB8005824E3 /* Project_IosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C53E1120754AB8005824E3 /* Project_IosTests.swift */; };
+		6A2D1F72207DE28800852FCE /* UserDefaultProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A2D1F71207DE28800852FCE /* UserDefaultProtocol.swift */; };
 		A7AEBF7CE7547B99A5D0EC46 /* Pods_Project_IosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E415342BCB41B244486FA38E /* Pods_Project_IosTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +50,7 @@
 		12C53E1120754AB8005824E3 /* Project_IosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project_IosTests.swift; sourceTree = "<group>"; };
 		12C53E1320754AB8005824E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4F0546C71E6FF74A824D7204 /* Pods-Project_IosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project_IosTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Project_IosTests/Pods-Project_IosTests.release.xcconfig"; sourceTree = "<group>"; };
+		6A2D1F71207DE28800852FCE /* UserDefaultProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultProtocol.swift; sourceTree = "<group>"; };
 		6C94714BDD9F266D7F091819 /* Pods-Project_Ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project_Ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-Project_Ios/Pods-Project_Ios.release.xcconfig"; sourceTree = "<group>"; };
 		90E06613BC85805563AA2732 /* Pods_Project_Ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Project_Ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E22CBD513728047C41760A8 /* Pods-Project_IosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project_IosTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Project_IosTests/Pods-Project_IosTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 		12C53DF920754AB8005824E3 /* Project_Ios */ = {
 			isa = PBXGroup;
 			children = (
+				6A2D1F70207DE17900852FCE /* Utilities */,
 				1242BBAD2075685400857661 /* Enums */,
 				1242BBA52075620500857661 /* Controller */,
 				1242BBAA2075649900857661 /* Extension */,
@@ -165,6 +168,14 @@
 				E415342BCB41B244486FA38E /* Pods_Project_IosTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6A2D1F70207DE17900852FCE /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				6A2D1F71207DE28800852FCE /* UserDefaultProtocol.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -380,6 +391,7 @@
 			files = (
 				12C53DFF20754AB8005824E3 /* SecondViewController.swift in Sources */,
 				1242BBA72075624100857661 /* RegisterVC.swift in Sources */,
+				6A2D1F72207DE28800852FCE /* UserDefaultProtocol.swift in Sources */,
 				1242BBAC207564C500857661 /* UIViewControllerExt.swift in Sources */,
 				12C53DFB20754AB8005824E3 /* AppDelegate.swift in Sources */,
 				1242BBAF2075686C00857661 /* StoryBoardID.swift in Sources */,

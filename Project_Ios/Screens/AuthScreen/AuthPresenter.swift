@@ -17,6 +17,8 @@ protocol AuthPresenterProtocol {
     
     func checkBiometricAuthAvailable()
     
+    func performIdVerificaiton()
+    
 }
 
 class AuthPresenter: AuthPresenterProtocol {
@@ -45,6 +47,16 @@ class AuthPresenter: AuthPresenterProtocol {
         }
     }
     
+    func performIdVerificaiton() {
+        touchIdService.authenticateUser { [weak self] (message) in
+            if let message = message {
+                self?.view?.onVerifyIdError(error: message)
+            } else {
+                self?.view?.onVerifyIdSuccess()
+            }
+        }
+    }
+    
     func performLogin(userName: String, password: String) {
         view?.showLoading()
         
@@ -53,22 +65,23 @@ class AuthPresenter: AuthPresenterProtocol {
             view?.hideLoading()
         } else {
             //perform login here
-            authService.login(username: userName, password: password, completion: {  response in
+            authService.login(username: userName, password: password, completion: { [weak self] response in
                 switch response {
                 case .success(let response):
                     //do sth with the response
                     //Save the token in defaultUsers
                     print("This is the response: \(response)")
-                    self.view?.onSuccess()
-                    self.view?.hideLoading()
+                    self?.view?.onSuccess()
+                    self?.view?.hideLoading()
                 case .error(let error):
-                    self.view?.onShowError(error: error)
-                    self.view?.hideLoading() //put self here is not the right way
+                    self?.view?.onShowError(error: error)
+                    self?.view?.hideLoading() //put self here is not the right way
                 }
             })
             
         }
     }
+    
     
     func performRegister(userName: String, password: String, email: String, phoneNumber: String) {
         view?.showLoading()
@@ -78,20 +91,21 @@ class AuthPresenter: AuthPresenterProtocol {
             view?.hideLoading()
         } else {
             // perform register here
-            authService.register(username: userName, password: password, email: email, phoneNumber: phoneNumber, completion: {  response in
+            authService.register(username: userName, password: password, email: email, phoneNumber: phoneNumber, completion: { [weak self] response in
                 switch response {
                 case .success(let response):
                     //do sth with the response
                     //Save the token in defaultUsers
                     print("This is the response: \(response)")
-                    self.view?.onSuccess()
-                    self.view?.hideLoading()
+                    self?.view?.onSuccess()
+                    self?.view?.hideLoading()
                 case .error(let error):
                     print(error)
-                    self.view?.onShowError(error: error)
-                    self.view?.hideLoading() //put self here is not the right way
+                    self?.view?.onShowError(error: error)
+                    self?.view?.hideLoading() //put self here is not the right way
                 }
             })
         }
     }
+    
 }

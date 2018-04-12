@@ -28,8 +28,20 @@ extension UserDefaultsProtocol{
         return "myLngKey"
     }
     
+    private var userNameKey: String {
+        return "userNameKey"
+    }
+    
     private var userDefault: UserDefaults {
         return UserDefaults.standard
+    }
+    
+    func setUserName(username: String) {
+        userDefault.set(username, forKey: userNameKey)
+    }
+    
+    func getUserName() -> String? {
+        return userDefault.string(forKey: userNameKey)
     }
     
     func setLogInSate() {

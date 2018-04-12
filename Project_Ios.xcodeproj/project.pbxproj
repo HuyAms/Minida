@@ -17,7 +17,8 @@
 		12C53E0420754AB8005824E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12C53E0320754AB8005824E3 /* Assets.xcassets */; };
 		12C53E0720754AB8005824E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12C53E0520754AB8005824E3 /* LaunchScreen.storyboard */; };
 		12C53E1220754AB8005824E3 /* Project_IosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C53E1120754AB8005824E3 /* Project_IosTests.swift */; };
-		6A2D1F72207DE28800852FCE /* UserDefaultProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A2D1F71207DE28800852FCE /* UserDefaultProtocol.swift */; };
+		6A0A1689207F588200D8CB97 /* KeyChainUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0A1688207F588200D8CB97 /* KeyChainUtil.swift */; };
+		6A2D1F72207DE28800852FCE /* UserDefaultUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A2D1F71207DE28800852FCE /* UserDefaultUtil.swift */; };
 		6A2D1F7A207E5E6900852FCE /* MapPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A2D1F79207E5E6900852FCE /* MapPresenter.swift */; };
 		6A2D1F7C207E5E9500852FCE /* RecycleCentersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A2D1F7B207E5E9500852FCE /* RecycleCentersService.swift */; };
 		6A2D1F7E207E5F3600852FCE /* RecycleCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A2D1F7D207E5F3600852FCE /* RecycleCenter.swift */; };
@@ -61,7 +62,8 @@
 		12C53E1120754AB8005824E3 /* Project_IosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project_IosTests.swift; sourceTree = "<group>"; };
 		12C53E1320754AB8005824E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4F0546C71E6FF74A824D7204 /* Pods-Project_IosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project_IosTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Project_IosTests/Pods-Project_IosTests.release.xcconfig"; sourceTree = "<group>"; };
-		6A2D1F71207DE28800852FCE /* UserDefaultProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultProtocol.swift; sourceTree = "<group>"; };
+		6A0A1688207F588200D8CB97 /* KeyChainUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainUtil.swift; sourceTree = "<group>"; };
+		6A2D1F71207DE28800852FCE /* UserDefaultUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultUtil.swift; sourceTree = "<group>"; };
 		6A2D1F79207E5E6900852FCE /* MapPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPresenter.swift; sourceTree = "<group>"; };
 		6A2D1F7B207E5E9500852FCE /* RecycleCentersService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecycleCentersService.swift; sourceTree = "<group>"; };
 		6A2D1F7D207E5F3600852FCE /* RecycleCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecycleCenter.swift; sourceTree = "<group>"; };
@@ -201,9 +203,10 @@
 		6A2D1F70207DE17900852FCE /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				6A2D1F71207DE28800852FCE /* UserDefaultProtocol.swift */,
+				6A2D1F71207DE28800852FCE /* UserDefaultUtil.swift */,
 				6A31B3B1207E246D00BDE03F /* ServerResponse.swift */,
 				6A31B3B6207E2E5300BDE03F /* Constant.swift */,
+				6A0A1688207F588200D8CB97 /* KeyChainUtil.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -415,7 +418,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				12C53DFF20754AB8005824E3 /* SecondViewController.swift in Sources */,
-				6A2D1F72207DE28800852FCE /* UserDefaultProtocol.swift in Sources */,
+				6A2D1F72207DE28800852FCE /* UserDefaultUtil.swift in Sources */,
 				6A31B3B7207E2E5300BDE03F /* Constant.swift in Sources */,
 				6A2D1F7A207E5E6900852FCE /* MapPresenter.swift in Sources */,
 				1242BBAC207564C500857661 /* UI_Extension.swift in Sources */,
@@ -435,6 +438,7 @@
 				6A31B3AC207E227400BDE03F /* AuthResponse.swift in Sources */,
 				6A2D1F86207F292000852FCE /* TouchIdService.swift in Sources */,
 				6A31B3A7207E221900BDE03F /* AuthService.swift in Sources */,
+				6A0A1689207F588200D8CB97 /* KeyChainUtil.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

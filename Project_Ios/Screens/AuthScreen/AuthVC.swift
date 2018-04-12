@@ -18,6 +18,10 @@ protocol AuthViewProtocol: class {
     
     func onSuccess()
     
+    func onVerifyIdSuccess()
+    
+    func onVerifyIdError(error: String)
+    
     func setIdBtnAsFaceId()
     
     func setIdBtnAsTouchId()
@@ -55,6 +59,11 @@ class AuthVC: UIViewController, AuthViewProtocol {
     }
     
     //MARK: Action
+    
+    @IBAction func idBtnWasPressed(_ sender: Any) {
+        presenter?.performIdVerificaiton()
+    }
+    
     
     @IBAction func signUpBtnWasPressed(_ sender: Any) {
         isSignIn = false
@@ -118,6 +127,14 @@ class AuthVC: UIViewController, AuthViewProtocol {
         idTouchButton.setImage(UIImage.getTouchIdImage(),  for: .normal)
     }
     
+    func onVerifyIdSuccess() {
+        print("verify by id successfully")
+    }
+    
+    func onVerifyIdError(error: String) {
+        print("verify by id failed: \(error)")
+    }
+    
     func delegateTextField() {
         usernameTextField.delegate = self
         passwordTextField.delegate = self
@@ -126,7 +143,6 @@ class AuthVC: UIViewController, AuthViewProtocol {
     }
 
 }
-
 
 extension AuthVC: UITextFieldDelegate {
     

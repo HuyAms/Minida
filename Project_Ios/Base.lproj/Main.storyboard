@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nMN-ae-f1k">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -246,6 +246,14 @@
                                         <color key="textColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uEZ-RI-Vkd">
+                                        <rect key="frame" x="162.5" y="305.5" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="h8x-Cc-kIr"/>
+                                            <constraint firstAttribute="width" constant="50" id="w11-sA-lvz"/>
+                                        </constraints>
+                                        <state key="normal" image="Touch-icon-lg"/>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.96204348405202234" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -253,8 +261,10 @@
                                     <constraint firstAttribute="trailing" secondItem="qDu-Nu-AS0" secondAttribute="trailing" constant="8" id="FcQ-Oa-MVs"/>
                                     <constraint firstItem="qDu-Nu-AS0" firstAttribute="top" secondItem="nkY-cz-qgI" secondAttribute="top" constant="8" id="Mh4-4X-9dd"/>
                                     <constraint firstItem="pdN-8X-JE0" firstAttribute="leading" secondItem="nkY-cz-qgI" secondAttribute="leading" constant="40" id="PHD-T3-vOX"/>
+                                    <constraint firstItem="uEZ-RI-Vkd" firstAttribute="centerX" secondItem="nkY-cz-qgI" secondAttribute="centerX" id="V17-rx-1EM"/>
                                     <constraint firstItem="qDu-Nu-AS0" firstAttribute="leading" secondItem="nkY-cz-qgI" secondAttribute="leading" constant="8" id="cS5-hF-PXt"/>
                                     <constraint firstItem="pdN-8X-JE0" firstAttribute="centerY" secondItem="nkY-cz-qgI" secondAttribute="centerY" id="n3S-PU-udv"/>
+                                    <constraint firstItem="uEZ-RI-Vkd" firstAttribute="top" secondItem="pdN-8X-JE0" secondAttribute="bottom" constant="45" id="rAd-Xe-mG8"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vvl-Yg-Gh3">
@@ -319,6 +329,7 @@
                         <outlet property="emailStack" destination="Z9O-pb-cCr" id="nuN-D5-kST"/>
                         <outlet property="emailTextField" destination="VT6-sA-Fh8" id="imE-Zj-SAP"/>
                         <outlet property="errorLabel" destination="qDu-Nu-AS0" id="eoq-P2-Mg0"/>
+                        <outlet property="idTouchButton" destination="uEZ-RI-Vkd" id="VdV-eY-3pj"/>
                         <outlet property="passwordTextField" destination="qOg-Yi-6sU" id="gbI-qi-B0b"/>
                         <outlet property="performSignUpBtn" destination="Vvl-Yg-Gh3" id="Rs3-rf-Niz"/>
                         <outlet property="phoneNumberStack" destination="C9j-tq-AbG" id="qlf-tj-Fs3"/>
@@ -618,6 +629,7 @@
     </scenes>
     <resources>
         <image name="Slice 1-1" width="512" height="512"/>
+        <image name="Touch-icon-lg" width="138" height="137"/>
         <image name="avatar-1" width="1365" height="2048"/>
         <image name="background" width="550" height="367"/>
         <image name="contact" width="512" height="512"/>

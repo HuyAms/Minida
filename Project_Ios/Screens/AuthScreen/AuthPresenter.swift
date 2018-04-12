@@ -15,17 +15,34 @@ protocol AuthPresenterProtocol {
     
     func performRegister(userName: String, password: String, email: String, phoneNumber: String)
     
+    func checkBiometricAuthAvailable()
+    
 }
 
 class AuthPresenter: AuthPresenterProtocol {
     
-    
     weak var view: AuthViewProtocol? //remember we need weak to prevent memory leak
     var authService: AuthServiceProtocol = AuthService()
+    var touchIdService: TouchIdServiceProtocol = TouchIdService()
     
     //constructor in Java
     init(view: AuthViewProtocol) {
         self.view = view
+    }
+    
+    func checkBiometricAuthAvailable() {
+        let biometricAuthAvailable = touchIdService.canEvaluatePolicy()
+        if biometricAuthAvailable {
+            view?.showIdBtn()
+            switch touchIdService.biometricType() {
+            case .faceID:
+                view?.setIdBtnAsFaceId()
+            default:
+                view?.setIdBtnAsTouchId()
+            }
+        } else {
+            view?.hideIdBtn()
+        }
     }
     
     func performLogin(userName: String, password: String) {

@@ -32,7 +32,15 @@ extension UIViewController {
     func hideLoadingIndicator() {
         
     }
+}
+
+extension UIImage {
+    static func getTouchIdImage() -> UIImage {
+        return UIImage(named: "Touch-icon-lg")!
+    }
     
-    
+    static func getFaceIdImage() -> UIImage {
+        return UIImage(named: "FaceIcon")!
+    }
 }
 

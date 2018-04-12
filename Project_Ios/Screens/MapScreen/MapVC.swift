@@ -52,10 +52,6 @@ class MapVC: UIViewController , MapViewProtocol {
             mapItems.append(mapItem)
         }
         
-        mapItems.forEach { (item) in
-            print(item.title!)
-        }
-        
         mapView.addAnnotations(mapItems)
     }
     
@@ -70,6 +66,7 @@ class MapVC: UIViewController , MapViewProtocol {
     func hideLoading() {
         
     }
+    
 }
 
 extension MapVC: MKMapViewDelegate {

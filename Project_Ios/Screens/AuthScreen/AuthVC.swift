@@ -17,9 +17,18 @@ protocol AuthViewProtocol: class {
     func onShowError(error: AppError)
     
     func onSuccess()
+    
+    func setIdBtnAsFaceId()
+    
+    func setIdBtnAsTouchId()
+    
+    func hideIdBtn()
+    
+    func showIdBtn()
 }
 
 class AuthVC: UIViewController, AuthViewProtocol {
+
     //MARK: Outlet
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -28,36 +37,38 @@ class AuthVC: UIViewController, AuthViewProtocol {
     @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var signUpBtn: UIButton!
     @IBOutlet weak var signInBtn: UIButton!
+    @IBOutlet weak var idTouchButton: UIButton!
     
     @IBOutlet weak var emailStack: UIStackView!
     @IBOutlet weak var phoneNumberStack: UIStackView!
     @IBOutlet weak var performSignUpBtn: UIButton!
     
+    //MARK: Properties
     var presenter: AuthPresenterProtocol?
     var isSignIn = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter = AuthPresenter(view: self)
-        
         delegateTextField()
+        presenter?.checkBiometricAuthAvailable()
     }
     
     //MARK: Action
     
     @IBAction func signUpBtnWasPressed(_ sender: Any) {
-        //show email and phone number field
         isSignIn = false
         emailStack.isHidden = false
         phoneNumberStack.isHidden = false
+        hideIdBtn()
         performSignUpBtn.setTitle("Sign Up", for: .normal)
     }
     
     @IBAction func signInBtnWasPressed(_ sender: Any) {
-        //hide email and phone number field
         isSignIn = true
         emailStack.isHidden = true
         phoneNumberStack.isHidden = true
+        presenter?.checkBiometricAuthAvailable()
         performSignUpBtn.setTitle("Sign In", for: .normal)
     }
     
@@ -89,6 +100,22 @@ class AuthVC: UIViewController, AuthViewProtocol {
     
     func hideLoading() {
         
+    }
+    
+    func hideIdBtn() {
+        idTouchButton.isHidden = true
+    }
+    
+    func showIdBtn() {
+        idTouchButton.isHidden = false
+    }
+    
+    func setIdBtnAsFaceId() {
+        idTouchButton.setImage(UIImage.getFaceIdImage(),  for: .normal)
+    }
+    
+    func setIdBtnAsTouchId() {
+        idTouchButton.setImage(UIImage.getTouchIdImage(),  for: .normal)
     }
     
     func delegateTextField() {

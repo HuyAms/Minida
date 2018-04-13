@@ -30,6 +30,10 @@ protocol AuthViewProtocol: class {
     func hideIdBtn()
     
     func showIdBtn()
+    
+    func setUserName(userName: String)
+    
+    func onChangeAccountSuccess()
 }
 
 class AuthVC: UIViewController, AuthViewProtocol {
@@ -57,10 +61,10 @@ class AuthVC: UIViewController, AuthViewProtocol {
         presenter = AuthPresenter(view: self)
         delegateTextField()
         presenter?.checkBiometricAuthAvailable()
+        presenter?.checkToken()
     }
     
-    //MARK: Action
-    
+    //MARK: Actions
     @IBAction func idBtnWasPressed(_ sender: Any) {
         presenter?.performIdVerificaiton()
     }
@@ -96,13 +100,18 @@ class AuthVC: UIViewController, AuthViewProtocol {
         }
     }
     
+    @IBAction func changeAccountBtnWasPressed(_ sender: Any) {
+        presenter?.changeAccount()
+    }
+    
+    
+    //MARK: Protocols
     func onShowError(error: AppError) {
         errorLabel.text = error.description
     }
     
     func onSuccess() {
-        guard let tabBarVC = storyboard?.instantiateViewController(withIdentifier: AppStoryBoard.tabBarVC.identifier) else {return}
-        present(tabBarVC, animated: true, completion: nil)
+       goToTabVC()
     }
     
     func showLoading() {
@@ -130,11 +139,20 @@ class AuthVC: UIViewController, AuthViewProtocol {
     }
     
     func onVerifyIdSuccess() {
-        print("verify by id successfully")
+        goToTabVC()
     }
     
     func onVerifyIdError(error: String) {
         print("verify by id failed: \(error)")
+    }
+    
+    func setUserName(userName: String) {
+        usernameTextField.text = userName
+    }
+    
+    func onChangeAccountSuccess() {
+        presenter?.checkBiometricAuthAvailable()
+        usernameTextField.text = ""
     }
     
     func delegateTextField() {
@@ -142,6 +160,11 @@ class AuthVC: UIViewController, AuthViewProtocol {
         passwordTextField.delegate = self
         emailTextField.delegate = self
         phonenumberTextField.delegate = self
+    }
+    
+    func goToTabVC() {
+        guard let tabBarVC = storyboard?.instantiateViewController(withIdentifier: AppStoryBoard.tabBarVC.identifier) else {return}
+        present(tabBarVC, animated: true, completion: nil)
     }
 
 }

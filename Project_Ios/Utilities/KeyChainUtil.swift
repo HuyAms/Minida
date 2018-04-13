@@ -45,5 +45,13 @@ class KeyChainUtil: UserDefaultsProtocol {
             print("error: \(error)")
         }
     }
+    
+    func hasToken() -> Bool {
+        if let _ = getToken() {
+            return true
+        } else {
+            return false
+        }
+    }
 }
 

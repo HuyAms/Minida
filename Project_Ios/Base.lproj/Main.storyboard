@@ -302,15 +302,25 @@
                                             <action selector="idBtnWasPressed:" destination="nMN-ae-f1k" eventType="touchUpInside" id="Ce1-1b-FrB"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H0q-iI-gGS">
+                                        <rect key="frame" x="20" y="367" width="335" height="30"/>
+                                        <state key="normal" title="Sign in with another account"/>
+                                        <connections>
+                                            <action selector="changeAccountBtnWasPressed:" destination="nMN-ae-f1k" eventType="touchUpInside" id="e1N-f5-eYT"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.96204348405202234" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="pdN-8X-JE0" secondAttribute="trailing" constant="40" id="Buo-Ra-cV5"/>
                                     <constraint firstAttribute="trailing" secondItem="qDu-Nu-AS0" secondAttribute="trailing" constant="8" id="FcQ-Oa-MVs"/>
+                                    <constraint firstItem="H0q-iI-gGS" firstAttribute="leading" secondItem="nkY-cz-qgI" secondAttribute="leading" constant="20" id="JyK-N5-fNI"/>
                                     <constraint firstItem="qDu-Nu-AS0" firstAttribute="top" secondItem="nkY-cz-qgI" secondAttribute="top" constant="8" id="Mh4-4X-9dd"/>
                                     <constraint firstItem="pdN-8X-JE0" firstAttribute="leading" secondItem="nkY-cz-qgI" secondAttribute="leading" constant="40" id="PHD-T3-vOX"/>
+                                    <constraint firstAttribute="bottom" secondItem="H0q-iI-gGS" secondAttribute="bottom" constant="10" id="Rl9-bE-IFc"/>
                                     <constraint firstItem="uEZ-RI-Vkd" firstAttribute="centerX" secondItem="nkY-cz-qgI" secondAttribute="centerX" id="V17-rx-1EM"/>
                                     <constraint firstItem="qDu-Nu-AS0" firstAttribute="leading" secondItem="nkY-cz-qgI" secondAttribute="leading" constant="8" id="cS5-hF-PXt"/>
+                                    <constraint firstAttribute="trailing" secondItem="H0q-iI-gGS" secondAttribute="trailing" constant="20" id="idG-Ml-A9c"/>
                                     <constraint firstItem="pdN-8X-JE0" firstAttribute="centerY" secondItem="nkY-cz-qgI" secondAttribute="centerY" id="n3S-PU-udv"/>
                                     <constraint firstItem="uEZ-RI-Vkd" firstAttribute="top" secondItem="pdN-8X-JE0" secondAttribute="bottom" constant="45" id="rAd-Xe-mG8"/>
                                 </constraints>

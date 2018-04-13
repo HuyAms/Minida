@@ -18,6 +18,12 @@ class ProfileVC: UIViewController {
 
     @IBAction func logOutBtnWasPressed(_ sender: Any) {
         KeyChainUtil.share.setLogOut()
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.window = UIWindow(frame: UIScreen.main.bounds)
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let authVC = storyBoard.instantiateViewController(withIdentifier: AppStoryBoard.authVC.identifier)
+        appDelegate.window?.rootViewController = authVC
+        appDelegate.window?.makeKeyAndVisible()
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

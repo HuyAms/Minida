@@ -19,6 +19,10 @@ protocol AuthPresenterProtocol {
     
     func performIdVerificaiton()
     
+    func checkToken()
+    
+    func changeAccount()
+    
 }
 
 class AuthPresenter: AuthPresenterProtocol {
@@ -34,7 +38,7 @@ class AuthPresenter: AuthPresenterProtocol {
     
     func checkBiometricAuthAvailable() {
         let biometricAuthAvailable = touchIdService.canEvaluatePolicy()
-        if biometricAuthAvailable {
+        if biometricAuthAvailable && KeyChainUtil.share.hasToken() {
             view?.showIdBtn()
             switch touchIdService.biometricType() {
             case .faceID:
@@ -71,6 +75,7 @@ class AuthPresenter: AuthPresenterProtocol {
                     //Save the token in keychain
                     KeyChainUtil.share.setToken(token: token)
                     KeyChainUtil.share.setLogInSate()
+                    KeyChainUtil.share.setUserName(username: userName)
                     self?.view?.onSuccess()
                     self?.view?.hideLoading()
                 case .error(let error):
@@ -98,6 +103,7 @@ class AuthPresenter: AuthPresenterProtocol {
                     //Save the token in defaultUsers
                     KeyChainUtil.share.setToken(token: token)
                     KeyChainUtil.share.setLogInSate()
+                    KeyChainUtil.share.setUserName(username: userName)
                     self?.view?.onSuccess()
                     self?.view?.hideLoading()
                 case .error(let error):
@@ -107,6 +113,20 @@ class AuthPresenter: AuthPresenterProtocol {
                 }
             })
         }
+    }
+    
+    func checkToken() {
+        if KeyChainUtil.share.hasToken() {
+            guard let userName = KeyChainUtil.share.getUserName() else { return }
+            self.view?.setUserName(userName: userName)
+        } else {
+            print("does not have token")
+        }
+    }
+    
+    func changeAccount() {
+        KeyChainUtil.share.removeToken()
+        self.view?.onChangeAccountSuccess()
     }
     
 }

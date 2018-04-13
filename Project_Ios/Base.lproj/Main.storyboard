@@ -404,7 +404,7 @@
         <!--First-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController id="9pv-A4-QxB" customClass="MapVC" customModule="Project_Ios" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="mapScreen" id="9pv-A4-QxB" customClass="MapVC" customModule="Project_Ios" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -429,12 +429,28 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="749.60000000000002" y="-320.68965517241384"/>
+            <point key="canvasLocation" x="1052" y="-474"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="v3S-pY-zKU">
+            <objects>
+                <viewController id="AM8-AE-VsJ" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YHC-XI-kKj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="Kac-Iy-mAl"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="iz0-E9-oDF"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xwC-v6-Rac" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="706" y="891"/>
         </scene>
         <!--Second-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController id="8rJ-Kc-sve" customClass="ProfileVC" customModule="Project_Ios" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="profileScreen" id="8rJ-Kc-sve" customClass="ProfileVC" customModule="Project_Ios" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3K7-J0-k4f">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -645,7 +661,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="749.60000000000002" y="359.37031484257875"/>
+            <point key="canvasLocation" x="1444" y="221"/>
         </scene>
         <!--TabbarVC-->
         <scene sceneID="yl2-sM-qoP">
@@ -659,6 +675,7 @@
                     <connections>
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
+                        <segue destination="AM8-AE-VsJ" kind="relationship" relationship="viewControllers" id="CnN-iU-Mot"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>

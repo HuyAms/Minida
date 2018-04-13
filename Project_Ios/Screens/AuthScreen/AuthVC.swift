@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 protocol AuthViewProtocol: class {
     
@@ -104,11 +105,11 @@ class AuthVC: UIViewController, AuthViewProtocol {
     }
     
     func showLoading() {
-        
+        SVProgressHUD.show()
     }
     
     func hideLoading() {
-        
+        SVProgressHUD.dismiss()
     }
     
     func hideIdBtn() {

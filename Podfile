@@ -6,9 +6,11 @@ target 'Project_Ios' do
   use_frameworks!
 
   # Pods for Project_Ios
-  pod 'Kingfisher'
+   pod 'Kingfisher', '~> 4.0'
   pod 'Alamofire'
   pod 'KeychainAccess'
+  pod 'paper-onboarding'
+  pod 'SVProgressHUD'
 
   target 'Project_IosTests' do
     inherit! :search_paths

@@ -8,16 +8,11 @@
 
 import Foundation
 
-//Successs struct
 struct Response<T: Codable>: Codable {
     var status: Int
     var data: T?
     var description: String?
+    var code: Int?
 }
 
-//Error struct
-//struct ErrorResponse<T: Codable>: Codable {
-//    var status: Int
-//    var description: T
-//}
 

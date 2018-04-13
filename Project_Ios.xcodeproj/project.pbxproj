@@ -34,6 +34,8 @@
 		6A31B3B2207E246D00BDE03F /* ServerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A31B3B1207E246D00BDE03F /* ServerResponse.swift */; };
 		6A31B3B4207E277700BDE03F /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A31B3B3207E277700BDE03F /* AppError.swift */; };
 		6A31B3B7207E2E5300BDE03F /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A31B3B6207E2E5300BDE03F /* Constant.swift */; };
+		6AF76132207F73B600498CC1 /* OnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF76131207F73B600498CC1 /* OnboardingVC.swift */; };
+		6AF76134207F73D800498CC1 /* OnboardingOB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF76133207F73D800498CC1 /* OnboardingOB.swift */; };
 		A7AEBF7CE7547B99A5D0EC46 /* Pods_Project_IosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E415342BCB41B244486FA38E /* Pods_Project_IosTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +81,8 @@
 		6A31B3B1207E246D00BDE03F /* ServerResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerResponse.swift; sourceTree = "<group>"; };
 		6A31B3B3207E277700BDE03F /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		6A31B3B6207E2E5300BDE03F /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		6AF76131207F73B600498CC1 /* OnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVC.swift; sourceTree = "<group>"; };
+		6AF76133207F73D800498CC1 /* OnboardingOB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingOB.swift; sourceTree = "<group>"; };
 		6C94714BDD9F266D7F091819 /* Pods-Project_Ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project_Ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-Project_Ios/Pods-Project_Ios.release.xcconfig"; sourceTree = "<group>"; };
 		90E06613BC85805563AA2732 /* Pods_Project_Ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Project_Ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E22CBD513728047C41760A8 /* Pods-Project_IosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project_IosTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Project_IosTests/Pods-Project_IosTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -109,6 +113,7 @@
 		1242BBA52075620500857661 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				6AF76130207F739700498CC1 /* OnboardingScreen */,
 				6A2D1F77207E5DB500852FCE /* MapScreen */,
 				6A31B3B5207E28DE00BDE03F /* AuthScreen */,
 			);
@@ -252,6 +257,15 @@
 			path = AuthScreen;
 			sourceTree = "<group>";
 		};
+		6AF76130207F739700498CC1 /* OnboardingScreen */ = {
+			isa = PBXGroup;
+			children = (
+				6AF76131207F73B600498CC1 /* OnboardingVC.swift */,
+				6AF76133207F73D800498CC1 /* OnboardingOB.swift */,
+			);
+			path = OnboardingScreen;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -367,12 +381,16 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/paper-onboarding/paper_onboarding.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainAccess.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/paper_onboarding.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -468,9 +486,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				12C53DFF20754AB8005824E3 /* SecondViewController.swift in Sources */,
+				6AF76134207F73D800498CC1 /* OnboardingOB.swift in Sources */,
 				6A2D1F72207DE28800852FCE /* UserDefaultUtil.swift in Sources */,
 				6A31B3B7207E2E5300BDE03F /* Constant.swift in Sources */,
 				6A2D1F7A207E5E6900852FCE /* MapPresenter.swift in Sources */,
+				6AF76132207F73B600498CC1 /* OnboardingVC.swift in Sources */,
 				1242BBAC207564C500857661 /* UI_Extension.swift in Sources */,
 				6A31B3B2207E246D00BDE03F /* ServerResponse.swift in Sources */,
 				12C53DFB20754AB8005824E3 /* AppDelegate.swift in Sources */,

@@ -39,13 +39,13 @@ class AuthService: AuthServiceProtocol {
                             guard let token = serverResponse.data?.token else {fatalError("Register token error")}
                             print(token)
                         default:
-                            guard let description = serverResponse.description else {fatalError("Register description error")}
-                             print(description)
-                            //completion(ServerResponse.error(error: <#T##AppError#>))
+                            //this is error so we should have the code and status here
+                            guard let code = serverResponse.code else {print("Error: server code"); return}
+                            let appError = AppError(code: code, status: status)
+                            completion(ServerResponse.error(error: appError))
                         }
-                    
-
-                    } catch {
+                    } catch let error {
+                        print(error)
                         // Error with parse JSON. We donot want user to see this error :)
                     }
                 case .failure(let error):
@@ -64,19 +64,24 @@ class AuthService: AuthServiceProtocol {
             method: .post,
             parameters: parameters)
             .responseJSON { response in
-                //response is description or data
-                //get status and check if it is 200
-                //if not then it error -> show error to user
-                //if it is 200, show success
                 switch response.result {
                 case .success:
                     print(response)
-//                    do {
-//                        let authResponse = try self.jsonDecoder.decode(AuthResponse.self, from: response.data!)
-//                        completion(ServerResponse.success(authResponse.token)) //send the token
-//                    } catch {
-//                        // Error with parse JSON. We donot want user to see this error :)
-//                    }
+                    do {
+                        let authResponse = try self.jsonDecoder.decode(Response<AuthResponse>.self, from: response.data!)
+                        let status = authResponse.status
+                        switch status {
+                        case 200:
+                            guard let token = authResponse.data?.token else {fatalError("Register token error")}
+                            print(token)
+                        default:
+                            guard let code = authResponse.code else {print("Error: server code"); return}
+                            let appError = AppError(code: code, status: status)
+                            completion(ServerResponse.error(error: appError))
+                        }
+                    } catch {
+                        // Error with parse JSON. We donot want user to see this error :)
+                    }
                     completion(ServerResponse.success("Register success")) //can put object or anything, forexample: String
                 case .failure(let error):
                     //No internet connection, handle this later

@@ -27,11 +27,11 @@ protocol AuthPresenterProtocol {
 
 class AuthPresenter: AuthPresenterProtocol {
     
-    weak var view: AuthViewProtocol? //remember we need weak to prevent memory leak
+    weak var view: AuthViewProtocol? 
     var authService: AuthServiceProtocol = AuthService()
     var touchIdService: TouchIdServiceProtocol = TouchIdService()
     
-    //constructor in Java
+
     init(view: AuthViewProtocol) {
         self.view = view
     }
@@ -95,11 +95,9 @@ class AuthPresenter: AuthPresenterProtocol {
             view?.onShowError(error: .emptyField)
             view?.hideLoading()
         } else {
-            // perform register here
             authService.register(username: userName, password: password, email: email, phoneNumber: phoneNumber, completion: { [weak self] response in
                 switch response {
                 case .success(let token):
-                    //do sth with the response
                     //Save the token in defaultUsers
                     KeyChainUtil.share.setToken(token: token)
                     KeyChainUtil.share.setLogInSate()
@@ -107,9 +105,8 @@ class AuthPresenter: AuthPresenterProtocol {
                     self?.view?.onSuccess()
                     self?.view?.hideLoading()
                 case .error(let error):
-                    print(error)
                     self?.view?.onShowError(error: error)
-                    self?.view?.hideLoading() //put self here is not the right way
+                    self?.view?.hideLoading() 
                 }
             })
         }
@@ -119,14 +116,16 @@ class AuthPresenter: AuthPresenterProtocol {
         if KeyChainUtil.share.hasToken() {
             guard let userName = KeyChainUtil.share.getUserName() else { return }
             self.view?.setUserName(userName: userName)
+            view?.showChangeAccountBtn()
         } else {
-            print("does not have token")
+            view?.hideChangeAccountBtn()
         }
     }
     
     func changeAccount() {
         KeyChainUtil.share.removeToken()
         self.view?.onChangeAccountSuccess()
+        view?.hideChangeAccountBtn()
     }
     
 }

@@ -384,6 +384,7 @@
                         <viewLayoutGuide key="safeArea" id="hHt-w5-KuC"/>
                     </view>
                     <connections>
+                        <outlet property="changeAccountBtn" destination="H0q-iI-gGS" id="bPN-Y5-zFD"/>
                         <outlet property="emailStack" destination="Z9O-pb-cCr" id="nuN-D5-kST"/>
                         <outlet property="emailTextField" destination="VT6-sA-Fh8" id="imE-Zj-SAP"/>
                         <outlet property="errorLabel" destination="qDu-Nu-AS0" id="eoq-P2-Mg0"/>

@@ -34,6 +34,10 @@ protocol AuthViewProtocol: class {
     func setUserName(userName: String)
     
     func onChangeAccountSuccess()
+    
+    func showChangeAccountBtn()
+    
+    func hideChangeAccountBtn()
 }
 
 class AuthVC: UIViewController, AuthViewProtocol {
@@ -48,6 +52,7 @@ class AuthVC: UIViewController, AuthViewProtocol {
     @IBOutlet weak var signInBtn: UIButton!
     @IBOutlet weak var idTouchButton: UIButton!
     
+    @IBOutlet weak var changeAccountBtn: UIButton!
     @IBOutlet weak var emailStack: UIStackView!
     @IBOutlet weak var phoneNumberStack: UIStackView!
     @IBOutlet weak var performSignUpBtn: UIButton!
@@ -62,6 +67,9 @@ class AuthVC: UIViewController, AuthViewProtocol {
         delegateTextField()
         presenter?.checkBiometricAuthAvailable()
         presenter?.checkToken()
+        
+        let tapGusture = UITapGestureRecognizer(target: self, action: #selector(AuthVC.dismissKeyboard))
+        view.addGestureRecognizer(tapGusture)
     }
     
     //MARK: Actions
@@ -75,6 +83,9 @@ class AuthVC: UIViewController, AuthViewProtocol {
         emailStack.isHidden = false
         phoneNumberStack.isHidden = false
         hideIdBtn()
+        hideChangeAccountBtn()
+        usernameTextField.text = ""
+        passwordTextField.text = ""
         performSignUpBtn.setTitle("Sign Up", for: .normal)
     }
     
@@ -84,6 +95,7 @@ class AuthVC: UIViewController, AuthViewProtocol {
         phoneNumberStack.isHidden = true
         presenter?.checkBiometricAuthAvailable()
         performSignUpBtn.setTitle("Sign In", for: .normal)
+        presenter?.checkToken()
     }
 
     @IBAction func performSignUp(_ sender: Any) {
@@ -162,11 +174,22 @@ class AuthVC: UIViewController, AuthViewProtocol {
         phonenumberTextField.delegate = self
     }
     
+    func showChangeAccountBtn() {
+        changeAccountBtn.isHidden = false
+    }
+    
+    func hideChangeAccountBtn() {
+        changeAccountBtn.isHidden = true
+    }
+    
     func goToTabVC() {
         guard let tabBarVC = storyboard?.instantiateViewController(withIdentifier: AppStoryBoard.tabBarVC.identifier) else {return}
         present(tabBarVC, animated: true, completion: nil)
     }
-
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
 }
 
 extension AuthVC: UITextFieldDelegate {

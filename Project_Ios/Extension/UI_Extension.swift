@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 extension UIViewController {
     func presentWithTransition(_ viewControllerToPresent: UIViewController,
@@ -26,11 +27,11 @@ extension UIViewController {
     }
     
     func showLoadingIndicator() {
-        
+        SVProgressHUD.show()
     }
     
     func hideLoadingIndicator() {
-        
+        SVProgressHUD.dismiss()
     }
 }
 

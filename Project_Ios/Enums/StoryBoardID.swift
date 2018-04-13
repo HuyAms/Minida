@@ -8,10 +8,13 @@
 
 import Foundation
 
-enum StoryBoardID: String{
-    case registerVC = "registerVC"
+enum AppStoryBoard: String{
+    case tabBarVC = "tabBarScreen"
+    case authVC = "authScreen"
+    case onBoardingVC = "onboardingScreen"
     
-    var id: String {
+    var identifier: String {
         return self.rawValue
     }
 }
+

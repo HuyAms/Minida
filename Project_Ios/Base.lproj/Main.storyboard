@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ko6-xd-lgI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -25,7 +25,7 @@
         <!--OnboardingVC-->
         <scene sceneID="eOg-gQ-86R">
             <objects>
-                <viewController id="ko6-xd-lgI" customClass="OnboardingVC" customModule="Project_Ios" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="onboardingScreen" id="ko6-xd-lgI" customClass="OnboardingVC" customModule="Project_Ios" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pAk-px-TQL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -35,7 +35,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SW3-uc-uJh">
-                                <rect key="frame" x="20" y="573" width="335" height="42"/>
+                                <rect key="frame" x="20" y="545" width="335" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Let's Get Started!">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -48,7 +48,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="7oi-Sa-lbg" firstAttribute="bottom" secondItem="SW3-uc-uJh" secondAttribute="bottom" constant="52" id="4lJ-6h-90m"/>
+                            <constraint firstItem="7oi-Sa-lbg" firstAttribute="bottom" secondItem="SW3-uc-uJh" secondAttribute="bottom" constant="80" id="4lJ-6h-90m"/>
                             <constraint firstItem="7oi-Sa-lbg" firstAttribute="trailing" secondItem="SW3-uc-uJh" secondAttribute="trailing" constant="20" id="Jid-jb-DkE"/>
                             <constraint firstItem="SW3-uc-uJh" firstAttribute="leading" secondItem="7oi-Sa-lbg" secondAttribute="leading" constant="20" id="LzE-bV-L6x"/>
                             <constraint firstItem="63Z-Q0-Asx" firstAttribute="leading" secondItem="7oi-Sa-lbg" secondAttribute="leading" id="Qu3-Ca-iLo"/>
@@ -152,7 +152,7 @@
         <!--AuthVC-->
         <scene sceneID="sQm-0D-K5q">
             <objects>
-                <viewController id="nMN-ae-f1k" customClass="AuthVC" customModule="Project_Ios" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="authScreen" id="nMN-ae-f1k" customClass="AuthVC" customModule="Project_Ios" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ikk-ob-lry">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -424,7 +424,7 @@
         <!--Second-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController id="8rJ-Kc-sve" customClass="SecondViewController" customModule="Project_Ios" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="8rJ-Kc-sve" customClass="ProfileVC" customModule="Project_Ios" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3K7-J0-k4f">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -531,6 +531,9 @@
                                                     <constraint firstAttribute="height" constant="20" id="b83-si-MIE"/>
                                                 </constraints>
                                                 <state key="normal" image="logout"/>
+                                                <connections>
+                                                    <action selector="logOutBtnWasPressed:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="uwN-2l-xlK"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -634,10 +637,10 @@
             </objects>
             <point key="canvasLocation" x="749.60000000000002" y="359.37031484257875"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--TabbarVC-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
-                <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabBarScreen" id="49e-Tb-3d3" customClass="TabbarVC" customModule="Project_Ios" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>

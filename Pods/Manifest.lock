@@ -8,7 +8,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire
   - KeychainAccess
-  - Kingfisher
+  - Kingfisher (~> 4.0)
   - paper-onboarding
   - SVProgressHUD
 
@@ -27,6 +27,6 @@ SPEC CHECKSUMS:
   paper-onboarding: e6e2778c4e8de8db1d798bb7e3b4922e91fb7f99
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: 18a51e7a357a1a4bbd462af6d5e5df4ba645afed
+PODFILE CHECKSUM: cde42941e1364ed59d65fe3f7947fdf9e86fd127
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.5.0

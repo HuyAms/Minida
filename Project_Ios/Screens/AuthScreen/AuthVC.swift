@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import SVProgressHUD
+
 
 protocol AuthViewProtocol: class {
     
@@ -81,7 +81,7 @@ class AuthVC: UIViewController, AuthViewProtocol {
         presenter?.checkBiometricAuthAvailable()
         performSignUpBtn.setTitle("Sign In", for: .normal)
     }
-    
+
     @IBAction func performSignUp(_ sender: Any) {
         if (isSignIn) {
             let username = usernameTextField.text ?? ""
@@ -101,15 +101,16 @@ class AuthVC: UIViewController, AuthViewProtocol {
     }
     
     func onSuccess() {
-        
+        guard let tabBarVC = storyboard?.instantiateViewController(withIdentifier: AppStoryBoard.tabBarVC.identifier) else {return}
+        present(tabBarVC, animated: true, completion: nil)
     }
     
     func showLoading() {
-        SVProgressHUD.show()
+        showLoadingIndicator()
     }
     
     func hideLoading() {
-        SVProgressHUD.dismiss()
+        hideLoadingIndicator()
     }
     
     func hideIdBtn() {

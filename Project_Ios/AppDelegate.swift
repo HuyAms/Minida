@@ -12,13 +12,25 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    
-
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        // if the user has not launched the app, show the intro
-        // else go to the login screen/home screen
+        
+       self.window = UIWindow(frame: UIScreen.main.bounds)
+       let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+       var rootVC = storyBoard.instantiateViewController(withIdentifier: AppStoryBoard.onBoardingVC.identifier)
+        
+        if (KeyChainUtil.share.getLogInState()) {
+            rootVC = storyBoard.instantiateViewController(withIdentifier: AppStoryBoard.tabBarVC.identifier)
+        } else {
+            if (KeyChainUtil.share.getSeeOnboardingState()) {
+                 rootVC = storyBoard.instantiateViewController(withIdentifier: AppStoryBoard.authVC.identifier)
+            } else {
+                 rootVC = storyBoard.instantiateViewController(withIdentifier: AppStoryBoard.onBoardingVC.identifier)
+            }
+        }
+        window?.rootViewController = rootVC
+        window?.makeKeyAndVisible()
+        
         return true
     }
 

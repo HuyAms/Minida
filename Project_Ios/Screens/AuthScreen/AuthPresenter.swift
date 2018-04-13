@@ -67,10 +67,10 @@ class AuthPresenter: AuthPresenterProtocol {
             //perform login here
             authService.login(username: userName, password: password, completion: { [weak self] response in
                 switch response {
-                case .success(let response):
-                    //do sth with the response
-                    //Save the token in defaultUsers
-                    print("This is the response: \(response)")
+                case .success(let token):
+                    //Save the token in keychain
+                    KeyChainUtil.share.setToken(token: token)
+                    KeyChainUtil.share.setLogInSate()
                     self?.view?.onSuccess()
                     self?.view?.hideLoading()
                 case .error(let error):
@@ -93,10 +93,11 @@ class AuthPresenter: AuthPresenterProtocol {
             // perform register here
             authService.register(username: userName, password: password, email: email, phoneNumber: phoneNumber, completion: { [weak self] response in
                 switch response {
-                case .success(let response):
+                case .success(let token):
                     //do sth with the response
                     //Save the token in defaultUsers
-                    print("This is the response: \(response)")
+                    KeyChainUtil.share.setToken(token: token)
+                    KeyChainUtil.share.setLogInSate()
                     self?.view?.onSuccess()
                     self?.view?.hideLoading()
                 case .error(let error):

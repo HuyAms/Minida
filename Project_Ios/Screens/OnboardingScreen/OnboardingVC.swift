@@ -17,14 +17,19 @@ class OnboardingVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if (KeyChainUtil.share.getSeeOnboardingState()) {
+            print("Have seen onboarding")
+        } else {
+            print("Have not seen onboarding")
+        }
+        
         onboardingOutlet.dataSource = self
         onboardingOutlet.delegate = self
     }
     
     // MARK: Actions
     @IBAction func finishIntroBtnWasPressed(_ sender: Any) {
-        // Give the user "hasSeenIntro" key/token
-        
+        KeyChainUtil.share.setSeeOnboardingState()
     }
     
 }

@@ -1,20 +1,24 @@
 PODS:
   - Alamofire (4.7.1)
+  - KeychainAccess (3.1.1)
   - Kingfisher (4.6.4)
 
 DEPENDENCIES:
   - Alamofire
+  - KeychainAccess
   - Kingfisher
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Alamofire
+    - KeychainAccess
     - Kingfisher
 
 SPEC CHECKSUMS:
   Alamofire: 68d7d521118d49c615a8d2214d87cdf525599d30
+  KeychainAccess: 7bd430028059754a3debab3cfc0bd1fc7fb85df3
   Kingfisher: 68498a706e46c2a050b0c9572f100e5db407f6e0
 
-PODFILE CHECKSUM: d51e615071cb4ced7996176f39bfcc6db54f3ee9
+PODFILE CHECKSUM: c4c872d059edba00060790172ca7dd8c4beec133
 
 COCOAPODS: 1.5.0

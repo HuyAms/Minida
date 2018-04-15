@@ -1,0 +1,6 @@
+framework module SideMenu {
+  umbrella header "YALSideMenu-umbrella.h"
+
+  export *
+  module * { export * }
+}

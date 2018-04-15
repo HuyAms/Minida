@@ -57,6 +57,7 @@ class AuthPresenter: AuthPresenterProtocol {
                 self?.view?.onVerifyIdError(error: message)
             } else {
                 self?.view?.onVerifyIdSuccess()
+                KeyChainUtil.share.setLogInSate()
             }
         }
     }

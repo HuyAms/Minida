@@ -11,6 +11,7 @@ target 'Project_Ios' do
   pod 'KeychainAccess'
   pod 'paper-onboarding'
   pod 'SVProgressHUD'
+  pod 'YALSideMenu'
 
   target 'Project_IosTests' do
     inherit! :search_paths

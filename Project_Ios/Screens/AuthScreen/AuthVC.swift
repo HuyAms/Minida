@@ -123,7 +123,7 @@ class AuthVC: UIViewController, AuthViewProtocol {
     }
     
     func onSuccess() {
-       goToTabVC()
+       goToMainVC()
     }
     
     func showLoading() {
@@ -151,7 +151,7 @@ class AuthVC: UIViewController, AuthViewProtocol {
     }
     
     func onVerifyIdSuccess() {
-        goToTabVC()
+        goToMainVC()
     }
     
     func onVerifyIdError(error: String) {
@@ -182,9 +182,9 @@ class AuthVC: UIViewController, AuthViewProtocol {
         changeAccountBtn.isHidden = true
     }
     
-    func goToTabVC() {
-        guard let tabBarVC = storyboard?.instantiateViewController(withIdentifier: AppStoryBoard.tabBarVC.identifier) else {return}
-        present(tabBarVC, animated: true, completion: nil)
+    func goToMainVC() {
+        guard let mainVC = storyboard?.instantiateViewController(withIdentifier: AppStoryBoard.mainVC.identifier) else {return}
+        present(mainVC, animated: true, completion: nil)
     }
     
     @objc func dismissKeyboard() {

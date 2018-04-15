@@ -4,6 +4,7 @@ PODS:
   - Kingfisher (4.6.4)
   - paper-onboarding (4.0.2)
   - SVProgressHUD (2.2.5)
+  - YALSideMenu (2.0.1)
 
 DEPENDENCIES:
   - Alamofire
@@ -11,6 +12,7 @@ DEPENDENCIES:
   - Kingfisher (~> 4.0)
   - paper-onboarding
   - SVProgressHUD
+  - YALSideMenu
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
@@ -19,6 +21,7 @@ SPEC REPOS:
     - Kingfisher
     - paper-onboarding
     - SVProgressHUD
+    - YALSideMenu
 
 SPEC CHECKSUMS:
   Alamofire: 68d7d521118d49c615a8d2214d87cdf525599d30
@@ -26,7 +29,8 @@ SPEC CHECKSUMS:
   Kingfisher: 68498a706e46c2a050b0c9572f100e5db407f6e0
   paper-onboarding: e6e2778c4e8de8db1d798bb7e3b4922e91fb7f99
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  YALSideMenu: 4d6b90ea44dcdded18a99e46b676e4ad51d9c6bb
 
-PODFILE CHECKSUM: cde42941e1364ed59d65fe3f7947fdf9e86fd127
+PODFILE CHECKSUM: 52e1c99f1d77f2a19d50bdc9105398e9d58e8886
 
 COCOAPODS: 1.5.0

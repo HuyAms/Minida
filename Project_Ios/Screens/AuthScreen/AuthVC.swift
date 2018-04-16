@@ -48,14 +48,15 @@ class AuthVC: UIViewController, AuthViewProtocol {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var phonenumberTextField: UITextField!
     @IBOutlet weak var errorLabel: UILabel!
-    @IBOutlet weak var signUpBtn: UIButton!
-    @IBOutlet weak var signInBtn: UIButton!
+    @IBOutlet weak var authStatusLbl: UILabel!
+    @IBOutlet weak var authSwitchBtn: UIButton!
     @IBOutlet weak var idTouchButton: UIButton!
     
     @IBOutlet weak var changeAccountBtn: UIButton!
     @IBOutlet weak var emailStack: UIStackView!
     @IBOutlet weak var phoneNumberStack: UIStackView!
     @IBOutlet weak var performSignUpBtn: UIButton!
+    @IBOutlet weak var authFooterLbl: UILabel!
     
     //MARK: Properties
     var presenter: AuthPresenterProtocol?
@@ -77,27 +78,34 @@ class AuthVC: UIViewController, AuthViewProtocol {
         presenter?.performIdVerificaiton()
     }
     
-    
-    @IBAction func signUpBtnWasPressed(_ sender: Any) {
-        isSignIn = false
-        emailStack.isHidden = false
-        phoneNumberStack.isHidden = false
-        hideIdBtn()
-        hideChangeAccountBtn()
-        usernameTextField.text = ""
-        passwordTextField.text = ""
-        performSignUpBtn.setTitle("Sign Up", for: .normal)
-    }
-    
-    @IBAction func signInBtnWasPressed(_ sender: Any) {
-        isSignIn = true
-        emailStack.isHidden = true
-        phoneNumberStack.isHidden = true
-        presenter?.checkBiometricAuthAvailable()
-        performSignUpBtn.setTitle("Sign In", for: .normal)
-        presenter?.checkToken()
-    }
 
+    @IBAction func authSwitchBtnWasPressed(_ sender: Any) {
+        if isSignIn {
+           //Register clicked
+            isSignIn = false
+            authFooterLbl.text = "Already have an account?"
+            authStatusLbl.text = "SIGN UP"
+            emailStack.isHidden = false
+            phoneNumberStack.isHidden = false
+            hideIdBtn()
+            hideChangeAccountBtn()
+            usernameTextField.text = ""
+            passwordTextField.text = ""
+            authSwitchBtn.setTitle("Sign In", for: .normal)
+            
+        } else {
+             //Sign in clicked
+            isSignIn = true
+            authFooterLbl.text = "Don't have an account?"
+            authStatusLbl.text = "SIGN IN"
+            emailStack.isHidden = true
+            phoneNumberStack.isHidden = true
+            presenter?.checkBiometricAuthAvailable()
+            authSwitchBtn.setTitle("Sign Up", for: .normal)
+            presenter?.checkToken()
+        }
+    }
+    
     @IBAction func performSignUp(_ sender: Any) {
         if (isSignIn) {
             let username = usernameTextField.text ?? ""
@@ -119,6 +127,7 @@ class AuthVC: UIViewController, AuthViewProtocol {
     
     //MARK: Protocols
     func onShowError(error: AppError) {
+        errorLabel.isHidden = false
         errorLabel.text = error.description
     }
     

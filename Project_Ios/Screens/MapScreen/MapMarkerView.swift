@@ -8,7 +8,7 @@
 
 import MapKit
 
-class MapMarkerView: MKMarkerAnnotationView {
+class MapMarkerView: MKAnnotationView {
     override var annotation: MKAnnotation? {
         willSet {
             guard let mapItem = newValue as? MapItem else {return}
@@ -20,6 +20,7 @@ class MapMarkerView: MKMarkerAnnotationView {
             mapButton.setBackgroundImage(UIImage(named: "Maps-icon"), for: UIControlState())
             rightCalloutAccessoryView = mapButton
             
+            image = UIImage.getMapAnnotationImage()
             let detailLable = UILabel()
             detailLable.numberOfLines = 0
             detailLable.font = detailLable.font.withSize(12)

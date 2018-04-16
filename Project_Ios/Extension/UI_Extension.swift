@@ -43,6 +43,10 @@ extension UIImage {
     static func getFaceIdImage() -> UIImage {
         return UIImage(named: "FaceIcon")!
     }
+    
+    static func getMapAnnotationImage() -> UIImage {
+        return UIImage(named: "map-location-icon")!
+    }
 }
 
 import UIKit

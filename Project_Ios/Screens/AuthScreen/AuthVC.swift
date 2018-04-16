@@ -65,8 +65,8 @@ class AuthVC: UIViewController, AuthViewProtocol {
         super.viewDidLoad()
         presenter = AuthPresenter(view: self)
         delegateTextField()
-        presenter?.checkBiometricAuthAvailable()
         presenter?.checkToken()
+        presenter?.checkBiometricAuthAvailable()
         
         let tapGusture = UITapGestureRecognizer(target: self, action: #selector(AuthVC.dismissKeyboard))
         view.addGestureRecognizer(tapGusture)

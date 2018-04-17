@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        setAppRootController()
+       // setAppRootController()
         
         checkLocationAuthorizationStatus()
         
@@ -63,7 +63,6 @@ extension AppDelegate: CLLocationManagerDelegate {
         KeyChainUtil.share.setMyLng(lng: location.coordinate.longitude)
         KeyChainUtil.share.setMyLocationState()
         manager.stopUpdatingLocation()
-        setAppRootController()
     }
     
     func checkLocationAuthorizationStatus() {

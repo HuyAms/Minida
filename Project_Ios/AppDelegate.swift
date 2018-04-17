@@ -63,7 +63,6 @@ extension AppDelegate: CLLocationManagerDelegate {
         KeyChainUtil.share.setMyLng(lng: location.coordinate.longitude)
         KeyChainUtil.share.setMyLocationState()
         manager.stopUpdatingLocation()
-        setAppRootController()
     }
     
     func checkLocationAuthorizationStatus() {

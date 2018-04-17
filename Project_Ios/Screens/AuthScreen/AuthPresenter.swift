@@ -63,13 +63,11 @@ class AuthPresenter: AuthPresenterProtocol {
     }
     
     func performLogin(userName: String, password: String) {
-        view?.showLoading()
-        
         if userName.isEmpty || password.isEmpty {
             view?.onShowError(error: .emptyField)
             view?.hideLoading()
         } else {
-            //perform login here
+             view?.showLoading()
             authService.login(username: userName, password: password, completion: { [weak self] response in
                 switch response {
                 case .success(let token):
@@ -90,12 +88,11 @@ class AuthPresenter: AuthPresenterProtocol {
     
     
     func performRegister(userName: String, password: String, email: String, phoneNumber: String) {
-        view?.showLoading()
-        
         if userName.isEmpty || password.isEmpty || email.isEmpty || phoneNumber.isEmpty {
             view?.onShowError(error: .emptyField)
             view?.hideLoading()
         } else {
+            view?.showLoading()
             authService.register(username: userName, password: password, email: email, phoneNumber: phoneNumber, completion: { [weak self] response in
                 switch response {
                 case .success(let token):

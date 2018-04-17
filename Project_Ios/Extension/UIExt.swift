@@ -53,30 +53,15 @@ extension UIImage {
     }
 }
 
-import UIKit
-
-extension UITableViewCell {
-    
-    @IBInspectable var normalBackgroundColor: UIColor? {
-        get {
-            return backgroundView?.backgroundColor
-        }
-        set(color) {
-            let background = UIView()
-            background.backgroundColor = color
-            backgroundView = background
-        }
-    }
-    
-    @IBInspectable var selectedBackgroundColor: UIColor? {
-        get {
-            return selectedBackgroundView?.backgroundColor
-        }
-        set(color) {
-            let background = UIView()
-            background.backgroundColor = color
-            selectedBackgroundView = background
-        }
+extension UIView {
+    func shake(duration: Double, repeat: Int) {
+        let animation = CABasicAnimation(keyPath: "position")
+        animation.duration = duration
+        animation.repeatCount = 4
+        animation.autoreverses = true
+        animation.fromValue = CGPoint(x: self.center.x - 10, y: self.center.y)
+        animation.toValue = CGPoint(x: self.center.x + 10, y: self.center.y)
+        self.layer.add(animation, forKey: nil)
     }
 }
 

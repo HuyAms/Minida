@@ -53,8 +53,13 @@ class AuthVC: UIViewController, AuthViewProtocol {
     @IBOutlet weak var idTouchButton: UIButton!
     
     @IBOutlet weak var changeAccountBtn: UIButton!
+    
+    
+    @IBOutlet weak var passwordStack: UIStackView!
+    @IBOutlet weak var usernameStack: UIStackView!
     @IBOutlet weak var emailStack: UIStackView!
     @IBOutlet weak var phoneNumberStack: UIStackView!
+    
     @IBOutlet weak var performSignUpBtn: UIButton!
     @IBOutlet weak var authFooterLbl: UILabel!
     
@@ -73,6 +78,30 @@ class AuthVC: UIViewController, AuthViewProtocol {
         view.addGestureRecognizer(tapGusture)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        //Initial
+        usernameStack.center.x -= view.bounds.width
+        passwordStack.center.x -= view.bounds.width
+        
+        authStatusLbl.center.y += 30.0
+        authStatusLbl.alpha = 0.0
+        
+        //Animate
+        UIView.animate(withDuration: 0.6, delay: 0, options: .curveEaseOut, animations: {
+            self.usernameStack.center.x += self.view.bounds.width
+        }, completion: nil)
+        
+        UIView.animate(withDuration: 0.6, delay: 0.3, options: .curveEaseOut, animations: {
+            self.passwordStack.center.x += self.view.bounds.width
+        }, completion: nil)
+        
+        UIView.animate(withDuration: 0.6, delay: 0.6, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: .curveEaseIn, animations: {
+            self.authStatusLbl.center.y -= 30.0
+            self.authStatusLbl.alpha = 1.0
+        }, completion: nil)
+    }
+    
     //MARK: Actions
     @IBAction func idBtnWasPressed(_ sender: Any) {
         presenter?.performIdVerificaiton()
@@ -85,23 +114,37 @@ class AuthVC: UIViewController, AuthViewProtocol {
             isSignIn = false
             authFooterLbl.text = "Already have an account?"
             authStatusLbl.text = "SIGN UP"
-            emailStack.isHidden = false
-            phoneNumberStack.isHidden = false
+            
             hideIdBtn()
             hideChangeAccountBtn()
             usernameTextField.text = ""
             passwordTextField.text = ""
             authSwitchBtn.setTitle("Sign In", for: .normal)
+            
+            UIView.transition(with: self.emailStack, duration: 0.5, options: .transitionCurlDown, animations: {
+                self.emailStack.isHidden = false
+            }, completion: nil)
+            
+            UIView.transition(with: self.phoneNumberStack, duration: 0.5, options: .transitionCurlDown, animations: {
+                self.phoneNumberStack.isHidden = false
+            }, completion: nil)
+            
         } else {
              //Sign in clicked
             isSignIn = true
             authFooterLbl.text = "Don't have an account?"
             authStatusLbl.text = "SIGN IN"
-            emailStack.isHidden = true
-            phoneNumberStack.isHidden = true
-            presenter?.checkBiometricAuthAvailable()
             authSwitchBtn.setTitle("Register", for: .normal)
             presenter?.checkToken()
+            self.presenter?.checkBiometricAuthAvailable()
+            
+            UIView.transition(with: self.emailStack, duration: 0.5, options: .transitionCurlUp, animations: {
+                self.emailStack.isHidden = true
+            }, completion: nil)
+            
+            UIView.transition(with: self.phoneNumberStack, duration: 0.5, options: .transitionCurlUp, animations: {
+                self.phoneNumberStack.isHidden = true
+            }, completion: nil)
         }
     }
     
@@ -128,6 +171,7 @@ class AuthVC: UIViewController, AuthViewProtocol {
     func onShowError(error: AppError) {
         errorLabel.isHidden = false
         errorLabel.text = error.description
+        errorLabel.shake(duration: 1, repeat: 4)
     }
     
     func onSuccess() {
@@ -143,11 +187,16 @@ class AuthVC: UIViewController, AuthViewProtocol {
     }
     
     func hideIdBtn() {
-        idTouchButton.isHidden = true
+        UIView.transition(with: self.idTouchButton, duration: 0.5, options: .transitionCrossDissolve, animations: {
+            self.idTouchButton.isHidden = true
+        }, completion: nil)
+        
     }
     
     func showIdBtn() {
-        idTouchButton.isHidden = false
+        UIView.transition(with: self.idTouchButton, duration: 0.5, options: .transitionCrossDissolve, animations: {
+            self.idTouchButton.isHidden = false
+        }, completion: nil)
     }
     
     func setIdBtnAsFaceId() {
@@ -186,11 +235,15 @@ class AuthVC: UIViewController, AuthViewProtocol {
     }
     
     func showChangeAccountBtn() {
-        changeAccountBtn.isHidden = false
+        UIView.transition(with: self.changeAccountBtn, duration: 0.5, options: .transitionCrossDissolve, animations: {
+            self.changeAccountBtn.isHidden = false
+        }, completion: nil)
     }
     
     func hideChangeAccountBtn() {
-        changeAccountBtn.isHidden = true
+        UIView.transition(with: self.changeAccountBtn, duration: 0.5, options: .transitionCrossDissolve, animations: {
+            self.changeAccountBtn.isHidden = true
+        }, completion: nil)
     }
     
     func goToMainVC() {

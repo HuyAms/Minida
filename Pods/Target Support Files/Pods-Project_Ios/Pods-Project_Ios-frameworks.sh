@@ -147,7 +147,6 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/Spring/Spring.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/YALSideMenu/SideMenu.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/paper-onboarding/paper_onboarding.framework"
 fi
@@ -156,7 +155,6 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/Spring/Spring.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/YALSideMenu/SideMenu.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/paper-onboarding/paper_onboarding.framework"
 fi

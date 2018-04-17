@@ -47,6 +47,10 @@ extension UIImage {
     static func getMapAnnotationImage() -> UIImage {
         return UIImage(named: "map-location-icon")!
     }
+    
+    static func getMapBtnImage() -> UIImage {
+        return UIImage(named: "Maps-icon")!
+    }
 }
 
 import UIKit

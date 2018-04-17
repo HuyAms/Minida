@@ -28,6 +28,10 @@ extension UserDefaultsProtocol{
         return "myLngKey"
     }
     
+    private var myLocationKey: String {
+        return "myLocationKey"
+    }
+    
     private var userNameKey: String {
         return "userNameKey"
     }
@@ -52,10 +56,19 @@ extension UserDefaultsProtocol{
         return userDefault.bool(forKey: logInKey)
     }
     
+    func setMyLocationState() {
+        userDefault.set(true, forKey: myLocationKey)
+    }
+    
+    func getMyLocationState() -> Bool {
+        return userDefault.bool(forKey: myLocationKey)
+    }
+    
     func setLogOut() {
         userDefault.set(false, forKey: logInKey)
         userDefault.removeObject(forKey: myLatKey)
         userDefault.removeObject(forKey: myLngKey)
+        userDefault.removeObject(forKey: myLocationKey)
     }
     
     func setSeeOnboardingState() {
@@ -73,6 +86,7 @@ extension UserDefaultsProtocol{
     func setMyLng(lng: Double) {
         userDefault.set(lng, forKey: myLngKey)
     }
+    
     
     func getMyLat() -> Double {
         return userDefault.double(forKey: myLatKey)

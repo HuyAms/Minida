@@ -17,7 +17,7 @@ class MapMarkerView: MKAnnotationView {
             rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
             
             let mapButton = UIButton(frame: CGRect(origin: .zero, size: CGSize(width: 30, height: 30)))
-            mapButton.setBackgroundImage(UIImage(named: "Maps-icon"), for: UIControlState())
+            mapButton.setBackgroundImage(UIImage.getMapBtnImage(), for: UIControlState())
             rightCalloutAccessoryView = mapButton
             
             image = UIImage.getMapAnnotationImage()

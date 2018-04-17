@@ -12,6 +12,8 @@ protocol MapPresenterProtocol {
     
     func loadCenterInfo()
     
+    func getMyLocation()
+    
 }
 
 class MapPresenter: MapPresenterProtocol {
@@ -34,6 +36,16 @@ class MapPresenter: MapPresenterProtocol {
                 self?.view?.onLoadDataError(error: error)
                 self?.view?.hideLoading()
             }
+        }
+    }
+    
+    func getMyLocation() {
+        if (KeyChainUtil.share.getMyLocationState()) {
+            let myLat = KeyChainUtil.share.getMyLat()
+            let myLng = KeyChainUtil.share.getMyLng()
+            view?.onGetMyLocationSuccess(lat: myLat, lng: myLng)
+        } else {
+            view?.onGetMyLocationError()
         }
     }
     

@@ -19,16 +19,21 @@ protocol MapViewProtocol: class {
     
     func hideLoading()
     
+    func onGetMyLocationSuccess(lat: Double, lng: Double)
+    
+    func onGetMyLocationError()
+    
 }
 
 class MapVC: UIViewController , MapViewProtocol {
     
     //MARK: Outlet
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var myLocationBtn: UIButton!
     
     var presenter: MapPresenterProtocol?
     
-    let initialLocation = CLLocation(latitude: 60.192059, longitude: 24.945831) //Helsinki
+    
     let regionRadius: CLLocationDistance = 8000
     
     override func viewDidLoad() {
@@ -38,12 +43,24 @@ class MapVC: UIViewController , MapViewProtocol {
         
         presenter?.loadCenterInfo()
         
-        centerMapOnLocation(location: initialLocation)
+        setUpLocation()
       
     }
     
-    func onLoadDataSuccess(centerList: [RecycleCenter]) {
+    //MARK: ACTION
+    @IBAction func myLocationBtnWasPressed(_ sender: Any) {
+        presenter?.getMyLocation()
+    }
+    
+    func setUpLocation() {
+        if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
+          mapView.showsUserLocation = true
+        }
         
+        presenter?.getMyLocation()
+    }
+    
+    func onLoadDataSuccess(centerList: [RecycleCenter]) {
         var mapItems = [MapItem]()
         mapView.register(MapMarkerView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
         centerList.forEach { (center) in
@@ -59,17 +76,27 @@ class MapVC: UIViewController , MapViewProtocol {
         
     }
     
+    func onGetMyLocationSuccess(lat: Double, lng: Double) {
+        let myLocation = CLLocation(latitude: lat, longitude: lng)
+        centerMapOnLocation(location: myLocation)
+    }
+    
+    func onGetMyLocationError() {
+        let initialLocation = CLLocation(latitude: 60.192059, longitude: 24.945831) //Helsinki
+        centerMapOnLocation(location: initialLocation)
+    }
+    
     func showLoading() {
-        
+        showLoadingIndicator()
     }
     
     func hideLoading() {
-        
+        hideLoadingIndicator()
     }
-    
 }
 
 extension MapVC: MKMapViewDelegate {
+    
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         let location = view.annotation as! MapItem
         let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]

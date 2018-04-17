@@ -8,7 +8,6 @@
 
 import Foundation
 
-//LOGIC
 protocol ProfilePresenterProtocol {
     
     func logout()

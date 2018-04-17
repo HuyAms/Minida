@@ -12,6 +12,7 @@ target 'Project_Ios' do
   pod 'paper-onboarding'
   pod 'SVProgressHUD'
   pod 'YALSideMenu'
+  pod 'FoldingCell'
 
   target 'Project_IosTests' do
     inherit! :search_paths

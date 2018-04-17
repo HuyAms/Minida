@@ -163,8 +163,10 @@ class AuthVC: UIViewController, AuthViewProtocol {
     }
     
     func onVerifyIdError(error: String) {
-        errorLabel.isHidden = false
-        errorLabel.text = error
+        DispatchQueue.main.async {
+            self.errorLabel.isHidden = false
+            self.errorLabel.text = error
+        }
     }
     
     func setUserName(userName: String) {

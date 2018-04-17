@@ -171,7 +171,7 @@ class AuthVC: UIViewController, AuthViewProtocol {
     func onShowError(error: AppError) {
         errorLabel.isHidden = false
         errorLabel.text = error.description
-        errorLabel.shake(duration: 1, repeat: 4)
+        //errorLabel.shake(duration: 1, repeat: 4)
     }
     
     func onSuccess() {

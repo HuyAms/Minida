@@ -92,7 +92,6 @@ class AuthVC: UIViewController, AuthViewProtocol {
             usernameTextField.text = ""
             passwordTextField.text = ""
             authSwitchBtn.setTitle("Sign In", for: .normal)
-            
         } else {
              //Sign in clicked
             isSignIn = true
@@ -101,7 +100,7 @@ class AuthVC: UIViewController, AuthViewProtocol {
             emailStack.isHidden = true
             phoneNumberStack.isHidden = true
             presenter?.checkBiometricAuthAvailable()
-            authSwitchBtn.setTitle("Sign Up", for: .normal)
+            authSwitchBtn.setTitle("Register", for: .normal)
             presenter?.checkToken()
         }
     }
@@ -164,7 +163,8 @@ class AuthVC: UIViewController, AuthViewProtocol {
     }
     
     func onVerifyIdError(error: String) {
-        print("verify by id failed: \(error)")
+        errorLabel.isHidden = false
+        errorLabel.text = error
     }
     
     func setUserName(userName: String) {

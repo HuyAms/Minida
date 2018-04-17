@@ -3,6 +3,7 @@ PODS:
   - KeychainAccess (3.1.0)
   - Kingfisher (4.6.4)
   - paper-onboarding (4.0.2)
+  - Spring (1.0.5)
   - SVProgressHUD (2.2.5)
   - YALSideMenu (2.0.1)
 
@@ -11,6 +12,7 @@ DEPENDENCIES:
   - KeychainAccess
   - Kingfisher (~> 4.0)
   - paper-onboarding
+  - Spring
   - SVProgressHUD
   - YALSideMenu
 
@@ -20,6 +22,7 @@ SPEC REPOS:
     - KeychainAccess
     - Kingfisher
     - paper-onboarding
+    - Spring
     - SVProgressHUD
     - YALSideMenu
 
@@ -28,9 +31,10 @@ SPEC CHECKSUMS:
   KeychainAccess: 94c5540b32eabf7bc32bfb976a268e8ea05fd6da
   Kingfisher: 68498a706e46c2a050b0c9572f100e5db407f6e0
   paper-onboarding: e6e2778c4e8de8db1d798bb7e3b4922e91fb7f99
+  Spring: 17901566c8ecf3a1327902b940406c64512f9bb1
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   YALSideMenu: 4d6b90ea44dcdded18a99e46b676e4ad51d9c6bb
 
-PODFILE CHECKSUM: 52e1c99f1d77f2a19d50bdc9105398e9d58e8886
+PODFILE CHECKSUM: 691fc0ce5170a0a2d70d4aef12e02af4650f08d7
 
 COCOAPODS: 1.5.0

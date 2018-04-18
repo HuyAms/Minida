@@ -117,7 +117,7 @@ class AuthVC: UIViewController, AuthViewProtocol {
             hideChangeAccountBtn()
             usernameTextField.text = ""
             passwordTextField.text = ""
-            authSwitchBtn.setTitle("Already have an acoount?", for: .normal)
+            authSwitchBtn.setTitle("Already have an account?", for: .normal)
             
             UIView.transition(with: self.emailStack, duration: 0.5, options: .transitionCurlDown, animations: {
                 self.emailStack.isHidden = false

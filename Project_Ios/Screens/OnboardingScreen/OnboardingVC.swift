@@ -43,37 +43,36 @@ extension OnboardingVC: PaperOnboardingDataSource, PaperOnboardingDelegate {
     }
     
     func onboardingItem(at index: Int) -> OnboardingItemInfo {
-        let bgOne = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
-        let bgTwo = #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)
-        let bgThree = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)
+        let bgColor = #colorLiteral(red: 0.1935226917, green: 0.1895914376, blue: 0.3238024116, alpha: 1)
+        //let bgTwo = #colorLiteral(red: 0.9994240403, green: 0.9855536819, blue: 0, alpha: 1)
         
-        let titleFont = UIFont(name: "HelveticaNeue-Bold", size: 18)!
-        let descFont = UIFont(name: "HelveticaNeue", size: 14)!
+        let titleFont = UIFont(name: "HelveticaNeue-Bold", size: 30)!
+        let descFont = UIFont(name: "HelveticaNeue", size: 20)!
         
         return [
-            OnboardingItemInfo(informationImage: #imageLiteral(resourceName: "icon"),
+            OnboardingItemInfo(informationImage: #imageLiteral(resourceName: "onBoarding1"),
                                title: "title",
                                description: "description",
                                pageIcon: #imageLiteral(resourceName: "first"),
-                               color: bgOne,
+                               color: bgColor,
                                titleColor: UIColor.white,
                                descriptionColor: UIColor.white,
                                titleFont: titleFont,
                                descriptionFont: descFont),
-            OnboardingItemInfo(informationImage: #imageLiteral(resourceName: "icon"),
+            OnboardingItemInfo(informationImage: #imageLiteral(resourceName: "onBoarding2"),
                                title: "title",
                                description: "description",
                                pageIcon: #imageLiteral(resourceName: "first"),
-                               color: bgTwo,
+                               color: bgColor,
                                titleColor: UIColor.white,
                                descriptionColor: UIColor.white,
                                titleFont: titleFont,
                                descriptionFont: descFont),
-            OnboardingItemInfo(informationImage: #imageLiteral(resourceName: "icon"),
+            OnboardingItemInfo(informationImage: #imageLiteral(resourceName: "onBoarding3"),
                                title: "title",
                                description: "description",
                                pageIcon: #imageLiteral(resourceName: "first"),
-                               color: bgThree,
+                               color: bgColor,
                                titleColor: UIColor.white,
                                descriptionColor: UIColor.white,
                                titleFont: titleFont,

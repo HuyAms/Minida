@@ -302,7 +302,7 @@
                                             <action selector="idBtnWasPressed:" destination="nMN-ae-f1k" eventType="touchUpInside" id="Ce1-1b-FrB"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H0q-iI-gGS">
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H0q-iI-gGS">
                                         <rect key="frame" x="20" y="367" width="335" height="30"/>
                                         <state key="normal" title="Sign in with another account"/>
                                         <connections>
@@ -384,6 +384,7 @@
                         <viewLayoutGuide key="safeArea" id="hHt-w5-KuC"/>
                     </view>
                     <connections>
+                        <outlet property="changeAccountBtn" destination="H0q-iI-gGS" id="46y-Cx-V7X"/>
                         <outlet property="emailStack" destination="Z9O-pb-cCr" id="nuN-D5-kST"/>
                         <outlet property="emailTextField" destination="VT6-sA-Fh8" id="imE-Zj-SAP"/>
                         <outlet property="errorLabel" destination="qDu-Nu-AS0" id="eoq-P2-Mg0"/>

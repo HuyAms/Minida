@@ -51,6 +51,7 @@ class AuthVC: UIViewController, AuthViewProtocol {
     @IBOutlet weak var emailStack: UIStackView!
     @IBOutlet weak var phoneNumberStack: UIStackView!
     @IBOutlet weak var performSignUpBtn: UIButton!
+    @IBOutlet weak var changeAccountBtn: UIButton!
     
     //MARK: Properties
     var presenter: AuthPresenterProtocol?
@@ -148,6 +149,8 @@ class AuthVC: UIViewController, AuthViewProtocol {
     
     func setUserName(userName: String) {
         usernameTextField.text = userName
+        changeAccountBtn.isHidden = false
+        
     }
     
     func onChangeAccountSuccess() {

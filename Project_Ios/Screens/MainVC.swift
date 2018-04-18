@@ -75,14 +75,16 @@ extension MainVC: MenuVCDelegate {
     }
     
     private func setUpViewControllers() {
+        guard let homeVC = storyboard?.instantiateViewController(withIdentifier: AppStoryBoard.homeVC.identifier) else {return}
         guard let mapVC = storyboard?.instantiateViewController(withIdentifier: AppStoryBoard.mapVC.identifier) else {return}
         guard let profileVC = storyboard?.instantiateViewController(withIdentifier: AppStoryBoard.profileVC.identifier) else {return}
         
+        viewControllers.append(homeVC)
         viewControllers.append(mapVC)
         viewControllers.append(profileVC)
         
         //Initial controller
-        add(asChildViewController: mapVC)
+        add(asChildViewController: homeVC)
     }
 }
 

@@ -9,10 +9,10 @@
 import UIKit
 import Kingfisher
 
-class UserItemCell: UITableViewCell {
-
+class UserItemCell: UICollectionViewCell {
+    
+    @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var itemImage: UIImageView!
-    @IBOutlet weak var itemName: UILabel!
     
     
     override func awakeFromNib() {
@@ -20,15 +20,9 @@ class UserItemCell: UITableViewCell {
         // Initialization code
     }
     
-    func config(itemImgPath: String, itemName: String) {
-        itemImage.loadImage(imgPath: itemImgPath)
-        self.itemName.text = itemName
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    func config(item: Item) {
+        itemImage.loadImage(imgPath: item.imgPath)
+        self.priceLabel.text = String(item.price)
     }
 
 }

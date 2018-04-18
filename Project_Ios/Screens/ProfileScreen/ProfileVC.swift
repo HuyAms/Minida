@@ -26,8 +26,8 @@ protocol ProfileViewProtocol: class {
     
 }
 
-class ProfileVC: UIViewController, ProfileViewProtocol, UITableViewDelegate, UITableViewDataSource {
-    
+class ProfileVC: UIViewController, ProfileViewProtocol, UICollectionViewDelegate, UICollectionViewDataSource {
+
     //MARK: Outlets
     @IBOutlet weak var badgeImage: UIImageView!
     @IBOutlet weak var pointLabel: UILabel!
@@ -36,7 +36,7 @@ class ProfileVC: UIViewController, ProfileViewProtocol, UITableViewDelegate, UIT
     @IBOutlet weak var userRankLabel: UILabel!
     @IBOutlet weak var contactUserButton: UIButton!
     @IBOutlet weak var logoutUserButton: UIButton!
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var userItemCollectionView: UICollectionView!
     
     //MARK: Properties
     var presenter: ProfilePresenterProtocol?
@@ -70,6 +70,8 @@ class ProfileVC: UIViewController, ProfileViewProtocol, UITableViewDelegate, UIT
         presenter = ProfilePresenter(view: self)
         presenter?.loadUserInfo()
         presenter?.loadMyItems()
+        userItemCollectionView.delegate = self
+        userItemCollectionView.dataSource = self
         
     }
 
@@ -78,7 +80,7 @@ class ProfileVC: UIViewController, ProfileViewProtocol, UITableViewDelegate, UIT
         let numberOfRecycles = myItems.count
         recycleLabel.text = String(numberOfRecycles)
         self.myItems = myItems
-        tableView.reloadData()
+        userItemCollectionView.reloadData()
     }
     
     func setRank(rank: Rank) {
@@ -89,27 +91,43 @@ class ProfileVC: UIViewController, ProfileViewProtocol, UITableViewDelegate, UIT
         
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("How many items are displayed in table view: ", myItems.count)
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return myItems.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "userItemCell", for: indexPath) as? UserItemCell else {
-            return UITableViewCell()
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "userItemCell", for: indexPath) as? UserItemCell else {
+            return UICollectionViewCell()
         }
         
         let myItem = myItems[indexPath.row]
-        let itemImage = myItem.imgPath
-        let itemName = myItem.itemName
         
-        cell.config(itemImgPath: itemImage, itemName: itemName)
+        cell.config(item: myItem)
         return cell
+
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-    }
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        print("How many items are displayed in table view: ", myItems.count)
+//        return myItems.count
+//    }
+//
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        guard let cell = tableView.dequeueReusableCell(withIdentifier: "userItemCell", for: indexPath) as? UserItemCell else {
+//            return UITableViewCell()
+//        }
+//
+//        let myItem = myItems[indexPath.row]
+//        let itemImage = myItem.imgPath
+//        let itemName = myItem.itemName
+//
+//        cell.config(itemImgPath: itemImage, itemName: itemName)
+//        return cell
+//    }
+//
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//
+//    }
     
     
 }

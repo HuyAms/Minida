@@ -1,32 +1,30 @@
 PODS:
   - Alamofire (4.7.1)
+  - FoldingCell (3.0.6)
   - KeychainAccess (3.1.0)
   - Kingfisher (4.6.4)
   - paper-onboarding (4.0.2)
   - SVProgressHUD (2.2.5)
+  - YALSideMenu (2.0.1)
 
 DEPENDENCIES:
   - Alamofire
+  - FoldingCell
   - KeychainAccess
   - Kingfisher (~> 4.0)
   - paper-onboarding
   - SVProgressHUD
-
-SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
-    - Alamofire
-    - KeychainAccess
-    - Kingfisher
-    - paper-onboarding
-    - SVProgressHUD
+  - YALSideMenu
 
 SPEC CHECKSUMS:
   Alamofire: 68d7d521118d49c615a8d2214d87cdf525599d30
+  FoldingCell: 4848ec8a2056d5751bfb710df14521fc64d48ad7
   KeychainAccess: 94c5540b32eabf7bc32bfb976a268e8ea05fd6da
   Kingfisher: 68498a706e46c2a050b0c9572f100e5db407f6e0
   paper-onboarding: e6e2778c4e8de8db1d798bb7e3b4922e91fb7f99
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  YALSideMenu: 4d6b90ea44dcdded18a99e46b676e4ad51d9c6bb
 
-PODFILE CHECKSUM: cde42941e1364ed59d65fe3f7947fdf9e86fd127
+PODFILE CHECKSUM: 71fe3f62ac096b8589f02695119abf2ae9673ca8
 
-COCOAPODS: 1.5.0
+COCOAPODS: 1.4.0

@@ -7,55 +7,72 @@
 //
 
 import UIKit
+import CoreLocation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     var window: UIWindow?
-
+    
+    lazy var locationManager: CLLocationManager = {
+        var _locationManager = CLLocationManager()
+        _locationManager.delegate = self
+        _locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        return _locationManager
+    }()
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-       self.window = UIWindow(frame: UIScreen.main.bounds)
-       let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-       var rootVC = storyBoard.instantiateViewController(withIdentifier: AppStoryBoard.onBoardingVC.identifier)
+       setAppRootController()
         
-//        if (KeyChainUtil.share.getLogInState()) {
-//            rootVC = storyBoard.instantiateViewController(withIdentifier: AppStoryBoard.tabBarVC.identifier)
-//        } else {
-//            if (KeyChainUtil.share.getSeeOnboardingState()) {
-//                 rootVC = storyBoard.instantiateViewController(withIdentifier: AppStoryBoard.authVC.identifier)
-//            } else {
-//                 rootVC = storyBoard.instantiateViewController(withIdentifier: AppStoryBoard.onBoardingVC.identifier)
-//            }
-//        }
-        window?.rootViewController = rootVC
-        window?.makeKeyAndVisible()
+        checkLocationAuthorizationStatus()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.startUpdatingLocation()
+        }
         
         return true
     }
+    
+    func setAppRootController() {
+        
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        var rootVC = storyBoard.instantiateViewController(withIdentifier: AppStoryBoard.onBoardingVC.identifier)
+        
+        if (KeyChainUtil.share.getLogInState()) {
+            rootVC = storyBoard.instantiateViewController(withIdentifier: AppStoryBoard.mainVC.identifier)
+        } else {
+            if (KeyChainUtil.share.getSeeOnboardingState()) {
+                rootVC = storyBoard.instantiateViewController(withIdentifier: AppStoryBoard.authVC.identifier)
+            } else {
+                rootVC = storyBoard.instantiateViewController(withIdentifier: AppStoryBoard.onBoardingVC.identifier)
+            }
+        }
 
-    func applicationWillResignActive(_ application: UIApplication) {
-        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-        // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
+        window?.rootViewController = rootVC
+        window?.makeKeyAndVisible()
     }
+    
+}
 
-    func applicationDidEnterBackground(_ application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+extension AppDelegate: CLLocationManagerDelegate {
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let location = locations.last else {return}
+        KeyChainUtil.share.setMyLat(lat: location.coordinate.latitude)
+        KeyChainUtil.share.setMyLng(lng: location.coordinate.longitude)
+        KeyChainUtil.share.setMyLocationState()
+        manager.stopUpdatingLocation()
     }
-
-    func applicationWillEnterForeground(_ application: UIApplication) {
-        // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+    
+    func checkLocationAuthorizationStatus() {
+        if CLLocationManager.authorizationStatus() != .authorizedWhenInUse {
+            locationManager.requestWhenInUseAuthorization()
+        } else {
+            locationManager.startUpdatingLocation()
+        }
     }
-
-    func applicationDidBecomeActive(_ application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    }
-
-    func applicationWillTerminate(_ application: UIApplication) {
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-    }
-
-
+    
 }
 

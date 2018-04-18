@@ -8,16 +8,37 @@
 
 import UIKit
 
-class ProfileVC: UIViewController {
+protocol ProfileViewProtocol: class {
+    
+    func onLogoutSuccess()
+    
+}
+
+class ProfileVC: UIViewController, ProfileViewProtocol  {
+    
+    //MARK: Properties
+    var presenter: ProfilePresenterProtocol?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        presenter = ProfilePresenter(view: self)
         // Do any additional setup after loading the view.
     }
 
     @IBAction func logOutBtnWasPressed(_ sender: Any) {
-        KeyChainUtil.share.setLogOut()
+        
+        let alertViewController = UIAlertController(title: "Log out", message: "Are you sure you want to log out?", preferredStyle: .actionSheet)
+        let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
+            self.presenter?.logout()
+        }
+        let cancleAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alertViewController.addAction(okAction)
+        alertViewController.addAction(cancleAction)
+        present(alertViewController, animated: true)
+    }
+    
+    
+    func onLogoutSuccess() {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.window = UIWindow(frame: UIScreen.main.bounds)
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
@@ -25,20 +46,6 @@ class ProfileVC: UIViewController {
         appDelegate.window?.rootViewController = authVC
         appDelegate.window?.makeKeyAndVisible()
     }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
 }

@@ -82,11 +82,10 @@ class AuthService: AuthServiceProtocol {
                     } catch {
                         // Error with parse JSON. We donot want user to see this error :)
                     }
-                    completion(ServerResponse.success("Register success")) //can put object or anything, forexample: String
                 case .failure(let error):
                     //No internet connection, handle this later
                     completion(ServerResponse.error(error: AppError.noInternetConnection))
-                    print(error) //we have strange error
+                    print(error) 
                 }
         }
     }

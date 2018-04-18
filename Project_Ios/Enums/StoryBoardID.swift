@@ -9,11 +9,12 @@
 import Foundation
 
 enum AppStoryBoard: String{
-    case tabBarVC = "tabBarScreen"
+    case mainVC = "mainScreen"
     case authVC = "authScreen"
     case onBoardingVC = "onboardingScreen"
     case profileVC = "profileScreen"
     case mapVC = "mapScreen"
+    case homeVC = "homeScreen"
     
     var identifier: String {
         return self.rawValue

@@ -54,6 +54,8 @@ class ProfilePresenter: ProfilePresenterProtocol {
                 switch numberOfRecycles {
                 case 0..<4:
                     self.view?.setRank(rank: Rank.beginner)
+                case 5..<11:
+                    self.view?.setRank(rank: Rank.intermediate)
                 default:
                     self.view?.setRank(rank: Rank.pro)
                 }
@@ -64,6 +66,8 @@ class ProfilePresenter: ProfilePresenterProtocol {
             }
         }
     }
+    
+    
     
     
 }

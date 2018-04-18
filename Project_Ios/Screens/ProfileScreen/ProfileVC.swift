@@ -25,9 +25,8 @@ protocol ProfileViewProtocol: class {
     func setRank(rank: Rank)
     
 }
-    
 
-class ProfileVC: UIViewController, ProfileViewProtocol {
+class ProfileVC: UIViewController, ProfileViewProtocol, UITableViewDelegate, UITableViewDataSource {
     
     //MARK: Outlets
     @IBOutlet weak var badgeImage: UIImageView!
@@ -37,9 +36,12 @@ class ProfileVC: UIViewController, ProfileViewProtocol {
     @IBOutlet weak var userRankLabel: UILabel!
     @IBOutlet weak var contactUserButton: UIButton!
     @IBOutlet weak var logoutUserButton: UIButton!
+    @IBOutlet weak var tableView: UITableView!
     
     //MARK: Properties
     var presenter: ProfilePresenterProtocol?
+    
+    var myItems = [Item]()
     
     //MARK: Actions
     func onLoadDataSuccess(userData: User) {
@@ -68,12 +70,15 @@ class ProfileVC: UIViewController, ProfileViewProtocol {
         presenter = ProfilePresenter(view: self)
         presenter?.loadUserInfo()
         presenter?.loadMyItems()
+        
     }
 
     func onGetMyItemSuccess(myItems: [Item]) {
         print(myItems)
         let numberOfRecycles = myItems.count
         recycleLabel.text = String(numberOfRecycles)
+        self.myItems = myItems
+        tableView.reloadData()
     }
     
     func setRank(rank: Rank) {
@@ -83,7 +88,29 @@ class ProfileVC: UIViewController, ProfileViewProtocol {
     func onGetMyItemError(error: AppError) {
         
     }
-
-
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("How many items are displayed in table view: ", myItems.count)
+        return myItems.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "userItemCell", for: indexPath) as? UserItemCell else {
+            return UITableViewCell()
+        }
+        
+        let myItem = myItems[indexPath.row]
+        let itemImage = myItem.imgPath
+        let itemName = myItem.itemName
+        
+        cell.config(itemImgPath: itemImage, itemName: itemName)
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
+    
+    
 }
 

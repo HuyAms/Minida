@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 extension UIViewController {
     func presentWithTransition(_ viewControllerToPresent: UIViewController,
@@ -41,6 +42,13 @@ extension UIImage {
     
     static func getFaceIdImage() -> UIImage {
         return UIImage(named: "FaceIcon")!
+    }
+}
+
+extension UIImageView { 
+    func loadImage(imgPath: String) {
+        let url = URL(string: imgPath)
+        self.kf.setImage(with: url)
     }
 }
 

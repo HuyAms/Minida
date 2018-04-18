@@ -39,6 +39,7 @@
 		C31736682080C8B2001DFDAB /* Rank.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31736672080C8B2001DFDAB /* Rank.swift */; };
 		C31CD7A5207F71E000E4E21D /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31CD7A4207F71E000E4E21D /* ProfilePresenter.swift */; };
 		C31CD7A7207F71F800E4E21D /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31CD7A6207F71F800E4E21D /* ProfileService.swift */; };
+		C3F326BC208765E80009F1B5 /* UserItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F326BB208765E80009F1B5 /* UserItemCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +92,7 @@
 		C31736672080C8B2001DFDAB /* Rank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rank.swift; sourceTree = "<group>"; };
 		C31CD7A4207F71E000E4E21D /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
 		C31CD7A6207F71F800E4E21D /* ProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
+		C3F326BB208765E80009F1B5 /* UserItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserItemCell.swift; sourceTree = "<group>"; };
 		E415342BCB41B244486FA38E /* Pods_Project_IosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Project_IosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -268,6 +270,7 @@
 			children = (
 				12C53DFE20754AB8005824E3 /* ProfileVC.swift */,
 				C31CD7A4207F71E000E4E21D /* ProfilePresenter.swift */,
+				C3F326BB208765E80009F1B5 /* UserItemCell.swift */,
 			);
 			path = ProfileScreen;
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 				TargetAttributes = {
 					12C53DF620754AB8005824E3 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 					12C53E0C20754AB8005824E3 = {
@@ -446,6 +450,7 @@
 				6A2D1F7A207E5E6900852FCE /* MapPresenter.swift in Sources */,
 				C31736662080BCC0001DFDAB /* Item.swift in Sources */,
 				1242BBAC207564C500857661 /* UI_Extension.swift in Sources */,
+				C3F326BC208765E80009F1B5 /* UserItemCell.swift in Sources */,
 				6A31B3B2207E246D00BDE03F /* ServerResponse.swift in Sources */,
 				12C53DFB20754AB8005824E3 /* AppDelegate.swift in Sources */,
 				6A31B3AA207E224B00BDE03F /* AuthPresenter.swift in Sources */,
@@ -618,12 +623,14 @@
 			baseConfigurationReference = A62BE4410FE6EBAB1977BABF /* Pods-Project_Ios.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6V67VT3VM7;
 				INFOPLIST_FILE = Project_Ios/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = huy.trinh;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -634,6 +641,7 @@
 			baseConfigurationReference = 6C94714BDD9F266D7F091819 /* Pods-Project_Ios.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6V67VT3VM7;
 				INFOPLIST_FILE = Project_Ios/Info.plist;

@@ -575,16 +575,43 @@
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="5QU-Od-Fkk">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <tableView key="backgroundView" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="moA-PR-2zq">
+                                    <rect key="frame" x="0.0" y="0.0" width="275" height="243"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <prototypes>
+                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="userItemCell" rowHeight="185" id="hYI-dB-DX8" customClass="UserItemCell" customModule="Project_Ios" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="28" width="275" height="185"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                        </view>
-                                    </collectionViewCell>
-                                </cells>
+                                            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hYI-dB-DX8" id="7qE-Hn-Zk6">
+                                                <rect key="frame" x="0.0" y="0.0" width="275" height="184.5"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="scm-3K-s6g">
+                                                        <rect key="frame" x="94" y="0.0" width="138" height="32"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2L7-cC-hcc">
+                                                        <rect key="frame" x="15" y="11" width="124" height="124"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    </imageView>
+                                                </subviews>
+                                            </tableViewCellContentView>
+                                            <connections>
+                                                <outlet property="itemImage" destination="2L7-cC-hcc" id="eUR-cG-UbK"/>
+                                                <outlet property="itemName" destination="scm-3K-s6g" id="FrZ-nl-eC5"/>
+                                            </connections>
+                                        </tableViewCell>
+                                    </prototypes>
+                                    <connections>
+                                        <outlet property="dataSource" destination="8rJ-Kc-sve" id="d8s-aP-AYw"/>
+                                        <outlet property="delegate" destination="8rJ-Kc-sve" id="Jed-3O-SEh"/>
+                                    </connections>
+                                </tableView>
+                                <cells/>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" red="0.94901960784313721" green="0.96470588235294119" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -612,6 +639,7 @@
                         <outlet property="logoutUserButton" destination="P7o-Pv-M0Y" id="Mpo-GQ-ZlR"/>
                         <outlet property="pointLabel" destination="jxQ-sv-CDg" id="hIJ-jf-tAt"/>
                         <outlet property="recycleLabel" destination="HzP-6Y-HVx" id="plN-gw-kg2"/>
+                        <outlet property="tableView" destination="moA-PR-2zq" id="hIN-sg-ywV"/>
                         <outlet property="userNameLabel" destination="K4h-jz-lLZ" id="kqj-1W-a27"/>
                         <outlet property="userRankLabel" destination="kNA-Bk-l0x" id="BVd-CZ-oLD"/>
                     </connections>

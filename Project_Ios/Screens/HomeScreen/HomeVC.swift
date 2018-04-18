@@ -12,9 +12,10 @@ import FoldingCell
 
 class HomeVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     let kCloseCellHeight: CGFloat = 145
-    let kOpenCellHeight: CGFloat = 380
+    let kOpenCellHeight: CGFloat = 390
     let kRowsCount = 10
     var cellHeights: [CGFloat] = []
     let items = [String]()
@@ -27,9 +28,14 @@ class HomeVC: UIViewController {
     }
     
     private func setup() {
+        //Table view
         cellHeights = Array(repeating: kCloseCellHeight, count: kRowsCount)
         tableView.estimatedRowHeight = kCloseCellHeight
         tableView.rowHeight = UITableViewAutomaticDimension
+        
+        //Searchbar
+        let textFieldInsideSearchBar = searchBar.value(forKey: "searchField") as! UITextField
+        textFieldInsideSearchBar.textColor = UIColor.white
     }
 }
 

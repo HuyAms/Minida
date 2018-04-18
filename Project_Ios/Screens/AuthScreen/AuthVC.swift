@@ -47,25 +47,20 @@ class AuthVC: UIViewController, AuthViewProtocol {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var phonenumberTextField: UITextField!
+    
     @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var authStatusLbl: UILabel!
-    @IBOutlet weak var authSwitchBtn: UIButton!
+    
     @IBOutlet weak var idTouchButton: UIButton!
-    
     @IBOutlet weak var changeAccountBtn: UIButton!
-    
+    @IBOutlet weak var performSignUpBtn: UIButton!
+    @IBOutlet weak var authSwitchBtn: UIButton!
     
     @IBOutlet weak var passwordStack: UIStackView!
     @IBOutlet weak var usernameStack: UIStackView!
     @IBOutlet weak var emailStack: UIStackView!
     @IBOutlet weak var phoneNumberStack: UIStackView!
     
-    @IBOutlet weak var performSignUpBtn: UIButton!
-<<<<<<< HEAD
-    @IBOutlet weak var changeAccountBtn: UIButton!
-=======
-    @IBOutlet weak var authFooterLbl: UILabel!
->>>>>>> 43c25b72dfc540abf6444b4b5cb4f413d005d555
     
     //MARK: Properties
     var presenter: AuthPresenterProtocol?
@@ -78,8 +73,8 @@ class AuthVC: UIViewController, AuthViewProtocol {
         presenter?.checkToken()
         presenter?.checkBiometricAuthAvailable()
         
-        let tapGusture = UITapGestureRecognizer(target: self, action: #selector(AuthVC.dismissKeyboard))
-        view.addGestureRecognizer(tapGusture)
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(AuthVC.dismissKeyboard))
+        view.addGestureRecognizer(tapGesture)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -116,14 +111,13 @@ class AuthVC: UIViewController, AuthViewProtocol {
         if isSignIn {
            //Register clicked
             isSignIn = false
-            authFooterLbl.text = "Already have an account?"
             authStatusLbl.text = "SIGN UP"
             
             hideIdBtn()
             hideChangeAccountBtn()
             usernameTextField.text = ""
             passwordTextField.text = ""
-            authSwitchBtn.setTitle("Sign In", for: .normal)
+            authSwitchBtn.setTitle("Already have an acoount?", for: .normal)
             
             UIView.transition(with: self.emailStack, duration: 0.5, options: .transitionCurlDown, animations: {
                 self.emailStack.isHidden = false
@@ -136,9 +130,8 @@ class AuthVC: UIViewController, AuthViewProtocol {
         } else {
              //Sign in clicked
             isSignIn = true
-            authFooterLbl.text = "Don't have an account?"
             authStatusLbl.text = "SIGN IN"
-            authSwitchBtn.setTitle("Register", for: .normal)
+            authSwitchBtn.setTitle("Don't have an account?", for: .normal)
             presenter?.checkToken()
             self.presenter?.checkBiometricAuthAvailable()
             
@@ -224,7 +217,7 @@ class AuthVC: UIViewController, AuthViewProtocol {
     
     func setUserName(userName: String) {
         usernameTextField.text = userName
-        changeAccountBtn.isHidden = false
+        //changeAccountBtn.isHidden = false
         
     }
     

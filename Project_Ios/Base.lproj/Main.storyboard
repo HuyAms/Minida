@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -44,7 +43,7 @@
                                 <rect key="frame" x="20" y="545" width="335" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Let's Get Started!">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" red="0.20000000000000001" green="0.0" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="finishIntroBtnWasPressed:" destination="ko6-xd-lgI" eventType="touchUpInside" id="mZX-1c-HfT"/>
@@ -206,18 +205,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="27" translatesAutoresizingMaskIntoConstraints="NO" id="roG-YB-1M1">
-                                <rect key="frame" x="43" y="631" width="290.5" height="36"/>
+                                <rect key="frame" x="85.5" y="631" width="204" height="36"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account ?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0bh-kf-IQd">
-                                        <rect key="frame" x="0.0" y="0.0" width="196.5" height="36"/>
-                                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="18"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UgJ-fU-2Se">
-                                        <rect key="frame" x="223.5" y="0.0" width="67" height="36"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="204" height="36"/>
                                         <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
-                                        <state key="normal" title="Register">
+                                        <state key="normal" title="Already have an account?">
                                             <color key="titleColor" red="0.30196078430000001" green="0.2784313725" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
@@ -329,22 +322,7 @@
                                             <constraint firstItem="MDM-B0-Y8V" firstAttribute="leading" secondItem="A7x-0b-xWy" secondAttribute="leading" id="ope-Ku-eUr"/>
                                             <constraint firstItem="gng-s5-Wvt" firstAttribute="leading" secondItem="A7x-0b-xWy" secondAttribute="leading" id="pwA-GR-1mZ"/>
                                         </constraints>
-<<<<<<< HEAD
-                                        <state key="normal" image="Touch-icon-lg"/>
-                                        <connections>
-                                            <action selector="idBtnWasPressed:" destination="nMN-ae-f1k" eventType="touchUpInside" id="Ce1-1b-FrB"/>
-                                        </connections>
-                                    </button>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H0q-iI-gGS">
-                                        <rect key="frame" x="20" y="367" width="335" height="30"/>
-                                        <state key="normal" title="Sign in with another account"/>
-                                        <connections>
-                                            <action selector="changeAccountBtnWasPressed:" destination="nMN-ae-f1k" eventType="touchUpInside" id="e1N-f5-eYT"/>
-                                        </connections>
-                                    </button>
-=======
                                     </stackView>
->>>>>>> 43c25b72dfc540abf6444b4b5cb4f413d005d555
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="A7x-0b-xWy" firstAttribute="leading" secondItem="9iA-BL-E08" secondAttribute="leading" id="4Ln-XO-R8d"/>
@@ -435,21 +413,6 @@
                         </constraints>
                     </view>
                     <connections>
-<<<<<<< HEAD
-                        <outlet property="changeAccountBtn" destination="H0q-iI-gGS" id="46y-Cx-V7X"/>
-                        <outlet property="emailStack" destination="Z9O-pb-cCr" id="nuN-D5-kST"/>
-                        <outlet property="emailTextField" destination="VT6-sA-Fh8" id="imE-Zj-SAP"/>
-                        <outlet property="errorLabel" destination="qDu-Nu-AS0" id="eoq-P2-Mg0"/>
-                        <outlet property="idTouchButton" destination="uEZ-RI-Vkd" id="VdV-eY-3pj"/>
-                        <outlet property="passwordTextField" destination="qOg-Yi-6sU" id="gbI-qi-B0b"/>
-                        <outlet property="performSignUpBtn" destination="Vvl-Yg-Gh3" id="Rs3-rf-Niz"/>
-                        <outlet property="phoneNumberStack" destination="C9j-tq-AbG" id="qlf-tj-Fs3"/>
-                        <outlet property="phonenumberTextField" destination="34X-fk-gBg" id="vp5-IS-gr8"/>
-                        <outlet property="signInBtn" destination="VlP-sW-UAC" id="XTb-EB-71z"/>
-                        <outlet property="signUpBtn" destination="8fL-Ym-Ugl" id="MbM-Ze-lTc"/>
-                        <outlet property="usernameTextField" destination="Ioy-ku-fYu" id="EEK-mi-uhp"/>
-=======
-                        <outlet property="authFooterLbl" destination="0bh-kf-IQd" id="8Up-N4-0OW"/>
                         <outlet property="authStatusLbl" destination="Y0t-Oi-6Ru" id="QZp-2E-eLU"/>
                         <outlet property="authSwitchBtn" destination="UgJ-fU-2Se" id="jUa-OX-0mP"/>
                         <outlet property="changeAccountBtn" destination="TJl-fD-0F7" id="8NQ-pE-S3U"/>
@@ -464,7 +427,6 @@
                         <outlet property="phonenumberTextField" destination="MDM-B0-Y8V" id="90d-NZ-qD5"/>
                         <outlet property="usernameStack" destination="pwT-sy-y34" id="GLf-0o-4jI"/>
                         <outlet property="usernameTextField" destination="zKc-qW-M4G" id="qdR-OX-Nb0"/>
->>>>>>> 43c25b72dfc540abf6444b4b5cb4f413d005d555
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ktk-fq-iZ6" userLabel="First Responder" sceneMemberID="firstResponder"/>

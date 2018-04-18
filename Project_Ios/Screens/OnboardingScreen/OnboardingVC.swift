@@ -43,7 +43,8 @@ extension OnboardingVC: PaperOnboardingDataSource, PaperOnboardingDelegate {
     }
     
     func onboardingItem(at index: Int) -> OnboardingItemInfo {
-        let bgColor = #colorLiteral(red: 0.1935226917, green: 0.1895914376, blue: 0.3238024116, alpha: 1)
+        let bgColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        let fontColor = #colorLiteral(red: 0.3098687066, green: 0.2559407552, blue: 0.5042588976, alpha: 1)
         //let bgTwo = #colorLiteral(red: 0.9994240403, green: 0.9855536819, blue: 0, alpha: 1)
         
         let titleFont = UIFont(name: "HelveticaNeue-Bold", size: 30)!
@@ -55,8 +56,8 @@ extension OnboardingVC: PaperOnboardingDataSource, PaperOnboardingDelegate {
                                description: "description",
                                pageIcon: #imageLiteral(resourceName: "first"),
                                color: bgColor,
-                               titleColor: UIColor.white,
-                               descriptionColor: UIColor.white,
+                               titleColor: fontColor,
+                               descriptionColor: fontColor,
                                titleFont: titleFont,
                                descriptionFont: descFont),
             OnboardingItemInfo(informationImage: #imageLiteral(resourceName: "onBoarding2"),
@@ -64,8 +65,8 @@ extension OnboardingVC: PaperOnboardingDataSource, PaperOnboardingDelegate {
                                description: "description",
                                pageIcon: #imageLiteral(resourceName: "first"),
                                color: bgColor,
-                               titleColor: UIColor.white,
-                               descriptionColor: UIColor.white,
+                               titleColor: fontColor,
+                               descriptionColor: fontColor,
                                titleFont: titleFont,
                                descriptionFont: descFont),
             OnboardingItemInfo(informationImage: #imageLiteral(resourceName: "onBoarding3"),
@@ -73,8 +74,8 @@ extension OnboardingVC: PaperOnboardingDataSource, PaperOnboardingDelegate {
                                description: "description",
                                pageIcon: #imageLiteral(resourceName: "first"),
                                color: bgColor,
-                               titleColor: UIColor.white,
-                               descriptionColor: UIColor.white,
+                               titleColor: fontColor,
+                               descriptionColor: fontColor,
                                titleFont: titleFont,
                                descriptionFont: descFont),
             ][index]

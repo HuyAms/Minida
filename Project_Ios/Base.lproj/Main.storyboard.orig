@@ -407,12 +407,21 @@
                             <constraint firstItem="roG-YB-1M1" firstAttribute="top" secondItem="GdJ-2P-zsi" secondAttribute="bottom" constant="10" id="Mbt-oe-ay0"/>
                             <constraint firstItem="783-oa-q9D" firstAttribute="top" secondItem="lDA-rp-ie5" secondAttribute="bottom" id="OcN-fT-X24"/>
                             <constraint firstItem="FjQ-e6-8W0" firstAttribute="centerX" secondItem="F6y-dF-WDw" secondAttribute="centerX" id="Spw-j2-O1Z"/>
+<<<<<<< HEAD
+                            <constraint firstItem="TJl-fD-0F7" firstAttribute="leading" secondItem="kff-wP-8vJ" secondAttribute="leading" constant="45" id="USj-kX-ZLH"/>
+                            <constraint firstItem="q40-RH-ksO" firstAttribute="leading" secondItem="kff-wP-8vJ" secondAttribute="leading" constant="38" id="bNd-GY-QHu"/>
+                            <constraint firstItem="kff-wP-8vJ" firstAttribute="trailing" secondItem="q40-RH-ksO" secondAttribute="trailing" constant="38" id="eDm-Fo-Mli"/>
+                            <constraint firstItem="roG-YB-1M1" firstAttribute="centerX" secondItem="F6y-dF-WDw" secondAttribute="centerX" id="gjd-oR-NrM"/>
+                            <constraint firstItem="9iA-BL-E08" firstAttribute="leading" secondItem="kff-wP-8vJ" secondAttribute="leading" constant="60" id="iqJ-Hb-uon"/>
+                            <constraint firstItem="TJl-fD-0F7" firstAttribute="top" secondItem="FjQ-e6-8W0" secondAttribute="bottom" constant="35" id="p20-AY-Nbc"/>
+=======
                             <constraint firstItem="TJl-fD-0F7" firstAttribute="leading" secondItem="F6y-dF-WDw" secondAttribute="leading" constant="45" id="USj-kX-ZLH"/>
+                            <constraint firstItem="FjQ-e6-8W0" firstAttribute="top" secondItem="9iA-BL-E08" secondAttribute="bottom" constant="40" id="Xdl-rI-ShT"/>
                             <constraint firstItem="q40-RH-ksO" firstAttribute="leading" secondItem="F6y-dF-WDw" secondAttribute="leading" constant="38" id="bNd-GY-QHu"/>
                             <constraint firstAttribute="trailing" secondItem="q40-RH-ksO" secondAttribute="trailing" constant="38" id="eDm-Fo-Mli"/>
                             <constraint firstItem="roG-YB-1M1" firstAttribute="centerX" secondItem="F6y-dF-WDw" secondAttribute="centerX" id="gjd-oR-NrM"/>
                             <constraint firstItem="9iA-BL-E08" firstAttribute="leading" secondItem="F6y-dF-WDw" secondAttribute="leading" constant="60" id="iqJ-Hb-uon"/>
-                            <constraint firstItem="TJl-fD-0F7" firstAttribute="top" secondItem="FjQ-e6-8W0" secondAttribute="bottom" constant="35" id="p20-AY-Nbc"/>
+>>>>>>> hotfix/ui
                             <constraint firstItem="GdJ-2P-zsi" firstAttribute="top" secondItem="TJl-fD-0F7" secondAttribute="bottom" constant="10" id="pYF-bf-iaY"/>
                             <constraint firstAttribute="trailing" secondItem="9iA-BL-E08" secondAttribute="trailing" constant="60" id="t6a-iD-VK0"/>
                             <constraint firstItem="q40-RH-ksO" firstAttribute="top" secondItem="Y0t-Oi-6Ru" secondAttribute="bottom" constant="5" id="yHS-HI-heP"/>

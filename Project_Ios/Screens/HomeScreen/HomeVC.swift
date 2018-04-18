@@ -28,6 +28,7 @@ class HomeVC: UIViewController {
     }
     
     private func setup() {
+
         //Table view
         cellHeights = Array(repeating: kCloseCellHeight, count: kRowsCount)
         tableView.estimatedRowHeight = kCloseCellHeight
@@ -36,6 +37,10 @@ class HomeVC: UIViewController {
         //Searchbar
         let textFieldInsideSearchBar = searchBar.value(forKey: "searchField") as! UITextField
         textFieldInsideSearchBar.textColor = UIColor.white
+    }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
     }
 }
 
@@ -64,6 +69,9 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        dismissKeyboard()
+        
         let cell = tableView.cellForRow(at: indexPath) as! FoldingCell
         
         if cell.isAnimating() {

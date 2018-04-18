@@ -456,7 +456,7 @@
                                             <constraint firstAttribute="width" constant="40" id="hEY-BC-S8m"/>
                                         </constraints>
                                     </view>
-                                    <searchBar contentMode="redraw" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="0fx-9W-6Of">
+                                    <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search Items" translatesAutoresizingMaskIntoConstraints="NO" id="0fx-9W-6Of">
                                         <rect key="frame" x="60" y="7" width="223" height="56"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <scopeButtonTitles>
@@ -893,28 +893,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="512.79999999999995" y="-707.49625187406298"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="TMA-hz-nr8">
-            <objects>
-                <viewController id="e5v-Zl-fd3" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="tkH-u2-VCJ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8J6-Nn-NzJ">
-                                <rect key="frame" x="0.0" y="38" width="375" height="56"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <viewLayoutGuide key="safeArea" id="cRH-Eq-UFS"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="TD3-Ii-7SG" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1329" y="-789"/>
         </scene>
         <!--MainVC-->
         <scene sceneID="SPh-br-X1L">
@@ -1356,7 +1334,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="686" y="402"/>
+            <point key="canvasLocation" x="1196" y="-707"/>
         </scene>
     </scenes>
     <resources>

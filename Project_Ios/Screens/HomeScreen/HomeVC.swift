@@ -9,8 +9,20 @@
 import UIKit
 import FoldingCell
 
+protocol HomeVCProtocol: class {
+    
+    func showLoading()
+    
+    func hideLoading()
+    
+    func onShowError(error: AppError)
+    
+    func onGetAvailableItemsSuccess(homeItems: [ItemHome])
 
-class HomeVC: UIViewController {
+}
+
+class HomeVC: UIViewController, HomeVCProtocol {
+
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
@@ -18,12 +30,16 @@ class HomeVC: UIViewController {
     let kOpenCellHeight: CGFloat = 390
     let kRowsCount = 10
     var cellHeights: [CGFloat] = []
-    let items = [String]()
+    var items = [ItemHome]()
+    
+    var presenter: HomePresenterProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        presenter = HomePresenter(view: self)
+        presenter?.performGetAvailableItems()
         setup()
     }
     
@@ -37,10 +53,27 @@ class HomeVC: UIViewController {
         let textFieldInsideSearchBar = searchBar.value(forKey: "searchField") as! UITextField
         textFieldInsideSearchBar.textColor = UIColor.white
     }
+    
+    //MARK: Protocols
+    func showLoading() {
+        showLoadingIndicator()
+    }
+    
+    func hideLoading() {
+        hideLoadingIndicator()
+    }
+    
+    func onShowError(error: AppError) {
+        print("this is an onShowError appError: \(error)")
+    }
+    
+    func onGetAvailableItemsSuccess(homeItems: [ItemHome]) {
+        items = homeItems
+        tableView.reloadData()
+    }
 }
 
 // MARK: - TableView
-
 extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -48,11 +81,16 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return items.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "FoldingCell", for: indexPath) as! FoldingCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "FoldingCell", for: indexPath) as? HomeItemCell else {
+            return UITableViewCell()
+        }
+        let homeItem = items[indexPath.row]
+        cell.config(itemHome: homeItem)
+        
         let durations: [TimeInterval] = [0.26, 0.2, 0.2]
         cell.durationsForExpandedState = durations
         cell.durationsForCollapsedState = durations

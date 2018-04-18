@@ -10,15 +10,19 @@ import UIKit
 import FoldingCell
 
 
-class HomeVC: UITableViewController {
+class HomeVC: UIViewController {
+    @IBOutlet weak var tableView: UITableView!
     
     let kCloseCellHeight: CGFloat = 145
     let kOpenCellHeight: CGFloat = 380
     let kRowsCount = 10
     var cellHeights: [CGFloat] = []
+    let items = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.delegate = self
+        tableView.dataSource = self
         setup()
     }
     
@@ -31,27 +35,17 @@ class HomeVC: UITableViewController {
 
 // MARK: - TableView
 
-extension HomeVC {
+extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     
-    override func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 10
     }
     
-    override func tableView(_: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        guard case let cell as HomeItemCell = cell else {
-            return
-        }
-        
-        cell.backgroundColor = .clear
-        
-        if cellHeights[indexPath.row] == kCloseCellHeight {
-            cell.unfold(false, animated: false, completion: nil)
-        } else {
-            cell.unfold(true, animated: false, completion: nil)
-        }
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FoldingCell", for: indexPath) as! FoldingCell
         let durations: [TimeInterval] = [0.26, 0.2, 0.2]
         cell.durationsForExpandedState = durations
@@ -59,12 +53,11 @@ extension HomeVC {
         return cell
     }
     
-    override func tableView(_: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return cellHeights[indexPath.row]
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! FoldingCell
         
         if cell.isAnimating() {
@@ -88,5 +81,21 @@ extension HomeVC {
             tableView.endUpdates()
         }, completion: nil)
     }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        guard case let cell as HomeItemCell = cell else {
+            return
+        }
+        
+        cell.backgroundColor = .clear
+        
+        if cellHeights[indexPath.row] == kCloseCellHeight {
+            cell.unfold(false, animated: false, completion: nil)
+        } else {
+            cell.unfold(true, animated: false, completion: nil)
+        }
+
+    }
+
 }
 

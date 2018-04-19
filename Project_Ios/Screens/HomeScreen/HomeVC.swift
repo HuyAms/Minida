@@ -73,7 +73,7 @@ class HomeVC: UIViewController, HomeVCProtocol {
     }
     
     func onShowError(error: AppError) {
-        print("this is an onShowError appError: \(error)")
+        showError(message: error.description)
     }
     
     func onGetAvailableItemsSuccess(homeItems: [ItemHome]) {

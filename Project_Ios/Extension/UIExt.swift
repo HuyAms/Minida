@@ -33,6 +33,10 @@ extension UIViewController {
     func hideLoadingIndicator() {
         SVProgressHUD.dismiss()
     }
+    
+    func showError(message: String) {
+        present(UIAlertController.init(message: message), animated: true)
+    }
 }
 
 extension UIImage {

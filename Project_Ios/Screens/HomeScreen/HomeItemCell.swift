@@ -10,6 +10,7 @@ import Foundation
 
 import UIKit
 import FoldingCell
+import Kingfisher
 
 class HomeItemCell: FoldingCell {
     
@@ -29,12 +30,20 @@ class HomeItemCell: FoldingCell {
     
     func config(itemHome: ItemHome) {
         smallItemNameLbl.text = itemHome.itemName
-        detailNameLbl.text = itemHome.itemName
         smallPriceLbl.text = String(itemHome.price)
+        detailNameLbl.text = itemHome.itemName
         detailPriceLbl.text = String(itemHome.price)
+        let smallItemImgUrl = URL(string: itemHome.imgPath)
+        let detailItemImgUrl = URL(string: itemHome.imgPath)
+        // if no avatar is set, use default profile image
+        let sellerImgUrl = URL(string: itemHome.seller.avatarPath ?? "")
+        smallItemImageView.kf.setImage(with: smallItemImgUrl)
+        detailItemImgView.kf.setImage(with: detailItemImgUrl)
+        sellerImgView.kf.setImage(with: sellerImgUrl)
         //timeLbl.text = itemHome.time
         descriptionLbl.text = itemHome.description
         sellerNameLbl.text = itemHome.seller.username
+        
     }
     
     override func awakeFromNib() {

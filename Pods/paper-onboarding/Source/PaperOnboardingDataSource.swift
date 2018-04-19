@@ -52,7 +52,7 @@ public protocol PaperOnboardingDataSource {
 public extension PaperOnboardingDataSource {
 
     func onboardingPageItemColor(at index: Int) -> UIColor {
-        return .white
+        return #colorLiteral(red: 0.2644003034, green: 0.08109211177, blue: 0.4762353301, alpha: 1)
     }
     
     func onboardinPageItemRadius() -> CGFloat {

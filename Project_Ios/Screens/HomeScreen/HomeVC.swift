@@ -39,7 +39,6 @@ class HomeVC: UIViewController, HomeVCProtocol {
         tableView.delegate = self
         tableView.dataSource = self
         presenter = HomePresenter(view: self)
-        presenter?.performGetAvailableItems()
         setup()
     }
     
@@ -48,6 +47,7 @@ class HomeVC: UIViewController, HomeVCProtocol {
         cellHeights = Array(repeating: kCloseCellHeight, count: kRowsCount)
         tableView.estimatedRowHeight = kCloseCellHeight
         tableView.rowHeight = UITableViewAutomaticDimension
+        presenter?.performGetAvailableItems()
         
         //Searchbar
         let textFieldInsideSearchBar = searchBar.value(forKey: "searchField") as! UITextField

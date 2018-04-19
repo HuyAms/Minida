@@ -12,6 +12,8 @@ protocol HomePresenterProtocol {
     
     func performGetAvailableItems()
     
+    func performgGetItemsByCategory(category: Category)
+    
 }
 
 class HomePresenter: HomePresenterProtocol {
@@ -38,4 +40,20 @@ class HomePresenter: HomePresenterProtocol {
             }
         })
     }
+    
+    func performgGetItemsByCategory(category: Category) {
+        view?.showLoading()
+        homeService.getItemsByCategory(category: category, completion: { [weak self] response in
+            switch response {
+            case .success(let homeItems):
+                //print("This is a presenter response: \(homeItems)")
+                self?.view?.onGetAvailableItemsSuccess(homeItems: homeItems)
+                self?.view?.hideLoading()
+            case .error(let error):
+                self?.view?.onShowError(error: error)
+                self?.view?.hideLoading()
+            }
+        })
+    }
+ 
 }

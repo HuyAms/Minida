@@ -18,6 +18,7 @@ protocol HomeVCProtocol: class {
     func onShowError(error: AppError)
     
     func onGetAvailableItemsSuccess(homeItems: [ItemHome])
+    
 
 }
 
@@ -28,7 +29,6 @@ class HomeVC: UIViewController, HomeVCProtocol {
     
     let kCloseCellHeight: CGFloat = 145
     let kOpenCellHeight: CGFloat = 390
-    let kRowsCount = 10
     var cellHeights: [CGFloat] = []
     var items = [ItemHome]()
     
@@ -43,20 +43,28 @@ class HomeVC: UIViewController, HomeVCProtocol {
         tableView.dataSource = self
         searchBar.delegate = self
         presenter = HomePresenter(view: self)
-        setup()
+        
+        
+        presenter?.performGetAvailableItems()
+        //presenter?.performgGetItemsByCategory(category: .others)
+        
+        setupSearchBar()
+        
+        setupSearchBar()
+
     }
     
-    private func setup() {
-
-        //Table view
+    private func setupSearchBar() {
+        
+        let textFieldInsideSearchBar = searchBar.value(forKey: "searchField") as! UITextField
+        textFieldInsideSearchBar.textColor = UIColor.white
+    }
+    
+    private func setupTable(kRowsCount: Int) {
         cellHeights = Array(repeating: kCloseCellHeight, count: kRowsCount)
         tableView.estimatedRowHeight = kCloseCellHeight
         tableView.rowHeight = UITableViewAutomaticDimension
-        presenter?.performGetAvailableItems()
         
-        //Searchbar
-        let textFieldInsideSearchBar = searchBar.value(forKey: "searchField") as! UITextField
-        textFieldInsideSearchBar.textColor = UIColor.white
     }
     
     func dismissKeyboard() {
@@ -77,9 +85,13 @@ class HomeVC: UIViewController, HomeVCProtocol {
     }
     
     func onGetAvailableItemsSuccess(homeItems: [ItemHome]) {
+        setupTable(kRowsCount: homeItems.count)
         items = homeItems
         tableView.reloadData()
+        //print(homeItems)
     }
+    
+    
 }
 
 // MARK: - TableView

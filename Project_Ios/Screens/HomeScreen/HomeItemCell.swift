@@ -19,6 +19,7 @@ class HomeItemCell: FoldingCell {
     @IBOutlet weak var categoryImageView: UIImageView!
     @IBOutlet weak var smallPriceLbl: UILabel!
     @IBOutlet weak var detailNameLbl: UILabel!
+    @IBOutlet weak var priceIconImgView: UIImageView!
     @IBOutlet weak var detailCategoryImgView: UIImageView!
     @IBOutlet weak var detailItemImgView: UIImageView!
     @IBOutlet weak var detailPriceLbl: UILabel!
@@ -30,20 +31,50 @@ class HomeItemCell: FoldingCell {
     
     func config(itemHome: ItemHome) {
         smallItemNameLbl.text = itemHome.itemName
-        smallPriceLbl.text = String(itemHome.price)
         detailNameLbl.text = itemHome.itemName
-        detailPriceLbl.text = String(itemHome.price)
-        let smallItemImgUrl = URL(string: itemHome.imgPath)
-        let detailItemImgUrl = URL(string: itemHome.imgPath)
-        // if no avatar is set, use default profile image
-        let sellerImgUrl = URL(string: itemHome.seller.avatarPath ?? "")
-        smallItemImageView.kf.setImage(with: smallItemImgUrl)
-        detailItemImgView.kf.setImage(with: detailItemImgUrl)
-        sellerImgView.kf.setImage(with: sellerImgUrl)
+        
+        smallItemImageView.load(imgUrl: itemHome.imgPath)
+        detailItemImgView.load(imgUrl: itemHome.imgPath)
+        
+        if itemHome.seller.avatarPath != nil {
+            sellerImgView.load(imgUrl: itemHome.seller.avatarPath!)
+        }
+        
+        let price = itemHome.price
+        if price == 0 {
+            detailPriceLbl.text = "FREE"
+            smallPriceLbl.text = "FREE"
+//            priceIconImgView.image = UIImage.getFreeIconWhite()
+        } else {
+            detailPriceLbl.text = String(itemHome.price)
+            smallPriceLbl.text = String(itemHome.price)
+        }
+
         //timeLbl.text = itemHome.time
         descriptionLbl.text = itemHome.description
         sellerNameLbl.text = itemHome.seller.username
         
+        let category = Category(rawValue: itemHome.category) ?? Category.others
+        switch category {
+        case .accessories:
+            categoryImageView.image = UIImage.getAccessoriesIconBlack()
+            detailCategoryImgView.image = UIImage.getAccessoriesIconWhite()
+        case .clothing:
+            categoryImageView.image = UIImage.getClothingIconBlack()
+            detailCategoryImgView.image = UIImage.getClothingIconWhite()
+        case .food:
+            categoryImageView.image = UIImage.getFoodIconWhite()
+            detailCategoryImgView.image = UIImage.getFoodIconBlack()
+        case .homewares:
+            categoryImageView.image = UIImage.getHomewaresIconBlack()
+            detailCategoryImgView.image = UIImage.getHomewaresIconWhite()
+        case .vehicles:
+            categoryImageView.image = UIImage.getVehiclesIconBlack()
+            detailCategoryImgView.image = UIImage.getVehiclesIconWhite()
+        default:
+            categoryImageView.image = UIImage.getOthersIconBlack()
+            detailCategoryImgView.image = UIImage.getOthersIconWhite()
+        }
     }
     
     override func awakeFromNib() {

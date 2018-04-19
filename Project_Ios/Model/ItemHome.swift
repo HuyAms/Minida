@@ -8,6 +8,20 @@
 
 import Foundation
 
+enum Category: String {
+    case clothing
+    case homewares
+    case accessories
+    case others
+    case free
+    case food
+    case vehicles
+    
+    var description: String {
+        return self.rawValue
+    }
+}
+
 struct ItemHome: Codable {
     var status: String
     var time: String

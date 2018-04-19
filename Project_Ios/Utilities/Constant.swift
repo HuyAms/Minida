@@ -13,7 +13,8 @@ class URLConst {
     static let USER_PATH = "/api/users"
     static let AUTH_PATH = "/auth/signin"
     static let CENTER_PATH = "/api/centers"
-    static let ITEM_PATH = " /api/items"
+    static let ITEM_PATH = "/api/items"
+    static let ITEM_FILTER = "/api/items/filter"
 }
 
 class KEY {

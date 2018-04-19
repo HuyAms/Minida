@@ -46,15 +46,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         var rootVC = storyBoard.instantiateViewController(withIdentifier: AppStoryBoard.onBoardingVC.identifier)
 
-//        if (KeyChainUtil.share.getLogInState()) {
-//            rootVC = storyBoard.instantiateViewController(withIdentifier: AppStoryBoard.mainVC.identifier)
-//        } else {
-//            if (KeyChainUtil.share.getSeeOnboardingState()) {
-//                rootVC = storyBoard.instantiateViewController(withIdentifier: AppStoryBoard.authVC.identifier)
-//            } else {
-//                rootVC = storyBoard.instantiateViewController(withIdentifier: AppStoryBoard.onBoardingVC.identifier)
-//            }
-//        }
+        if (KeyChainUtil.share.getLogInState()) {
+            rootVC = storyBoard.instantiateViewController(withIdentifier: AppStoryBoard.mainVC.identifier)
+        } else {
+            if (KeyChainUtil.share.getSeeOnboardingState()) {
+                rootVC = storyBoard.instantiateViewController(withIdentifier: AppStoryBoard.authVC.identifier)
+            } else {
+                rootVC = storyBoard.instantiateViewController(withIdentifier: AppStoryBoard.onBoardingVC.identifier)
+            }
+        }
 
         window?.rootViewController = rootVC
         window?.makeKeyAndVisible()

@@ -790,6 +790,7 @@
                                             <outlet property="detailPriceLbl" destination="IX2-TS-Uph" id="BEm-DE-OT9"/>
                                             <outlet property="foregroundView" destination="TU2-jk-LgV" id="PM9-LD-IcT"/>
                                             <outlet property="foregroundViewTop" destination="QBf-0g-Lio" id="Zho-QY-am7"/>
+                                            <outlet property="priceIconImgView" destination="dU5-9e-cH9" id="fvs-Wi-IaU"/>
                                             <outlet property="sellerImgView" destination="z10-w5-5M6" id="OM5-eS-WTD"/>
                                             <outlet property="sellerNameLbl" destination="Vew-9y-xjS" id="AFt-Gu-hgi"/>
                                             <outlet property="sellerRankLbl" destination="v6o-Rk-9by" id="sHG-pR-WDs"/>
@@ -1022,7 +1023,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home-page-icon" translatesAutoresizingMaskIntoConstraints="NO" id="BvZ-bN-dyp">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homewares-category-icon" translatesAutoresizingMaskIntoConstraints="NO" id="BvZ-bN-dyp">
                                                     <rect key="frame" x="15" y="15" width="40" height="40"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="40" id="Cnr-od-ACh"/>
@@ -1384,7 +1385,7 @@
         <image name="category-icon" width="512" height="512"/>
         <image name="contact" width="512" height="512"/>
         <image name="first" width="30" height="30"/>
-        <image name="home-page-icon" width="512" height="512"/>
+        <image name="homewares-category-icon" width="512" height="512"/>
         <image name="icon-map" width="512" height="512"/>
         <image name="item-icon" width="640" height="640"/>
         <image name="logout" width="512" height="512"/>

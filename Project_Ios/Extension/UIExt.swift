@@ -8,6 +8,7 @@
 
 import UIKit
 import SVProgressHUD
+import Kingfisher
 
 extension UIViewController {
     func presentWithTransition(_ viewControllerToPresent: UIViewController,
@@ -54,6 +55,71 @@ extension UIImage {
     
     static func getMapBtnImage() -> UIImage {
         return UIImage(named: "Maps-icon")!
+    }
+    
+    static func getOthersIconWhite() -> UIImage {
+        return UIImage(named: "other-category-icon")!
+    }
+    
+    static func getOthersIconBlack() -> UIImage {
+        return UIImage(named: "other-category-black-icon")!
+    }
+    
+    static func getClothingIconWhite() -> UIImage {
+        return UIImage(named: "clothes-category-icon")!
+    }
+    
+    static func getClothingIconBlack() -> UIImage {
+        return UIImage(named: "clothes-category-black-icon")!
+    }
+    
+    static func getVehiclesIconWhite() -> UIImage {
+        return UIImage(named: "vehicles-category-icon")!
+    }
+    
+    static func getVehiclesIconBlack() -> UIImage {
+        return UIImage(named: "vehicles-category-icon-1")!
+    }
+    
+    static func getFreeIconWhite() -> UIImage {
+        return UIImage(named: "free-stuff-icon")!
+    }
+    
+    static func getFreeIconBlack() -> UIImage {
+        return UIImage(named: "free-category-icon")!
+    }
+    
+    static func getFoodIconWhite() -> UIImage {
+        return UIImage(named: "food-category-icon")!
+    }
+    
+    static func getFoodIconBlack() -> UIImage {
+        return UIImage(named: "food-category-icon")!
+        //get black food icon
+    }
+    
+    static func getHomewaresIconWhite() -> UIImage {
+        return UIImage(named: "homewares-category-icon")!
+    }
+    
+    static func getHomewaresIconBlack() -> UIImage {
+        return UIImage(named: "homewares-category-black-icon")!
+    }
+    
+    static func getAccessoriesIconWhite() -> UIImage {
+        return UIImage(named: "accessories-category-icon")!
+    }
+    
+    static func getAccessoriesIconBlack() -> UIImage {
+        return UIImage(named: "accessories-category-black-icon")!
+    }
+}
+
+extension UIImageView {
+    
+    func load(imgUrl: String) {
+        let url = URL(string: imgUrl)
+        self.kf.setImage(with: url)
     }
 }
 

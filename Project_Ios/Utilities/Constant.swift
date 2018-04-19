@@ -15,3 +15,7 @@ class URLConst {
     static let CENTER_PATH = "/api/centers"
     static let ITEM_PATH = " /api/items"
 }
+
+class KEY {
+    static let STRIPE = "pk_test_gcQ0UgwKKmpaenf6vJVZEOly"
+}

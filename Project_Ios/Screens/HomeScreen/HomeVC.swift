@@ -32,17 +32,22 @@ class HomeVC: UIViewController, HomeVCProtocol {
     var cellHeights: [CGFloat] = []
     var items = [ItemHome]()
     
+    var filteredItems = [ItemHome]()
+    var searchActive : Bool = false
+    
     var presenter: HomePresenterProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        searchBar.delegate = self
         presenter = HomePresenter(view: self)
         setup()
     }
     
     private func setup() {
+
         //Table view
         cellHeights = Array(repeating: kCloseCellHeight, count: kRowsCount)
         tableView.estimatedRowHeight = kCloseCellHeight
@@ -52,6 +57,10 @@ class HomeVC: UIViewController, HomeVCProtocol {
         //Searchbar
         let textFieldInsideSearchBar = searchBar.value(forKey: "searchField") as! UITextField
         textFieldInsideSearchBar.textColor = UIColor.white
+    }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     //MARK: Protocols
@@ -64,7 +73,7 @@ class HomeVC: UIViewController, HomeVCProtocol {
     }
     
     func onShowError(error: AppError) {
-        print("this is an onShowError appError: \(error)")
+        showError(message: error.description)
     }
     
     func onGetAvailableItemsSuccess(homeItems: [ItemHome]) {
@@ -81,14 +90,26 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
+        if isFiltering() {
+            return filteredItems.count
+        } else {
+            return items.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "FoldingCell", for: indexPath) as? HomeItemCell else {
             return UITableViewCell()
         }
-        let homeItem = items[indexPath.row]
+        
+        let homeItem: ItemHome
+        
+        if isFiltering() {
+            homeItem = filteredItems[indexPath.row]
+        } else {
+            homeItem = items[indexPath.row]
+        }
+        
         cell.config(itemHome: homeItem)
         
         let durations: [TimeInterval] = [0.26, 0.2, 0.2]
@@ -102,6 +123,9 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        dismissKeyboard()
+        
         let cell = tableView.cellForRow(at: indexPath) as! FoldingCell
         
         if cell.isAnimating() {
@@ -138,8 +162,37 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
         } else {
             cell.unfold(true, animated: false, completion: nil)
         }
-
     }
+}
 
+extension HomeVC: UISearchBarDelegate {
+    func filterContentForSearchText(_ searchText: String) {
+        filteredItems = items.filter({( item : ItemHome) -> Bool in
+            return item.itemName.lowercased().contains(searchText.lowercased())
+        })
+        tableView.reloadData()
+    }
+    
+    func searchBarIsEmpty() -> Bool {
+        return searchBar.text?.isEmpty ?? true
+    }
+    
+    func isFiltering() -> Bool {
+        return searchActive && !searchBarIsEmpty()
+    }
+    
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchActive = true;
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        filterContentForSearchText(searchText)
+    }
 }
 

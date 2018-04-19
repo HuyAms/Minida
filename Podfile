@@ -13,6 +13,7 @@ target 'Project_Ios' do
   pod 'SVProgressHUD'
   pod 'YALSideMenu'
   pod 'FoldingCell'
+  pod 'Stripe'
 
   target 'Project_IosTests' do
     inherit! :search_paths

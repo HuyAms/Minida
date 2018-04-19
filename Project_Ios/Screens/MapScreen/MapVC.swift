@@ -73,7 +73,7 @@ class MapVC: UIViewController , MapViewProtocol {
     }
     
     func onLoadDataError(error: AppError) {
-        
+        showError(message: error.description)
     }
     
     func onGetMyLocationSuccess(lat: Double, lng: Double) {

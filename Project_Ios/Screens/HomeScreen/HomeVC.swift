@@ -26,7 +26,6 @@ protocol HomeVCProtocol: class {
 }
 
 class HomeVC: UIViewController, HomeVCProtocol {
-    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var notFoundLbl: UILabel!
@@ -41,18 +40,28 @@ class HomeVC: UIViewController, HomeVCProtocol {
     
     var presenter: HomePresenterProtocol?
     
+    var chosenCategory: Category?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
         searchBar.delegate = self
         presenter = HomePresenter(view: self)
-        
-        
-        presenter?.performGetAvailableItems()
-        //presenter?.performgGetItemsByCategory(category: .others)
-        
+
         setupSearchBar()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let category = chosenCategory {
+            print("GET category")
+            presenter?.performgGetItemsByCategory(category: category)
+        } else {
+            print("GET all")
+            presenter?.performGetAvailableItems()
+
+        }
     }
     
     private func setupSearchBar() {
@@ -67,8 +76,9 @@ class HomeVC: UIViewController, HomeVCProtocol {
     }
     
     private func goToCategoryScreen() {
-        guard let categoryVC = storyboard?.instantiateViewController(withIdentifier: AppStoryBoard.categoryVC.identifier) else {return}
+        guard let categoryVC = storyboard?.instantiateViewController(withIdentifier: AppStoryBoard.categoryVC.identifier) as? CategoryVC else {return}
         present(categoryVC, animated: true, completion: nil)
+        categoryVC.delegate = self
     }
     
     //MARK: Actions
@@ -95,10 +105,16 @@ class HomeVC: UIViewController, HomeVCProtocol {
     }
     
     func onGetAvailableItemsSuccess(homeItems: [ItemHome]) {
-        tableView.isHidden = false
-        setupTable(kRowsCount: homeItems.count)
-        items = homeItems
-        tableView.reloadData()
+        if homeItems.count > 0 {
+            tableView.isHidden = false
+            setupTable(kRowsCount: homeItems.count)
+            items = homeItems
+            tableView.reloadData()
+        } else {
+            tableView.isHidden = true
+            notFoundLbl.isHidden = false
+        }
+      
     }
     
     func onShowFilteredItems(homeItems: [ItemHome]) {
@@ -230,3 +246,8 @@ extension HomeVC: UISearchBarDelegate {
     }
 }
 
+extension HomeVC: CategoryDelegate {
+    func setCategory(category: Category) {
+        chosenCategory = category
+    }
+}

@@ -8,7 +8,13 @@
 
 import UIKit
 
+protocol CategoryDelegate {
+    func setCategory(category: Category)
+}
+
 class CategoryVC: UIViewController {
+    
+    var delegate: CategoryDelegate? 
     
     //MARK: Outlets
     @IBOutlet weak var freeCategoryView: UIView!
@@ -22,6 +28,7 @@ class CategoryVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         let freeTapGesture = UITapGestureRecognizer(target: self
             , action: #selector(CategoryVC.freeCategoryWasTapped(_:)))
         freeCategoryView.addGestureRecognizer(freeTapGesture)
@@ -57,40 +64,45 @@ class CategoryVC: UIViewController {
     }
     
     @objc private func freeCategoryWasTapped(_ sender: UITapGestureRecognizer) {
-        print(sender)
-        print("tapp")
+        setCategory(category: .free)
     }
     
     @objc private func clothesCategoryWasTapped(_ sender: UITapGestureRecognizer) {
-        print("tapp")
+        setCategory(category: .clothing)
     }
     
     @objc private func homewareCategoryWasTapped(_ sender: UITapGestureRecognizer) {
-        print("tapp")
+        setCategory(category: .homewares)
     }
     
     @objc private func otherCategoryWasTapped(_ sender: UITapGestureRecognizer) {
-        print("tapp")
+        setCategory(category: .others)
     }
     
     @objc private func foodCategoryWasTapped(_ sender: UITapGestureRecognizer) {
-        print("tapp")
+        setCategory(category: .food)
     }
     
     @objc private func vehicleCategoryWasTapped(_ sender: UITapGestureRecognizer) {
-        print("tapp")
+        setCategory(category: .vehicles)
     }
     
     @objc private func deviceCategoryWasTapped(_ sender: UITapGestureRecognizer) {
-        print("tapp")
+        setCategory(category: .devices)
     }
     
     @objc private func accessoriesCategoryWasTapped(_ sender: UITapGestureRecognizer) {
-        print("tapp")
+        setCategory(category: .accessories)
+    }
+    
+    func setCategory(category: Category) {
+        delegate?.setCategory(category: category)
+        dismiss(animated: true, completion: nil)
     }
     
     //MARK: Actions
     @IBAction func cancelBtnWasPressed(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
     
 }

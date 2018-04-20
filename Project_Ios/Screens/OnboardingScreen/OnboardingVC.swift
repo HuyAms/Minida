@@ -52,7 +52,7 @@ extension OnboardingVC: PaperOnboardingDataSource, PaperOnboardingDelegate {
         
         return [
             OnboardingItemInfo(informationImage: #imageLiteral(resourceName: "onBoarding1"),
-                               title: "title",
+                               title: "Sell and Donate...",
                                description: "description",
                                pageIcon: #imageLiteral(resourceName: "first"),
                                color: bgColor,
@@ -61,7 +61,7 @@ extension OnboardingVC: PaperOnboardingDataSource, PaperOnboardingDelegate {
                                titleFont: titleFont,
                                descriptionFont: descFont),
             OnboardingItemInfo(informationImage: #imageLiteral(resourceName: "onBoarding2"),
-                               title: "title",
+                               title: "Receive Points...",
                                description: "description",
                                pageIcon: #imageLiteral(resourceName: "first"),
                                color: bgColor,
@@ -70,7 +70,7 @@ extension OnboardingVC: PaperOnboardingDataSource, PaperOnboardingDelegate {
                                titleFont: titleFont,
                                descriptionFont: descFont),
             OnboardingItemInfo(informationImage: #imageLiteral(resourceName: "onBoarding3"),
-                               title: "title",
+                               title: "Enjoy the selection!",
                                description: "description",
                                pageIcon: #imageLiteral(resourceName: "first"),
                                color: bgColor,
@@ -94,7 +94,7 @@ extension OnboardingVC: PaperOnboardingDataSource, PaperOnboardingDelegate {
         }
     }
     
-    func onboardingConfigurationItem(_: OnboardingContentViewItem, index _: Int) {
+    func onboardingConfigurationItem(item: OnboardingContentViewItem, index _: Int) {
         
     }
 }

@@ -12,11 +12,13 @@ protocol ProfilePresenterProtocol {
     
     func logout()
     
+    func performGetUserById(token: String)
 }
 
 class ProfilePresenter: ProfilePresenterProtocol {
     
     weak var view: ProfileViewProtocol?
+    var userService: UserServiceProtocol = UserService()
     
     init(view: ProfileViewProtocol) {
         self.view = view
@@ -27,5 +29,7 @@ class ProfilePresenter: ProfilePresenterProtocol {
         view?.onLogoutSuccess()
     }
     
-    
+    func performGetUserById(token: String) {
+        
+    }
 }

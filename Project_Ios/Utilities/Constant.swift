@@ -15,6 +15,10 @@ class URLConst {
     static let CENTER_PATH = "/api/centers"
     static let ITEM_PATH = "/api/items"
     static let ITEM_FILTER = "/api/items/filter"
+    static let ORDER_PATH = "/api/orders"
+    static let BOUGHT_PATH = "/me/buyer"
+    static let SOLD_PATH = "/me/seller"
+    
 }
 
 class KEY {

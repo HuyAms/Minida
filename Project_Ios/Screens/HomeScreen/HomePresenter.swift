@@ -19,7 +19,7 @@ protocol HomePresenterProtocol {
 class HomePresenter: HomePresenterProtocol {
     
     weak var view: HomeVCProtocol?
-    var homeService: HomeServiceProtocol = HomeService()
+    var itemService: ItemServiceProtocol = ItemService()
     
     init(view: HomeVCProtocol) {
         self.view = view
@@ -28,7 +28,7 @@ class HomePresenter: HomePresenterProtocol {
     //MARK: protocols
     func performGetAvailableItems() {
         view?.showLoading()
-        homeService.getAvailableItems(completion: { [weak self] response in
+        itemService.getAvailableItems(completion: { [weak self] response in
             switch response {
             case .success(let homeItems):
                 //print("This is a presenter response: \(homeItems)")
@@ -43,7 +43,7 @@ class HomePresenter: HomePresenterProtocol {
     
     func performgGetItemsByCategory(category: Category) {
         view?.showLoading()
-        homeService.getItemsByCategory(category: category, completion: { [weak self] response in
+        itemService.getItemsByCategory(category: category, completion: { [weak self] response in
             switch response {
             case .success(let homeItems):
                 //print("This is a presenter response: \(homeItems)")

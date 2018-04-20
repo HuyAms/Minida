@@ -22,6 +22,7 @@ class ProfileVC: UIViewController, ProfileViewProtocol  {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter = ProfilePresenter(view: self)
+        
         // Do any additional setup after loading the view.
     }
 

@@ -1,31 +1,31 @@
 //
-//  HomeService.swift
+//  OrderService.swift
 //  Project_Ios
 //
-//  Created by iosdev on 18.4.2018.
+//  Created by iosdev on 20.4.2018.
 //  Copyright © 2018 Dat Truong. All rights reserved.
 //
 
 import Foundation
 import Alamofire
 
-protocol HomeServiceProtocol {
+protocol OrderServiceProtocol {
     
-    func getAvailableItems(completion: @escaping (ServerResponse<[ItemHome]>) -> Void)
+    func getItemsBoughtByMe(token: String, completion: @escaping (ServerResponse<[ItemHome]>) -> Void)
     
-    func getItemsByCategory(category: Category, completion: @escaping (ServerResponse<[ItemHome]>) -> Void)
-    
+    func getItemsSoldByMe(token: String, completion: @escaping (ServerResponse<[ItemHome]>) -> Void)
 }
 
-
-class HomeService: HomeServiceProtocol {
+class OrderService: OrderServiceProtocol {
     
     let jsonDecoder = JSONDecoder()
     
-    func getAvailableItems(completion: @escaping (ServerResponse<[ItemHome]>) -> Void) {
+    func getItemsBoughtByMe(token: String, completion: @escaping (ServerResponse<[ItemHome]>) -> Void) {
+        let headers: HTTPHeaders = ["authorization": token]
         Alamofire.request(
-            URL(string: "https://fin-recycler.herokuapp.com/api/items")!,
-            method: .get)
+            URL(string: URLConst.BASE_URL + URLConst.ORDER_PATH + URLConst.BOUGHT_PATH)!,
+            method: .get,
+            headers: headers)
             .responseJSON { response in
                 switch response.result {
                 case .success:
@@ -34,10 +34,10 @@ class HomeService: HomeServiceProtocol {
                         let status = serverResponse.status
                         switch status {
                         case 200:
-                            guard let homeItems = serverResponse.data else {debugPrint("Error loading items"); return}
-                            completion(ServerResponse.success(homeItems))
+                            guard let boughtItems = serverResponse.data else {debugPrint("Error loading bought items"); return}
+                            completion(ServerResponse.success(boughtItems))
                         default:
-                            debugPrint("Error loading homeItems"); return
+                            debugPrint("Error loading bought Items"); return
                         }
                     } catch(let error) {
                         debugPrint(error)
@@ -51,12 +51,12 @@ class HomeService: HomeServiceProtocol {
         }
     }
     
-    func getItemsByCategory(category: Category, completion: @escaping (ServerResponse<[ItemHome]>) -> Void) {
-        let parameters: Parameters = ["category": category]
+    func getItemsSoldByMe(token: String, completion: @escaping (ServerResponse<[ItemHome]>) -> Void) {
+        let headers: HTTPHeaders = ["authorization": token]
         Alamofire.request(
-            URL(string: URLConst.BASE_URL + URLConst.ITEM_FILTER)!,
+            URL(string: URLConst.BASE_URL + URLConst.ORDER_PATH + URLConst.SOLD_PATH)!,
             method: .get,
-            parameters: parameters)
+            headers: headers)
             .responseJSON { response in
                 switch response.result {
                 case .success:
@@ -65,13 +65,10 @@ class HomeService: HomeServiceProtocol {
                         let status = serverResponse.status
                         switch status {
                         case 200:
-                            guard let homeItems = serverResponse.data else {debugPrint("Error loading items"); return}
-                            homeItems.forEach({ (item) in
-                                print(item.category)
-                            })
-                            completion(ServerResponse.success(homeItems))
+                            guard let soldItems = serverResponse.data else {debugPrint("Error loading sold items"); return}
+                            completion(ServerResponse.success(soldItems))
                         default:
-                            debugPrint("Error loading homeItems"); return
+                            debugPrint("Error loading sold items"); return
                         }
                     } catch(let error) {
                         debugPrint(error)
@@ -85,5 +82,4 @@ class HomeService: HomeServiceProtocol {
         }
     }
 }
-
 

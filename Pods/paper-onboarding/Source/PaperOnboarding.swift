@@ -193,7 +193,7 @@ extension PaperOnboarding {
 
     fileprivate func backgroundColor(_ index: Int) -> UIColor {
         guard let color = itemsInfo?[index].color else {
-            return .black
+            return .white
         }
         return color
     }

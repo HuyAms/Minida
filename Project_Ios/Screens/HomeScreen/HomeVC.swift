@@ -66,6 +66,17 @@ class HomeVC: UIViewController, HomeVCProtocol {
         tableView.rowHeight = UITableViewAutomaticDimension
     }
     
+    private func goToCategoryScreen() {
+        guard let categoryVC = storyboard?.instantiateViewController(withIdentifier: AppStoryBoard.categoryVC.identifier) else {return}
+        present(categoryVC, animated: true, completion: nil)
+    }
+    
+    //MARK: Actions
+    @IBAction func categoryBtnWasPressed(_ sender: Any) {
+        goToCategoryScreen()
+    }
+    
+    
     func dismissKeyboard() {
         view.endEditing(true)
     }

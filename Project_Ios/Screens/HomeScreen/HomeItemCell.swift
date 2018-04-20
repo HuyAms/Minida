@@ -94,4 +94,5 @@ class HomeItemCell: FoldingCell {
         let durations = [0.26, 0.2, 0.2]
         return durations[itemIndex]
     }
+
 }

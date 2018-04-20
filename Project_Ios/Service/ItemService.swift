@@ -15,7 +15,7 @@ protocol ItemServiceProtocol {
     
     func getItemsByCategory(category: Category, completion: @escaping (ServerResponse<[ItemHome]>) -> Void)
     
-    func getItemsByUserId(token: String, completion: @escaping (ServerResponse<[ItemHome]>) -> Void)
+    func getItemsByUserId(id: String, token: String, completion: @escaping (ServerResponse<[ItemHome]>) -> Void)
 }
 
 
@@ -86,10 +86,10 @@ class ItemService: ItemServiceProtocol {
         }
     }
     
-    func getItemsByUserId(token: String, completion: @escaping (ServerResponse<[ItemHome]>) -> Void) {
+    func getItemsByUserId(id: String, token: String, completion: @escaping (ServerResponse<[ItemHome]>) -> Void) {
         let headers: HTTPHeaders = ["authorization": token]
         Alamofire.request(
-            URL(string: "https://fin-recycler.herokuapp.com/api/items/users/:uId")!,
+            URL(string: "https://fin-recycler.herokuapp.com/api/items/users/" + id)!,
             method: .get,
             headers: headers)
             .responseJSON { response in

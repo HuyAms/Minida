@@ -36,6 +36,7 @@
 		6A31B3B2207E246D00BDE03F /* ServerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A31B3B1207E246D00BDE03F /* ServerResponse.swift */; };
 		6A31B3B4207E277700BDE03F /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A31B3B3207E277700BDE03F /* AppError.swift */; };
 		6A31B3B7207E2E5300BDE03F /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A31B3B6207E2E5300BDE03F /* Constant.swift */; };
+		6A4764262089F1EE007E9F09 /* CategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A4764252089F1EE007E9F09 /* CategoryVC.swift */; };
 		6A9FECC62089B2DB00FB28D5 /* OrderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A9FECC52089B2DB00FB28D5 /* OrderService.swift */; };
 		6A9FECC82089B32200FB28D5 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A9FECC72089B32200FB28D5 /* NotificationService.swift */; };
 		6AA3D3752080A32B00CA24D3 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA3D3742080A32B00CA24D3 /* ProfileVC.swift */; };
@@ -96,6 +97,7 @@
 		6A31B3B1207E246D00BDE03F /* ServerResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerResponse.swift; sourceTree = "<group>"; };
 		6A31B3B3207E277700BDE03F /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		6A31B3B6207E2E5300BDE03F /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		6A4764252089F1EE007E9F09 /* CategoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryVC.swift; sourceTree = "<group>"; };
 		6A9FECC52089B2DB00FB28D5 /* OrderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderService.swift; sourceTree = "<group>"; };
 		6A9FECC72089B32200FB28D5 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		6AA3D3742080A32B00CA24D3 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 		1242BBA52075620500857661 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				6A47641E2089F173007E9F09 /* CategoryScreen */,
 				1251F84A2086AAA00058EF88 /* HomeScreen */,
 				6AA3D3732080A30C00CA24D3 /* ProfileScreen */,
 				6AF76130207F739700498CC1 /* OnboardingScreen */,
@@ -301,6 +304,14 @@
 				6A31B3A2207E214100BDE03F /* AuthVC.swift */,
 			);
 			path = AuthScreen;
+			sourceTree = "<group>";
+		};
+		6A47641E2089F173007E9F09 /* CategoryScreen */ = {
+			isa = PBXGroup;
+			children = (
+				6A4764252089F1EE007E9F09 /* CategoryVC.swift */,
+			);
+			path = CategoryScreen;
 			sourceTree = "<group>";
 		};
 		6AA3D3732080A30C00CA24D3 /* ProfileScreen */ = {
@@ -531,6 +542,7 @@
 				6A31B3AC207E227400BDE03F /* AuthResponse.swift in Sources */,
 				C3129A3A2084C08200E6BC2A /* ProfilePresenter.swift in Sources */,
 				C361BA2A20886DAA0070AB46 /* AlertExt.swift in Sources */,
+				6A4764262089F1EE007E9F09 /* CategoryVC.swift in Sources */,
 				6A2D1F86207F292000852FCE /* TouchIdService.swift in Sources */,
 				6A31B3A7207E221900BDE03F /* AuthService.swift in Sources */,
 				6A0A1689207F588200D8CB97 /* KeyChainUtil.swift in Sources */,

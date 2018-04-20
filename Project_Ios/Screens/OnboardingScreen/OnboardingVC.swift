@@ -47,13 +47,13 @@ extension OnboardingVC: PaperOnboardingDataSource, PaperOnboardingDelegate {
         let fontColor = #colorLiteral(red: 0.3098687066, green: 0.2559407552, blue: 0.5042588976, alpha: 1)
         //let bgTwo = #colorLiteral(red: 0.9994240403, green: 0.9855536819, blue: 0, alpha: 1)
         
-        let titleFont = UIFont(name: "HelveticaNeue-Bold", size: 30)!
-        let descFont = UIFont(name: "HelveticaNeue", size: 20)!
+        let titleFont = UIFont(name: "AppleSDGothicNeo-SemiBold", size: 30)!
+        let descFont = UIFont(name: "AppleSDGothicNeo-Light", size: 20)!
         
         return [
             OnboardingItemInfo(informationImage: #imageLiteral(resourceName: "onBoarding1"),
                                title: "Sell and Donate...",
-                               description: "description",
+                               description: "..your items that you do not use anymore.",
                                pageIcon: #imageLiteral(resourceName: "first"),
                                color: bgColor,
                                titleColor: fontColor,
@@ -62,7 +62,7 @@ extension OnboardingVC: PaperOnboardingDataSource, PaperOnboardingDelegate {
                                descriptionFont: descFont),
             OnboardingItemInfo(informationImage: #imageLiteral(resourceName: "onBoarding2"),
                                title: "Receive Points...",
-                               description: "description",
+                               description: "...for donating and selling items.",
                                pageIcon: #imageLiteral(resourceName: "first"),
                                color: bgColor,
                                titleColor: fontColor,
@@ -71,7 +71,7 @@ extension OnboardingVC: PaperOnboardingDataSource, PaperOnboardingDelegate {
                                descriptionFont: descFont),
             OnboardingItemInfo(informationImage: #imageLiteral(resourceName: "onBoarding3"),
                                title: "Enjoy the selection!",
-                               description: "description",
+                               description: "Our users are selling a wide variety of items that might be the treasure you are trying to find.",
                                pageIcon: #imageLiteral(resourceName: "first"),
                                color: bgColor,
                                titleColor: fontColor,
@@ -93,6 +93,8 @@ extension OnboardingVC: PaperOnboardingDataSource, PaperOnboardingDelegate {
                 self.finishIntroBtn.transform = CGAffineTransform.identity
             }})
         }
+        
+        
     }
     
     func onboardingWillTransitonToIndex(_ index: Int) {

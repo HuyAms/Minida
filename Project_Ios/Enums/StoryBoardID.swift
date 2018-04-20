@@ -15,6 +15,7 @@ enum AppStoryBoard: String{
     case profileVC = "profileScreen"
     case mapVC = "mapScreen"
     case homeVC = "homeScreen"
+    case categoryVC = "categoryScreen"
     
     var identifier: String {
         return self.rawValue

@@ -81,14 +81,10 @@ extension UIImage {
         return UIImage(named: "vehicles-category-black-icon")!
     }
     
-    static func getFreeIconWhite() -> UIImage {
+    static func getFreeIcon() -> UIImage {
         return UIImage(named: "free-stuff-icon")!
     }
-    
-    static func getFreeIconBlack() -> UIImage {
-        return UIImage(named: "free-category-icon")!
-    }
-    
+
     static func getFoodIconWhite() -> UIImage {
         return UIImage(named: "food-category-icon")!
     }
@@ -112,6 +108,14 @@ extension UIImage {
     
     static func getAccessoriesIconBlack() -> UIImage {
         return UIImage(named: "accessories-category-black-icon")!
+    }
+    
+    static func getDevicesIconBlack() -> UIImage {
+        return UIImage(named: "device-category-black-icon")!
+    }
+    
+    static func getDevicesIconWhite() -> UIImage {
+        return UIImage(named: "device-category-icon")!
     }
 }
 

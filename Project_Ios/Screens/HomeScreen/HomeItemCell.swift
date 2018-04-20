@@ -10,7 +10,6 @@ import Foundation
 
 import UIKit
 import FoldingCell
-import Kingfisher
 
 class HomeItemCell: FoldingCell {
     
@@ -44,7 +43,6 @@ class HomeItemCell: FoldingCell {
         if price == 0 {
             detailPriceLbl.text = "FREE"
             smallPriceLbl.text = "FREE"
-//            priceIconImgView.image = UIImage.getFreeIconWhite()
         } else {
             detailPriceLbl.text = String(itemHome.price)
             smallPriceLbl.text = String(itemHome.price)
@@ -62,15 +60,15 @@ class HomeItemCell: FoldingCell {
         case .clothing:
             categoryImageView.image = UIImage.getClothingIconBlack()
             detailCategoryImgView.image = UIImage.getClothingIconWhite()
-        case .food:
-            categoryImageView.image = UIImage.getFoodIconWhite()
-            detailCategoryImgView.image = UIImage.getFoodIconBlack()
         case .homewares:
             categoryImageView.image = UIImage.getHomewaresIconBlack()
             detailCategoryImgView.image = UIImage.getHomewaresIconWhite()
         case .vehicles:
             categoryImageView.image = UIImage.getVehiclesIconBlack()
             detailCategoryImgView.image = UIImage.getVehiclesIconWhite()
+        case .devices:
+            categoryImageView.image = UIImage.getDevicesIconBlack()
+            detailCategoryImgView.image = UIImage.getDevicesIconWhite()
         default:
             categoryImageView.image = UIImage.getOthersIconBlack()
             detailCategoryImgView.image = UIImage.getOthersIconWhite()
@@ -96,4 +94,5 @@ class HomeItemCell: FoldingCell {
         let durations = [0.26, 0.2, 0.2]
         return durations[itemIndex]
     }
+
 }

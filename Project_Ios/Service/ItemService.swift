@@ -53,7 +53,14 @@ class ItemService: ItemServiceProtocol {
     }
     
     func getItemsByCategory(category: Category, completion: @escaping (ServerResponse<[ItemHome]>) -> Void) {
-        let parameters: Parameters = ["category": category]
+        var parameters: Parameters
+        
+        switch category {
+        case .free:
+            parameters = ["price": "0"]
+        default:
+            parameters = ["category": category]
+        }
         Alamofire.request(
             URL(string: URLConst.BASE_URL + URLConst.ITEM_FILTER)!,
             method: .get,

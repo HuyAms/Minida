@@ -21,7 +21,7 @@ class CategoryVC: UIViewController {
     @IBOutlet weak var clothesView: UIView!
     @IBOutlet weak var homewareView: UIView!
     @IBOutlet weak var otherView: UIView!
-    @IBOutlet weak var foodView: UIView!
+    @IBOutlet weak var allView: UIView!
     @IBOutlet weak var vehicleView: UIView!
     @IBOutlet weak var deviceView: UIView!
     @IBOutlet weak var accessoriesView: UIView!
@@ -45,9 +45,9 @@ class CategoryVC: UIViewController {
             , action: #selector(CategoryVC.otherCategoryWasTapped(_:)))
         otherView.addGestureRecognizer(otherTapGesture)
         
-        let foodTapGesture = UITapGestureRecognizer(target: self
-            , action: #selector(CategoryVC.foodCategoryWasTapped(_:)))
-        foodView.addGestureRecognizer(foodTapGesture)
+        let allTapGesture = UITapGestureRecognizer(target: self
+            , action: #selector(CategoryVC.allCategoryWasTapped(_:)))
+        allView.addGestureRecognizer(allTapGesture)
         
         let vehicleTapGesture = UITapGestureRecognizer(target: self
             , action: #selector(CategoryVC.vehicleCategoryWasTapped(_:)))
@@ -79,8 +79,8 @@ class CategoryVC: UIViewController {
         setCategory(category: .others)
     }
     
-    @objc private func foodCategoryWasTapped(_ sender: UITapGestureRecognizer) {
-        setCategory(category: .food)
+    @objc private func allCategoryWasTapped(_ sender: UITapGestureRecognizer) {
+        setCategory(category: .all)
     }
     
     @objc private func vehicleCategoryWasTapped(_ sender: UITapGestureRecognizer) {

@@ -60,15 +60,15 @@ class HomeItemCell: FoldingCell {
         case .clothing:
             categoryImageView.image = UIImage.getClothingIconBlack()
             detailCategoryImgView.image = UIImage.getClothingIconWhite()
-        case .food:
-            categoryImageView.image = UIImage.getFoodIconWhite()
-            detailCategoryImgView.image = UIImage.getFoodIconBlack()
         case .homewares:
             categoryImageView.image = UIImage.getHomewaresIconBlack()
             detailCategoryImgView.image = UIImage.getHomewaresIconWhite()
         case .vehicles:
             categoryImageView.image = UIImage.getVehiclesIconBlack()
             detailCategoryImgView.image = UIImage.getVehiclesIconWhite()
+        case .devices:
+            categoryImageView.image = UIImage.getDevicesIconBlack()
+            detailCategoryImgView.image = UIImage.getDevicesIconWhite()
         default:
             categoryImageView.image = UIImage.getOthersIconBlack()
             detailCategoryImgView.image = UIImage.getOthersIconWhite()

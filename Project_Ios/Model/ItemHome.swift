@@ -14,9 +14,9 @@ enum Category: String {
     case accessories
     case others
     case free
-    case food
     case vehicles
     case devices
+    case all
     
     var description: String {
         return self.rawValue

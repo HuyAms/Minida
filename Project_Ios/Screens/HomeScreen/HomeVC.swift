@@ -55,8 +55,12 @@ class HomeVC: UIViewController, HomeVCProtocol {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if let category = chosenCategory {
-            print("GET category")
-            presenter?.performgGetItemsByCategory(category: category)
+            switch category {
+            case .all:
+                presenter?.performGetAvailableItems()
+            default:
+                presenter?.performgGetItemsByCategory(category: category)
+            }
         } else {
             print("GET all")
             presenter?.performGetAvailableItems()
@@ -109,6 +113,7 @@ class HomeVC: UIViewController, HomeVCProtocol {
             tableView.isHidden = false
             setupTable(kRowsCount: homeItems.count)
             items = homeItems
+            notFoundLbl.isHidden = true
             tableView.reloadData()
         } else {
             tableView.isHidden = true

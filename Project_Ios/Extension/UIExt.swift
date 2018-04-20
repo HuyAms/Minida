@@ -109,6 +109,14 @@ extension UIImage {
     static func getAccessoriesIconBlack() -> UIImage {
         return UIImage(named: "accessories-category-black-icon")!
     }
+    
+    static func getDevicesIconBlack() -> UIImage {
+        return UIImage(named: "device-category-black-icon")!
+    }
+    
+    static func getDevicesIconWhite() -> UIImage {
+        return UIImage(named: "device-category-icon")!
+    }
 }
 
 extension UIImageView {

@@ -10,7 +10,6 @@ import Foundation
 
 import UIKit
 import FoldingCell
-import Kingfisher
 
 class HomeItemCell: FoldingCell {
     
@@ -44,7 +43,6 @@ class HomeItemCell: FoldingCell {
         if price == 0 {
             detailPriceLbl.text = "FREE"
             smallPriceLbl.text = "FREE"
-//            priceIconImgView.image = UIImage.getFreeIconWhite()
         } else {
             detailPriceLbl.text = String(itemHome.price)
             smallPriceLbl.text = String(itemHome.price)

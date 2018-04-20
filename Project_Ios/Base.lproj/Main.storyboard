@@ -36,10 +36,11 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SW3-uc-uJh">
-                                <rect key="frame" x="20" y="545" width="335" height="42"/>
+                                <rect key="frame" x="20" y="525" width="335" height="42"/>
+                                <color key="backgroundColor" red="0.20000000000000001" green="0.0" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Let's Get Started!">
-                                    <color key="titleColor" red="0.20000000000000001" green="0.0" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="finishIntroBtnWasPressed:" destination="ko6-xd-lgI" eventType="touchUpInside" id="mZX-1c-HfT"/>
@@ -49,7 +50,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="yeu-7S-blE" firstAttribute="bottom" secondItem="SW3-uc-uJh" secondAttribute="bottom" constant="80" id="4lJ-6h-90m"/>
+                            <constraint firstItem="yeu-7S-blE" firstAttribute="bottom" secondItem="SW3-uc-uJh" secondAttribute="bottom" constant="100" id="4lJ-6h-90m"/>
                             <constraint firstItem="yeu-7S-blE" firstAttribute="trailing" secondItem="SW3-uc-uJh" secondAttribute="trailing" constant="20" id="Jid-jb-DkE"/>
                             <constraint firstItem="SW3-uc-uJh" firstAttribute="leading" secondItem="yeu-7S-blE" secondAttribute="leading" constant="20" id="LzE-bV-L6x"/>
                             <constraint firstItem="63Z-Q0-Asx" firstAttribute="leading" secondItem="yeu-7S-blE" secondAttribute="leading" id="Qu3-Ca-iLo"/>

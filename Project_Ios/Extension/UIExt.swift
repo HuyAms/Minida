@@ -81,14 +81,10 @@ extension UIImage {
         return UIImage(named: "vehicles-category-icon-1")!
     }
     
-    static func getFreeIconWhite() -> UIImage {
+    static func getFreeIcon() -> UIImage {
         return UIImage(named: "free-stuff-icon")!
     }
-    
-    static func getFreeIconBlack() -> UIImage {
-        return UIImage(named: "free-category-icon")!
-    }
-    
+
     static func getFoodIconWhite() -> UIImage {
         return UIImage(named: "food-category-icon")!
     }

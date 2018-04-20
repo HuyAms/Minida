@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Unknown constraint types" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -1681,14 +1682,13 @@
                                         <rect key="frame" x="197" y="46" width="126" height="109"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" text="Clothes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L29-dV-QIq">
-                                                <rect key="frame" x="8" y="88" width="110" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <rect key="frame" x="8" y="85.5" width="110" height="23.5"/>
                                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clothes-category-black-icon" translatesAutoresizingMaskIntoConstraints="NO" id="Vrz-Zc-gfi">
-                                                <rect key="frame" x="23" y="8" width="80" height="80"/>
+                                                <rect key="frame" x="23" y="5.5" width="80" height="80"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="80" id="HUV-qi-nz6"/>
                                                     <constraint firstAttribute="height" constant="80" id="OJs-k3-Mm4"/>
@@ -1744,7 +1744,6 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-
                                     <button opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hjx-51-pug">
                                         <rect key="frame" x="12" y="20" width="30" height="30"/>
                                         <constraints>
@@ -1753,19 +1752,18 @@
                                         </constraints>
                                         <state key="normal" title="Button" image="cancel-icon"/>
                                         <connections>
-                                        <action selector="cancelBtnWasPressed:" destination="cw1-VV-tKn" eventType="touchUpInside" id="8DX-Jw-7jq"/>
+                                            <action selector="cancelBtnWasPressed:" destination="cw1-VV-tKn" eventType="touchUpInside" id="8DX-Jw-7jq"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.30196078430000001" green="0.2784313725" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="xtN-yS-TU2" firstAttribute="leading" secondItem="Qa2-2i-Tcg" secondAttribute="leading" constant="12" id="8SZ-Eg-XtY"/>
+                                    <constraint firstAttribute="leading" secondItem="Qa2-2i-Tcg" secondAttribute="leading" constant="12" id="8SZ-Eg-XtY"/>
                                     <constraint firstItem="dvm-8l-wLi" firstAttribute="centerY" secondItem="Qa2-2i-Tcg" secondAttribute="centerY" id="EFt-t9-s3q"/>
                                     <constraint firstItem="dvm-8l-wLi" firstAttribute="centerX" secondItem="Qa2-2i-Tcg" secondAttribute="centerX" id="PgD-20-9qC"/>
                                     <constraint firstAttribute="height" constant="70" id="isB-Yb-3lP"/>
                                     <constraint firstItem="hjx-51-pug" firstAttribute="centerY" secondItem="dvm-8l-wLi" secondAttribute="centerY" id="u4k-fi-Zuc"/>
                                     <constraint firstItem="hjx-51-pug" firstAttribute="leading" secondItem="Qa2-2i-Tcg" secondAttribute="leading" constant="12" id="ybT-JY-HB5"/>
-
                                 </constraints>
                             </view>
                         </subviews>
@@ -1798,7 +1796,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UW6-AK-Q9a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-794.39999999999998" y="-707.49625187406298"/>
-
         </scene>
     </scenes>
     <resources>

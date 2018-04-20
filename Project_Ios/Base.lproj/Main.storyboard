@@ -337,7 +337,7 @@
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your password is wrong" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q40-RH-ksO">
                                 <rect key="frame" x="38" y="269" width="299" height="23.5"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
-                                <color key="textColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wallpaper-image" translatesAutoresizingMaskIntoConstraints="NO" id="783-oa-q9D">
@@ -803,6 +803,12 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No such item found" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VxB-V7-xYU">
+                                <rect key="frame" x="55" y="313" width="265" height="41"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.30196078430000001" green="0.2784313725" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -810,13 +816,16 @@
                             <constraint firstItem="4Vn-Rd-rK9" firstAttribute="trailing" secondItem="wBF-kw-juv" secondAttribute="trailing" id="Veq-xq-Skd"/>
                             <constraint firstItem="4Vn-Rd-rK9" firstAttribute="trailing" secondItem="qwd-PW-WHC" secondAttribute="trailing" id="ZYG-g9-GE1"/>
                             <constraint firstItem="wBF-kw-juv" firstAttribute="leading" secondItem="4Vn-Rd-rK9" secondAttribute="leading" id="jBu-X1-lXA"/>
+                            <constraint firstItem="VxB-V7-xYU" firstAttribute="centerX" secondItem="o5u-rX-N6R" secondAttribute="centerX" id="kmg-vX-Zds"/>
                             <constraint firstItem="qwd-PW-WHC" firstAttribute="leading" secondItem="4Vn-Rd-rK9" secondAttribute="leading" id="mgL-Dm-eOW"/>
+                            <constraint firstItem="VxB-V7-xYU" firstAttribute="centerY" secondItem="o5u-rX-N6R" secondAttribute="centerY" id="qbL-gf-AD8"/>
                             <constraint firstItem="qwd-PW-WHC" firstAttribute="bottom" secondItem="4Vn-Rd-rK9" secondAttribute="bottom" id="s2a-L1-Fzo"/>
                             <constraint firstItem="wBF-kw-juv" firstAttribute="top" secondItem="4Vn-Rd-rK9" secondAttribute="top" id="zpB-sW-jRj"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4Vn-Rd-rK9"/>
                     </view>
                     <connections>
+                        <outlet property="notFoundLbl" destination="VxB-V7-xYU" id="778-bc-7Cl"/>
                         <outlet property="searchBar" destination="0fx-9W-6Of" id="X5p-J9-WoY"/>
                         <outlet property="tableView" destination="qwd-PW-WHC" id="dWQ-0S-XFO"/>
                     </connections>

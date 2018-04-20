@@ -120,13 +120,12 @@ extension UIImageView {
 }
 
 extension UIView {
-    func shake(duration: Double, repeat: Int) {
-        let animation = CABasicAnimation(keyPath: "position")
-        animation.duration = duration
-        animation.repeatCount = 4
-        animation.autoreverses = true
-        animation.fromValue = CGPoint(x: self.center.x - 10, y: self.center.y)
-        animation.toValue = CGPoint(x: self.center.x + 10, y: self.center.y)
+    func shake() {
+        let animation = CAKeyframeAnimation()
+        animation.keyPath = "position.x"
+        animation.values = [self.center.x, self.center.x+10, self.center.x-10, self.center.x+10, self.center.x-5, self.center.x+5, self.center.x-5, self.center.x ]
+        animation.keyTimes = [0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875, 1]
+        animation.duration = 0.4
         self.layer.add(animation, forKey: nil)
     }
 }

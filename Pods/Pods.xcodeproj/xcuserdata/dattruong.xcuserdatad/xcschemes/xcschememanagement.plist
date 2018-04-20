@@ -51,6 +51,20 @@
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
+			<integer>9</integer>
+		</dict>
+		<key>Stripe-Stripe.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>8</integer>
+		</dict>
+		<key>Stripe.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
 			<integer>7</integer>
 		</dict>
 		<key>YALSideMenu.xcscheme</key>
@@ -58,7 +72,7 @@
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>8</integer>
+			<integer>10</integer>
 		</dict>
 		<key>paper-onboarding.xcscheme</key>
 		<dict>

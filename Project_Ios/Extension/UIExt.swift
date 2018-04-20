@@ -78,7 +78,7 @@ extension UIImage {
     }
     
     static func getVehiclesIconBlack() -> UIImage {
-        return UIImage(named: "vehicles-category-icon-1")!
+        return UIImage(named: "vehicles-category-black-icon")!
     }
     
     static func getFreeIconWhite() -> UIImage {

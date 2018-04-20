@@ -18,17 +18,6 @@ DEPENDENCIES:
   - SVProgressHUD
   - YALSideMenu
 
-SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
-    - Alamofire
-    - FoldingCell
-    - KeychainAccess
-    - Kingfisher
-    - paper-onboarding
-    - Stripe
-    - SVProgressHUD
-    - YALSideMenu
-
 SPEC CHECKSUMS:
   Alamofire: 68d7d521118d49c615a8d2214d87cdf525599d30
   FoldingCell: 4848ec8a2056d5751bfb710df14521fc64d48ad7
@@ -39,6 +28,6 @@ SPEC CHECKSUMS:
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   YALSideMenu: 4d6b90ea44dcdded18a99e46b676e4ad51d9c6bb
 
-PODFILE CHECKSUM: 9b8868ca99fde0dd5193d575d4eb0bd52f5dbb2d
+PODFILE CHECKSUM: bd53d0e13d22affa6309ac726a5bedf2446d0485
 
-COCOAPODS: 1.5.0
+COCOAPODS: 1.4.0

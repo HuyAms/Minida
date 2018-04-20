@@ -18,7 +18,7 @@ class UserService: UserServiceProtocol {
     
     let jsonDecoder = JSONDecoder()
     
-    func getUserById(token: String, completion: @escaping (ServerResponse<User>) -> Void) {
+    func getUserById(id: string, token: String, completion: @escaping (ServerResponse<User>) -> Void) {
         let headers: HTTPHeaders = ["authorization": token]
         Alamofire.request(
             URL(string: "https://fin-recycler.herokuapp.com/api/users/:id")!,

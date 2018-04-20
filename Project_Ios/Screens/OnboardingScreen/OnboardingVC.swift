@@ -86,6 +86,8 @@ extension OnboardingVC: PaperOnboardingDataSource, PaperOnboardingDelegate {
         if index == 2 {
             finishIntroBtn.isHidden = false
         }
+        
+        
     }
     
     func onboardingWillTransitonToIndex(_ index: Int) {

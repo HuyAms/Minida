@@ -85,6 +85,13 @@ extension OnboardingVC: PaperOnboardingDataSource, PaperOnboardingDelegate {
     func onboardingDidTransitonToIndex(_ index: Int) {
         if index == 2 {
             finishIntroBtn.isHidden = false
+            
+            UIView.animate(withDuration: 0.6, animations: {
+                self.finishIntroBtn.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+            }, completion: { _ in
+             UIView.animate(withDuration: 0.6) {
+                self.finishIntroBtn.transform = CGAffineTransform.identity
+            }})
         }
         
         

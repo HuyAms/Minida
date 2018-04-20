@@ -77,8 +77,11 @@ class AuthVC: UIViewController, AuthViewProtocol {
         view.addGestureRecognizer(tapGesture)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        animateAuthForm()
+    }
+    
+    func animateAuthForm() {
         //Initial
         usernameStack.center.x -= view.bounds.width
         passwordStack.center.x -= view.bounds.width
@@ -87,15 +90,15 @@ class AuthVC: UIViewController, AuthViewProtocol {
         authStatusLbl.alpha = 0.0
         
         //Animate
-        UIView.animate(withDuration: 0.6, delay: 0, options: .curveEaseOut, animations: {
+        UIView.animate(withDuration: 0.7, delay: 0, options: .curveEaseOut, animations: {
             self.usernameStack.center.x += self.view.bounds.width
         }, completion: nil)
         
-        UIView.animate(withDuration: 0.6, delay: 0.3, options: .curveEaseOut, animations: {
+        UIView.animate(withDuration: 0.7, delay: 0.3, options: .curveEaseOut, animations: {
             self.passwordStack.center.x += self.view.bounds.width
         }, completion: nil)
         
-        UIView.animate(withDuration: 0.6, delay: 0.6, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: .curveEaseIn, animations: {
+        UIView.animate(withDuration: 0.7, delay: 0.8, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: .curveEaseOut, animations: {
             self.authStatusLbl.center.y -= 30.0
             self.authStatusLbl.alpha = 1.0
         }, completion: nil)
@@ -168,7 +171,7 @@ class AuthVC: UIViewController, AuthViewProtocol {
     func onShowError(error: AppError) {
         errorLabel.isHidden = false
         errorLabel.text = error.description
-        //errorLabel.shake(duration: 1, repeat: 4)
+        errorLabel.shake()
     }
     
     func onSuccess() {
@@ -256,7 +259,6 @@ class AuthVC: UIViewController, AuthViewProtocol {
 }
 
 extension AuthVC: UITextFieldDelegate {
-    
     func textFieldDidBeginEditing(_ textField: UITextField) {
         errorLabel.text = ""
     }

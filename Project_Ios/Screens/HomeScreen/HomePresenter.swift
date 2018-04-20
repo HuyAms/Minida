@@ -14,10 +14,12 @@ protocol HomePresenterProtocol {
     
     func performgGetItemsByCategory(category: Category)
     
+    func filterContentForSearchText(_ searchText: String, items: [ItemHome])
+    
 }
 
 class HomePresenter: HomePresenterProtocol {
-    
+
     weak var view: HomeVCProtocol?
     var homeService: HomeServiceProtocol = HomeService()
     
@@ -54,6 +56,19 @@ class HomePresenter: HomePresenterProtocol {
                 self?.view?.hideLoading()
             }
         })
+    }
+    
+    func filterContentForSearchText(_ searchText: String, items: [ItemHome]) {
+        let filteredItems = items.filter({( item : ItemHome) -> Bool in
+            return item.itemName.lowercased().contains(searchText.lowercased())
+        })
+        
+        if filteredItems.count > 0 && !searchText.isEmpty {
+            view?.onShowFilteredItems(homeItems: filteredItems)
+        } else {
+            view?.onShowFilteringNoResult()
+        }
+       
     }
  
 }

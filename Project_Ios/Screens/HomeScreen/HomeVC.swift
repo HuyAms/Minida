@@ -19,13 +19,17 @@ protocol HomeVCProtocol: class {
     
     func onGetAvailableItemsSuccess(homeItems: [ItemHome])
     
+    func onShowFilteredItems(homeItems: [ItemHome])
+    
+    func onShowFilteringNoResult()
 
 }
 
 class HomeVC: UIViewController, HomeVCProtocol {
-
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var notFoundLbl: UILabel!
     
     let kCloseCellHeight: CGFloat = 145
     let kOpenCellHeight: CGFloat = 390
@@ -49,13 +53,9 @@ class HomeVC: UIViewController, HomeVCProtocol {
         //presenter?.performgGetItemsByCategory(category: .others)
         
         setupSearchBar()
-        
-        setupSearchBar()
-
     }
     
     private func setupSearchBar() {
-        
         let textFieldInsideSearchBar = searchBar.value(forKey: "searchField") as! UITextField
         textFieldInsideSearchBar.textColor = UIColor.white
     }
@@ -64,7 +64,6 @@ class HomeVC: UIViewController, HomeVCProtocol {
         cellHeights = Array(repeating: kCloseCellHeight, count: kRowsCount)
         tableView.estimatedRowHeight = kCloseCellHeight
         tableView.rowHeight = UITableViewAutomaticDimension
-        
     }
     
     func dismissKeyboard() {
@@ -85,12 +84,24 @@ class HomeVC: UIViewController, HomeVCProtocol {
     }
     
     func onGetAvailableItemsSuccess(homeItems: [ItemHome]) {
+        tableView.isHidden = false
         setupTable(kRowsCount: homeItems.count)
         items = homeItems
         tableView.reloadData()
-        //print(homeItems)
     }
     
+    func onShowFilteredItems(homeItems: [ItemHome]) {
+        tableView.isHidden = false
+        notFoundLbl.isHidden = true
+        setupTable(kRowsCount: homeItems.count)
+        filteredItems = homeItems
+        tableView.reloadData()
+    }
+    
+    func onShowFilteringNoResult() {
+        tableView.isHidden = true
+        notFoundLbl.isHidden = false
+    }
     
 }
 
@@ -131,7 +142,7 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return cellHeights[indexPath.row]
+        return  cellHeights[indexPath.row]
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -163,6 +174,7 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
         guard case let cell as HomeItemCell = cell else {
             return
         }
@@ -178,17 +190,11 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension HomeVC: UISearchBarDelegate {
-    func filterContentForSearchText(_ searchText: String) {
-        filteredItems = items.filter({( item : ItemHome) -> Bool in
-            return item.itemName.lowercased().contains(searchText.lowercased())
-        })
-        tableView.reloadData()
-    }
     
     func searchBarIsEmpty() -> Bool {
         return searchBar.text?.isEmpty ?? true
     }
-    
+
     func isFiltering() -> Bool {
         return searchActive && !searchBarIsEmpty()
     }
@@ -204,7 +210,12 @@ extension HomeVC: UISearchBarDelegate {
     
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        filterContentForSearchText(searchText)
+        if isFiltering() {
+            presenter?.filterContentForSearchText(searchText, items: items)
+        } else {
+            notFoundLbl.isHidden = true
+            tableView.isHidden = false
+        }
     }
 }
 

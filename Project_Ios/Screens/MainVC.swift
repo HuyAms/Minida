@@ -17,6 +17,7 @@ class MainVC: UIViewController {
     fileprivate var selectedIndex = 0
     var viewControllers = [UIViewController]()
    
+    var currentVC: UIViewController!
     
     lazy fileprivate var menuAnimator : MenuTransitionAnimator! = MenuTransitionAnimator(mode: .presentation, shouldPassEventsOutsideMenu: false) { [unowned self] in
         self.dismiss(animated: true, completion: nil)
@@ -44,11 +45,10 @@ extension MainVC: MenuVCDelegate {
     func menu(_ menu: MenuVC, didSelectItemAt index: Int) {
         selectedIndex = index
         
-        viewControllers.forEach { (vc) in
-            remove(asChildViewController: vc)
-        }
+        remove(asChildViewController: currentVC)
         
         add(asChildViewController: viewControllers[index])
+        currentVC = viewControllers[index]
         
         DispatchQueue.main.async {
             self.dismiss(animated: true, completion: nil)
@@ -90,6 +90,7 @@ extension MainVC: MenuVCDelegate {
         
         //Initial controller
         add(asChildViewController: homeVC)
+        currentVC = homeVC
     }
 }
 

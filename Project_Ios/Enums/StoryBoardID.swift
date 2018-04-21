@@ -16,6 +16,16 @@ enum AppStoryBoard: String{
     case mapVC = "mapScreen"
     case homeVC = "homeScreen"
     case categoryVC = "categoryScreen"
+    case paymentVC = "paymentScreen"
+    
+    var identifier: String {
+        return self.rawValue
+    }
+}
+
+enum AppTableCell: String {
+    case paymentCell = "paymentCell"
+    case foldingCell = "FoldingCell"
     
     var identifier: String {
         return self.rawValue

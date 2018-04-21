@@ -38,6 +38,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func setUpStripe() {
         STPPaymentConfiguration.shared().publishableKey = KEY.STRIPE
+        
+        // Stripe theme configuration
+        STPTheme.default().primaryBackgroundColor = UIColor.appDarkColor
+        STPTheme.default().primaryForegroundColor = UIColor.white
+        STPTheme.default().secondaryForegroundColor = UIColor.white
+        STPTheme.default().secondaryBackgroundColor = UIColor.appLightColor
+        STPTheme.default().accentColor = UIColor.white
+        
+        var navigationBarAppearace = UINavigationBar.appearance()
+        navigationBarAppearace.tintColor = UIColor.white
+        navigationBarAppearace.barTintColor = UIColor.white
     }
     
     func setAppRootController() {

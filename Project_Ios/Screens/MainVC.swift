@@ -83,9 +83,12 @@ extension MainVC: MenuVCDelegate {
         guard let homeVC = storyboard?.instantiateViewController(withIdentifier: AppStoryBoard.homeVC.identifier) else {return}
         guard let mapVC = storyboard?.instantiateViewController(withIdentifier: AppStoryBoard.mapVC.identifier) else {return}
         guard let profileVC = storyboard?.instantiateViewController(withIdentifier: AppStoryBoard.profileVC.identifier) else {return}
+        guard let paymentVC = storyboard?.instantiateViewController(withIdentifier: AppStoryBoard.paymentVC.identifier) else {return}
+
         
         viewControllers.append(homeVC)
         viewControllers.append(mapVC)
+        viewControllers.append(paymentVC)
         viewControllers.append(profileVC)
         
         //Initial controller

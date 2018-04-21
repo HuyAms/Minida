@@ -18,9 +18,11 @@ class URLConst {
     static let ORDER_PATH = "/api/orders"
     static let BOUGHT_PATH = "/me/buyer"
     static let SOLD_PATH = "/me/seller"
-    
+    static let PAYMENT_PATH = "/payments"
+    static let PAYMENT_KEY_PATH = "/payments/ephemeral_keys"
 }
 
 class KEY {
     static let STRIPE = "pk_test_gcQ0UgwKKmpaenf6vJVZEOly"
+    static let CURRENT_EXCHANGE = 5
 }

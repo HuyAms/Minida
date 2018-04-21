@@ -152,7 +152,7 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "FoldingCell", for: indexPath) as? HomeItemCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: AppTableCell.foldingCell.identifier, for: indexPath) as? HomeItemCell else {
             return UITableViewCell()
         }
         

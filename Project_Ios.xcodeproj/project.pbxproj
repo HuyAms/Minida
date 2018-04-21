@@ -49,6 +49,10 @@
 		C3129A3A2084C08200E6BC2A /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3129A392084C08200E6BC2A /* ProfilePresenter.swift */; };
 		C361BA262086A7170070AB46 /* TableCellExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = C361BA252086A7170070AB46 /* TableCellExt.swift */; };
 		C361BA2A20886DAA0070AB46 /* AlertExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = C361BA2920886DAA0070AB46 /* AlertExt.swift */; };
+		C3984161208B407700DE5FD4 /* PaymentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3984160208B407700DE5FD4 /* PaymentService.swift */; };
+		C3984166208B4C0A00DE5FD4 /* PaymentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3984165208B4C0A00DE5FD4 /* PaymentVC.swift */; };
+		C3984168208B682F00DE5FD4 /* PaymentPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3984167208B682F00DE5FD4 /* PaymentPresenter.swift */; };
+		C398416A208BDF3B00DE5FD4 /* PaymentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3984169208BDF3B00DE5FD4 /* PaymentCell.swift */; };
 		C3E1A95520833AA100DF3D72 /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E1A95420833AA100DF3D72 /* MenuVC.swift */; };
 		C3E1A95720833B8200DF3D72 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E1A95620833B8200DF3D72 /* MainVC.swift */; };
 /* End PBXBuildFile section */
@@ -113,6 +117,10 @@
 		C3129A392084C08200E6BC2A /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
 		C361BA252086A7170070AB46 /* TableCellExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCellExt.swift; sourceTree = "<group>"; };
 		C361BA2920886DAA0070AB46 /* AlertExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertExt.swift; sourceTree = "<group>"; };
+		C3984160208B407700DE5FD4 /* PaymentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentService.swift; sourceTree = "<group>"; };
+		C3984165208B4C0A00DE5FD4 /* PaymentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentVC.swift; sourceTree = "<group>"; };
+		C3984167208B682F00DE5FD4 /* PaymentPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentPresenter.swift; sourceTree = "<group>"; };
+		C3984169208BDF3B00DE5FD4 /* PaymentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentCell.swift; sourceTree = "<group>"; };
 		C3E1A95420833AA100DF3D72 /* MenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; };
 		C3E1A95620833B8200DF3D72 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		E415342BCB41B244486FA38E /* Pods_Project_IosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Project_IosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -141,6 +149,7 @@
 		1242BBA52075620500857661 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				C3984164208B4BCB00DE5FD4 /* PaymentScreen */,
 				6A47641E2089F173007E9F09 /* CategoryScreen */,
 				1251F84A2086AAA00058EF88 /* HomeScreen */,
 				6AA3D3732080A30C00CA24D3 /* ProfileScreen */,
@@ -166,6 +175,7 @@
 		1242BBAD2075685400857661 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
+				6A31B3B1207E246D00BDE03F /* ServerResponse.swift */,
 				1242BBAE2075686C00857661 /* StoryBoardID.swift */,
 				6A31B3B3207E277700BDE03F /* AppError.swift */,
 			);
@@ -253,7 +263,6 @@
 			isa = PBXGroup;
 			children = (
 				6A2D1F71207DE28800852FCE /* UserDefaultUtil.swift */,
-				6A31B3B1207E246D00BDE03F /* ServerResponse.swift */,
 				6A31B3B6207E2E5300BDE03F /* Constant.swift */,
 				6A0A1688207F588200D8CB97 /* KeyChainUtil.swift */,
 			);
@@ -281,6 +290,7 @@
 				6A2A16592088BE960096F0AD /* UserService.swift */,
 				6A9FECC52089B2DB00FB28D5 /* OrderService.swift */,
 				6A9FECC72089B32200FB28D5 /* NotificationService.swift */,
+				C3984160208B407700DE5FD4 /* PaymentService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -332,6 +342,16 @@
 			path = OnboardingScreen;
 			sourceTree = "<group>";
 		};
+		C3984164208B4BCB00DE5FD4 /* PaymentScreen */ = {
+			isa = PBXGroup;
+			children = (
+				C3984165208B4C0A00DE5FD4 /* PaymentVC.swift */,
+				C3984167208B682F00DE5FD4 /* PaymentPresenter.swift */,
+				C3984169208BDF3B00DE5FD4 /* PaymentCell.swift */,
+			);
+			path = PaymentScreen;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -344,7 +364,6 @@
 				12C53DF420754AB8005824E3 /* Frameworks */,
 				12C53DF520754AB8005824E3 /* Resources */,
 				281C37CCB3B2F34BF631A369 /* [CP] Embed Pods Frameworks */,
-				35AF94B1D47ACE2346CB41EC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -363,8 +382,6 @@
 				12C53E0920754AB8005824E3 /* Sources */,
 				12C53E0A20754AB8005824E3 /* Frameworks */,
 				12C53E0B20754AB8005824E3 /* Resources */,
-				1D805ADFF88E8257A37C711F /* [CP] Embed Pods Frameworks */,
-				2A15A8CEFCA0EC6053566092 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -437,21 +454,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1D805ADFF88E8257A37C711F /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Project_IosTests/Pods-Project_IosTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		281C37CCB3B2F34BF631A369 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -482,36 +484,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Project_Ios/Pods-Project_Ios-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		2A15A8CEFCA0EC6053566092 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Project_IosTests/Pods-Project_IosTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		35AF94B1D47ACE2346CB41EC /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Project_Ios/Pods-Project_Ios-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		5F6B32B96C073B82956EB131 /* [CP] Check Pods Manifest.lock */ = {
@@ -560,6 +532,7 @@
 				6AF76134207F73D800498CC1 /* OnboardingOB.swift in Sources */,
 				1251F84C2086AABC0058EF88 /* HomeVC.swift in Sources */,
 				6A2D1F72207DE28800852FCE /* UserDefaultUtil.swift in Sources */,
+				C3984168208B682F00DE5FD4 /* PaymentPresenter.swift in Sources */,
 				6AE2D6DC20875EAE00EAA747 /* HomePresenter.swift in Sources */,
 				6A31B3B7207E2E5300BDE03F /* Constant.swift in Sources */,
 				C3E1A95720833B8200DF3D72 /* MainVC.swift in Sources */,
@@ -574,11 +547,14 @@
 				6A31B3AA207E224B00BDE03F /* AuthPresenter.swift in Sources */,
 				6A9FECC62089B2DB00FB28D5 /* OrderService.swift in Sources */,
 				6A2D1F7E207E5F3600852FCE /* RecycleCenter.swift in Sources */,
+				C398416A208BDF3B00DE5FD4 /* PaymentCell.swift in Sources */,
 				6A2D1F80207E738100852FCE /* MapItem.swift in Sources */,
 				6A2D1F7C207E5E9500852FCE /* RecycleCentersService.swift in Sources */,
 				C361BA262086A7170070AB46 /* TableCellExt.swift in Sources */,
+				C3984166208B4C0A00DE5FD4 /* PaymentVC.swift in Sources */,
 				6A31B3B4207E277700BDE03F /* AppError.swift in Sources */,
 				6AE2D6E02087640800EAA747 /* ItemHome.swift in Sources */,
+				C3984161208B407700DE5FD4 /* PaymentService.swift in Sources */,
 				6A31B3A3207E214100BDE03F /* AuthVC.swift in Sources */,
 				1251F84E2086AADD0058EF88 /* HomeItemCell.swift in Sources */,
 				1242BBAF2075686C00857661 /* StoryBoardID.swift in Sources */,

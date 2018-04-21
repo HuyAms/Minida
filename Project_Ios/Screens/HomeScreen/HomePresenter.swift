@@ -63,8 +63,11 @@ class HomePresenter: HomePresenterProtocol {
             return item.itemName.lowercased().contains(searchText.lowercased())
         })
         
+        
         if filteredItems.count > 0 && !searchText.isEmpty {
             view?.onShowFilteredItems(homeItems: filteredItems)
+        } else if searchText.isEmpty {
+            view?.onShowFilteredItems(homeItems: items)
         } else {
             view?.onShowFilteringNoResult()
         }

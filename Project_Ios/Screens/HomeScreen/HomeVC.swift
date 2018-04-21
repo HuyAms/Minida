@@ -64,7 +64,6 @@ class HomeVC: UIViewController, HomeVCProtocol {
         } else {
             print("GET all")
             presenter?.performGetAvailableItems()
-
         }
     }
     
@@ -179,8 +178,6 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        dismissKeyboard()
-        
         let cell = tableView.cellForRow(at: indexPath) as! FoldingCell
         
         if cell.isAnimating() {
@@ -203,6 +200,7 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
             tableView.beginUpdates()
             tableView.endUpdates()
         }, completion: nil)
+        
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -242,12 +240,8 @@ extension HomeVC: UISearchBarDelegate {
     
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if isFiltering() {
-            presenter?.filterContentForSearchText(searchText, items: items)
-        } else {
-            notFoundLbl.isHidden = true
-            tableView.isHidden = false
-        }
+        presenter?.filterContentForSearchText(searchText, items: items)
+
     }
 }
 

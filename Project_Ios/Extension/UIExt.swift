@@ -28,10 +28,19 @@ extension UIViewController {
     }
     
     func showLoadingIndicator() {
+        UIApplication.shared.beginIgnoringInteractionEvents()
+        SVProgressHUD.setDefaultMaskType(.none)
+        SVProgressHUD.setBackgroundColor(.clear)
+        SVProgressHUD.setRingThickness(CGFloat(4))
+        SVProgressHUD.setForegroundColor(UIColor.appDarkColor)
+        SVProgressHUD.setDefaultAnimationType(.flat)
         SVProgressHUD.show()
     }
     
     func hideLoadingIndicator() {
+        if UIApplication.shared.isIgnoringInteractionEvents {
+            UIApplication.shared.endIgnoringInteractionEvents()
+        }
         SVProgressHUD.dismiss()
     }
     

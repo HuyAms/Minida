@@ -1,16 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dOO-jT-cIB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dOO-jT-cIB">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Avenir.ttc">
+            <string>Avenir-Book</string>
+            <string>Avenir-Heavy</string>
+            <string>Avenir-Light</string>
+            <string>Avenir-Medium</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--OnboardingVC-->
         <scene sceneID="eOg-gQ-86R">
@@ -1706,27 +1714,27 @@
                                     <constraint firstItem="qZe-eG-TdE" firstAttribute="centerX" secondItem="1Xa-tz-19y" secondAttribute="centerX" id="gIC-wT-diG"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="200" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7f1-PK-o68">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="200" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7f1-PK-o68">
                                 <rect key="frame" x="0.0" y="90" width="375" height="577"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="voucherCell" rowHeight="200" id="L8d-e2-OYm">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="voucherCell" rowHeight="200" id="L8d-e2-OYm" customClass="VoucherCell" customModule="Project_Ios" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="L8d-e2-OYm" id="HDH-cn-vap">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="199.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lKp-CW-51B">
                                                     <rect key="frame" x="15" y="11" width="345" height="176"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="voucher-frame-RubyColor" translatesAutoresizingMaskIntoConstraints="NO" id="mdd-GO-rx1">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="voucher-frame-StarbuckColor" translatesAutoresizingMaskIntoConstraints="NO" id="mdd-GO-rx1">
                                                             <rect key="frame" x="0.0" y="0.0" width="345" height="89"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="89" id="fRf-7f-456"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="voucher-avatar-logo" translatesAutoresizingMaskIntoConstraints="NO" id="xuQ-UA-sib">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="voucher-avatar-logo" translatesAutoresizingMaskIntoConstraints="NO" id="xuQ-UA-sib">
                                                             <rect key="frame" x="8" y="8" width="60" height="60"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="60" id="faU-Sc-f4m"/>
@@ -1735,6 +1743,12 @@
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                     <real key="value" value="14"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                    <real key="value" value="0.0"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                    <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                         </imageView>
@@ -1820,6 +1834,9 @@
                                                                             <real key="value" value="2"/>
                                                                         </userDefinedRuntimeAttribute>
                                                                     </userDefinedRuntimeAttributes>
+                                                                    <connections>
+                                                                        <action selector="exchangeBtnWasPressed:" destination="L8d-e2-OYm" eventType="touchUpInside" id="0Ik-xP-kEi"/>
+                                                                    </connections>
                                                                 </button>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30 points" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0OV-MO-ib7">
                                                                     <rect key="frame" x="0.0" y="31" width="71" height="26"/>
@@ -1829,7 +1846,7 @@
                                                             </subviews>
                                                         </stackView>
                                                     </subviews>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="backgroundColor" red="0.92156862745098034" green="0.91764705882352937" blue="0.95686274509803915" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="trailing" secondItem="mdd-GO-rx1" secondAttribute="trailing" id="6ne-Og-c8c"/>
                                                         <constraint firstItem="mdd-GO-rx1" firstAttribute="top" secondItem="lKp-CW-51B" secondAttribute="top" id="7Kk-5P-DD5"/>
@@ -1867,6 +1884,14 @@
                                                 <constraint firstItem="lKp-CW-51B" firstAttribute="trailing" secondItem="HDH-cn-vap" secondAttribute="trailingMargin" id="vJl-nu-xJE"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="dateLbl" destination="LwT-YP-Yhe" id="a0k-Qa-hrS"/>
+                                            <outlet property="descriptionLbl" destination="agX-nn-bvK" id="7pZ-Ho-nY7"/>
+                                            <outlet property="discountLbl" destination="wxG-tI-RVI" id="8qt-EC-alY"/>
+                                            <outlet property="logoImg" destination="xuQ-UA-sib" id="o2B-7b-FzS"/>
+                                            <outlet property="nameLbl" destination="NUu-t3-SNm" id="I0p-3X-osK"/>
+                                            <outlet property="priceLbl" destination="0OV-MO-ib7" id="VM5-Pa-vzi"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -2286,10 +2311,10 @@
             </objects>
             <point key="canvasLocation" x="-795.6521739130435" y="-707.60869565217399"/>
         </scene>
-        <!--Check OutVC-->
+        <!--View Controller-->
         <scene sceneID="Xyv-vV-adV">
             <objects>
-                <viewController id="dOO-jT-cIB" customClass="CheckOutVC" customModule="Project_Ios" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="dOO-jT-cIB" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tz9-zE-Q9y">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2578,7 +2603,7 @@
         <image name="star" width="330" height="326"/>
         <image name="vehicles-category-black-icon" width="512" height="512"/>
         <image name="voucher-avatar-logo" width="507" height="512"/>
-        <image name="voucher-frame-RubyColor" width="347" height="91"/>
+        <image name="voucher-frame-StarbuckColor" width="347" height="91"/>
         <image name="wallpaper-image" width="375" height="250"/>
     </resources>
 </document>

@@ -100,11 +100,17 @@ class HomeVC: UIViewController, HomeVCProtocol {
     
     //MARK: Protocols
     func showLoading() {
-        showLoadingIndicator()
+        if !refreshControl.isRefreshing {
+            showLoadingIndicator()
+        }
     }
     
     func hideLoading() {
-        hideLoadingIndicator()
+        if refreshControl.isRefreshing {
+            refreshControl.endRefreshing()
+        } else {
+            hideLoadingIndicator()
+        }
     }
     
     func onShowError(error: AppError) {
@@ -112,7 +118,6 @@ class HomeVC: UIViewController, HomeVCProtocol {
     }
     
     func onGetAvailableItemsSuccess(homeItems: [ItemHome]) {
-        refreshControl.endRefreshing()
         if homeItems.count > 0 {
             tableView.isHidden = false
             setupTable(kRowsCount: homeItems.count)

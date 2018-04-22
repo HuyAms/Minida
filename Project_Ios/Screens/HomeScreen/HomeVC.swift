@@ -35,6 +35,16 @@ class HomeVC: UIViewController, HomeVCProtocol {
     var cellHeights: [CGFloat] = []
     var items = [ItemHome]()
     
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action:
+            #selector(HomeVC.handleRefresh(_:)),
+                                 for: UIControlEvents.valueChanged)
+        refreshControl.tintColor = UIColor.appDefaultColor
+        
+        return refreshControl
+    }()
+    
     var filteredItems = [ItemHome]()
     var searchActive : Bool = false
     
@@ -46,7 +56,10 @@ class HomeVC: UIViewController, HomeVCProtocol {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.addSubview(self.refreshControl)
+
         searchBar.delegate = self
+        
         presenter = HomePresenter(view: self)
 
         setupSearchBar()
@@ -54,17 +67,7 @@ class HomeVC: UIViewController, HomeVCProtocol {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if let category = chosenCategory {
-            switch category {
-            case .all:
-                presenter?.performGetAvailableItems()
-            default:
-                presenter?.performgGetItemsByCategory(category: category)
-            }
-        } else {
-            print("GET all")
-            presenter?.performGetAvailableItems()
-        }
+        loadItems()
     }
     
     private func setupSearchBar() {
@@ -108,6 +111,7 @@ class HomeVC: UIViewController, HomeVCProtocol {
     }
     
     func onGetAvailableItemsSuccess(homeItems: [ItemHome]) {
+        refreshControl.endRefreshing()
         if homeItems.count > 0 {
             tableView.isHidden = false
             setupTable(kRowsCount: homeItems.count)
@@ -132,6 +136,24 @@ class HomeVC: UIViewController, HomeVCProtocol {
     func onShowFilteringNoResult() {
         tableView.isHidden = true
         notFoundLbl.isHidden = false
+    }
+    
+    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+        loadItems()
+    }
+    
+    func loadItems() {
+        if let category = chosenCategory {
+            switch category {
+            case .all:
+                presenter?.performGetAvailableItems()
+            default:
+                presenter?.performgGetItemsByCategory(category: category)
+            }
+        } else {
+            print("GET all")
+            presenter?.performGetAvailableItems()
+        }
     }
     
 }

@@ -21,7 +21,7 @@ class PaymentVC: UIViewController, PaymentVCProtocol {
 
     var presenter: PaymentPresenterProtocol?
     
-    let paymentEuroOptions = [5, 10, 25, 50, 100]
+    let paymentEuroOptions = [5, 10, 25, 50, 100, 200]
     
     // Controllers
     private let customerContext: STPCustomerContext

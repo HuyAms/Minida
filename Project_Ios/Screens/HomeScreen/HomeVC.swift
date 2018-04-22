@@ -40,7 +40,8 @@ class HomeVC: UIViewController, HomeVCProtocol {
         refreshControl.addTarget(self, action:
             #selector(HomeVC.handleRefresh(_:)),
                                  for: UIControlEvents.valueChanged)
-        refreshControl.tintColor = UIColor.appDefaultColor
+        refreshControl.tintColor = UIColor.white
+        refreshControl.backgroundColor = UIColor.appLightColor
         
         return refreshControl
     }()

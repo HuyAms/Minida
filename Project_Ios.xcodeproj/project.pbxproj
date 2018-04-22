@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		057BD3A800CDEAE19B0B8C65 /* Pods_Project_Ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90E06613BC85805563AA2732 /* Pods_Project_Ios.framework */; };
+		1203BB4F208CCCF900A1959C /* VoucherVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1203BB4E208CCCF900A1959C /* VoucherVC.swift */; };
 		1242BBAC207564C500857661 /* UIExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1242BBAB207564C500857661 /* UIExt.swift */; };
 		1242BBAF2075686C00857661 /* StoryBoardID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1242BBAE2075686C00857661 /* StoryBoardID.swift */; };
 		1251F84C2086AABC0058EF88 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1251F84B2086AABB0058EF88 /* HomeVC.swift */; };
@@ -68,6 +69,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1203BB4E208CCCF900A1959C /* VoucherVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoucherVC.swift; sourceTree = "<group>"; };
 		1242BBAB207564C500857661 /* UIExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIExt.swift; sourceTree = "<group>"; };
 		1242BBAE2075686C00857661 /* StoryBoardID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryBoardID.swift; sourceTree = "<group>"; };
 		1251F84B2086AABB0058EF88 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
@@ -146,9 +148,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1203BB4D208CCCDE00A1959C /* VoucherScreen */ = {
+			isa = PBXGroup;
+			children = (
+				1203BB4E208CCCF900A1959C /* VoucherVC.swift */,
+			);
+			path = VoucherScreen;
+			sourceTree = "<group>";
+		};
 		1242BBA52075620500857661 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				1203BB4D208CCCDE00A1959C /* VoucherScreen */,
 				C3984164208B4BCB00DE5FD4 /* PaymentScreen */,
 				6A47641E2089F173007E9F09 /* CategoryScreen */,
 				1251F84A2086AAA00058EF88 /* HomeScreen */,
@@ -543,6 +554,7 @@
 				1242BBAC207564C500857661 /* UIExt.swift in Sources */,
 				6A31B3B2207E246D00BDE03F /* ServerResponse.swift in Sources */,
 				6AA3D3752080A32B00CA24D3 /* ProfileVC.swift in Sources */,
+				1203BB4F208CCCF900A1959C /* VoucherVC.swift in Sources */,
 				12C53DFB20754AB8005824E3 /* AppDelegate.swift in Sources */,
 				6A31B3AA207E224B00BDE03F /* AuthPresenter.swift in Sources */,
 				6A9FECC62089B2DB00FB28D5 /* OrderService.swift in Sources */,

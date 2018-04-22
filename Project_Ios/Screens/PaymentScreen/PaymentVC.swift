@@ -153,6 +153,7 @@ extension PaymentVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let euro = paymentEuroOptions[indexPath.row]
+        let point = euro * KEY.CURRENT_EXCHANGE
     
         guard let cell = tableView.dequeueReusableCell(withIdentifier: AppTableCell.paymentCell.identifier, for: indexPath) as? PaymentCell else {
             return UITableViewCell()
@@ -160,7 +161,7 @@ extension PaymentVC: UITableViewDelegate, UITableViewDataSource {
         cell.config(euro: euro)
         
         cell.onButtonTapped = { [weak self] () in
-            let alertViewController = UIAlertController(title: "Payment", message: "Thank you for choosing this service", preferredStyle: .actionSheet)
+            let alertViewController = UIAlertController(title: "Payment", message: "\(point) points cost you \(euro) €", preferredStyle: .actionSheet)
             let okAction = UIAlertAction(title: "Pay Now", style: .default) { (action) in
                 self?.price = euro
                 self?.paymentContext.requestPayment()

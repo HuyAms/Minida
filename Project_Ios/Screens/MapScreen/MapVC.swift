@@ -100,7 +100,15 @@ extension MapVC: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         let location = view.annotation as! MapItem
         let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
-        location.mapItem().openInMaps(launchOptions: launchOptions)
+        
+        let alertViewController = UIAlertController(title: "Direction", message: "Open Apple Maps to get direction", preferredStyle: .actionSheet)
+        let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
+            location.mapItem().openInMaps(launchOptions: launchOptions)
+        }
+        let cancleAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alertViewController.addAction(okAction)
+        alertViewController.addAction(cancleAction)
+        self.present(alertViewController, animated: true)
     }
     
     func centerMapOnLocation(location: CLLocation) {

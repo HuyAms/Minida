@@ -1493,7 +1493,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.75294117650000003" green="0.74509803919999995" blue="0.86666666670000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.92156862750000001" green="0.91764705879999997" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="Bi9-0K-Xhb" firstAttribute="top" secondItem="Txc-xx-2kX" secondAttribute="bottom" constant="8" id="0AH-My-KFJ"/>
                                     <constraint firstAttribute="trailing" secondItem="Bi9-0K-Xhb" secondAttribute="trailing" constant="8" id="5Gf-mp-a8Q"/>
@@ -1513,7 +1513,7 @@
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="65" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Cah-1U-wBd">
                                 <rect key="frame" x="16" y="320" width="343" height="327"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.92156862750000001" green="0.91764705879999997" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="separatorColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="paymentCell" rowHeight="65" id="Sbw-w2-JRC" customClass="PaymentCell" customModule="Project_Ios" customModuleProvider="target">
@@ -1576,7 +1576,7 @@
                                                     </constraints>
                                                 </view>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.75294117650000003" green="0.74509803919999995" blue="0.86666666670000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="backgroundColor" red="0.92156862750000001" green="0.91764705879999997" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstItem="JUn-Gs-BX9" firstAttribute="leading" secondItem="IpE-aC-K7T" secondAttribute="leadingMargin" constant="8" id="QEu-JH-gds"/>
                                                 <constraint firstItem="JUn-Gs-BX9" firstAttribute="top" secondItem="IpE-aC-K7T" secondAttribute="topMargin" constant="8" id="ZUH-sA-Kwf"/>

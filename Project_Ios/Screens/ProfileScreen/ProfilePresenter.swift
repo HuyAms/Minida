@@ -40,7 +40,7 @@ class ProfilePresenter: ProfilePresenterProtocol {
     
     func loadUserInfo() {
         view?.showLoading()
-        let token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1YWNmNTJjMDAyYTM5MTAwMTQzNWE3MGIiLCJpYXQiOjE1MjM1MzY1NzYsImV4cCI6MTUyNDQwMDU3Nn0.939iNbNAhqt_ZtZPQT1CrV6roeSn-0Mwpm3LYuG5QLU"
+        guard let token = KeyChainUtil.share.getToken() else {return}
         profileService.loadProfileData(token: token) { (response) in
             print("RES: \(response)")
             switch response{
@@ -56,7 +56,7 @@ class ProfilePresenter: ProfilePresenterProtocol {
     
     func loadMyItems() {
         view?.showLoading()
-        let token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1YWNmNTJjMDAyYTM5MTAwMTQzNWE3MGIiLCJpYXQiOjE1MjM1MzY1NzYsImV4cCI6MTUyNDQwMDU3Nn0.939iNbNAhqt_ZtZPQT1CrV6roeSn-0Mwpm3LYuG5QLU"
+        guard let token = KeyChainUtil.share.getToken() else {return}
         profileService.loadMyItems(token: token) { (response) in
             print("RES: \(response)")
             switch response{

@@ -30,6 +30,15 @@ protocol ProfileViewProtocol: class {
 
 class ProfileVC: UIViewController, ProfileViewProtocol, UICollectionViewDelegate, UICollectionViewDataSource {
     
+    //MARK: Outlets
+    @IBOutlet weak var badgeImage: UIImageView!
+    @IBOutlet weak var pointLabel: UILabel!
+    @IBOutlet weak var recycleLabel: UILabel!
+    @IBOutlet weak var userNameLabel: UILabel!
+    @IBOutlet weak var userRankLabel: UILabel!
+    @IBOutlet weak var contactUserButton: UIButton!
+    @IBOutlet weak var userItemCollectionView: UICollectionView!
+    
     //MARK: Properties
     var presenter: ProfilePresenterProtocol?
     
@@ -112,7 +121,7 @@ class ProfileVC: UIViewController, ProfileViewProtocol, UICollectionViewDelegate
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "userItemCell", for: indexPath) as? UserItemCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "userItemCell", for: indexPath) as? ProfileCell else {
             return UICollectionViewCell()
         }
         

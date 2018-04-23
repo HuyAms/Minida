@@ -54,9 +54,9 @@
 		A7AEBF7CE7547B99A5D0EC46 /* Pods_Project_IosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E415342BCB41B244486FA38E /* Pods_Project_IosTests.framework */; };
 		C3129A3A2084C08200E6BC2A /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3129A392084C08200E6BC2A /* ProfilePresenter.swift */; };
 		C3513CDE208DB60C0098F1DF /* Rank.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3513CDD208DB60C0098F1DF /* Rank.swift */; };
-		C3513CE0208DB6E90098F1DF /* UserItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3513CDF208DB6E90098F1DF /* UserItemCell.swift */; };
 		C3513CE2208DB7520098F1DF /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3513CE1208DB7520098F1DF /* ProfileService.swift */; };
 		C3513CE4208DB9A50098F1DF /* ItemProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3513CE3208DB9A50098F1DF /* ItemProfile.swift */; };
+		C3513CE6208DBEE30098F1DF /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3513CE5208DBEE30098F1DF /* ProfileCell.swift */; };
 		C361BA262086A7170070AB46 /* TableCellExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = C361BA252086A7170070AB46 /* TableCellExt.swift */; };
 		C361BA2A20886DAA0070AB46 /* AlertExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = C361BA2920886DAA0070AB46 /* AlertExt.swift */; };
 		C3984161208B407700DE5FD4 /* PaymentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3984160208B407700DE5FD4 /* PaymentService.swift */; };
@@ -132,9 +132,9 @@
 		A62BE4410FE6EBAB1977BABF /* Pods-Project_Ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project_Ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Project_Ios/Pods-Project_Ios.debug.xcconfig"; sourceTree = "<group>"; };
 		C3129A392084C08200E6BC2A /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
 		C3513CDD208DB60C0098F1DF /* Rank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rank.swift; sourceTree = "<group>"; };
-		C3513CDF208DB6E90098F1DF /* UserItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserItemCell.swift; sourceTree = "<group>"; };
 		C3513CE1208DB7520098F1DF /* ProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
 		C3513CE3208DB9A50098F1DF /* ItemProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemProfile.swift; sourceTree = "<group>"; };
+		C3513CE5208DBEE30098F1DF /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
 		C361BA252086A7170070AB46 /* TableCellExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCellExt.swift; sourceTree = "<group>"; };
 		C361BA2920886DAA0070AB46 /* AlertExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertExt.swift; sourceTree = "<group>"; };
 		C3984160208B407700DE5FD4 /* PaymentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentService.swift; sourceTree = "<group>"; };
@@ -366,7 +366,7 @@
 			children = (
 				6AA3D3742080A32B00CA24D3 /* ProfileVC.swift */,
 				C3129A392084C08200E6BC2A /* ProfilePresenter.swift */,
-				C3513CDF208DB6E90098F1DF /* UserItemCell.swift */,
+				C3513CE5208DBEE30098F1DF /* ProfileCell.swift */,
 			);
 			path = ProfileScreen;
 			sourceTree = "<group>";
@@ -580,7 +580,7 @@
 				6A2D1F7A207E5E6900852FCE /* MapPresenter.swift in Sources */,
 				6AF76132207F73B600498CC1 /* OnboardingVC.swift in Sources */,
 				1242BBAC207564C500857661 /* UIExt.swift in Sources */,
-				C3513CE0208DB6E90098F1DF /* UserItemCell.swift in Sources */,
+				C3513CE6208DBEE30098F1DF /* ProfileCell.swift in Sources */,
 				6A31B3B2207E246D00BDE03F /* ServerResponse.swift in Sources */,
 				6AA3D3752080A32B00CA24D3 /* ProfileVC.swift in Sources */,
 				1203BB4F208CCCF900A1959C /* VoucherVC.swift in Sources */,

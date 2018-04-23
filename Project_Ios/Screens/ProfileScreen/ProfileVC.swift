@@ -49,6 +49,11 @@ class ProfileVC: UIViewController, ProfileViewProtocol, UICollectionViewDelegate
         super.viewDidLoad()
         presenter = ProfilePresenter(view: self)
         
+        presenter?.loadUserInfo()
+        presenter?.loadMyItems()
+        userItemCollectionView.delegate = self
+        userItemCollectionView.dataSource = self
+        
         // Do any additional setup after loading the view.
     }
 
@@ -72,6 +77,50 @@ class ProfileVC: UIViewController, ProfileViewProtocol, UICollectionViewDelegate
         let authVC = storyBoard.instantiateViewController(withIdentifier: AppStoryBoard.authVC.identifier)
         appDelegate.window?.rootViewController = authVC
         appDelegate.window?.makeKeyAndVisible()
+    }
+    
+    func onLoadDataError(error: AppError) {
+        //show the error
+    }
+    
+    func showLoading() {
+        
+    }
+    
+    func hideLoading() {
+        
+    }
+    
+    func onGetMyItemSuccess(myItems: [Item]) {
+        print(myItems)
+        let numberOfRecycles = myItems.count
+        recycleLabel.text = String(numberOfRecycles)
+        self.myItems = myItems
+        userItemCollectionView.reloadData()
+    }
+    
+    func setRank(rank: Rank) {
+        userRankLabel.text = rank.description
+    }
+    
+    func onGetMyItemError(error: AppError) {
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return myItems.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "userItemCell", for: indexPath) as? UserItemCell else {
+            return UICollectionViewCell()
+        }
+        
+        let myItem = myItems[indexPath.row]
+        
+        cell.config(item: myItem)
+        return cell
+        
     }
     
     

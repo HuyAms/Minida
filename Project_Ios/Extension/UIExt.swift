@@ -47,6 +47,13 @@ extension UIViewController {
     func showError(message: String) {
         present(UIAlertController.init(message: message), animated: true)
     }
+    
+    func showSuccess(title: String = "Great", message: String, closeBtnText: String = "OK") {
+        let alertModal = AlertModalVC()
+        alertModal.config(title: title, message: message, buttonText: closeBtnText)
+        alertModal.modalPresentationStyle = .custom
+        present(alertModal, animated: false, completion: nil)
+    }
 }
 
 extension UIImage {

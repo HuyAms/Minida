@@ -103,8 +103,6 @@ class PaymentVC: UIViewController, PaymentVCProtocol {
 extension PaymentVC: STPPaymentContextDelegate {
     
     func paymentContext(_ paymentContext: STPPaymentContext, didFailToLoadWithError error: Error) {
-       // present(UIAlertController(message: "Could not request point"), animated: true)
-        print("did fail to load with Error¨")
         paymentContext.retryLoading()
     }
     
@@ -113,14 +111,25 @@ extension PaymentVC: STPPaymentContextDelegate {
     }
     
     func paymentContext(_ paymentContext: STPPaymentContext, didCreatePaymentResult paymentResult: STPPaymentResult, completion: @escaping STPErrorBlock) {
-        // Create charge using payment result
+        
         let source = paymentResult.source.stripeID
         
-        presenter?.buyPoint(amount: price, source: source, completion: { (error) in
+        presenter?.buyPoint(amount: price, source: source, completion: { [weak self](user, error) in
             guard error == nil else {
                 completion(error)
                 return
             }
+            
+            guard let user = user else {
+                return
+            }
+            
+            guard let point = user.point else {
+                return
+            }
+            
+            self?.showSuccess(title: "Success", message: "You now have \(String(describing: point)) points", closeBtnText: "OK")
+            
             completion(nil)
         })
     }
@@ -165,7 +174,6 @@ extension PaymentVC: UITableViewDelegate, UITableViewDataSource {
             let okAction = UIAlertAction(title: "Pay Now", style: .default) { (action) in
                 self?.price = euro
                 self?.paymentContext.requestPayment()
-                print("BUY \(euro)")
             }
             let cancleAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
             alertViewController.addAction(okAction)

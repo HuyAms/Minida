@@ -566,7 +566,7 @@
                                     <constraint firstItem="iIu-PA-pLF" firstAttribute="top" secondItem="hcD-Ow-5zU" secondAttribute="top" constant="16" id="ubv-rO-mki"/>
                                 </constraints>
                             </view>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7wu-h9-6uF">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7wu-h9-6uF">
                                 <rect key="frame" x="0.0" y="378" width="275" height="240"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="3" minimumInteritemSpacing="1.5" id="2GM-Mu-aD2">
@@ -587,45 +587,10 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="136" height="136"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r5S-tx-kkn">
-                                                    <rect key="frame" x="0.0" y="0.0" width="136" height="136"/>
-                                                    <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="EaO-uD-ypv">
-                                                            <rect key="frame" x="89" y="8" width="39" height="22"/>
-                                                            <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YKN-Mv-C6U">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="19" height="22"/>
-                                                                    <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="16"/>
-                                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="Ke0-GG-qPr">
-                                                                    <rect key="frame" x="24" y="3.5" width="15" height="15"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="height" constant="15" id="3Kt-DN-jcq"/>
-                                                                        <constraint firstAttribute="width" constant="15" id="qQw-re-CXi"/>
-                                                                    </constraints>
-                                                                </imageView>
-                                                            </subviews>
-                                                        </stackView>
-                                                    </subviews>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.35070633561643838" colorSpace="calibratedWhite"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="trailing" secondItem="EaO-uD-ypv" secondAttribute="trailing" constant="8" id="MUS-3n-vSU"/>
-                                                        <constraint firstItem="EaO-uD-ypv" firstAttribute="top" secondItem="r5S-tx-kkn" secondAttribute="top" constant="8" id="dFA-5l-Mgp"/>
-                                                    </constraints>
-                                                </view>
                                             </subviews>
                                         </view>
-                                        <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="r5S-tx-kkn" secondAttribute="bottom" id="CBr-Fj-PmL"/>
-                                            <constraint firstItem="r5S-tx-kkn" firstAttribute="leading" secondItem="vZY-zu-vjc" secondAttribute="leading" id="CV0-N7-dgX"/>
-                                            <constraint firstItem="r5S-tx-kkn" firstAttribute="top" secondItem="vZY-zu-vjc" secondAttribute="top" id="K5l-xs-DhG"/>
-                                            <constraint firstAttribute="trailing" secondItem="r5S-tx-kkn" secondAttribute="trailing" id="xvS-9W-Lwz"/>
-                                        </constraints>
                                         <connections>
                                             <outlet property="itemImage" destination="KBD-sl-jiA" id="EG4-GW-v9x"/>
-                                            <outlet property="priceLabel" destination="YKN-Mv-C6U" id="R2G-iz-ZuX"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>

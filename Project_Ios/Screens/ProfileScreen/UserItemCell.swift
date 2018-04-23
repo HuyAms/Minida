@@ -10,9 +10,7 @@ import UIKit
 import Kingfisher
 
 class UserItemCell: UICollectionViewCell {
-    
-    @IBOutlet weak var priceLabel: UILabel!
-    @IBOutlet weak var itemImage: UIImageView!
+        @IBOutlet weak var itemImage: UIImageView!
     
     
     override func awakeFromNib() {
@@ -22,7 +20,6 @@ class UserItemCell: UICollectionViewCell {
     
     func config(item: Item) {
         itemImage.loadImage(imgPath: item.imgPath)
-        self.priceLabel.text = String(item.price)
     }
 
 }

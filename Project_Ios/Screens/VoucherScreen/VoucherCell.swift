@@ -3,6 +3,9 @@
 import UIKit
 
 class VoucherCell: UITableViewCell {
+    
+    var onButtonTapped : (() -> Void)? = nil
+
 
     @IBOutlet weak var discountLbl: UILabel!
     @IBOutlet weak var nameLbl: UILabel!
@@ -21,6 +24,9 @@ class VoucherCell: UITableViewCell {
     }
 
     @IBAction func exchangeBtnWasPressed(_ sender: Any) {
+        if let onButtonTapped = self.onButtonTapped {
+            onButtonTapped()
+        }
     }
 
 }

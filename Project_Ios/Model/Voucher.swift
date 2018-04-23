@@ -17,3 +17,17 @@ struct Voucher: Codable {
     var discount: String
     var expiration: String
 }
+
+struct MyVoucherOrder: Codable {
+    var _id: String
+    var voucher: Voucher
+    var time: String
+}
+
+struct VoucherOrder: Codable {
+    var _id: String
+    var voucher: String
+    var buyer: String
+    var time: String
+}
+

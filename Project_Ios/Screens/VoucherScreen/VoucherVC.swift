@@ -2,11 +2,16 @@
 //  VoucherVC.swift
 //  Project_Ios
 //
-//  Created by Dat Truong on 22/04/2018.
-//  Copyright © 2018 Dat Truong. All rights reserved.
+//  Created by Huy Trinh on 22/04/2018.
+//  Copyright © 2018 Huy trinh. All rights reserved.
 //
 
 import UIKit
+
+enum VoucherLoadingState {
+    case loadVouchers
+    case loadMyVouchers
+}
 
 protocol VoucherVCProtocol: class {
     func showLoading()
@@ -16,11 +21,18 @@ protocol VoucherVCProtocol: class {
     func onLoadVoucherSuccess(vouchers: [Voucher])
     
     func onLoadVoucherError(error: AppError)
+    
+    func onBuyVoucherSuccess()
+    
+    func onBuyVoucherError(error: AppError)
+    
+    func displayNoVoucher()
 }
 
 class VoucherVC: UIViewController, VoucherVCProtocol {
-    
+   
     var presenter: VoucherPresenterProtocol?
+    var voucherLoadingState = VoucherLoadingState.loadVouchers
     
     lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
@@ -33,6 +45,8 @@ class VoucherVC: UIViewController, VoucherVCProtocol {
         return refreshControl
     }()
 
+    @IBOutlet weak var noVoucherLbl: UILabel!
+    @IBOutlet weak var segmentControl: UISegmentedControl!
     @IBOutlet weak var tableView: UITableView!
     var vouchers = [Voucher]()
     
@@ -49,6 +63,21 @@ class VoucherVC: UIViewController, VoucherVCProtocol {
         presenter?.loadVouchers()
     }
     
+    //MARK: ACTION
+    
+    @IBAction func segmentDidChange(_ sender: Any) {
+        switch segmentControl.selectedSegmentIndex
+        {
+        case 0:
+            voucherLoadingState = .loadVouchers
+            presenter?.loadVouchers()
+        case 1:
+            voucherLoadingState = .loadMyVouchers
+            presenter?.loadMyVouchers()
+        default:
+            break
+        }
+    }
     
     //MARK: Protocols
     
@@ -67,6 +96,8 @@ class VoucherVC: UIViewController, VoucherVCProtocol {
     }
     
     func onLoadVoucherSuccess(vouchers: [Voucher]) {
+        tableView.isHidden = false
+        noVoucherLbl.isHidden = true
         self.vouchers = vouchers
         tableView.reloadData()
     }
@@ -75,8 +106,26 @@ class VoucherVC: UIViewController, VoucherVCProtocol {
         showError(message: error.description)
     }
     
+    func displayNoVoucher() {
+        tableView.isHidden = true
+        noVoucherLbl.isHidden = false
+    }
+    
+    func onBuyVoucherSuccess() {
+        
+    }
+    
+    func onBuyVoucherError(error: AppError) {
+        showError(message: error.description)
+    }
+    
     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
-        presenter?.loadVouchers()
+        switch voucherLoadingState {
+        case .loadVouchers:
+            presenter?.loadVouchers()
+        default:
+            presenter?.loadMyVouchers()
+        }
     }
     
 
@@ -98,6 +147,18 @@ extension VoucherVC: UITableViewDelegate, UITableViewDataSource {
         }
         let voucher = vouchers[indexPath.row]
         cell.config(voucher: voucher)
+        
+        cell.onButtonTapped = { [weak self] () in
+            let alertViewController = UIAlertController(title: "Payment", message: "This voucher costs you \(voucher.price) points", preferredStyle: .actionSheet)
+            let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
+                self?.presenter?.buyVouchers(voucherId: voucher._id)
+            }
+            let cancleAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            alertViewController.addAction(okAction)
+            alertViewController.addAction(cancleAction)
+            self?.present(alertViewController, animated: true)
+        }
+        
         return cell
     }
 }

@@ -9,7 +9,7 @@
 import UIKit
 
 class PaymentCell: UITableViewCell {
-     var onButtonTapped : (() -> Void)? = nil
+    var onButtonTapped : (() -> Void)? = nil
     @IBOutlet weak var addBtn: UIButton!
     @IBOutlet weak var euroLbl: UILabel!
     @IBOutlet weak var pointLbl: UILabel!

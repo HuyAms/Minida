@@ -13,13 +13,19 @@ class URLConst {
     static let USER_PATH = "/api/users"
     static let AUTH_PATH = "/auth/signin"
     static let CENTER_PATH = "/api/centers"
+    
     static let ITEM_PATH = "/api/items"
     static let ITEM_FILTER = "/api/items/filter"
+    
     static let ORDER_PATH = "/api/orders"
+    static let BUY_VOUCHER_PATH = "/api/orders/vouchers"
     static let BOUGHT_PATH = "/me/buyer"
     static let SOLD_PATH = "/me/seller"
+    static let MY_VOUCHER_PATH = "/me/vouchers"
+    
     static let PAYMENT_PATH = "/payments"
     static let PAYMENT_KEY_PATH = "/payments/ephemeral_keys"
+    
     static let VOUCHER_PATH = "/api/vouchers"
 }
 

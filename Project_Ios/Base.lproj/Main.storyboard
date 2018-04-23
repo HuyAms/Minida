@@ -1703,6 +1703,9 @@
                                                 <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="segmentDidChange:" destination="jT9-tJ-kwf" eventType="valueChanged" id="Rtc-7V-udg"/>
+                                        </connections>
                                     </segmentedControl>
                                 </subviews>
                                 <color key="backgroundColor" red="0.30196078430000001" green="0.2784313725" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1895,10 +1898,18 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No voucher displayed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xS3-pK-ILd">
+                                <rect key="frame" x="41" y="313" width="293.5" height="41"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.30196078430000001" green="0.2784313725" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="1Xa-tz-19y" firstAttribute="leading" secondItem="o1W-3K-cj3" secondAttribute="leading" id="0qV-7z-K7Y"/>
+                            <constraint firstItem="xS3-pK-ILd" firstAttribute="centerY" secondItem="7cf-mT-LXF" secondAttribute="centerY" id="4Wc-b2-LI6"/>
+                            <constraint firstItem="xS3-pK-ILd" firstAttribute="centerX" secondItem="7cf-mT-LXF" secondAttribute="centerX" id="973-Lj-ZhA"/>
                             <constraint firstItem="7f1-PK-o68" firstAttribute="leading" secondItem="o1W-3K-cj3" secondAttribute="leading" id="Hkh-va-BO5"/>
                             <constraint firstItem="7f1-PK-o68" firstAttribute="top" secondItem="1Xa-tz-19y" secondAttribute="bottom" id="HqF-5M-ZYM"/>
                             <constraint firstItem="7f1-PK-o68" firstAttribute="bottom" secondItem="o1W-3K-cj3" secondAttribute="bottom" id="Ra6-lt-70e"/>
@@ -1909,6 +1920,8 @@
                         <viewLayoutGuide key="safeArea" id="o1W-3K-cj3"/>
                     </view>
                     <connections>
+                        <outlet property="noVoucherLbl" destination="xS3-pK-ILd" id="slM-BT-BPg"/>
+                        <outlet property="segmentControl" destination="qZe-eG-TdE" id="HCh-uZ-isP"/>
                         <outlet property="tableView" destination="7f1-PK-o68" id="68Q-GO-Haa"/>
                     </connections>
                 </viewController>

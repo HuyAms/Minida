@@ -10,14 +10,40 @@ import UIKit
 
 protocol ProfileViewProtocol: class {
     
+    func onLoadDataSuccess(userData: User)
+    
+    func onLoadDataError(error: AppError)
+    
+    func showLoading()
+    
+    func hideLoading()
+    
+    func onGetMyItemSuccess(myItems: [Item])
+    
+    func onGetMyItemError(error: AppError)
+    
+    func setRank(rank: Rank)
+    
     func onLogoutSuccess()
     
 }
 
-class ProfileVC: UIViewController, ProfileViewProtocol  {
+class ProfileVC: UIViewController, ProfileViewProtocol, UICollectionViewDelegate, UICollectionViewDataSource {
     
     //MARK: Properties
     var presenter: ProfilePresenterProtocol?
+    
+    var myItems = [Item]()
+    
+    //MARK: Actions
+    func onLoadDataSuccess(userData: User) {
+        userNameLabel.text = userData.username
+        
+        if let point = userData.point {
+            pointLabel.text = String(point)
+        }
+        
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

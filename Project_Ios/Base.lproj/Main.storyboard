@@ -1371,19 +1371,28 @@
                                 <rect key="frame" x="0.0" y="348" width="375" height="319"/>
                                 <color key="backgroundColor" red="0.92156862750000001" green="0.91764705879999997" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="8QZ-x3-UCc">
-                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="itemSize" width="105" height="105"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Avy-tB-Keg">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="profileCell" id="Avy-tB-Keg" customClass="ProfileCell" customModule="Project_Ios" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="105" height="105"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="105" height="105"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Touch-icon-lg" translatesAutoresizingMaskIntoConstraints="NO" id="eFx-Ih-8Z3">
+                                                    <rect key="frame" x="0.0" y="0.0" width="105" height="105"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
                                         </view>
+                                        <connections>
+                                            <outlet property="itemImage" destination="eFx-Ih-8Z3" id="fJw-ao-as9"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -1407,10 +1416,17 @@
                         <viewLayoutGuide key="safeArea" id="SYP-WT-gNQ"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Second" image="second" id="Xeb-JV-Sne"/>
+                    <connections>
+                        <outlet property="pointLabel" destination="WOm-6m-Nhq" id="cAZ-C7-fnA"/>
+                        <outlet property="recycleLabel" destination="Mwc-t0-QPr" id="vnJ-mG-s9c"/>
+                        <outlet property="userItemCollectionView" destination="vYc-p6-lWv" id="cAm-Nt-awV"/>
+                        <outlet property="userNameLabel" destination="7F8-gH-VxI" id="qgx-AZ-LNr"/>
+                        <outlet property="userRankLabel" destination="gZk-IJ-Qp1" id="a2v-op-dGc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mHz-S6-Jhv" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1166" y="-707"/>
+            <point key="canvasLocation" x="1165.5999999999999" y="-707.49625187406298"/>
         </scene>
         <!--PaymentVC-->
         <scene sceneID="B28-4o-Mcd">

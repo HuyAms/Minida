@@ -27,6 +27,9 @@ class URLConst {
     static let PAYMENT_KEY_PATH = "/payments/ephemeral_keys"
     
     static let VOUCHER_PATH = "/api/vouchers"
+    
+    static let USER_ME_PATH = "/api/users/me"
+    static let ITEMS_ME_PATH = "/api/items/me"
 }
 
 class KEY {

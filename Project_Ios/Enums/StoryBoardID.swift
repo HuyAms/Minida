@@ -28,6 +28,7 @@ enum AppTableCell: String {
     case paymentCell = "paymentCell"
     case foldingCell = "FoldingCell"
     case voucherCell = "voucherCell"
+    case profileCell = "profileCell"
     
     var identifier: String {
         return self.rawValue

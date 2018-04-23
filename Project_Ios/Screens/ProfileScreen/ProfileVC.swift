@@ -28,7 +28,7 @@ protocol ProfileViewProtocol: class {
     
 }
 
-class ProfileVC: UIViewController, ProfileViewProtocol, UICollectionViewDelegate, UICollectionViewDataSource {
+class ProfileVC: UIViewController, ProfileViewProtocol {
     
     //MARK: Outlets
     @IBOutlet weak var badgeImage: UIImageView!
@@ -41,6 +41,7 @@ class ProfileVC: UIViewController, ProfileViewProtocol, UICollectionViewDelegate
     
     //MARK: Properties
     var presenter: ProfilePresenterProtocol?
+    fileprivate let itemsPerRow: CGFloat = 3
     
     var myItems = [Item]()
     
@@ -120,9 +121,15 @@ class ProfileVC: UIViewController, ProfileViewProtocol, UICollectionViewDelegate
         
     }
     
+   
+}
+
+extension ProfileVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return myItems.count
     }
+
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AppTableCell.profileCell.identifier, for: indexPath) as? ProfileCell else {
@@ -136,5 +143,18 @@ class ProfileVC: UIViewController, ProfileViewProtocol, UICollectionViewDelegate
         
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let size = collectionView.frame.size.width / CGFloat(itemsPerRow) - CGFloat(itemsPerRow - 1)
+        return CGSize(width: size, height: size)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 3
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+
     
 }

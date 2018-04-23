@@ -1,16 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dOO-jT-cIB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dOO-jT-cIB">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Avenir.ttc">
+            <string>Avenir-Book</string>
+            <string>Avenir-Heavy</string>
+            <string>Avenir-Light</string>
+            <string>Avenir-Medium</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--OnboardingVC-->
         <scene sceneID="eOg-gQ-86R">
@@ -867,7 +875,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <color key="separatorColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" misplaced="YES" id="yyC-yJ-A9z">
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="yyC-yJ-A9z">
                             <rect key="frame" x="0.0" y="0.0" width="70" height="90"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
@@ -1112,7 +1120,7 @@
                                 <rect key="frame" x="0.0" y="90" width="375" height="218"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yA3-u9-EN2" userLabel="Avatar View">
-                                        <rect key="frame" x="137" y="0.0" width="100" height="105"/>
+                                        <rect key="frame" x="137.5" y="0.0" width="100" height="105"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar-example-icon" translatesAutoresizingMaskIntoConstraints="NO" id="RsN-R0-DG9">
                                                 <rect key="frame" x="3" y="3" width="94" height="99"/>
@@ -1129,7 +1137,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rhm-TB-IdF" userLabel="Badge View">
-                                        <rect key="frame" x="237" y="0.0" width="138" height="105"/>
+                                        <rect key="frame" x="237.5" y="0.0" width="137.5" height="105"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="ouB-Ut-sD5">
                                                 <rect key="frame" x="34" y="32.5" width="70" height="40"/>
@@ -1139,7 +1147,7 @@
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nova 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gZk-IJ-Qp1">
-                                                <rect key="frame" x="8" y="8" width="122" height="21"/>
+                                                <rect key="frame" x="8" y="8" width="121.5" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="ong-q0-2rL"/>
                                                 </constraints>
@@ -1303,8 +1311,8 @@
                                     <constraint firstItem="CPT-AM-hol" firstAttribute="top" secondItem="aP5-hS-53L" secondAttribute="bottom" id="ZXU-d1-BQo"/>
                                     <constraint firstItem="aP5-hS-53L" firstAttribute="leading" secondItem="Xbw-HZ-dqL" secondAttribute="leading" id="d4a-Vq-ndL"/>
                                     <constraint firstAttribute="trailing" secondItem="Rhm-TB-IdF" secondAttribute="trailing" id="dU1-cB-MgE"/>
-                                    <constraint firstItem="yA3-u9-EN2" firstAttribute="leading" secondItem="Xbw-HZ-dqL" secondAttribute="leading" constant="137" id="eXv-Ow-Deb"/>
                                     <constraint firstItem="aP5-hS-53L" firstAttribute="top" secondItem="yA3-u9-EN2" secondAttribute="bottom" constant="8" id="gTI-Pg-FMo"/>
+                                    <constraint firstItem="yA3-u9-EN2" firstAttribute="centerX" secondItem="Xbw-HZ-dqL" secondAttribute="centerX" id="go9-J0-16W"/>
                                     <constraint firstAttribute="height" constant="218" id="oUE-23-yrw"/>
                                     <constraint firstAttribute="bottom" secondItem="CPT-AM-hol" secondAttribute="bottom" id="p1S-dK-D8h"/>
                                     <constraint firstAttribute="trailing" secondItem="aP5-hS-53L" secondAttribute="trailing" id="p5n-uP-6GV"/>

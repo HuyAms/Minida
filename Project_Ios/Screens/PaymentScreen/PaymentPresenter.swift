@@ -9,7 +9,7 @@
 import Foundation
 
 protocol PaymentPresenterProtocol {
-    func buyPoint(amount: Int, source: String, completion: @escaping (AppError?) -> Void)
+    func buyPoint(amount: Int, source: String, completion: @escaping (User?, AppError?) -> Void)
 }
 
 class PaymentPresenter: PaymentPresenterProtocol {
@@ -22,17 +22,16 @@ class PaymentPresenter: PaymentPresenterProtocol {
         self.view = view
     }
     
-    func buyPoint(amount: Int, source: String, completion: @escaping (AppError?) -> Void) {
+    func buyPoint(amount: Int, source: String, completion: @escaping (User?, AppError?) -> Void) {
         guard let token = KeyChainUtil.share.getToken() else {return}
         view?.showLoading()
         paymentService.buyPoint(token: token, source: source, amount: amount) { [weak self] (serverResponse) in
             self?.view?.hideLoading()
             switch serverResponse {
             case .success(let user):
-                print(user)
-                completion(nil)
+                completion(user, nil)
             case .error(let error):
-                completion(error)
+                completion(nil, error)
             }
         }
     }

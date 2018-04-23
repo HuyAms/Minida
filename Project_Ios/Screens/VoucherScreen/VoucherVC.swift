@@ -112,7 +112,7 @@ class VoucherVC: UIViewController, VoucherVCProtocol {
     }
     
     func onBuyVoucherSuccess() {
-        
+        showSuccess(message: "Buy voucher successfully")
     }
     
     func onBuyVoucherError(error: AppError) {

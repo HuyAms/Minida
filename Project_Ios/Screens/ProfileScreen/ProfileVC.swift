@@ -57,13 +57,17 @@ class ProfileVC: UIViewController, ProfileViewProtocol, UICollectionViewDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter = ProfilePresenter(view: self)
-        
-        presenter?.loadUserInfo()
-        presenter?.loadMyItems()
+       
         userItemCollectionView.delegate = self
         userItemCollectionView.dataSource = self
         
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        presenter?.loadUserInfo()
+        presenter?.loadMyItems()
     }
 
     @IBAction func logOutBtnWasPressed(_ sender: Any) {
@@ -121,7 +125,7 @@ class ProfileVC: UIViewController, ProfileViewProtocol, UICollectionViewDelegate
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "userItemCell", for: indexPath) as? ProfileCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AppTableCell.profileCell.identifier, for: indexPath) as? ProfileCell else {
             return UICollectionViewCell()
         }
         

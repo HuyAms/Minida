@@ -1891,6 +1891,7 @@
                                             <outlet property="dateLbl" destination="LwT-YP-Yhe" id="a0k-Qa-hrS"/>
                                             <outlet property="descriptionLbl" destination="agX-nn-bvK" id="7pZ-Ho-nY7"/>
                                             <outlet property="discountLbl" destination="wxG-tI-RVI" id="8qt-EC-alY"/>
+                                            <outlet property="exchangeBtn" destination="wFu-8U-iWb" id="3Qc-xj-d1j"/>
                                             <outlet property="logoImg" destination="xuQ-UA-sib" id="o2B-7b-FzS"/>
                                             <outlet property="nameLbl" destination="NUu-t3-SNm" id="I0p-3X-osK"/>
                                             <outlet property="priceLbl" destination="0OV-MO-ib7" id="VM5-Pa-vzi"/>

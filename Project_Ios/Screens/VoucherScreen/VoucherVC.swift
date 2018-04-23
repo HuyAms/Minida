@@ -3,7 +3,7 @@
 //  Project_Ios
 //
 //  Created by Huy Trinh on 22/04/2018.
-//  Copyright © 2018 Huy trinh. All rights reserved.
+//  Copyright © 2018 Huy Trinh. All rights reserved.
 //
 
 import UIKit
@@ -146,7 +146,7 @@ extension VoucherVC: UITableViewDelegate, UITableViewDataSource {
                 return UITableViewCell()
         }
         let voucher = vouchers[indexPath.row]
-        cell.config(voucher: voucher)
+        cell.config(voucher: voucher, voucherLoadingState: voucherLoadingState)
         
         cell.onButtonTapped = { [weak self] () in
             let alertViewController = UIAlertController(title: "Payment", message: "This voucher costs you \(voucher.price) points", preferredStyle: .actionSheet)

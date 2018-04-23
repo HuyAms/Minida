@@ -13,8 +13,17 @@ class VoucherCell: UITableViewCell {
     @IBOutlet weak var priceLbl: UILabel!
     @IBOutlet weak var dateLbl: UILabel!
     @IBOutlet weak var descriptionLbl: UILabel!
+    @IBOutlet weak var exchangeBtn: UIButton!
     
-    func config(voucher: Voucher) {
+    func config(voucher: Voucher, voucherLoadingState: VoucherLoadingState) {
+        
+        switch voucherLoadingState {
+        case .loadVouchers:
+            exchangeBtn.isHidden = false
+        default:
+            exchangeBtn.isHidden = true
+        }
+        
         discountLbl.text = voucher.discount
         nameLbl.text = voucher.name
         priceLbl.text = "\(String(voucher.price)) points"

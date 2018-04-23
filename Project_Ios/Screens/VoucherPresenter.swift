@@ -2,8 +2,8 @@
 //  VoucherPresenter.swift
 //  Project_Ios
 //
-//  Created by iosdev on 22.4.2018.
-//  Copyright © 2018 Dat Truong. All rights reserved.
+//  Created by Huy Trinh on 22.4.2018.
+//  Copyright © 2018 Huy Trinh. All rights reserved.
 //
 
 import Foundation

@@ -36,7 +36,10 @@ class VoucherService: VoucherServiceProtocol {
                             guard let vouchers = serverResponse.data else {debugPrint("Error loading vouchers"); return}
                             completion(ServerResponse.success(vouchers))
                         default:
-                            debugPrint("Error loading vouchers"); return
+                            guard let code = serverResponse.code else {print("Error: server code"); return}
+                            let appError = AppError(code: code, status: status)
+                            completion(ServerResponse.error(error: appError))
+                            debugPrint("Error loading vouchers");
                         }
                     } catch(let error) {
                         debugPrint(error)

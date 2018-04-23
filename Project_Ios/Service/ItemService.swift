@@ -38,7 +38,9 @@ class ItemService: ItemServiceProtocol {
                             guard let homeItems = serverResponse.data else {debugPrint("Error loading items"); return}
                             completion(ServerResponse.success(homeItems))
                         default:
-                            debugPrint("Error loading homeItems"); return
+                            guard let code = serverResponse.code else {print("Error: server code"); return}
+                            let appError = AppError(code: code, status: status)
+                            completion(ServerResponse.error(error: appError))
                         }
                     } catch(let error) {
                         debugPrint(error)
@@ -79,7 +81,10 @@ class ItemService: ItemServiceProtocol {
                             })
                             completion(ServerResponse.success(homeItems))
                         default:
-                            debugPrint("Error loading homeItems"); return
+                            guard let code = serverResponse.code else {print("Error: server code"); return}
+                            let appError = AppError(code: code, status: status)
+                            completion(ServerResponse.error(error: appError))
+                            debugPrint("Error loading homeItems");
                         }
                     } catch(let error) {
                         debugPrint(error)
@@ -110,7 +115,10 @@ class ItemService: ItemServiceProtocol {
                             guard let itemsByUserId = serverResponse.data else {debugPrint("Error loading items by user id"); return}
                             completion(ServerResponse.success(itemsByUserId))
                         default:
-                            debugPrint("Error loading items by id"); return
+                            guard let code = serverResponse.code else {print("Error: server code"); return}
+                            let appError = AppError(code: code, status: status)
+                            completion(ServerResponse.error(error: appError))
+                            debugPrint("Error loading items by id"); 
                         }
                     } catch(let error) {
                         debugPrint(error)

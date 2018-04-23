@@ -39,7 +39,6 @@ class AuthService: AuthServiceProtocol {
                             guard let token = serverResponse.data?.token else {fatalError("Register token error")}
                             completion(ServerResponse.success(token))
                         default:
-                            //this is error so we should have the code and status here
                             guard let code = serverResponse.code else {print("Error: server code"); return}
                             let appError = AppError(code: code, status: status)
                             completion(ServerResponse.error(error: appError))

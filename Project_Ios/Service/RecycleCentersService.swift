@@ -34,7 +34,10 @@ class RecycleCenterService: RecycleCenterServiceProtocol {
                             guard let centerList = serverResponse.data else {debugPrint("Error loading recycle centers"); return}
                             completion(ServerResponse.success(centerList))
                         default:
-                            debugPrint("Error loading recycle centers"); return
+                            debugPrint("Error loading recycle centers")
+                            guard let code = serverResponse.code else {print("Error: server code"); return}
+                            let appError = AppError(code: code, status: status)
+                            completion(ServerResponse.error(error: appError))
                         }
                         
                         

@@ -70,7 +70,10 @@ class OrderService: OrderServiceProtocol {
                             guard let soldItems = serverResponse.data else {debugPrint("Error loading sold items"); return}
                             completion(ServerResponse.success(soldItems))
                         default:
-                            debugPrint("Error loading sold items"); return
+                            guard let code = serverResponse.code else {print("Error: server code"); return}
+                            let appError = AppError(code: code, status: status)
+                            completion(ServerResponse.error(error: appError))
+                            debugPrint("Error loading sold items");
                         }
                     } catch(let error) {
                         debugPrint(error)
@@ -108,7 +111,10 @@ class OrderService: OrderServiceProtocol {
                     
                             completion(ServerResponse.success(myVouchers))
                         default:
-                            debugPrint("Error loading my vouchers"); return
+                            guard let code = serverResponse.code else {print("Error: server code"); return}
+                            let appError = AppError(code: code, status: status)
+                            completion(ServerResponse.error(error: appError))
+                            debugPrint("Error loading my vouchers");
                         }
                     } catch(let error) {
                         debugPrint(error)
@@ -139,7 +145,10 @@ class OrderService: OrderServiceProtocol {
                             guard let voucherOrder = serverResponse.data else {debugPrint("Error buy vouchers"); return}
                             completion(ServerResponse.success(voucherOrder))
                         default:
-                            debugPrint("Error buy vouchers"); return
+                            guard let code = serverResponse.code else {print("Error: server code"); return}
+                            let appError = AppError(code: code, status: status)
+                            completion(ServerResponse.error(error: appError))
+                            debugPrint("Error buy vouchers");
                         }
                     } catch(let error) {
                         debugPrint(error)

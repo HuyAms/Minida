@@ -47,7 +47,10 @@ class PaymentService: NSObject, PaymentServiceProtocol, STPEphemeralKeyProvider 
                             guard let user = serverResponse.data else {debugPrint("Error buy point"); return}
                             completion(ServerResponse.success(user))
                         default:
-                            debugPrint("Error buy point"); return
+                            debugPrint("Error buy point");
+                            guard let code = serverResponse.code else {print("Error: server code"); return}
+                            let appError = AppError(code: code, status: status)
+                            completion(ServerResponse.error(error: appError))
                         }
                     } catch(let error) {
                         debugPrint(error)
@@ -72,8 +75,6 @@ class PaymentService: NSObject, PaymentServiceProtocol, STPEphemeralKeyProvider 
             .responseJSON { responseJSON in
                 switch responseJSON.result {
                 case .success(let json):
-                    print("CREATE CUSTOMER KEY SUCCESS")
-
                     completion(json as? [String: AnyObject], nil)
                 case .failure(let error):
                     print("CREATE CUSTOMER KEY ERROR: \(error.localizedDescription)")

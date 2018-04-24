@@ -18,7 +18,8 @@ class URLConst {
     static let ITEM_FILTER = "/api/items/filter/"
     static let ITEM_USERS = "/api/items/users/"
     
-    static let ORDER_PATH = "/api/orders/"
+    static let ORDER_PATH = "/api/orders"
+    static let ORDER_PATH_ITEMS = "/api/orders/items/"
     static let BUY_VOUCHER_PATH = "/api/orders/vouchers/"
     static let BOUGHT_PATH = "/me/buyer/"
     static let SOLD_PATH = "/me/seller/"

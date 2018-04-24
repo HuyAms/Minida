@@ -48,7 +48,10 @@ class ItemService: ItemServiceProtocol {
                             guard let homeItems = serverResponse.data else {debugPrint("Error loading items"); return}
                             completion(ServerResponse.success(homeItems))
                         default:
-                            debugPrint("Error loading homeItems"); return
+                            guard let code = serverResponse.code else {print("Error: server code"); return}
+                            let appError = AppError(code: code, status: status)
+                            completion(ServerResponse.error(error: appError))
+                            debugPrint("Error loading homeItems")
                         }
                     } catch(let error) {
                         debugPrint(error)
@@ -89,7 +92,10 @@ class ItemService: ItemServiceProtocol {
                             })
                             completion(ServerResponse.success(homeItems))
                         default:
-                            debugPrint("default case: Error loading homeItems"); return
+                            guard let code = serverResponse.code else {print("Error: server code"); return}
+                            let appError = AppError(code: code, status: status)
+                            completion(ServerResponse.error(error: appError))
+                            debugPrint("default case: Error loading homeItems")
                         }
                     } catch(let error) {
                         debugPrint(error)
@@ -118,7 +124,10 @@ class ItemService: ItemServiceProtocol {
                             guard let itemsByUserId = serverResponse.data else {debugPrint("Error loading items by user id"); return}
                             completion(ServerResponse.success(itemsByUserId))
                         default:
-                            debugPrint("default case: Error loading items by id"); return
+                            guard let code = serverResponse.code else {print("Error: server code"); return}
+                            let appError = AppError(code: code, status: status)
+                            completion(ServerResponse.error(error: appError))
+                            debugPrint("default case: Error loading items by id")
                         }
                     } catch(let error) {
                         debugPrint(error)
@@ -149,7 +158,10 @@ class ItemService: ItemServiceProtocol {
                             guard let homeItems = serverResponse.data else {debugPrint("Error loading my items"); return}
                             completion(ServerResponse.success(homeItems))
                         default:
-                            debugPrint("default case: Error loading my homeItems"); return
+                            guard let code = serverResponse.code else {print("Error: server code"); return}
+                            let appError = AppError(code: code, status: status)
+                            completion(ServerResponse.error(error: appError))
+                            debugPrint("default case: Error loading my homeItems")
                         }
                     } catch(let error) {
                         debugPrint(error)
@@ -178,7 +190,10 @@ class ItemService: ItemServiceProtocol {
                             guard let homeItem = serverResponse.data else {debugPrint("Error loading item"); return}
                             completion(ServerResponse.success(homeItem))
                         default:
-                            debugPrint("default case: Error loading homeItem"); return
+                            guard let code = serverResponse.code else {print("Error: server code"); return}
+                            let appError = AppError(code: code, status: status)
+                            completion(ServerResponse.error(error: appError))
+                            debugPrint("default case: Error loading homeItem")
                         }
                     } catch(let error) {
                         debugPrint(error)
@@ -211,7 +226,10 @@ class ItemService: ItemServiceProtocol {
                             guard let newItem = serverResponse.data else {debugPrint("Error creating new item"); return}
                             completion(ServerResponse.success(newItem))
                         default:
-                            debugPrint("default case: Error creating new item"); return
+                            guard let code = serverResponse.code else {print("Error: server code"); return}
+                            let appError = AppError(code: code, status: status)
+                            completion(ServerResponse.error(error: appError))
+                            debugPrint("default case: Error creating new item")
                         }
                     } catch(let error) {
                         debugPrint(error)
@@ -246,7 +264,10 @@ class ItemService: ItemServiceProtocol {
                             guard let editedItem = serverResponse.data else {debugPrint("error editing item"); return}
                             completion(ServerResponse.success(editedItem))
                         default:
-                            debugPrint("default case: error editing item"); return
+                            guard let code = serverResponse.code else {print("Error: server code"); return}
+                            let appError = AppError(code: code, status: status)
+                            completion(ServerResponse.error(error: appError))
+                            debugPrint("default case: error editing item")
                         }
                     } catch(let error) {
                         debugPrint(error)
@@ -277,7 +298,10 @@ class ItemService: ItemServiceProtocol {
                             guard let deletedItem = serverResponse.data else {debugPrint("Error deleting item"); return}
                             completion(ServerResponse.success(deletedItem))
                         default:
-                            debugPrint("default case: Error deleting item"); return
+                            guard let code = serverResponse.code else {print("Error: server code"); return}
+                            let appError = AppError(code: code, status: status)
+                            completion(ServerResponse.error(error: appError))
+                            debugPrint("default case: Error deleting item")
                         }
                     } catch(let error) {
                         debugPrint(error)

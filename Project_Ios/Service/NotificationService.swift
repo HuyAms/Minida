@@ -37,7 +37,10 @@ class NotificationService: NotificationServiceProtocol {
                             guard let myNotifications = serverResponse.data else {debugPrint("Error loading my notifications"); return}
                             completion(ServerResponse.success(myNotifications))
                         default:
-                            debugPrint("default case: Error loading my notifications"); return
+                            guard let code = serverResponse.code else {print("Error: server code"); return}
+                            let appError = AppError(code: code, status: status)
+                            completion(ServerResponse.error(error: appError))
+                            debugPrint("default case: Error loading my notifications")
                         }
                     } catch(let error) {
                         debugPrint(error)
@@ -68,7 +71,10 @@ class NotificationService: NotificationServiceProtocol {
                             guard let updatedNotification = serverResponse.data else {debugPrint("Error updating notification"); return}
                             completion(ServerResponse.success(updatedNotification))
                         default:
-                            debugPrint("default case: Error updating notification"); return
+                            guard let code = serverResponse.code else {print("Error: server code"); return}
+                            let appError = AppError(code: code, status: status)
+                            completion(ServerResponse.error(error: appError))
+                            debugPrint("default case: Error updating notification")
                         }
                     } catch(let error) {
                         debugPrint(error)

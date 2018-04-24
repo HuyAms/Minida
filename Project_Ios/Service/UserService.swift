@@ -39,7 +39,10 @@ class UserService: UserServiceProtocol {
                             guard let user = serverResponse.data else {debugPrint("Error loading user by id"); return}
                             completion(ServerResponse.success(user))
                         default:
-                            debugPrint("Error getting user by id"); return
+                            guard let code = serverResponse.code else {print("Error: server code"); return}
+                            let appError = AppError(code: code, status: status)
+                            completion(ServerResponse.error(error: appError))
+                            debugPrint("Error getting user by id")
                         }
                     } catch(let error) {
                         debugPrint(error)
@@ -70,7 +73,10 @@ class UserService: UserServiceProtocol {
                             guard let user = serverResponse.data else {debugPrint("Error loading user me"); return}
                             completion(ServerResponse.success(user))
                         default:
-                            debugPrint("Error getting user me"); return
+                            guard let code = serverResponse.code else {print("Error: server code"); return}
+                            let appError = AppError(code: code, status: status)
+                            completion(ServerResponse.error(error: appError))
+                            debugPrint("Error getting user me")
                         }
                     } catch(let error) {
                         debugPrint(error)
@@ -102,7 +108,10 @@ class UserService: UserServiceProtocol {
                             guard let user = serverResponse.data else {debugPrint("Error loading user me"); return}
                             completion(ServerResponse.success(user))
                         default:
-                            debugPrint("Error getting user me"); return
+                            guard let code = serverResponse.code else {print("Error: server code"); return}
+                            let appError = AppError(code: code, status: status)
+                            completion(ServerResponse.error(error: appError))
+                            debugPrint("Error getting user me")
                         }
                     } catch(let error) {
                         debugPrint(error)

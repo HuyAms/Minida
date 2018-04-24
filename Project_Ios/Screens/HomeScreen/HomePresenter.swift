@@ -16,12 +16,15 @@ protocol HomePresenterProtocol {
     
     func filterContentForSearchText(_ searchText: String, items: [ItemHome])
     
+    func performBuyItem(itemId: String)
+    
 }
 
 class HomePresenter: HomePresenterProtocol {
-
+    
     weak var view: HomeVCProtocol?
     var itemService: ItemServiceProtocol = ItemService()
+    var orderService: OrderServiceProtocol = OrderService()
     
     init(view: HomeVCProtocol) {
         self.view = view
@@ -71,7 +74,22 @@ class HomePresenter: HomePresenterProtocol {
         } else {
             view?.onShowFilteringNoResult()
         }
-       
+        
     }
- 
+    
+    func performBuyItem(itemId: String) {
+        view?.showLoading()
+        guard let token = KeyChainUtil.share.getToken() else {print("Error get token"); return}
+        orderService.createOrder(token: token, itemId: itemId, completion: { [weak self] response in
+            switch response {
+            case .success(let order):
+                self?.view?.onBuyItemSuccess(order: order)
+                self?.view?.hideLoading()
+            case .error(let error):
+                self?.view?.onShowError(error: error)
+                self?.view?.hideLoading()
+            }
+        })
+    }
 }
+

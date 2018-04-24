@@ -22,10 +22,14 @@ protocol HomeVCProtocol: class {
     func onShowFilteredItems(homeItems: [ItemHome])
     
     func onShowFilteringNoResult()
+    
+    func onBuyItemSuccess(order: Order)
 
 }
 
 class HomeVC: UIViewController, HomeVCProtocol {
+ 
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var notFoundLbl: UILabel!
@@ -91,6 +95,12 @@ class HomeVC: UIViewController, HomeVCProtocol {
         categoryVC.delegate = self
     }
     
+    private func goToReceiptScreen(order: Order) {
+        guard let receiptVC = storyboard?.instantiateViewController(withIdentifier: AppStoryBoard.receiptVC.identifier) as? ReceiptVC else {return}
+        receiptVC.order = order
+        present(receiptVC, animated: true, completion: nil)
+    }
+    
     //MARK: Actions
     @IBAction func categoryBtnWasPressed(_ sender: Any) {
         goToCategoryScreen()
@@ -145,6 +155,10 @@ class HomeVC: UIViewController, HomeVCProtocol {
     func onShowFilteringNoResult() {
         tableView.isHidden = true
         notFoundLbl.isHidden = false
+    }
+    
+    func onBuyItemSuccess(order: Order) {
+        goToReceiptScreen(order: order)
     }
     
     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
@@ -213,8 +227,23 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
         } else {
             homeItem = items[indexPath.row]
         }
-        
+        let itemId = homeItem._id
+
         cell.config(itemHome: homeItem)
+        
+        cell.onBuyButtonTapped = { [weak self]() in
+            print("buy button was tapped at \(indexPath.row)")
+            
+            let alertViewController = UIAlertController(title: "Buy", message: "Do you want to buy this item?", preferredStyle: .actionSheet)
+            let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
+                self?.presenter?.performBuyItem(itemId: itemId)
+            }
+            let cancleAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            alertViewController.addAction(okAction)
+            alertViewController.addAction(cancleAction)
+            self?.present(alertViewController, animated: true)
+            
+        }
         
         let durations: [TimeInterval] = [0.26, 0.2, 0.2]
         cell.durationsForExpandedState = durations

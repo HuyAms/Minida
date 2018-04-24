@@ -35,6 +35,17 @@ class HomeVC: UIViewController, HomeVCProtocol {
     var cellHeights: [CGFloat] = []
     var items = [ItemHome]()
     
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action:
+            #selector(HomeVC.handleRefresh(_:)),
+                                 for: UIControlEvents.valueChanged)
+        refreshControl.tintColor = UIColor.white
+        refreshControl.backgroundColor = UIColor.appLightColor
+        
+        return refreshControl
+    }()
+    
     var filteredItems = [ItemHome]()
     var searchActive : Bool = false
     
@@ -46,7 +57,10 @@ class HomeVC: UIViewController, HomeVCProtocol {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.addSubview(self.refreshControl)
+
         searchBar.delegate = self
+        
         presenter = HomePresenter(view: self)
 
         setupSearchBar()
@@ -54,18 +68,7 @@ class HomeVC: UIViewController, HomeVCProtocol {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if let category = chosenCategory {
-            switch category {
-            case .all:
-                presenter?.performGetAvailableItems()
-            default:
-                presenter?.performgGetItemsByCategory(category: category)
-            }
-        } else {
-            print("GET all")
-            presenter?.performGetAvailableItems()
-
-        }
+        loadItems()
     }
     
     private func setupSearchBar() {
@@ -97,11 +100,17 @@ class HomeVC: UIViewController, HomeVCProtocol {
     
     //MARK: Protocols
     func showLoading() {
-        showLoadingIndicator()
+        if !refreshControl.isRefreshing {
+            showLoadingIndicator()
+        }
     }
     
     func hideLoading() {
-        hideLoadingIndicator()
+        if refreshControl.isRefreshing {
+            refreshControl.endRefreshing()
+        } else {
+            hideLoadingIndicator()
+        }
     }
     
     func onShowError(error: AppError) {
@@ -135,6 +144,24 @@ class HomeVC: UIViewController, HomeVCProtocol {
         notFoundLbl.isHidden = false
     }
     
+    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+        loadItems()
+    }
+    
+    func loadItems() {
+        if let category = chosenCategory {
+            switch category {
+            case .all:
+                presenter?.performGetAvailableItems()
+            default:
+                presenter?.performgGetItemsByCategory(category: category)
+            }
+        } else {
+            print("GET all")
+            presenter?.performGetAvailableItems()
+        }
+    }
+    
 }
 
 // MARK: - TableView
@@ -153,7 +180,7 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "FoldingCell", for: indexPath) as? HomeItemCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: AppTableCell.foldingCell.identifier, for: indexPath) as? HomeItemCell else {
             return UITableViewCell()
         }
         
@@ -179,8 +206,6 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        dismissKeyboard()
-        
         let cell = tableView.cellForRow(at: indexPath) as! FoldingCell
         
         if cell.isAnimating() {
@@ -203,6 +228,7 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
             tableView.beginUpdates()
             tableView.endUpdates()
         }, completion: nil)
+        
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -242,12 +268,8 @@ extension HomeVC: UISearchBarDelegate {
     
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if isFiltering() {
-            presenter?.filterContentForSearchText(searchText, items: items)
-        } else {
-            notFoundLbl.isHidden = true
-            tableView.isHidden = false
-        }
+        presenter?.filterContentForSearchText(searchText, items: items)
+
     }
 }
 

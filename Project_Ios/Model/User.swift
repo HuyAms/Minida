@@ -13,7 +13,7 @@ struct User: Codable {
     var username: String
     var point: Int?
     var email: String?
-    var phoneNumber: String?
+    var phoneNumber: Int?
     var avatarPath: String?
 }
 

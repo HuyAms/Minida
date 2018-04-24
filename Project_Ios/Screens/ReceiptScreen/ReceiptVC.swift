@@ -24,8 +24,10 @@ protocol ReceiptVCProtocol: class {
 class ReceiptVC: UIViewController, ReceiptVCProtocol {
     
     var order: Order?
+    var email: String?
+    var phoneNumber: Int?
     
-    @IBOutlet weak var itemImgView: UIImageView!
+    @IBOutlet weak var itemImageView: UIImageView!
     @IBOutlet weak var itemNameLbl: UILabel!
     @IBOutlet weak var itemPriceLbl: UILabel!
     @IBOutlet weak var sellerNameLbl: UILabel!
@@ -55,7 +57,7 @@ class ReceiptVC: UIViewController, ReceiptVCProtocol {
     }
     
     func onFetchItemSuccess(item: ItemHome) {
-        itemImgView.load(imgUrl: item.imgPath)
+        itemImageView.load(imgUrl: item.imgPath)
         itemNameLbl.text = item.itemName
         
         let price = item.price
@@ -71,7 +73,8 @@ class ReceiptVC: UIViewController, ReceiptVCProtocol {
     
     func onFetchSellerSuccess(seller: User) {
         sellerNameLbl.text = seller.username
-        //sellerBadgeLbl.text = ""
+        email = seller.email
+        phoneNumber = seller.phoneNumber
     }
     
     func showLoading() {
@@ -90,5 +93,23 @@ class ReceiptVC: UIViewController, ReceiptVCProtocol {
     
     @IBAction func contactBtnWasPressed(_ sender: UIButton) {
         
+        let alertViewController = UIAlertController(title: "Contact", message: "How do you want to contact?", preferredStyle: .actionSheet)
+        let emailAction = UIAlertAction(title: "Email", style: .default) { (action) in
+            guard let email = self.email else {return}
+            if let url = URL(string: "mailto:\(email)") {
+                UIApplication.shared.open(url)
+            }
+        }
+        let callAction = UIAlertAction(title: "Phone Number", style: .default) { (action) in
+            guard let phoneNumber = self.phoneNumber else {return}
+            guard let phone = URL(string: "tel://" + String(phoneNumber)) else {return}
+            UIApplication.shared.open(phone, options: [:], completionHandler: nil)
+            print("phone number chosen")
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alertViewController.addAction(callAction)
+        alertViewController.addAction(emailAction)
+        alertViewController.addAction(cancelAction)
+        present(alertViewController, animated: true)
     }
 }

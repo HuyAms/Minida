@@ -2723,7 +2723,7 @@
                         <viewLayoutGuide key="safeArea" id="sQF-fk-sDB"/>
                     </view>
                     <connections>
-                        <outlet property="itemImgView" destination="RGH-QR-Qul" id="gEt-R6-kzg"/>
+                        <outlet property="itemImageView" destination="RGH-QR-Qul" id="hZe-Mg-ZWO"/>
                         <outlet property="itemNameLbl" destination="3Kz-uh-Y7y" id="OZ2-8o-lXd"/>
                         <outlet property="itemPriceLbl" destination="JlD-f8-bMC" id="4Kg-Xf-hBo"/>
                         <outlet property="receiptTimeLbl" destination="xCg-mY-dMB" id="q2m-u8-l5k"/>

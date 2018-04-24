@@ -64,6 +64,7 @@ class HomeVC: UIViewController, HomeVCProtocol {
         presenter = HomePresenter(view: self)
 
         setupSearchBar()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -153,15 +154,34 @@ class HomeVC: UIViewController, HomeVCProtocol {
             switch category {
             case .all:
                 presenter?.performGetAvailableItems()
+                categoryBtn.setImage(UIImage.getAllIconWhite(), for: .normal)
             default:
                 presenter?.performgGetItemsByCategory(category: category)
+                switch category {
+                case .accessories:
+                    categoryBtn.setImage(UIImage.getAccessoriesIconWhite(), for: .normal)
+                case .clothing:
+                    categoryBtn.setImage(UIImage.getClothingIconWhite(), for: .normal)
+                case .devices:
+                    categoryBtn.setImage(UIImage.getDevicesIconWhite(), for: .normal)
+                case .free:
+                    categoryBtn.setImage(UIImage.getFreeIconWhite(), for: .normal)
+                case .homewares:
+                    categoryBtn.setImage(UIImage.getHomewaresIconWhite(), for: .normal)
+                case .vehicles:
+                    categoryBtn.setImage(UIImage.getVehiclesIconWhite(), for: .normal)
+                case .others:
+                    categoryBtn.setImage(UIImage.getOthersIconWhite(), for: .normal)
+                default:
+                    print("Error with getting the right category. You should not be here!")
+                }
             }
         } else {
             print("GET all")
             presenter?.performGetAvailableItems()
+            
         }
     }
-    
 }
 
 // MARK: - TableView

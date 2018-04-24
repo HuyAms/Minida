@@ -11,7 +11,7 @@ import Foundation
 struct Order: Codable {
     var _id: String
     var item: String
-    var seller: User
-    var buyer: User
+    var seller: String
+    var buyer: String
     var time: String
 }

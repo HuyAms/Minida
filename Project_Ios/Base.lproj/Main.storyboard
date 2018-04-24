@@ -539,7 +539,7 @@
                                                                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     </state>
                                                                     <connections>
-                                                                        <segue destination="dOO-jT-cIB" kind="show" id="u92-ZE-CtQ"/>
+                                                                        <action selector="buyButtonWasPressed:" destination="OHJ-Kc-aTK" eventType="touchUpInside" id="Wt4-So-Oht"/>
                                                                     </connections>
                                                                 </button>
                                                             </subviews>
@@ -2477,10 +2477,10 @@
             </objects>
             <point key="canvasLocation" x="-795.6521739130435" y="-707.60869565217399"/>
         </scene>
-        <!--View Controller-->
+        <!--ReceiptVC-->
         <scene sceneID="Xyv-vV-adV">
             <objects>
-                <viewController id="dOO-jT-cIB" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="receiptScreen" id="dOO-jT-cIB" customClass="ReceiptVC" customModule="Project_Ios" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tz9-zE-Q9y">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2503,6 +2503,7 @@
                                         <state key="normal" title="Button" image="cancel-icon"/>
                                         <connections>
                                             <action selector="cancelBtnWasPressed:" destination="cw1-VV-tKn" eventType="touchUpInside" id="ugd-wH-fHp"/>
+                                            <action selector="closeBtnWasPressed:" destination="dOO-jT-cIB" eventType="touchUpInside" id="JMi-a6-Ben"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -2690,6 +2691,9 @@
                                         <state key="normal" title="Contact">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="contactBtnWasPressed:" destination="dOO-jT-cIB" eventType="touchUpInside" id="ubP-Ba-WF1"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2718,6 +2722,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="sQF-fk-sDB"/>
                     </view>
+                    <connections>
+                        <outlet property="itemImgView" destination="RGH-QR-Qul" id="gEt-R6-kzg"/>
+                        <outlet property="itemNameLbl" destination="3Kz-uh-Y7y" id="OZ2-8o-lXd"/>
+                        <outlet property="itemPriceLbl" destination="JlD-f8-bMC" id="4Kg-Xf-hBo"/>
+                        <outlet property="receiptTimeLbl" destination="xCg-mY-dMB" id="q2m-u8-l5k"/>
+                        <outlet property="sellerBadgeLbl" destination="9hE-CD-OLD" id="Jht-qr-115"/>
+                        <outlet property="sellerNameLbl" destination="PzM-X9-LR6" id="8o4-sv-mY2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V61-ZF-dbv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

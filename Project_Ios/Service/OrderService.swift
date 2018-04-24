@@ -44,7 +44,10 @@ class OrderService: OrderServiceProtocol {
                             guard let boughtItems = serverResponse.data else {debugPrint("Error loading bought items"); return}
                             completion(ServerResponse.success(boughtItems))
                         default:
-                            debugPrint("Error loading bought Items"); return
+                            guard let code = serverResponse.code else {print("Error: server code"); return}
+                            let appError = AppError(code: code, status: status)
+                            completion(ServerResponse.error(error: appError))
+                            debugPrint("Error loading bought Items")
                         }
                     } catch(let error) {
                         debugPrint(error)
@@ -77,7 +80,7 @@ class OrderService: OrderServiceProtocol {
                             guard let code = serverResponse.code else {print("Error: server code"); return}
                             let appError = AppError(code: code, status: status)
                             completion(ServerResponse.error(error: appError))
-                            debugPrint("Error loading sold items");
+                            debugPrint("Error loading sold items")
                         }
                     } catch(let error) {
                         debugPrint(error)
@@ -118,7 +121,7 @@ class OrderService: OrderServiceProtocol {
                             guard let code = serverResponse.code else {print("Error: server code"); return}
                             let appError = AppError(code: code, status: status)
                             completion(ServerResponse.error(error: appError))
-                            debugPrint("Error loading my vouchers");
+                            debugPrint("Error loading my vouchers")
                         }
                     } catch(let error) {
                         debugPrint(error)
@@ -152,7 +155,7 @@ class OrderService: OrderServiceProtocol {
                             guard let code = serverResponse.code else {print("Error: server code"); return}
                             let appError = AppError(code: code, status: status)
                             completion(ServerResponse.error(error: appError))
-                            debugPrint("Error buy vouchers");
+                            debugPrint("Error buy vouchers")
                         }
                     } catch(let error) {
                         debugPrint(error)
@@ -180,7 +183,10 @@ class OrderService: OrderServiceProtocol {
                             guard let order = serverResponse.data else {debugPrint("Error loading order"); return}
                             completion(ServerResponse.success(order))
                         default:
-                            debugPrint("default case: Error loading order"); return
+                            guard let code = serverResponse.code else {print("Error: server code"); return}
+                            let appError = AppError(code: code, status: status)
+                            completion(ServerResponse.error(error: appError))
+                            debugPrint("default case: Error loading order")
                         }
                     } catch(let error) {
                         debugPrint(error)
@@ -198,11 +204,12 @@ class OrderService: OrderServiceProtocol {
         let headers: HTTPHeaders = ["authorization": token]
         let parameters: Parameters = ["itemId": itemId]
         Alamofire.request(
-            URL(string: URLConst.BASE_URL + URLConst.ORDER_PATH)!,
+            URL(string: URLConst.BASE_URL + URLConst.ORDER_PATH_ITEMS + itemId)!,
             method: .post,
             parameters: parameters,
             headers: headers)
             .responseJSON { response in
+                print(response)
                 switch response.result {
                 case .success:
                     do {
@@ -213,7 +220,10 @@ class OrderService: OrderServiceProtocol {
                             guard let newOrder = serverResponse.data else {debugPrint("Error creating new order"); return}
                             completion(ServerResponse.success(newOrder))
                         default:
-                            debugPrint("default case: Error creating new order"); return
+                            guard let code = serverResponse.code else {print("Error: server code"); return}
+                            let appError = AppError(code: code, status: status)
+                            completion(ServerResponse.error(error: appError))
+                            debugPrint("default case: Error creating new order")
                         }
                     } catch(let error) {
                         debugPrint(error)

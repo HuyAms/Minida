@@ -18,6 +18,7 @@ enum AppStoryBoard: String{
     case categoryVC = "categoryScreen"
     case paymentVC = "paymentScreen"
     case voucherVC = "voucherScreen"
+    case receiptVC = "receiptScreen"
     
     var identifier: String {
         return self.rawValue

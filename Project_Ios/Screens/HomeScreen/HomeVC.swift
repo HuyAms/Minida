@@ -22,13 +22,19 @@ protocol HomeVCProtocol: class {
     func onShowFilteredItems(homeItems: [ItemHome])
     
     func onShowFilteringNoResult()
+    
+    func onBuyItemSuccess(order: Order)
 
 }
 
 class HomeVC: UIViewController, HomeVCProtocol {
+ 
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var notFoundLbl: UILabel!
+    @IBOutlet weak var chooseCategoryBtn: UIButton!
+    
     
     let kCloseCellHeight: CGFloat = 145
     let kOpenCellHeight: CGFloat = 390
@@ -64,6 +70,7 @@ class HomeVC: UIViewController, HomeVCProtocol {
         presenter = HomePresenter(view: self)
 
         setupSearchBar()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -86,6 +93,12 @@ class HomeVC: UIViewController, HomeVCProtocol {
         guard let categoryVC = storyboard?.instantiateViewController(withIdentifier: AppStoryBoard.categoryVC.identifier) as? CategoryVC else {return}
         present(categoryVC, animated: true, completion: nil)
         categoryVC.delegate = self
+    }
+    
+    private func goToReceiptScreen(order: Order) {
+        guard let receiptVC = storyboard?.instantiateViewController(withIdentifier: AppStoryBoard.receiptVC.identifier) as? ReceiptVC else {return}
+        receiptVC.order = order
+        present(receiptVC, animated: true, completion: nil)
     }
     
     //MARK: Actions
@@ -144,6 +157,10 @@ class HomeVC: UIViewController, HomeVCProtocol {
         notFoundLbl.isHidden = false
     }
     
+    func onBuyItemSuccess(order: Order) {
+        goToReceiptScreen(order: order)
+    }
+    
     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
         loadItems()
     }
@@ -153,15 +170,34 @@ class HomeVC: UIViewController, HomeVCProtocol {
             switch category {
             case .all:
                 presenter?.performGetAvailableItems()
+                chooseCategoryBtn.setImage(UIImage.getAllIconWhite(), for: .normal)
             default:
                 presenter?.performgGetItemsByCategory(category: category)
+                switch category {
+                case .accessories:
+                    chooseCategoryBtn.setImage(UIImage.getAccessoriesIconWhite(), for: .normal)
+                case .clothing:
+                    chooseCategoryBtn.setImage(UIImage.getClothingIconWhite(), for: .normal)
+                case .devices:
+                    chooseCategoryBtn.setImage(UIImage.getDevicesIconWhite(), for: .normal)
+                case .free:
+                    chooseCategoryBtn.setImage(UIImage.getFreeIconWhite(), for: .normal)
+                case .homewares:
+                    chooseCategoryBtn.setImage(UIImage.getHomewaresIconWhite(), for: .normal)
+                case .vehicles:
+                    chooseCategoryBtn.setImage(UIImage.getVehiclesIconWhite(), for: .normal)
+                case .others:
+                    chooseCategoryBtn.setImage(UIImage.getOthersIconWhite(), for: .normal)
+                default:
+                    print("Error with getting the right category. You should not be here!")
+                }
             }
         } else {
             print("GET all")
             presenter?.performGetAvailableItems()
+            
         }
     }
-    
 }
 
 // MARK: - TableView
@@ -191,8 +227,23 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
         } else {
             homeItem = items[indexPath.row]
         }
-        
+        let itemId = homeItem._id
+
         cell.config(itemHome: homeItem)
+        
+        cell.onBuyButtonTapped = { [weak self]() in
+            print("buy button was tapped at \(indexPath.row)")
+            
+            let alertViewController = UIAlertController(title: "Buy", message: "Do you want to buy this item?", preferredStyle: .actionSheet)
+            let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
+                self?.presenter?.performBuyItem(itemId: itemId)
+            }
+            let cancleAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            alertViewController.addAction(okAction)
+            alertViewController.addAction(cancleAction)
+            self?.present(alertViewController, animated: true)
+            
+        }
         
         let durations: [TimeInterval] = [0.26, 0.2, 0.2]
         cell.durationsForExpandedState = durations

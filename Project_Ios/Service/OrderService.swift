@@ -18,6 +18,10 @@ protocol OrderServiceProtocol {
     func getMyVouchers(token: String, completion: @escaping (ServerResponse<[Voucher]>) -> Void)
     
     func buyVoucher(token: String, voucherId: String, completion: @escaping (ServerResponse<VoucherOrder>) -> Void)
+    
+    func getOrderById(itemId: String, completion: @escaping (ServerResponse<Order>) -> Void)
+    
+    func createOrder(token: String, itemId: String, completion: @escaping (ServerResponse<Order>) -> Void)
 }
 
 class OrderService: OrderServiceProtocol {
@@ -40,7 +44,10 @@ class OrderService: OrderServiceProtocol {
                             guard let boughtItems = serverResponse.data else {debugPrint("Error loading bought items"); return}
                             completion(ServerResponse.success(boughtItems))
                         default:
-                            debugPrint("Error loading bought Items"); return
+                            guard let code = serverResponse.code else {print("Error: server code"); return}
+                            let appError = AppError(code: code, status: status)
+                            completion(ServerResponse.error(error: appError))
+                            debugPrint("Error loading bought Items")
                         }
                     } catch(let error) {
                         debugPrint(error)
@@ -73,7 +80,7 @@ class OrderService: OrderServiceProtocol {
                             guard let code = serverResponse.code else {print("Error: server code"); return}
                             let appError = AppError(code: code, status: status)
                             completion(ServerResponse.error(error: appError))
-                            debugPrint("Error loading sold items");
+                            debugPrint("Error loading sold items")
                         }
                     } catch(let error) {
                         debugPrint(error)
@@ -114,7 +121,7 @@ class OrderService: OrderServiceProtocol {
                             guard let code = serverResponse.code else {print("Error: server code"); return}
                             let appError = AppError(code: code, status: status)
                             completion(ServerResponse.error(error: appError))
-                            debugPrint("Error loading my vouchers");
+                            debugPrint("Error loading my vouchers")
                         }
                     } catch(let error) {
                         debugPrint(error)
@@ -130,7 +137,7 @@ class OrderService: OrderServiceProtocol {
     func buyVoucher(token: String, voucherId: String, completion: @escaping (ServerResponse<VoucherOrder>) -> Void) {
         let headers: HTTPHeaders = ["authorization": token]
         Alamofire.request(
-            URL(string: URLConst.BASE_URL + URLConst.BUY_VOUCHER_PATH + "/\(voucherId)")!,
+            URL(string: URLConst.BASE_URL + URLConst.BUY_VOUCHER_PATH + voucherId)!,
             method: .post,
             headers: headers)
             .responseJSON { response in
@@ -148,7 +155,7 @@ class OrderService: OrderServiceProtocol {
                             guard let code = serverResponse.code else {print("Error: server code"); return}
                             let appError = AppError(code: code, status: status)
                             completion(ServerResponse.error(error: appError))
-                            debugPrint("Error buy vouchers");
+                            debugPrint("Error buy vouchers")
                         }
                     } catch(let error) {
                         debugPrint(error)
@@ -157,6 +164,75 @@ class OrderService: OrderServiceProtocol {
                 case .failure(let error):
                     print(error)
                     completion(ServerResponse.error(error: AppError.noInternetConnection))
+                }
+        }
+    }
+    
+    func getOrderById(itemId: String, completion: @escaping (ServerResponse<Order>) -> Void) {
+        Alamofire.request(
+            URL(string: URLConst.BASE_URL + URLConst.BOUGHT_PATH)!,
+            method: .get)
+            .responseJSON { response in
+                switch response.result {
+                case .success:
+                    do {
+                        let serverResponse = try self.jsonDecoder.decode(Response<Order>.self, from: response.data!)
+                        let status = serverResponse.status
+                        switch status {
+                        case 200:
+                            guard let order = serverResponse.data else {debugPrint("Error loading order"); return}
+                            completion(ServerResponse.success(order))
+                        default:
+                            guard let code = serverResponse.code else {print("Error: server code"); return}
+                            let appError = AppError(code: code, status: status)
+                            completion(ServerResponse.error(error: appError))
+                            debugPrint("default case: Error loading order")
+                        }
+                    } catch(let error) {
+                        debugPrint(error)
+                        return
+                    }
+                case .failure(let error):
+                    print(error)
+                    completion(ServerResponse.error(error: AppError.noInternetConnection))
+                    print("failure")
+                }
+        }
+    }
+    
+    func createOrder(token: String, itemId: String, completion: @escaping (ServerResponse<Order>) -> Void) {
+        let headers: HTTPHeaders = ["authorization": token]
+        let parameters: Parameters = ["itemId": itemId]
+        Alamofire.request(
+            URL(string: URLConst.BASE_URL + URLConst.ORDER_PATH_ITEMS + itemId)!,
+            method: .post,
+            parameters: parameters,
+            headers: headers)
+            .responseJSON { response in
+                print(response)
+                switch response.result {
+                case .success:
+                    do {
+                        let serverResponse = try self.jsonDecoder.decode(Response<Order>.self, from: response.data!)
+                        let status = serverResponse.status
+                        switch status {
+                        case 200:
+                            guard let newOrder = serverResponse.data else {debugPrint("Error creating new order"); return}
+                            completion(ServerResponse.success(newOrder))
+                        default:
+                            guard let code = serverResponse.code else {print("Error: server code"); return}
+                            let appError = AppError(code: code, status: status)
+                            completion(ServerResponse.error(error: appError))
+                            debugPrint("default case: Error creating new order")
+                        }
+                    } catch(let error) {
+                        debugPrint(error)
+                        return
+                    }
+                case .failure(let error):
+                    print(error)
+                    completion(ServerResponse.error(error: AppError.noInternetConnection))
+                    print("failure")
                 }
         }
     }

@@ -37,6 +37,9 @@ class ProfileService: ProfileServiceProtocol {
                             guard let userData = serverResponse.data else {debugPrint("Error loading profile"); return}
                             completion(ServerResponse.success(userData))
                         default:
+                            guard let code = serverResponse.code else {print("Error: server code"); return}
+                            let appError = AppError(code: code, status: status)
+                            completion(ServerResponse.error(error: appError))
                             debugPrint("Error loading profile"); return
                         }
                         
@@ -72,6 +75,9 @@ class ProfileService: ProfileServiceProtocol {
                             guard let myItems = serverResponse.data else {debugPrint("Error loading my items"); return}
                             completion(ServerResponse.success(myItems))
                         default:
+                            guard let code = serverResponse.code else {print("Error: server code"); return}
+                            let appError = AppError(code: code, status: status)
+                            completion(ServerResponse.error(error: appError))
                             debugPrint("Error loading my items"); return
                         }
                         

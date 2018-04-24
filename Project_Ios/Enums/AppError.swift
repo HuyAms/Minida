@@ -25,6 +25,8 @@ enum AppError: Error {
     case usernameDoesNotExist
     case incorrectPassword
     case cannotFindItem
+    case cannotFindVoucher
+    case buyOwnItem
     case unknown
 
 }
@@ -39,6 +41,8 @@ extension AppError {
                 self =  .invalidEmail
             case 9:
                 self = .invalidPhoneNumber
+            case 12:
+                self = .buyOwnItem
             case 13:
                 self = .notEnoughPoints
             case 14:
@@ -61,6 +65,8 @@ extension AppError {
             switch code {
             case 1:
                 self = .cannotFindItem
+            case 2:
+                self = .cannotFindVoucher
             default:
                 self = .unknown
             }
@@ -93,6 +99,10 @@ extension AppError {
             return "Password is incorrect"
         case .cannotFindItem:
             return "Item has not beet deleted"
+        case .buyOwnItem:
+            return "You cannot buy your own item"
+        case .cannotFindVoucher:
+            return "This voucher is not available"
         case .unknown:
             return "Unknown error"
         default:

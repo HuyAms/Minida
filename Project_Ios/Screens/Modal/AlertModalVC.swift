@@ -8,21 +8,29 @@
 
 import UIKit
 
+enum AlertType {
+    case success
+    case error
+}
+
 class AlertModalVC: UIViewController {
 
     @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet weak var messageLbl: UILabel!
     @IBOutlet weak var button: UIButton!
     @IBOutlet weak var modalBackGround: UIView!
+    @IBOutlet weak var alertIcon: UIImageView!
     
     var modalTitle: String?
     var modalMessage: String?
     var modalButtonText: String?
+    var modalAlertType:AlertType?
     
-    func config(title: String, message: String, buttonText: String) {
+    func config(title: String, message: String, buttonText: String, alertType: AlertType) {
         modalTitle = title
         modalMessage = message
         modalButtonText = buttonText
+        modalAlertType = alertType
     }
     
     override func viewDidLoad() {
@@ -32,6 +40,17 @@ class AlertModalVC: UIViewController {
         titleLbl.text = modalTitle
         messageLbl.text = modalMessage
         button.setTitle(modalButtonText, for: .normal)
+        
+        if let alertType = self.modalAlertType {
+            switch alertType {
+            case .error:
+                alertIcon.image = UIImage.getErrorIcon()
+                modalBackGround.backgroundColor = UIColor.errorColor
+            case .success:
+                alertIcon.image = UIImage.getSuccessIcon()
+                modalBackGround.backgroundColor = UIColor.appDefaultColor
+            }
+        }
     }
     
     @IBAction func btnWasPressed(_ sender: Any) {

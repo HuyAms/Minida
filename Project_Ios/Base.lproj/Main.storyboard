@@ -2401,7 +2401,7 @@
                                         </constraints>
                                         <state key="normal" title="Button" image="cancel-icon"/>
                                         <connections>
-                                            <action selector="cancelBtnWasPressed:" destination="cw1-VV-tKn" eventType="touchUpInside" id="ugd-wH-fHp"/>
+                                            <action selector="closeBtnWasPressed:" destination="dOO-jT-cIB" eventType="touchUpInside" id="a6g-OK-6kj"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -2603,6 +2603,9 @@
                                         <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="contactBtnWasPressed:" destination="dOO-jT-cIB" eventType="touchUpInside" id="dmi-Bn-wlT"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2624,6 +2627,7 @@
                         <viewLayoutGuide key="safeArea" id="sQF-fk-sDB"/>
                     </view>
                     <connections>
+                        <outlet property="itemImageView" destination="RGH-QR-Qul" id="wPF-d3-TGV"/>
                         <outlet property="itemNameLbl" destination="3Kz-uh-Y7y" id="OZ2-8o-lXd"/>
                         <outlet property="itemPriceLbl" destination="dBM-9L-6J2" id="Pc4-kf-O19"/>
                         <outlet property="receiptTimeLbl" destination="xCg-mY-dMB" id="q2m-u8-l5k"/>

@@ -18,6 +18,10 @@ protocol OrderServiceProtocol {
     func getMyVouchers(token: String, completion: @escaping (ServerResponse<[Voucher]>) -> Void)
     
     func buyVoucher(token: String, voucherId: String, completion: @escaping (ServerResponse<VoucherOrder>) -> Void)
+    
+    func getOrderById(itemId: String, completion: @escaping (ServerResponse<Order>) -> Void)
+    
+    func createOrder(token: String, itemId: String, completion: @escaping (ServerResponse<Order>) -> Void)
 }
 
 class OrderService: OrderServiceProtocol {
@@ -157,6 +161,68 @@ class OrderService: OrderServiceProtocol {
                 case .failure(let error):
                     print(error)
                     completion(ServerResponse.error(error: AppError.noInternetConnection))
+                }
+        }
+    }
+    
+    func getOrderById(itemId: String, completion: @escaping (ServerResponse<Order>) -> Void) {
+        Alamofire.request(
+            URL(string: URLConst.BASE_URL + URLConst.BOUGHT_PATH)!,
+            method: .get)
+            .responseJSON { response in
+                switch response.result {
+                case .success:
+                    do {
+                        let serverResponse = try self.jsonDecoder.decode(Response<Order>.self, from: response.data!)
+                        let status = serverResponse.status
+                        switch status {
+                        case 200:
+                            guard let order = serverResponse.data else {debugPrint("Error loading order"); return}
+                            completion(ServerResponse.success(order))
+                        default:
+                            debugPrint("default case: Error loading order"); return
+                        }
+                    } catch(let error) {
+                        debugPrint(error)
+                        return
+                    }
+                case .failure(let error):
+                    print(error)
+                    completion(ServerResponse.error(error: AppError.noInternetConnection))
+                    print("failure")
+                }
+        }
+    }
+    
+    func createOrder(token: String, itemId: String, completion: @escaping (ServerResponse<Order>) -> Void) {
+        let headers: HTTPHeaders = ["authorization": token]
+        let parameters: Parameters = ["itemId": itemId]
+        Alamofire.request(
+            URL(string: URLConst.BASE_URL + URLConst.ORDER_PATH)!,
+            method: .post,
+            parameters: parameters,
+            headers: headers)
+            .responseJSON { response in
+                switch response.result {
+                case .success:
+                    do {
+                        let serverResponse = try self.jsonDecoder.decode(Response<Order>.self, from: response.data!)
+                        let status = serverResponse.status
+                        switch status {
+                        case 200:
+                            guard let newOrder = serverResponse.data else {debugPrint("Error creating new order"); return}
+                            completion(ServerResponse.success(newOrder))
+                        default:
+                            debugPrint("default case: Error creating new order"); return
+                        }
+                    } catch(let error) {
+                        debugPrint(error)
+                        return
+                    }
+                case .failure(let error):
+                    print(error)
+                    completion(ServerResponse.error(error: AppError.noInternetConnection))
+                    print("failure")
                 }
         }
     }

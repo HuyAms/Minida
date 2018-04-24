@@ -97,17 +97,12 @@ extension UIImage {
         return UIImage(named: "vehicles-category-black-icon")!
     }
     
-    static func getFreeIcon() -> UIImage {
-        return UIImage(named: "free-stuff-icon")!
-    }
-
-    static func getFoodIconWhite() -> UIImage {
-        return UIImage(named: "food-category-icon")!
+    static func getFreeIconWhite() -> UIImage {
+        return UIImage(named: "free-category-icon")!
     }
     
-    static func getFoodIconBlack() -> UIImage {
-        return UIImage(named: "food-category-icon")!
-        //get black food icon
+    static func getFreeIconBlack() -> UIImage {
+        return UIImage(named: "free-category-black-icon")!
     }
     
     static func getHomewaresIconWhite() -> UIImage {

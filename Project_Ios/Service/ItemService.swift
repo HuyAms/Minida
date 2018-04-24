@@ -226,7 +226,9 @@ class ItemService: ItemServiceProtocol {
     }
     
     func editItem(id: String, token: String, itemName: String?, description: String?, price: Int?, itemCategory: String?, imgPath: String?, lat: Double?, lng: Double?, completion: @escaping (ServerResponse<ItemHome>) -> Void) {
+        
         let parameters: Parameters = ["itemName": itemName, "description": description, "itemCategory": itemCategory, "imgPath": imgPath, "lat": lat, "lng": lng]
+        
         let headers: HTTPHeaders = ["authorization": token]
         Alamofire.request(
             URL(string: URLConst.BASE_URL + URLConst.ITEM_PATH + id)!,
@@ -272,10 +274,10 @@ class ItemService: ItemServiceProtocol {
                         let status = serverResponse.status
                         switch status {
                         case 200:
-                            guard let deletedItem = serverResponse.data else {debugPrint("Error delete item"); return}
+                            guard let deletedItem = serverResponse.data else {debugPrint("Error deleting item"); return}
                             completion(ServerResponse.success(deletedItem))
                         default:
-                            debugPrint("default case: Error delete item"); return
+                            debugPrint("default case: Error deleting item"); return
                         }
                     } catch(let error) {
                         debugPrint(error)

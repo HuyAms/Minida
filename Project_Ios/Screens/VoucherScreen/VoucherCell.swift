@@ -41,11 +41,11 @@ class VoucherCell: UITableViewCell {
     
     @objc private func changeQRCodeVisibility(_ sender: UITapGestureRecognizer) {
         if (qrCodeView.isHidden) {
-            UIView.transition(with: self.cellContentView, duration: 0.7, options: .transitionCurlUp, animations: {
+            UIView.transition(with: self.cellContentView, duration: 0.7, options: .transitionFlipFromRight, animations: {
                 self.qrCodeView.isHidden = false
             }, completion: nil)
         } else {
-            UIView.transition(with: self.cellContentView, duration: 0.7 , options: .transitionCurlDown, animations: {
+            UIView.transition(with: self.cellContentView, duration: 0.7 , options: .transitionFlipFromLeft, animations: {
                 self.qrCodeView.isHidden = true
             }, completion: nil)
         }

@@ -134,7 +134,7 @@ class OrderService: OrderServiceProtocol {
     func buyVoucher(token: String, voucherId: String, completion: @escaping (ServerResponse<VoucherOrder>) -> Void) {
         let headers: HTTPHeaders = ["authorization": token]
         Alamofire.request(
-            URL(string: URLConst.BASE_URL + URLConst.BUY_VOUCHER_PATH + "/\(voucherId)")!,
+            URL(string: URLConst.BASE_URL + URLConst.BUY_VOUCHER_PATH + voucherId)!,
             method: .post,
             headers: headers)
             .responseJSON { response in

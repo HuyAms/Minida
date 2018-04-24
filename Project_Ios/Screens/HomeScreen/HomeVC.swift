@@ -167,7 +167,7 @@ class HomeVC: UIViewController, HomeVCProtocol {
                 case .devices:
                     chooseCategoryBtn.setImage(UIImage.getDevicesIconWhite(), for: .normal)
                 case .free:
-                    chooseCategoryBtn.setImage(UIImage.getFreeIcon(), for: .normal)
+                    chooseCategoryBtn.setImage(UIImage.getFreeIconWhite(), for: .normal)
                 case .homewares:
                     chooseCategoryBtn.setImage(UIImage.getHomewaresIconWhite(), for: .normal)
                 case .vehicles:

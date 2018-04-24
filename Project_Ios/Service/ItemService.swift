@@ -105,7 +105,7 @@ class ItemService: ItemServiceProtocol {
     
     func getItemsByUserId(id: String, completion: @escaping (ServerResponse<[ItemHome]>) -> Void) {
         Alamofire.request(
-            URL(string: URLConst.BASE_URL + URLConst.ITEMS_BYUSERID + id)!,
+            URL(string: URLConst.BASE_URL + URLConst.ITEM_USERS + id)!,
             method: .get)
             .responseJSON { response in
                 switch response.result {
@@ -135,7 +135,7 @@ class ItemService: ItemServiceProtocol {
     func getMyItems(token: String, completion: @escaping (ServerResponse<[ItemHome]>) -> Void) {
         let headers: HTTPHeaders = ["authorization": token]
         Alamofire.request(
-            URL(string: URLConst.BASE_URL + URLConst.ITEMS_ME)!,
+            URL(string: URLConst.BASE_URL + URLConst.ITEMS_ME_PATH)!,
             method: .get,
             headers: headers)
             .responseJSON { response in

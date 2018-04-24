@@ -29,6 +29,8 @@ class HomeVC: UIViewController, HomeVCProtocol {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var notFoundLbl: UILabel!
+    @IBOutlet weak var chooseCategoryBtn: UIButton!
+    
     
     let kCloseCellHeight: CGFloat = 145
     let kOpenCellHeight: CGFloat = 390
@@ -154,24 +156,24 @@ class HomeVC: UIViewController, HomeVCProtocol {
             switch category {
             case .all:
                 presenter?.performGetAvailableItems()
-                categoryBtn.setImage(UIImage.getAllIconWhite(), for: .normal)
+                chooseCategoryBtn.setImage(UIImage.getAllIconWhite(), for: .normal)
             default:
                 presenter?.performgGetItemsByCategory(category: category)
                 switch category {
                 case .accessories:
-                    categoryBtn.setImage(UIImage.getAccessoriesIconWhite(), for: .normal)
+                    chooseCategoryBtn.setImage(UIImage.getAccessoriesIconWhite(), for: .normal)
                 case .clothing:
-                    categoryBtn.setImage(UIImage.getClothingIconWhite(), for: .normal)
+                    chooseCategoryBtn.setImage(UIImage.getClothingIconWhite(), for: .normal)
                 case .devices:
-                    categoryBtn.setImage(UIImage.getDevicesIconWhite(), for: .normal)
+                    chooseCategoryBtn.setImage(UIImage.getDevicesIconWhite(), for: .normal)
                 case .free:
-                    categoryBtn.setImage(UIImage.getFreeIconWhite(), for: .normal)
+                    chooseCategoryBtn.setImage(UIImage.getFreeIcon(), for: .normal)
                 case .homewares:
-                    categoryBtn.setImage(UIImage.getHomewaresIconWhite(), for: .normal)
+                    chooseCategoryBtn.setImage(UIImage.getHomewaresIconWhite(), for: .normal)
                 case .vehicles:
-                    categoryBtn.setImage(UIImage.getVehiclesIconWhite(), for: .normal)
+                    chooseCategoryBtn.setImage(UIImage.getVehiclesIconWhite(), for: .normal)
                 case .others:
-                    categoryBtn.setImage(UIImage.getOthersIconWhite(), for: .normal)
+                    chooseCategoryBtn.setImage(UIImage.getOthersIconWhite(), for: .normal)
                 default:
                     print("Error with getting the right category. You should not be here!")
                 }

@@ -29,6 +29,10 @@ class CategoryVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let allTapGesture = UITapGestureRecognizer(target: self
+            , action: #selector(CategoryVC.allCategoryWasTapped(_:)))
+        allView.addGestureRecognizer(allTapGesture)
+        
         let freeTapGesture = UITapGestureRecognizer(target: self
             , action: #selector(CategoryVC.freeCategoryWasTapped(_:)))
         freeCategoryView.addGestureRecognizer(freeTapGesture)

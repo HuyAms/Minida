@@ -22,8 +22,6 @@ class UserService: UserServiceProtocol {
     
     let jsonDecoder = JSONDecoder()
     
-    let jsonDecoder = JSONDecoder()
-    
     func getUserById(id: String, token: String, completion: @escaping (ServerResponse<User>) -> Void) {
         let headers: HTTPHeaders = ["authorization": token]
         Alamofire.request(

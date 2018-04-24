@@ -1,16 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dOO-jT-cIB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dOO-jT-cIB">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Avenir.ttc">
+            <string>Avenir-Book</string>
+            <string>Avenir-Heavy</string>
+            <string>Avenir-Light</string>
+            <string>Avenir-Medium</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--OnboardingVC-->
         <scene sceneID="eOg-gQ-86R">
@@ -867,7 +875,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <color key="separatorColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" misplaced="YES" id="yyC-yJ-A9z">
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="yyC-yJ-A9z">
                             <rect key="frame" x="0.0" y="0.0" width="70" height="90"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
@@ -1887,15 +1895,48 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
+                                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tU5-63-Lff">
+                                                    <rect key="frame" x="15" y="11" width="345" height="176"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qr-code-test-image" translatesAutoresizingMaskIntoConstraints="NO" id="bGt-rq-8Vs">
+                                                            <rect key="frame" x="102.5" y="18" width="140" height="140"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="140" id="bg5-Mu-ghS"/>
+                                                                <constraint firstAttribute="height" constant="140" id="dXC-f2-VbW"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="0.92156862745098034" green="0.91764705882352937" blue="0.95686274509803915" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstItem="bGt-rq-8Vs" firstAttribute="centerX" secondItem="tU5-63-Lff" secondAttribute="centerX" id="8Si-PJ-cXh"/>
+                                                        <constraint firstItem="bGt-rq-8Vs" firstAttribute="centerY" secondItem="tU5-63-Lff" secondAttribute="centerY" id="Hvb-b4-42W"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                            <real key="value" value="1"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                            <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="tU5-63-Lff" secondAttribute="bottom" id="0zE-BT-Tpn"/>
                                                 <constraint firstItem="lKp-CW-51B" firstAttribute="top" secondItem="HDH-cn-vap" secondAttribute="topMargin" id="7O3-xY-vMA"/>
+                                                <constraint firstItem="tU5-63-Lff" firstAttribute="trailing" secondItem="HDH-cn-vap" secondAttribute="trailingMargin" id="CCO-FI-6hc"/>
                                                 <constraint firstItem="lKp-CW-51B" firstAttribute="leading" secondItem="HDH-cn-vap" secondAttribute="leadingMargin" id="b72-Jg-PtX"/>
                                                 <constraint firstItem="lKp-CW-51B" firstAttribute="bottom" secondItem="HDH-cn-vap" secondAttribute="bottomMargin" id="ksH-ud-hdH"/>
+                                                <constraint firstItem="tU5-63-Lff" firstAttribute="top" secondItem="HDH-cn-vap" secondAttribute="topMargin" id="q5S-5o-oKF"/>
+                                                <constraint firstItem="tU5-63-Lff" firstAttribute="leading" secondItem="HDH-cn-vap" secondAttribute="leadingMargin" id="tGn-s5-mYM"/>
                                                 <constraint firstItem="lKp-CW-51B" firstAttribute="trailing" secondItem="HDH-cn-vap" secondAttribute="trailingMargin" id="vJl-nu-xJE"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="cellContentView" destination="HDH-cn-vap" id="jzz-qy-Ihl"/>
                                             <outlet property="dateLbl" destination="LwT-YP-Yhe" id="a0k-Qa-hrS"/>
                                             <outlet property="descriptionLbl" destination="agX-nn-bvK" id="7pZ-Ho-nY7"/>
                                             <outlet property="discountLbl" destination="wxG-tI-RVI" id="8qt-EC-alY"/>
@@ -1903,6 +1944,7 @@
                                             <outlet property="logoImg" destination="xuQ-UA-sib" id="o2B-7b-FzS"/>
                                             <outlet property="nameLbl" destination="NUu-t3-SNm" id="I0p-3X-osK"/>
                                             <outlet property="priceLbl" destination="0OV-MO-ib7" id="VM5-Pa-vzi"/>
+                                            <outlet property="qrCodeView" destination="tU5-63-Lff" id="SOK-TZ-Pbu"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1936,7 +1978,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EeA-VP-nFz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1830" y="63"/>
+            <point key="canvasLocation" x="1829.5999999999999" y="62.518740629685162"/>
         </scene>
         <!--CategoryVC-->
         <scene sceneID="L4e-0f-KIO">
@@ -2620,6 +2662,7 @@
         <image name="other-category-icon" width="512" height="512"/>
         <image name="pay-point-icon" width="512" height="512"/>
         <image name="profile-icon" width="512" height="512"/>
+        <image name="qr-code-test-image" width="1024" height="1024"/>
         <image name="second" width="30" height="30"/>
         <image name="small-points-icon" width="512" height="512"/>
         <image name="star" width="330" height="326"/>

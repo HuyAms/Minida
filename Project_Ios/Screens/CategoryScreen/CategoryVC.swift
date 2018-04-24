@@ -45,9 +45,6 @@ class CategoryVC: UIViewController {
             , action: #selector(CategoryVC.otherCategoryWasTapped(_:)))
         otherView.addGestureRecognizer(otherTapGesture)
         
-        let allTapGesture = UITapGestureRecognizer(target: self
-            , action: #selector(CategoryVC.allCategoryWasTapped(_:)))
-        allView.addGestureRecognizer(allTapGesture)
         
         let vehicleTapGesture = UITapGestureRecognizer(target: self
             , action: #selector(CategoryVC.vehicleCategoryWasTapped(_:)))

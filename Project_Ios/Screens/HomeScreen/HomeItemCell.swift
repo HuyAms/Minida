@@ -30,7 +30,7 @@ class HomeItemCell: FoldingCell {
     
     var onBuyButtonTapped: (() -> Void)? = nil
     
-    func config(itemHome: Item) {
+    func config(itemHome: ItemDetail) {
         smallItemNameLbl.text = itemHome.itemName
         detailNameLbl.text = itemHome.itemName
         

@@ -66,7 +66,6 @@ class ProfileService: ProfileServiceProtocol {
             .responseJSON { response in
                 switch response.result {
                 case .success:
-                    print(response)
                     do {
                         let serverResponse = try self.jsonDecoder.decode(Response<[Item]>.self, from: response.data!)
                         let status = serverResponse.status

@@ -23,7 +23,7 @@ enum Category: String {
     }
 }
 
-struct Item: Codable {
+struct ItemDetail: Codable {
     var status: String
     var time: String
     var _id: String
@@ -33,6 +33,20 @@ struct Item: Codable {
     var category: String
     var imgPath: String
     var seller: User
+    var lat: Double?
+    var lng: Double?
+}
+
+struct Item: Codable {
+    var status: String
+    var time: String
+    var _id: String
+    var itemName: String
+    var description: String
+    var price: Int
+    var category: String
+    var imgPath: String
+    var seller: String
     var lat: Double?
     var lng: Double?
 }

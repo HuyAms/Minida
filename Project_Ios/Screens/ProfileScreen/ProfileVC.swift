@@ -9,9 +9,9 @@
 import UIKit
 
 enum ProfileItemLoadState {
-    case onSale
-    case sold
-    case bought
+    case myAvailableItems
+    case soldItems
+    case boughtItems
 }
 
 protocol ProfileViewProtocol: class {
@@ -48,14 +48,16 @@ class ProfileVC: UIViewController, ProfileViewProtocol {
     @IBOutlet weak var userRankLabel: UILabel!
     @IBOutlet weak var contactUserButton: UIButton!
     @IBOutlet weak var userItemCollectionView: UICollectionView!
-    var profileItemLoadState: ProfileItemLoadState = .onSale
     @IBOutlet weak var avatarImage: UIImageView!
+    
+    var profileItemLoadState: ProfileItemLoadState = .myAvailableItems
     
     //MARK: Properties
     var presenter: ProfilePresenterProtocol?
     fileprivate let itemsPerRow: CGFloat = 3
     
     var myItems = [Item]()
+    var orderDetails = [OrderDetail]()
     
     func onLoadDataSuccess(userData: User) {
         userNameLabel.text = userData.username
@@ -86,16 +88,16 @@ class ProfileVC: UIViewController, ProfileViewProtocol {
         
         presenter?.loadMyItems()
         
-//        switch profileItemLoadState {
-//        case .onSale:
-//            presenter?.loadMyItems()
-//        case .sold:
-//            presenter?.performLoadSold()
-//        case .bought:
-//            presenter?.performLoadBought()
-//        default:
-//            presenter?.loadMyItems()
-//        }
+        switch profileItemLoadState {
+        case .myAvailableItems:
+            presenter?.loadMyItems()
+        case .soldItems:
+            presenter?.performLoadSold()
+        case .boughtItems:
+            presenter?.performLoadBought()
+        default:
+            presenter?.loadMyItems()
+        }
     }
 
     //MARK: Actions
@@ -113,14 +115,14 @@ class ProfileVC: UIViewController, ProfileViewProtocol {
     
     @IBAction func myItemsBtnWasPressed(_ sender: UIButton) {
         print("my item was pressed")
-        profileItemLoadState = .onSale
+        profileItemLoadState = .myAvailableItems
         presenter?.loadMyItems()
     }
     
     @IBAction func soldBtnWasPressed(_ sender: UIButton) {
         print("my soldBtnWasPressed was pressed")
 
-        profileItemLoadState = .sold
+        profileItemLoadState = .soldItems
         presenter?.performLoadSold()
 
     }
@@ -128,7 +130,7 @@ class ProfileVC: UIViewController, ProfileViewProtocol {
     @IBAction func boughtBtnWasPressed(_ sender: UIButton) {
         print("my boughtBtnWasPressed was pressed")
 
-        profileItemLoadState = .bought
+        profileItemLoadState = .boughtItems
         presenter?.performLoadBought()
 
     }
@@ -179,7 +181,7 @@ class ProfileVC: UIViewController, ProfileViewProtocol {
     
     func onGetSoldItemsSuccess(orderDetails: [OrderDetail]) {
         print(orderDetails)
-
+        self.orderDetails = orderDetails
         var soldItems = [Item]()
         orderDetails.forEach { (orderDetail) in
             soldItems.append(orderDetail.item)
@@ -190,7 +192,7 @@ class ProfileVC: UIViewController, ProfileViewProtocol {
     
     func onGetBoughtItemsSuccess(orderDetails: [OrderDetail]) {
         print(orderDetails)
-
+        self.orderDetails = orderDetails
         var boughtItems = [Item]()
         orderDetails.forEach { (orderDetail) in
             boughtItems.append(orderDetail.item)
@@ -199,7 +201,12 @@ class ProfileVC: UIViewController, ProfileViewProtocol {
         userItemCollectionView.reloadData()
     }
     
-   
+    private func goToReceiptScreen(orderDetail: OrderDetail) {
+         let order = Order(_id: orderDetail._id, item: orderDetail.item._id, seller: orderDetail.seller._id, buyer: orderDetail.buyer._id, time: orderDetail.time)
+        guard let receiptVC = storyboard?.instantiateViewController(withIdentifier: AppStoryBoard.receiptVC.identifier) as? ReceiptVC else {return}
+        receiptVC.order = order
+        present(receiptVC, animated: true, completion: nil)
+    }
 }
 
 extension ProfileVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -233,6 +240,17 @@ extension ProfileVC: UICollectionViewDelegate, UICollectionViewDataSource, UICol
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
-
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch profileItemLoadState {
+        case .soldItems:
+            let orderDetail = orderDetails[indexPath.row]
+            goToReceiptScreen(orderDetail: orderDetail)
+        case .boughtItems:
+            let orderDetail = orderDetails[indexPath.row]
+            goToReceiptScreen(orderDetail: orderDetail)
+        default:
+            return
+        }
+    }
 }

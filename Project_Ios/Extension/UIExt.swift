@@ -44,7 +44,7 @@ extension UIViewController {
         SVProgressHUD.dismiss()
     }
     
-    func showError(title: String = "Opps", message: String, closeBtnText: String = "OK") {
+    func showError(title: String = "Oops", message: String, closeBtnText: String = "OK") {
         let alertModal = AlertModalVC()
         alertModal.config(title: title, message: message, buttonText: closeBtnText, alertType: .error)
         alertModal.modalPresentationStyle = .custom

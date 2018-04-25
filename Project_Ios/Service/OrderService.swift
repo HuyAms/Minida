@@ -34,7 +34,6 @@ class OrderService: OrderServiceProtocol {
             method: .get,
             headers: headers)
             .responseJSON { response in
-                print("RESPONSE :\(response)")
                 switch response.result {
                 case .success:
                     do {

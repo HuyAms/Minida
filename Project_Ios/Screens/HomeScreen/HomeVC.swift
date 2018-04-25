@@ -24,7 +24,7 @@ protocol HomeVCProtocol: class {
     func onShowFilteringNoResult()
     
     func onBuyItemSuccess(order: Order)
-
+    
 }
 
 class HomeVC: UIViewController, HomeVCProtocol {

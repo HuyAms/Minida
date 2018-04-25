@@ -36,10 +36,17 @@ protocol ProfileViewProtocol: class {
     
     func onLogoutSuccess()
     
+    func hideCollectionView()
+    
+    func showCollectionView()
+    
+    func hideNoItemLabel()
+    
+    func showNoItemLabel(message: String)
+    
 }
 
 class ProfileVC: UIViewController, ProfileViewProtocol {
-    
     //MARK: Outlets
     @IBOutlet weak var badgeImage: UIImageView!
     @IBOutlet weak var pointLabel: UILabel!
@@ -49,7 +56,10 @@ class ProfileVC: UIViewController, ProfileViewProtocol {
     @IBOutlet weak var contactUserButton: UIButton!
     @IBOutlet weak var userItemCollectionView: UICollectionView!
     @IBOutlet weak var avatarImage: UIImageView!
-    
+    @IBOutlet weak var noItemLbl: UILabel!
+    @IBOutlet weak var boughtItemBtn: UIButton!
+    @IBOutlet weak var soldItemBtn: UIButton!
+    @IBOutlet weak var allMyItemBtn: UIButton!
     var profileItemLoadState: ProfileItemLoadState = .myAvailableItems
     
     //MARK: Properties
@@ -75,17 +85,16 @@ class ProfileVC: UIViewController, ProfileViewProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter = ProfilePresenter(view: self)
-       
         userItemCollectionView.delegate = self
         userItemCollectionView.dataSource = self
         
-        // Do any additional setup after loading the view.
+        setActiveTab(profileItemLoadState: profileItemLoadState)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         presenter?.loadUserInfo()
-        
         presenter?.loadMyItems()
         
         switch profileItemLoadState {
@@ -112,30 +121,42 @@ class ProfileVC: UIViewController, ProfileViewProtocol {
     }
     
     @IBAction func myItemsBtnWasPressed(_ sender: UIButton) {
-        print("my item was pressed")
         profileItemLoadState = .myAvailableItems
         presenter?.loadMyItems()
+        setActiveTab(profileItemLoadState: profileItemLoadState)
     }
     
     @IBAction func soldBtnWasPressed(_ sender: UIButton) {
-        print("my soldBtnWasPressed was pressed")
-
         profileItemLoadState = .soldItems
         presenter?.performLoadSold()
-
+        setActiveTab(profileItemLoadState: profileItemLoadState)
     }
     
     @IBAction func boughtBtnWasPressed(_ sender: UIButton) {
-        print("my boughtBtnWasPressed was pressed")
-
         profileItemLoadState = .boughtItems
         presenter?.performLoadBought()
-
+        setActiveTab(profileItemLoadState: profileItemLoadState)
     }
     
     @IBAction func editProfileButtonWasPressed(_ sender: Any) {
         guard let editProfileVC = storyboard?.instantiateViewController(withIdentifier: AppStoryBoard.editProfileVC.identifier) as? EditProfileVC else {return}
         present(editProfileVC, animated: true, completion: nil)
+    }
+    
+    //MARK: Helper
+    func setActiveTab(profileItemLoadState: ProfileItemLoadState) {
+        allMyItemBtn.backgroundColor = UIColor.appLightColor
+        soldItemBtn.backgroundColor = UIColor.appLightColor
+        boughtItemBtn.backgroundColor = UIColor.appLightColor
+    
+        switch profileItemLoadState {
+        case .myAvailableItems:
+            allMyItemBtn.backgroundColor = UIColor.appDarkColor
+        case .soldItems:
+            soldItemBtn.backgroundColor = UIColor.appDarkColor
+        case .boughtItems:
+            boughtItemBtn.backgroundColor = UIColor.appDarkColor
+        }
     }
     
     
@@ -197,6 +218,23 @@ class ProfileVC: UIViewController, ProfileViewProtocol {
         }
         myItems = boughtItems
         userItemCollectionView.reloadData()
+    }
+    
+    func hideCollectionView() {
+        userItemCollectionView.isHidden = true
+    }
+    
+    func showCollectionView() {
+        userItemCollectionView.isHidden = false
+    }
+    
+    func hideNoItemLabel() {
+        noItemLbl.isHidden = true
+    }
+    
+    func showNoItemLabel(message: String) {
+        noItemLbl.isHidden = false
+        noItemLbl.text = message
     }
     
     private func goToReceiptScreen(orderDetail: OrderDetail) {

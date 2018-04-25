@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ImageModalVC" customModule="Project_Ios" customModuleProvider="target">
+            <connections>
+                <outlet property="backgroundView" destination="X3P-2g-W30" id="zjk-fe-IS3"/>
+                <outlet property="imageView" destination="uqH-su-7uU" id="6xO-hg-DDp"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view alpha="0.94999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X3P-2g-W30">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A96-mj-lAC">
+                    <rect key="frame" x="12" y="20" width="30" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="30" id="KYh-Lj-gzu"/>
+                        <constraint firstAttribute="height" constant="30" id="XH8-JH-vG5"/>
+                    </constraints>
+                    <state key="normal" image="cancel-icon"/>
+                    <connections>
+                        <action selector="clossBtnWasPressed:" destination="-1" eventType="touchUpInside" id="66x-uM-CP9"/>
+                    </connections>
+                </button>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="item-icon" translatesAutoresizingMaskIntoConstraints="NO" id="uqH-su-7uU">
+                    <rect key="frame" x="0.0" y="108" width="375" height="450"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="uqH-su-7uU" secondAttribute="height" multiplier="5:6" id="QhW-UI-woF"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                            <real key="value" value="0.0"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                            <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="X3P-2g-W30" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="CVK-pt-dig"/>
+                <constraint firstItem="X3P-2g-W30" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="NUl-Ud-Kbf"/>
+                <constraint firstItem="X3P-2g-W30" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="P6U-nx-1yj"/>
+                <constraint firstItem="A96-mj-lAC" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Tfb-OS-IJO"/>
+                <constraint firstItem="uqH-su-7uU" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="aqa-Yn-6hG"/>
+                <constraint firstItem="A96-mj-lAC" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="12" id="hBA-9Q-Y4r"/>
+                <constraint firstItem="uqH-su-7uU" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="n0k-hM-Qeg"/>
+                <constraint firstItem="X3P-2g-W30" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="nNm-ON-JCh"/>
+                <constraint firstItem="X3P-2g-W30" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="rKF-gN-CP0"/>
+                <constraint firstItem="uqH-su-7uU" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="vaP-ig-LRS"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="24.5" y="51.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="cancel-icon" width="512" height="512"/>
+        <image name="item-icon" width="640" height="640"/>
+    </resources>
+</document>

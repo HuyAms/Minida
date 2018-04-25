@@ -21,6 +21,8 @@
 		12C53E0720754AB8005824E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12C53E0520754AB8005824E3 /* LaunchScreen.storyboard */; };
 		12C53E1220754AB8005824E3 /* Project_IosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C53E1120754AB8005824E3 /* Project_IosTests.swift */; };
 		6A0A1689207F588200D8CB97 /* KeyChainUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0A1688207F588200D8CB97 /* KeyChainUtil.swift */; };
+		6A151B6E2091114800570350 /* ImageModalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A151B6C2091114800570350 /* ImageModalVC.swift */; };
+		6A151B6F2091114800570350 /* ImageModalVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A151B6D2091114800570350 /* ImageModalVC.xib */; };
 		6A2A165A2088BE960096F0AD /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A2A16592088BE960096F0AD /* UserService.swift */; };
 		6A2D1F72207DE28800852FCE /* UserDefaultUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A2D1F71207DE28800852FCE /* UserDefaultUtil.swift */; };
 		6A2D1F7A207E5E6900852FCE /* MapPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A2D1F79207E5E6900852FCE /* MapPresenter.swift */; };
@@ -104,6 +106,8 @@
 		12C53E1320754AB8005824E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4F0546C71E6FF74A824D7204 /* Pods-Project_IosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project_IosTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Project_IosTests/Pods-Project_IosTests.release.xcconfig"; sourceTree = "<group>"; };
 		6A0A1688207F588200D8CB97 /* KeyChainUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainUtil.swift; sourceTree = "<group>"; };
+		6A151B6C2091114800570350 /* ImageModalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModalVC.swift; sourceTree = "<group>"; };
+		6A151B6D2091114800570350 /* ImageModalVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ImageModalVC.xib; path = ../Screens/Modal/ImageModalVC.xib; sourceTree = "<group>"; };
 		6A2A16592088BE960096F0AD /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		6A2D1F71207DE28800852FCE /* UserDefaultUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultUtil.swift; sourceTree = "<group>"; };
 		6A2D1F79207E5E6900852FCE /* MapPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPresenter.swift; sourceTree = "<group>"; };
@@ -195,6 +199,7 @@
 		1207679F208DC4C3005F9BA7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				6A151B6D2091114800570350 /* ImageModalVC.xib */,
 				6A61EC59208E174900FA8E91 /* AlertModalVC.xib */,
 				120767A0208DC4D3005F9BA7 /* View.xib */,
 			);
@@ -404,6 +409,7 @@
 			isa = PBXGroup;
 			children = (
 				6A61EC58208E174900FA8E91 /* AlertModalVC.swift */,
+				6A151B6C2091114800570350 /* ImageModalVC.swift */,
 			);
 			path = Modal;
 			sourceTree = "<group>";
@@ -537,6 +543,7 @@
 				120767A1208DC4D3005F9BA7 /* View.xib in Resources */,
 				12C53E0720754AB8005824E3 /* LaunchScreen.storyboard in Resources */,
 				12C53E0420754AB8005824E3 /* Assets.xcassets in Resources */,
+				6A151B6F2091114800570350 /* ImageModalVC.xib in Resources */,
 				12C53E0220754AB8005824E3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -680,6 +687,7 @@
 				6A61EC47208D12E800FA8E91 /* VoucherPresenter.swift in Sources */,
 				C361BA2A20886DAA0070AB46 /* AlertExt.swift in Sources */,
 				6A4764262089F1EE007E9F09 /* CategoryVC.swift in Sources */,
+				6A151B6E2091114800570350 /* ImageModalVC.swift in Sources */,
 				6A2D1F86207F292000852FCE /* TouchIdService.swift in Sources */,
 				6A31B3A7207E221900BDE03F /* AuthService.swift in Sources */,
 				6A0A1689207F588200D8CB97 /* KeyChainUtil.swift in Sources */,

@@ -227,13 +227,11 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
         } else {
             homeItem = items[indexPath.row]
         }
+        
         let itemId = homeItem._id
-
         cell.config(itemHome: homeItem)
         
-        cell.onBuyButtonTapped = { [weak self]() in
-            print("buy button was tapped at \(indexPath.row)")
-            
+        cell.onBuyButtonTapped = { [weak self]() in            
             let alertViewController = UIAlertController(title: "Buy", message: "Do you want to buy this item?", preferredStyle: .actionSheet)
             let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
                 self?.presenter?.performBuyItem(itemId: itemId)
@@ -243,6 +241,13 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
             alertViewController.addAction(cancleAction)
             self?.present(alertViewController, animated: true)
             
+        }
+        
+        cell.onImgButtonTapped = { [weak self]() in
+            let imgModal = ImageModalVC()
+            imgModal.config(imgPath: homeItem.imgPath)
+            imgModal.modalPresentationStyle = .custom
+            self?.present(imgModal, animated: false, completion: nil)
         }
         
         let durations: [TimeInterval] = [0.26, 0.2, 0.2]

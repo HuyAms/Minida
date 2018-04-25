@@ -477,15 +477,25 @@
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="item-icon" translatesAutoresizingMaskIntoConstraints="NO" id="ymO-rn-C6k">
                                                                     <rect key="frame" x="0.0" y="35" width="335" height="90"/>
                                                                 </imageView>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6sW-9t-fGl">
+                                                                    <rect key="frame" x="0.0" y="35" width="335" height="90"/>
+                                                                    <connections>
+                                                                        <action selector="imgButtonWasPressed:" destination="OHJ-Kc-aTK" eventType="touchUpInside" id="R2c-kH-iZQ"/>
+                                                                    </connections>
+                                                                </button>
                                                             </subviews>
                                                             <constraints>
                                                                 <constraint firstAttribute="trailing" secondItem="ymO-rn-C6k" secondAttribute="trailing" id="7iR-KT-FoR"/>
+                                                                <constraint firstItem="6sW-9t-fGl" firstAttribute="leading" secondItem="pZl-Jg-HPL" secondAttribute="leading" id="AeE-6W-Ge1"/>
                                                                 <constraint firstItem="ymO-rn-C6k" firstAttribute="leading" secondItem="pZl-Jg-HPL" secondAttribute="leading" id="PDH-9e-N0S"/>
                                                                 <constraint firstAttribute="trailing" secondItem="H7w-3d-OcX" secondAttribute="trailing" id="R8f-kQ-OkU"/>
+                                                                <constraint firstItem="6sW-9t-fGl" firstAttribute="top" secondItem="H7w-3d-OcX" secondAttribute="bottom" id="Ttp-Vs-uVC"/>
                                                                 <constraint firstItem="ymO-rn-C6k" firstAttribute="top" secondItem="H7w-3d-OcX" secondAttribute="bottom" id="Vft-9b-zFN"/>
                                                                 <constraint firstAttribute="height" constant="125" id="XO5-8e-Sbz"/>
                                                                 <constraint firstItem="H7w-3d-OcX" firstAttribute="leading" secondItem="pZl-Jg-HPL" secondAttribute="leading" id="cED-3n-9ii"/>
                                                                 <constraint firstAttribute="bottom" secondItem="ymO-rn-C6k" secondAttribute="bottom" id="f8g-fh-F9G"/>
+                                                                <constraint firstAttribute="trailing" secondItem="6sW-9t-fGl" secondAttribute="trailing" id="lhT-uy-Ri5"/>
+                                                                <constraint firstAttribute="bottom" secondItem="6sW-9t-fGl" secondAttribute="bottom" id="nMb-g9-1fs"/>
                                                                 <constraint firstItem="H7w-3d-OcX" firstAttribute="top" secondItem="pZl-Jg-HPL" secondAttribute="top" id="w2v-fc-ris"/>
                                                             </constraints>
                                                         </view>

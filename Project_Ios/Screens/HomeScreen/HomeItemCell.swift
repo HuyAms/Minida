@@ -29,6 +29,7 @@ class HomeItemCell: FoldingCell {
     @IBOutlet weak var sellerRankLbl: UILabel!
     
     var onBuyButtonTapped: (() -> Void)? = nil
+    var onImgButtonTapped: (() -> Void)? = nil
     
     func config(itemHome: ItemDetail) {
         smallItemNameLbl.text = itemHome.itemName
@@ -84,6 +85,11 @@ class HomeItemCell: FoldingCell {
         }
     }
     
+    @IBAction func imgButtonWasPressed(_ sender: Any) {
+        if let onImgButtonTapped = self.onImgButtonTapped {
+            onImgButtonTapped()
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

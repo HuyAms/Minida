@@ -95,8 +95,6 @@ class ProfileVC: UIViewController, ProfileViewProtocol {
             presenter?.performLoadSold()
         case .boughtItems:
             presenter?.performLoadBought()
-        default:
-            presenter?.loadMyItems()
         }
     }
 

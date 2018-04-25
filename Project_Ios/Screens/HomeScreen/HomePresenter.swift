@@ -14,7 +14,7 @@ protocol HomePresenterProtocol {
     
     func performgGetItemsByCategory(category: Category)
     
-    func filterContentForSearchText(_ searchText: String, items: [ItemHome])
+    func filterContentForSearchText(_ searchText: String, items: [ItemDetail])
     
     func performBuyItem(itemId: String)
     
@@ -61,8 +61,8 @@ class HomePresenter: HomePresenterProtocol {
         })
     }
     
-    func filterContentForSearchText(_ searchText: String, items: [ItemHome]) {
-        let filteredItems = items.filter({( item : ItemHome) -> Bool in
+    func filterContentForSearchText(_ searchText: String, items: [ItemDetail]) {
+        let filteredItems = items.filter({( item : ItemDetail) -> Bool in
             return item.itemName.lowercased().contains(searchText.lowercased())
         })
         

@@ -8,6 +8,12 @@
 
 import UIKit
 
+enum ProfileItemLoadState {
+    case onSale
+    case sold
+    case bought
+}
+
 protocol ProfileViewProtocol: class {
     
     func onLoadDataSuccess(userData: User)
@@ -21,6 +27,10 @@ protocol ProfileViewProtocol: class {
     func onGetMyItemSuccess(myItems: [Item])
     
     func onGetMyItemError(error: AppError)
+    
+    func onGetSoldItemsSuccess(orderDetails: [OrderDetail])
+    
+    func onGetBoughtItemsSuccess(orderDetails: [OrderDetail])
     
     func setRank(rank: Rank)
     
@@ -38,6 +48,7 @@ class ProfileVC: UIViewController, ProfileViewProtocol {
     @IBOutlet weak var userRankLabel: UILabel!
     @IBOutlet weak var contactUserButton: UIButton!
     @IBOutlet weak var userItemCollectionView: UICollectionView!
+    var profileItemLoadState: ProfileItemLoadState = .onSale
     
     //MARK: Properties
     var presenter: ProfilePresenterProtocol?
@@ -45,7 +56,6 @@ class ProfileVC: UIViewController, ProfileViewProtocol {
     
     var myItems = [Item]()
     
-    //MARK: Actions
     func onLoadDataSuccess(userData: User) {
         userNameLabel.text = userData.username
         
@@ -68,9 +78,22 @@ class ProfileVC: UIViewController, ProfileViewProtocol {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         presenter?.loadUserInfo()
+        
         presenter?.loadMyItems()
+        
+//        switch profileItemLoadState {
+//        case .onSale:
+//            presenter?.loadMyItems()
+//        case .sold:
+//            presenter?.performLoadSold()
+//        case .bought:
+//            presenter?.performLoadBought()
+//        default:
+//            presenter?.loadMyItems()
+//        }
     }
 
+    //MARK: Actions
     @IBAction func logOutBtnWasPressed(_ sender: Any) {
         
         let alertViewController = UIAlertController(title: "Log out", message: "Are you sure you want to log out?", preferredStyle: .actionSheet)
@@ -83,7 +106,29 @@ class ProfileVC: UIViewController, ProfileViewProtocol {
         present(alertViewController, animated: true)
     }
     
+    @IBAction func myItemsBtnWasPressed(_ sender: UIButton) {
+        print("my item was pressed")
+        profileItemLoadState = .onSale
+        presenter?.loadMyItems()
+    }
     
+    @IBAction func soldBtnWasPressed(_ sender: UIButton) {
+        print("my soldBtnWasPressed was pressed")
+
+        profileItemLoadState = .sold
+        presenter?.performLoadSold()
+
+    }
+    
+    @IBAction func boughtBtnWasPressed(_ sender: UIButton) {
+        print("my boughtBtnWasPressed was pressed")
+
+        profileItemLoadState = .bought
+        presenter?.performLoadBought()
+
+    }
+    
+    //MARK: Protocols
     func onLogoutSuccess() {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.window = UIWindow(frame: UIScreen.main.bounds)
@@ -94,15 +139,15 @@ class ProfileVC: UIViewController, ProfileViewProtocol {
     }
     
     func onLoadDataError(error: AppError) {
-        //show the error
+        showError(message: error.description)
     }
     
     func showLoading() {
-        
+        showLoadingIndicator()
     }
     
     func hideLoading() {
-        
+        hideLoadingIndicator()
     }
     
     func onGetMyItemSuccess(myItems: [Item]) {
@@ -118,7 +163,29 @@ class ProfileVC: UIViewController, ProfileViewProtocol {
     }
     
     func onGetMyItemError(error: AppError) {
-        
+        showError(message: error.description)
+    }
+    
+    func onGetSoldItemsSuccess(orderDetails: [OrderDetail]) {
+        print(orderDetails)
+
+        var soldItems = [Item]()
+        orderDetails.forEach { (orderDetail) in
+            soldItems.append(orderDetail.item)
+        }
+        myItems = soldItems
+        userItemCollectionView.reloadData()
+    }
+    
+    func onGetBoughtItemsSuccess(orderDetails: [OrderDetail]) {
+        print(orderDetails)
+
+        var boughtItems = [Item]()
+        orderDetails.forEach { (orderDetail) in
+            boughtItems.append(orderDetail.item)
+        }
+        myItems = boughtItems
+        userItemCollectionView.reloadData()
     }
     
    
@@ -141,6 +208,7 @@ extension ProfileVC: UICollectionViewDelegate, UICollectionViewDataSource, UICol
         return cell
         
     }
+
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let size = collectionView.frame.size.width / CGFloat(itemsPerRow) - CGFloat(itemsPerRow - 1)

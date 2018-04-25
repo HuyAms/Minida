@@ -11,21 +11,21 @@ import Alamofire
 
 protocol ItemServiceProtocol {
     
-    func getAvailableItems(completion: @escaping (ServerResponse<[ItemHome]>) -> Void)
+    func getAvailableItems(completion: @escaping (ServerResponse<[ItemDetail]>) -> Void)
     
-    func getItemsByCategory(category: Category, completion: @escaping (ServerResponse<[ItemHome]>) -> Void)
+    func getItemsByCategory(category: Category, completion: @escaping (ServerResponse<[ItemDetail]>) -> Void)
     
-    func getItemsByUserId(id: String, completion: @escaping (ServerResponse<[ItemHome]>) -> Void)
+    func getItemsByUserId(id: String, completion: @escaping (ServerResponse<[Item]>) -> Void)
     
-    func getMyItems(token: String, completion: @escaping (ServerResponse<[ItemHome]>) -> Void)
+    func getMyItems(token: String, completion: @escaping (ServerResponse<[Item]>) -> Void)
     
-    func getItemById(id: String, completion: @escaping (ServerResponse<ItemHome>) -> Void)
+    func getItemById(id: String, completion: @escaping (ServerResponse<ItemDetail>) -> Void)
     
-    func postItemForSale(token: String, itemName: String, description: String, price: Int, itemCategory: String, imgPath: String, lat: Double?, lng: Double?, completion: @escaping (ServerResponse<ItemHome>) -> Void)
+    func postItemForSale(token: String, itemName: String, description: String, price: Int, itemCategory: String, imgPath: String, lat: Double?, lng: Double?, completion: @escaping (ServerResponse<Item>) -> Void)
     
-    func editItem(id: String, token: String, itemName: String?, description: String?, price: Int?, itemCategory: String?, imgPath: String?, lat: Double?, lng: Double?, completion: @escaping (ServerResponse<ItemHome>) -> Void)
+    func editItem(id: String, token: String, itemName: String?, description: String?, price: Int?, itemCategory: String?, imgPath: String?, lat: Double?, lng: Double?, completion: @escaping (ServerResponse<Item>) -> Void)
     
-    func deleteItem(id: String, token: String, completion: @escaping (ServerResponse<ItemHome>) -> Void)
+    func deleteItem(id: String, token: String, completion: @escaping (ServerResponse<Item>) -> Void)
 }
 
 
@@ -33,7 +33,7 @@ class ItemService: ItemServiceProtocol {
     
     let jsonDecoder = JSONDecoder()
     
-    func getAvailableItems(completion: @escaping (ServerResponse<[ItemHome]>) -> Void) {
+    func getAvailableItems(completion: @escaping (ServerResponse<[ItemDetail]>) -> Void) {
         Alamofire.request(
             URL(string: URLConst.BASE_URL + URLConst.ITEM_PATH)!,
             method: .get)
@@ -41,7 +41,7 @@ class ItemService: ItemServiceProtocol {
                 switch response.result {
                 case .success:
                     do {
-                        let serverResponse = try self.jsonDecoder.decode(Response<[ItemHome]>.self, from: response.data!)
+                        let serverResponse = try self.jsonDecoder.decode(Response<[ItemDetail]>.self, from: response.data!)
                         let status = serverResponse.status
                         switch status {
                         case 200:
@@ -65,7 +65,7 @@ class ItemService: ItemServiceProtocol {
         }
     }
     
-    func getItemsByCategory(category: Category, completion: @escaping (ServerResponse<[ItemHome]>) -> Void) {
+    func getItemsByCategory(category: Category, completion: @escaping (ServerResponse<[ItemDetail]>) -> Void) {
         var parameters: Parameters
         
         switch category {
@@ -82,7 +82,7 @@ class ItemService: ItemServiceProtocol {
                 switch response.result {
                 case .success:
                     do {
-                        let serverResponse = try self.jsonDecoder.decode(Response<[ItemHome]>.self, from: response.data!)
+                        let serverResponse = try self.jsonDecoder.decode(Response<[ItemDetail]>.self, from: response.data!)
                         let status = serverResponse.status
                         switch status {
                         case 200:
@@ -109,7 +109,7 @@ class ItemService: ItemServiceProtocol {
         }
     }
     
-    func getItemsByUserId(id: String, completion: @escaping (ServerResponse<[ItemHome]>) -> Void) {
+    func getItemsByUserId(id: String, completion: @escaping (ServerResponse<[Item]>) -> Void) {
         Alamofire.request(
             URL(string: URLConst.BASE_URL + URLConst.ITEM_USERS + id)!,
             method: .get)
@@ -117,7 +117,7 @@ class ItemService: ItemServiceProtocol {
                 switch response.result {
                 case .success:
                     do {
-                        let serverResponse = try self.jsonDecoder.decode(Response<[ItemHome]>.self, from: response.data!)
+                        let serverResponse = try self.jsonDecoder.decode(Response<[Item]>.self, from: response.data!)
                         let status = serverResponse.status
                         switch status {
                         case 200:
@@ -141,7 +141,7 @@ class ItemService: ItemServiceProtocol {
         }
     }
     
-    func getMyItems(token: String, completion: @escaping (ServerResponse<[ItemHome]>) -> Void) {
+    func getMyItems(token: String, completion: @escaping (ServerResponse<[Item]>) -> Void) {
         let headers: HTTPHeaders = ["authorization": token]
         Alamofire.request(
             URL(string: URLConst.BASE_URL + URLConst.ITEMS_ME_PATH)!,
@@ -151,7 +151,7 @@ class ItemService: ItemServiceProtocol {
                 switch response.result {
                 case .success:
                     do {
-                        let serverResponse = try self.jsonDecoder.decode(Response<[ItemHome]>.self, from: response.data!)
+                        let serverResponse = try self.jsonDecoder.decode(Response<[Item]>.self, from: response.data!)
                         let status = serverResponse.status
                         switch status {
                         case 200:
@@ -175,7 +175,7 @@ class ItemService: ItemServiceProtocol {
         }
     }
     
-    func getItemById(id: String, completion: @escaping (ServerResponse<ItemHome>) -> Void) {
+    func getItemById(id: String, completion: @escaping (ServerResponse<ItemDetail>) -> Void) {
         Alamofire.request(
             URL(string: URLConst.BASE_URL + URLConst.ITEM_PATH + id)!,
             method: .get)
@@ -183,7 +183,7 @@ class ItemService: ItemServiceProtocol {
                 switch response.result {
                 case .success:
                     do {
-                        let serverResponse = try self.jsonDecoder.decode(Response<ItemHome>.self, from: response.data!)
+                        let serverResponse = try self.jsonDecoder.decode(Response<ItemDetail>.self, from: response.data!)
                         let status = serverResponse.status
                         switch status {
                         case 200:
@@ -207,7 +207,7 @@ class ItemService: ItemServiceProtocol {
         }
     }
     
-    func postItemForSale(token: String, itemName: String, description: String, price: Int, itemCategory: String, imgPath: String, lat: Double?, lng: Double?, completion: @escaping (ServerResponse<ItemHome>) -> Void) {
+    func postItemForSale(token: String, itemName: String, description: String, price: Int, itemCategory: String, imgPath: String, lat: Double?, lng: Double?, completion: @escaping (ServerResponse<Item>) -> Void) {
         let parameters: Parameters = ["itemName": itemName, "description": description, "price": price, "itemCategory": itemCategory, "imgPath": imgPath, "lat": lat ?? "", "lng": lng ?? ""]
         let headers: HTTPHeaders = ["authorization": token]
         Alamofire.request(
@@ -219,7 +219,7 @@ class ItemService: ItemServiceProtocol {
                 switch response.result {
                 case .success:
                     do {
-                        let serverResponse = try self.jsonDecoder.decode(Response<ItemHome>.self, from: response.data!)
+                        let serverResponse = try self.jsonDecoder.decode(Response<Item>.self, from: response.data!)
                         let status = serverResponse.status
                         switch status {
                         case 200:
@@ -243,7 +243,7 @@ class ItemService: ItemServiceProtocol {
         }
     }
     
-    func editItem(id: String, token: String, itemName: String?, description: String?, price: Int?, itemCategory: String?, imgPath: String?, lat: Double?, lng: Double?, completion: @escaping (ServerResponse<ItemHome>) -> Void) {
+    func editItem(id: String, token: String, itemName: String?, description: String?, price: Int?, itemCategory: String?, imgPath: String?, lat: Double?, lng: Double?, completion: @escaping (ServerResponse<Item>) -> Void) {
         
         let parameters: Parameters = ["itemName": itemName, "description": description, "itemCategory": itemCategory, "imgPath": imgPath, "lat": lat, "lng": lng]
         
@@ -257,7 +257,7 @@ class ItemService: ItemServiceProtocol {
                 switch response.result {
                 case .success:
                     do {
-                        let serverResponse = try self.jsonDecoder.decode(Response<ItemHome>.self, from: response.data!)
+                        let serverResponse = try self.jsonDecoder.decode(Response<Item>.self, from: response.data!)
                         let status = serverResponse.status
                         switch status {
                         case 200:
@@ -281,7 +281,7 @@ class ItemService: ItemServiceProtocol {
         }
     }
     
-    func deleteItem(id: String, token: String, completion: @escaping (ServerResponse<ItemHome>) -> Void) {
+    func deleteItem(id: String, token: String, completion: @escaping (ServerResponse<Item>) -> Void) {
         let headers: HTTPHeaders = ["authorization": token]
         Alamofire.request(
             URL(string: URLConst.BASE_URL + URLConst.ITEM_PATH + id)!,
@@ -291,7 +291,7 @@ class ItemService: ItemServiceProtocol {
                 switch response.result {
                 case .success:
                     do {
-                        let serverResponse = try self.jsonDecoder.decode(Response<ItemHome>.self, from: response.data!)
+                        let serverResponse = try self.jsonDecoder.decode(Response<Item>.self, from: response.data!)
                         let status = serverResponse.status
                         switch status {
                         case 200:

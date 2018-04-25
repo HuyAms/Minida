@@ -15,3 +15,11 @@ struct Order: Codable {
     var buyer: String
     var time: String
 }
+
+struct OrderDetail: Codable {
+    var _id: String
+    var item: Item
+    var seller: User
+    var buyer: User
+    var time: String
+}

@@ -11,15 +11,15 @@ import Alamofire
 
 protocol OrderServiceProtocol {
     
-    func getItemsBoughtByMe(token: String, completion: @escaping (ServerResponse<[ItemHome]>) -> Void)
+    func getItemsBoughtByMe(token: String, completion: @escaping (ServerResponse<[OrderDetail]>) -> Void)
     
-    func getItemsSoldByMe(token: String, completion: @escaping (ServerResponse<[ItemHome]>) -> Void)
+    func getItemsSoldByMe(token: String, completion: @escaping (ServerResponse<[OrderDetail]>) -> Void)
     
     func getMyVouchers(token: String, completion: @escaping (ServerResponse<[Voucher]>) -> Void)
     
     func buyVoucher(token: String, voucherId: String, completion: @escaping (ServerResponse<VoucherOrder>) -> Void)
     
-    func getOrderById(itemId: String, completion: @escaping (ServerResponse<Order>) -> Void)
+    func getOrderById(itemId: String, completion: @escaping (ServerResponse<OrderDetail>) -> Void)
     
     func createOrder(token: String, itemId: String, completion: @escaping (ServerResponse<Order>) -> Void)
 }
@@ -27,22 +27,23 @@ protocol OrderServiceProtocol {
 class OrderService: OrderServiceProtocol {
     let jsonDecoder = JSONDecoder()
     
-    func getItemsBoughtByMe(token: String, completion: @escaping (ServerResponse<[ItemHome]>) -> Void) {
+    func getItemsBoughtByMe(token: String, completion: @escaping (ServerResponse<[OrderDetail]>) -> Void) {
         let headers: HTTPHeaders = ["authorization": token]
         Alamofire.request(
             URL(string: URLConst.BASE_URL + URLConst.ORDER_PATH + URLConst.BOUGHT_PATH)!,
             method: .get,
             headers: headers)
             .responseJSON { response in
+                print("RESPONSE :\(response)")
                 switch response.result {
                 case .success:
                     do {
-                        let serverResponse = try self.jsonDecoder.decode(Response<[ItemHome]>.self, from: response.data!)
+                        let serverResponse = try self.jsonDecoder.decode(Response<[OrderDetail]>.self, from: response.data!)
                         let status = serverResponse.status
                         switch status {
                         case 200:
-                            guard let boughtItems = serverResponse.data else {debugPrint("Error loading bought items"); return}
-                            completion(ServerResponse.success(boughtItems))
+                            guard let boughtOrders = serverResponse.data else {debugPrint("Error loading bought items"); return}
+                            completion(ServerResponse.success(boughtOrders))
                         default:
                             guard let code = serverResponse.code else {print("Error: server code"); return}
                             let appError = AppError(code: code, status: status)
@@ -60,7 +61,7 @@ class OrderService: OrderServiceProtocol {
         }
     }
     
-    func getItemsSoldByMe(token: String, completion: @escaping (ServerResponse<[ItemHome]>) -> Void) {
+    func getItemsSoldByMe(token: String, completion: @escaping (ServerResponse<[OrderDetail]>) -> Void) {
         let headers: HTTPHeaders = ["authorization": token]
         Alamofire.request(
             URL(string: URLConst.BASE_URL + URLConst.ORDER_PATH + URLConst.SOLD_PATH)!,
@@ -70,12 +71,12 @@ class OrderService: OrderServiceProtocol {
                 switch response.result {
                 case .success:
                     do {
-                        let serverResponse = try self.jsonDecoder.decode(Response<[ItemHome]>.self, from: response.data!)
+                        let serverResponse = try self.jsonDecoder.decode(Response<[OrderDetail]>.self, from: response.data!)
                         let status = serverResponse.status
                         switch status {
                         case 200:
-                            guard let soldItems = serverResponse.data else {debugPrint("Error loading sold items"); return}
-                            completion(ServerResponse.success(soldItems))
+                            guard let soldOrders = serverResponse.data else {debugPrint("Error loading sold items"); return}
+                            completion(ServerResponse.success(soldOrders))
                         default:
                             guard let code = serverResponse.code else {print("Error: server code"); return}
                             let appError = AppError(code: code, status: status)
@@ -168,7 +169,7 @@ class OrderService: OrderServiceProtocol {
         }
     }
     
-    func getOrderById(itemId: String, completion: @escaping (ServerResponse<Order>) -> Void) {
+    func getOrderById(itemId: String, completion: @escaping (ServerResponse<OrderDetail>) -> Void) {
         Alamofire.request(
             URL(string: URLConst.BASE_URL + URLConst.BOUGHT_PATH)!,
             method: .get)
@@ -176,7 +177,7 @@ class OrderService: OrderServiceProtocol {
                 switch response.result {
                 case .success:
                     do {
-                        let serverResponse = try self.jsonDecoder.decode(Response<Order>.self, from: response.data!)
+                        let serverResponse = try self.jsonDecoder.decode(Response<OrderDetail>.self, from: response.data!)
                         let status = serverResponse.status
                         switch status {
                         case 200:

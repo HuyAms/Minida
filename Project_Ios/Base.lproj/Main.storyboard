@@ -1321,9 +1321,12 @@
                                             <constraint firstAttribute="width" constant="125" id="MgW-jy-J6h"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="14"/>
-                                        <state key="normal" title="All">
+                                        <state key="normal" title="All My Items">
                                             <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="myItemsBtnWasPressed:" destination="rL3-n5-n0R" eventType="touchUpInside" id="I9n-ww-uHe"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vjy-x9-btS">
                                         <rect key="frame" x="125" y="0.0" width="125" height="40"/>
@@ -1331,9 +1334,12 @@
                                             <constraint firstAttribute="width" constant="125" id="XhE-RQ-rwE"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="14"/>
-                                        <state key="normal" title="Sold">
+                                        <state key="normal" title="Sold Items">
                                             <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="soldBtnWasPressed:" destination="rL3-n5-n0R" eventType="touchUpInside" id="RIH-JO-Wxe"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cba-tT-yu9">
                                         <rect key="frame" x="250" y="0.0" width="125" height="40"/>
@@ -1341,9 +1347,12 @@
                                             <constraint firstAttribute="width" constant="125" id="L0x-zG-Z9H"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="14"/>
-                                        <state key="normal" title="On Sale">
+                                        <state key="normal" title="Bought Items">
                                             <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="boughtBtnWasPressed:" destination="rL3-n5-n0R" eventType="touchUpInside" id="cDr-OH-G2V"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.48627450980392156" green="0.44705882352941173" blue="0.72156862745098038" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -1,12 +1,27 @@
 //
-//  ItemProfile.swift
+//  ItemHome.swift
 //  Project_Ios
 //
-//  Created by iosadmin on 23.4.2018.
+//  Created by iosdev on 18.4.2018.
 //  Copyright © 2018 Dat Truong. All rights reserved.
 //
 
 import Foundation
+
+enum Category: String {
+    case clothing
+    case homewares
+    case accessories
+    case others
+    case free
+    case vehicles
+    case devices
+    case all
+    
+    var description: String {
+        return self.rawValue
+    }
+}
 
 struct Item: Codable {
     var status: String
@@ -17,7 +32,7 @@ struct Item: Codable {
     var price: Int
     var category: String
     var imgPath: String
+    var seller: User
     var lat: Double?
     var lng: Double?
-    var seller: String
 }

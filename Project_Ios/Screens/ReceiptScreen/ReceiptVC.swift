@@ -10,7 +10,7 @@ import UIKit
 
 protocol ReceiptVCProtocol: class {
     
-    func onFetchItemSuccess(item: ItemHome)
+    func onFetchItemSuccess(item: Item)
     
     func onFetchSellerSuccess(seller: User)
     
@@ -56,7 +56,7 @@ class ReceiptVC: UIViewController, ReceiptVCProtocol {
         showError(message: error.description)
     }
     
-    func onFetchItemSuccess(item: ItemHome) {
+    func onFetchItemSuccess(item: Item) {
         itemImageView.load(imgUrl: item.imgPath)
         itemNameLbl.text = item.itemName
         

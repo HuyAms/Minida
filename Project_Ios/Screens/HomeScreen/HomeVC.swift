@@ -17,9 +17,9 @@ protocol HomeVCProtocol: class {
     
     func onShowError(error: AppError)
     
-    func onGetAvailableItemsSuccess(homeItems: [ItemHome])
+    func onGetAvailableItemsSuccess(homeItems: [Item])
     
-    func onShowFilteredItems(homeItems: [ItemHome])
+    func onShowFilteredItems(homeItems: [Item])
     
     func onShowFilteringNoResult()
     
@@ -39,7 +39,7 @@ class HomeVC: UIViewController, HomeVCProtocol {
     let kCloseCellHeight: CGFloat = 145
     let kOpenCellHeight: CGFloat = 390
     var cellHeights: [CGFloat] = []
-    var items = [ItemHome]()
+    var items = [Item]()
     
     lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
@@ -52,7 +52,7 @@ class HomeVC: UIViewController, HomeVCProtocol {
         return refreshControl
     }()
     
-    var filteredItems = [ItemHome]()
+    var filteredItems = [Item]()
     var searchActive : Bool = false
     
     var presenter: HomePresenterProtocol?
@@ -130,7 +130,7 @@ class HomeVC: UIViewController, HomeVCProtocol {
         showError(message: error.description)
     }
     
-    func onGetAvailableItemsSuccess(homeItems: [ItemHome]) {
+    func onGetAvailableItemsSuccess(homeItems: [Item]) {
         if homeItems.count > 0 {
             tableView.isHidden = false
             setupTable(kRowsCount: homeItems.count)
@@ -144,7 +144,7 @@ class HomeVC: UIViewController, HomeVCProtocol {
       
     }
     
-    func onShowFilteredItems(homeItems: [ItemHome]) {
+    func onShowFilteredItems(homeItems: [Item]) {
         tableView.isHidden = false
         notFoundLbl.isHidden = true
         setupTable(kRowsCount: homeItems.count)
@@ -220,7 +220,7 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         
-        let homeItem: ItemHome
+        let homeItem: Item
         
         if isFiltering() {
             homeItem = filteredItems[indexPath.row]

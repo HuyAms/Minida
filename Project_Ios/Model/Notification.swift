@@ -15,7 +15,7 @@ struct Notification: Codable {
     var notiType: Int
     var order: String
     var notiBody: User
-    var item: ItemHome
+    var item: Item
 }
 
 struct UpdateNotiResponse: Codable {

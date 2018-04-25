@@ -16,14 +16,20 @@ protocol ProfilePresenterProtocol {
     
     func logout()
     
+    func performLoadBought()
+    
+    func performLoadSold()
+    
     func performGetUserById(token: String)
 }
 
 class ProfilePresenter: ProfilePresenterProtocol {
+   
     
     weak var view: ProfileViewProtocol?
     var userService: UserServiceProtocol = UserService()
     var profileService: ProfileServiceProtocol = ProfileService()
+    var orderService: OrderServiceProtocol = OrderService()
     
     init(view: ProfileViewProtocol) {
         self.view = view
@@ -80,4 +86,37 @@ class ProfilePresenter: ProfilePresenterProtocol {
             }
         }
     }
+    
+    func performLoadBought() {
+        view?.showLoading()
+        guard let token = KeyChainUtil.share.getToken() else {return}
+        orderService.getItemsBoughtByMe(token: token) { [weak self] response in
+            switch response {
+            case .success(let orderDetail):
+                self?.view?.hideLoading()
+                self?.view?.onGetBoughtItemsSuccess(orderDetails: orderDetail)
+            case .error(let error):
+                self?.view?.hideLoading()
+                self?.view?.onGetMyItemError(error: error)
+            }
+            
+        }
+    }
+    
+    func performLoadSold() {
+        view?.showLoading()
+        guard let token = KeyChainUtil.share.getToken() else {return}
+        orderService.getItemsSoldByMe(token: token) { [weak self] response in
+            switch response {
+            case .success(let orderDetail):
+                self?.view?.hideLoading()
+                self?.view?.onGetSoldItemsSuccess(orderDetails: orderDetail)
+            case .error(let error):
+                self?.view?.hideLoading()
+                self?.view?.onGetMyItemError(error: error)
+            }
+            
+        }
+    }
+    
 }

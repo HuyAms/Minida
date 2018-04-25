@@ -1329,7 +1329,7 @@
                                             <constraint firstAttribute="width" constant="125" id="MgW-jy-J6h"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="14"/>
-                                        <state key="normal" title="All">
+                                        <state key="normal" title="All My Items">
                                             <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
@@ -1342,7 +1342,7 @@
                                             <constraint firstAttribute="width" constant="125" id="XhE-RQ-rwE"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="14"/>
-                                        <state key="normal" title="Sold">
+                                        <state key="normal" title="Sold Items">
                                             <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
@@ -1355,7 +1355,7 @@
                                             <constraint firstAttribute="width" constant="125" id="L0x-zG-Z9H"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="14"/>
-                                        <state key="normal" title="On Sale">
+                                        <state key="normal" title="Bought Items">
                                             <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>

@@ -49,6 +49,7 @@ class ProfileVC: UIViewController, ProfileViewProtocol {
     @IBOutlet weak var contactUserButton: UIButton!
     @IBOutlet weak var userItemCollectionView: UICollectionView!
     var profileItemLoadState: ProfileItemLoadState = .onSale
+    @IBOutlet weak var avatarImage: UIImageView!
     
     //MARK: Properties
     var presenter: ProfilePresenterProtocol?
@@ -61,6 +62,10 @@ class ProfileVC: UIViewController, ProfileViewProtocol {
         
         if let point = userData.point {
             pointLabel.text = String(point)
+        }
+        
+        if let avatarIcon = userData.avatarPath {
+            avatarImage.load(imgUrl: avatarIcon)
         }
         
     }
@@ -127,6 +132,12 @@ class ProfileVC: UIViewController, ProfileViewProtocol {
         presenter?.performLoadBought()
 
     }
+    
+    @IBAction func editProfileButtonWasPressed(_ sender: Any) {
+        guard let editProfileVC = storyboard?.instantiateViewController(withIdentifier: AppStoryBoard.editProfileVC.identifier) as? EditProfileVC else {return}
+        present(editProfileVC, animated: true, completion: nil)
+    }
+    
     
     //MARK: Protocols
     func onLogoutSuccess() {

@@ -63,8 +63,10 @@ extension UIViewController {
 
 extension UIImageView {
     func load(imgUrl: String) {
-        let url = URL(string: imgUrl)
-        self.kf.setImage(with: url)
+        if !imgUrl.isEmpty {
+            let url = URL(string: imgUrl)
+            self.kf.setImage(with: url)
+        }
     }
 }
 

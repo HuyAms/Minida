@@ -1075,6 +1075,106 @@
             </objects>
             <point key="canvasLocation" x="414" y="755"/>
         </scene>
+        <!--Edit ProfileVC-->
+        <scene sceneID="cg0-FW-znu">
+            <objects>
+                <viewController storyboardIdentifier="editProfileScreen" id="68U-x9-Pk0" customClass="EditProfileVC" customModule="Project_Ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="H8s-hh-7zT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nw9-Zk-la2">
+                                <rect key="frame" x="0.0" y="20" width="375" height="52"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dbR-t2-RB0">
+                                        <rect key="frame" x="300" y="11" width="46" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Save"/>
+                                        <connections>
+                                            <action selector="saveBtnWasPressed:" destination="68U-x9-Pk0" eventType="touchUpInside" id="huA-Bz-AOQ"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Edit Profile" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VNO-BT-cEz">
+                                        <rect key="frame" x="141" y="15" width="93" height="22"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xpz-Ae-cUF">
+                                        <rect key="frame" x="22" y="11" width="52" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Cancel"/>
+                                        <connections>
+                                            <action selector="cancelBtnWasPressed:" destination="68U-x9-Pk0" eventType="touchUpInside" id="oi9-hj-kzo"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="avatar-test-icon" translatesAutoresizingMaskIntoConstraints="NO" id="n4Y-YY-E6F">
+                                <rect key="frame" x="106" y="106" width="163" height="144"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Change profile picture" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="79l-cC-zgi">
+                                <rect key="frame" x="95" y="258" width="184" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lhg-FU-urq">
+                                <rect key="frame" x="42" y="318" width="292" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TeX-mh-6to">
+                                <rect key="frame" x="42" y="367" width="292" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m7i-fb-HFJ">
+                                <rect key="frame" x="42" y="419" width="292" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gO7-9T-jTV">
+                                <rect key="frame" x="42" y="472" width="292" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v4m-M9-Duh">
+                                <rect key="frame" x="88" y="97" width="191" height="190"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.92156862745098034" green="0.91764705882352937" blue="0.95686274509803915" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="NKe-ax-v9d"/>
+                    </view>
+                    <connections>
+                        <outlet property="avatarImage" destination="n4Y-YY-E6F" id="4f9-4Q-5OM"/>
+                        <outlet property="cancelButton" destination="xpz-Ae-cUF" id="AMz-oY-DJu"/>
+                        <outlet property="changeProfilePictureButton" destination="v4m-M9-Duh" id="4Un-ao-wGS"/>
+                        <outlet property="emailTextField" destination="m7i-fb-HFJ" id="TAd-uJ-ds1"/>
+                        <outlet property="nameTextField" destination="lhg-FU-urq" id="eyT-fL-vOL"/>
+                        <outlet property="passwordTextField" destination="TeX-mh-6to" id="e27-jC-A1M"/>
+                        <outlet property="phoneTextField" destination="gO7-9T-jTV" id="6vI-EJ-gk1"/>
+                        <outlet property="saveButton" destination="dbR-t2-RB0" id="7mQ-b0-jgd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9SX-Ef-o2Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1160.8" y="-1383.0584707646178"/>
+        </scene>
         <!--Second-->
         <scene sceneID="cfM-aI-YUA">
             <objects>
@@ -1269,6 +1369,9 @@
                                                         <real key="value" value="0.0"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="editProfileButtonWasPressed:" destination="rL3-n5-n0R" eventType="touchUpInside" id="8ij-0r-BA6"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="APk-TA-Qjv">
                                                 <rect key="frame" x="200" y="0.0" width="155" height="30"/>
@@ -1433,6 +1536,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Second" image="second" id="Xeb-JV-Sne"/>
                     <connections>
+                        <outlet property="avatarImage" destination="RsN-R0-DG9" id="dFo-W6-b9Q"/>
                         <outlet property="pointLabel" destination="WOm-6m-Nhq" id="cAZ-C7-fnA"/>
                         <outlet property="recycleLabel" destination="Mwc-t0-QPr" id="vnJ-mG-s9c"/>
                         <outlet property="userItemCollectionView" destination="vYc-p6-lWv" id="cAm-Nt-awV"/>
@@ -1742,7 +1846,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hwI-CG-Bse" id="Nbv-72-FLh">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar-example-icon" translatesAutoresizingMaskIntoConstraints="NO" id="BsV-mR-oad">
@@ -2764,6 +2868,7 @@
         <image name="accessories-category-black-icon" width="512" height="512"/>
         <image name="all-category-black-icon" width="512" height="512"/>
         <image name="avatar-example-icon" width="1241" height="915"/>
+        <image name="avatar-test-icon" width="265" height="265"/>
         <image name="cancel-icon" width="512" height="512"/>
         <image name="category-icon" width="512" height="512"/>
         <image name="clock-black-icon" width="48" height="48"/>

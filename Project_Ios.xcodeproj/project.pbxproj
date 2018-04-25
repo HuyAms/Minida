@@ -63,6 +63,8 @@
 		C3513CDE208DB60C0098F1DF /* Rank.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3513CDD208DB60C0098F1DF /* Rank.swift */; };
 		C3513CE2208DB7520098F1DF /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3513CE1208DB7520098F1DF /* ProfileService.swift */; };
 		C3513CE6208DBEE30098F1DF /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3513CE5208DBEE30098F1DF /* ProfileCell.swift */; };
+		C3513CF22090A6C60098F1DF /* EditProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3513CF12090A6C60098F1DF /* EditProfileVC.swift */; };
+		C3513CF42090A6E30098F1DF /* EditProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3513CF32090A6E30098F1DF /* EditProfilePresenter.swift */; };
 		C361BA262086A7170070AB46 /* TableCellExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = C361BA252086A7170070AB46 /* TableCellExt.swift */; };
 		C361BA2A20886DAA0070AB46 /* AlertExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = C361BA2920886DAA0070AB46 /* AlertExt.swift */; };
 		C3984161208B407700DE5FD4 /* PaymentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3984160208B407700DE5FD4 /* PaymentService.swift */; };
@@ -147,6 +149,8 @@
 		C3513CDD208DB60C0098F1DF /* Rank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rank.swift; sourceTree = "<group>"; };
 		C3513CE1208DB7520098F1DF /* ProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
 		C3513CE5208DBEE30098F1DF /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
+		C3513CF12090A6C60098F1DF /* EditProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileVC.swift; sourceTree = "<group>"; };
+		C3513CF32090A6E30098F1DF /* EditProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfilePresenter.swift; sourceTree = "<group>"; };
 		C361BA252086A7170070AB46 /* TableCellExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCellExt.swift; sourceTree = "<group>"; };
 		C361BA2920886DAA0070AB46 /* AlertExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertExt.swift; sourceTree = "<group>"; };
 		C3984160208B407700DE5FD4 /* PaymentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentService.swift; sourceTree = "<group>"; };
@@ -200,6 +204,7 @@
 		1242BBA52075620500857661 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				C3513CF02090A6930098F1DF /* EditProfileScreen */,
 				6A3E324F208F49D300100924 /* ReceiptScreen */,
 				6A61EC55208E16AB00FA8E91 /* Modal */,
 				1203BB4D208CCCDE00A1959C /* VoucherScreen */,
@@ -422,6 +427,16 @@
 			path = OnboardingScreen;
 			sourceTree = "<group>";
 		};
+		C3513CF02090A6930098F1DF /* EditProfileScreen */ = {
+			isa = PBXGroup;
+			children = (
+				C3513CF12090A6C60098F1DF /* EditProfileVC.swift */,
+				C3513CF32090A6E30098F1DF /* EditProfilePresenter.swift */,
+			);
+			name = EditProfileScreen;
+			path = EditProf;
+			sourceTree = "<group>";
+		};
 		C3984164208B4BCB00DE5FD4 /* PaymentScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -619,6 +634,7 @@
 				6A31B3B7207E2E5300BDE03F /* Constant.swift in Sources */,
 				C3E1A95720833B8200DF3D72 /* MainVC.swift in Sources */,
 				6A3E3251208F49FF00100924 /* ReceiptVC.swift in Sources */,
+				C3513CF42090A6E30098F1DF /* EditProfilePresenter.swift in Sources */,
 				6AE2D6DE20875EB800EAA747 /* ItemService.swift in Sources */,
 				6A61EC49208D12F700FA8E91 /* VoucherService.swift in Sources */,
 				6A9FECC82089B32200FB28D5 /* NotificationService.swift in Sources */,
@@ -648,6 +664,7 @@
 				6A31B3A3207E214100BDE03F /* AuthVC.swift in Sources */,
 				1251F84E2086AADD0058EF88 /* HomeItemCell.swift in Sources */,
 				6A61EC4B208D140300FA8E91 /* Voucher.swift in Sources */,
+				C3513CF22090A6C60098F1DF /* EditProfileVC.swift in Sources */,
 				1242BBAF2075686C00857661 /* StoryBoardID.swift in Sources */,
 				6A31B3AE207E229B00BDE03F /* Response.swift in Sources */,
 				6A31B3B0207E22AD00BDE03F /* User.swift in Sources */,

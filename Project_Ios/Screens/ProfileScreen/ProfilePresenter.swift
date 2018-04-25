@@ -48,7 +48,6 @@ class ProfilePresenter: ProfilePresenterProtocol {
         view?.showLoading()
         guard let token = KeyChainUtil.share.getToken() else {return}
         profileService.loadProfileData(token: token) { (response) in
-            print("RES: \(response)")
             switch response{
             case.success(let user):
                 self.view?.hideLoading()
@@ -64,7 +63,6 @@ class ProfilePresenter: ProfilePresenterProtocol {
         view?.showLoading()
         guard let token = KeyChainUtil.share.getToken() else {return}
         profileService.loadMyItems(token: token) { (response) in
-            print("RES: \(response)")
             switch response{
             case.success(let myItems):
                 self.view?.hideLoading()

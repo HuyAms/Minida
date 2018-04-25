@@ -65,9 +65,9 @@ class ReceiptVC: UIViewController, ReceiptVCProtocol {
         case 0:
             itemPriceLbl.text = "FREE"
         case 1:
-            itemPriceLbl.text = "\(String(item.price)) point)"
+            itemPriceLbl.text = "\(String(item.price)) point"
         default:
-            itemPriceLbl.text = "\(String(item.price)) points)"
+            itemPriceLbl.text = "\(String(item.price)) points"
         }
     }
     

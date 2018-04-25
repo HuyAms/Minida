@@ -19,6 +19,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AlertModalVC" customModule="Project_Ios" customModuleProvider="target">
             <connections>
+                <outlet property="alertIcon" destination="zIt-6Z-6ct" id="aoY-Mu-LxI"/>
                 <outlet property="button" destination="KEp-AH-4CS" id="zjL-Fa-pKx"/>
                 <outlet property="messageLbl" destination="z0V-oK-a7e" id="fGe-A5-KNg"/>
                 <outlet property="modalBackGround" destination="dg6-pq-lcb" id="y3O-sr-uSX"/>
@@ -70,13 +71,13 @@
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Great!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qhc-G4-XJE">
                                     <rect key="frame" x="0.0" y="8" width="300" height="27.5"/>
                                     <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="20"/>
-                                    <color key="textColor" red="0.30196078430000001" green="0.2784313725" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have bought item successfully" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z0V-oK-a7e">
                                     <rect key="frame" x="8" y="40.5" width="284" height="22"/>
                                     <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="16"/>
-                                    <color key="textColor" red="0.30196078430000001" green="0.2784313725" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
@@ -91,7 +92,7 @@
                             </constraints>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" red="0.30196078431372547" green="0.27843137254901962" blue="0.53333333333333333" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstItem="zIt-6Z-6ct" firstAttribute="top" secondItem="dg6-pq-lcb" secondAttribute="top" constant="8" id="3Rb-63-OYt"/>
                         <constraint firstAttribute="trailing" secondItem="KEp-AH-4CS" secondAttribute="trailing" id="93H-nx-UuO"/>

@@ -37,21 +37,40 @@ class NotificationVC: UIViewController, NotificationVCProtocol {
     
     var notifications = [Notification]()
     
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action:
+            #selector(HomeVC.handleRefresh(_:)),
+                                 for: UIControlEvents.valueChanged)
+        refreshControl.tintColor = UIColor.white
+        refreshControl.backgroundColor = UIColor.appLightColor
+        
+        return refreshControl
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter = NotificationPresenter(view: self)
         presenter?.performGetMyNotifications()
+        tableView.addSubview(self.refreshControl)
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.tableFooterView = UIView()
     }
     
     //MARK: Protocols
     func showLoading() {
-        showLoadingIndicator()
+        if !refreshControl.isRefreshing {
+            showLoadingIndicator()
+        }
     }
     
     func hideLoading() {
-        hideLoadingIndicator()
+        if refreshControl.isRefreshing {
+            refreshControl.endRefreshing()
+        } else {
+            hideLoadingIndicator()
+        }
     }
     
     func onGetNotificationsSuccess(notifications: [Notification]) {
@@ -78,6 +97,10 @@ class NotificationVC: UIViewController, NotificationVCProtocol {
     
     func hideNoNotificationLbl() {
         noNotiLbl.isHidden = true
+    }
+    
+    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+        presenter?.performGetMyNotifications()
     }
     
     //MARK: Actions

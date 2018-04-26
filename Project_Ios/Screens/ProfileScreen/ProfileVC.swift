@@ -53,7 +53,6 @@ class ProfileVC: UIViewController, ProfileViewProtocol {
     @IBOutlet weak var recycleLabel: UILabel!
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var userRankLabel: UILabel!
-    @IBOutlet weak var contactUserButton: UIButton!
     @IBOutlet weak var userItemCollectionView: UICollectionView!
     @IBOutlet weak var avatarImage: UIImageView!
     @IBOutlet weak var noItemLbl: UILabel!

@@ -1830,6 +1830,12 @@
                                     <constraint firstAttribute="height" constant="70" id="zvX-Ct-Ubc"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No items" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2D3-cL-Qo3">
+                                <rect key="frame" x="12" y="110" width="351" height="26"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MZf-fi-I3D">
                                 <rect key="frame" x="0.0" y="90" width="375" height="577"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1894,14 +1900,18 @@
                             <constraint firstItem="ab2-Ek-mgG" firstAttribute="leading" secondItem="FiZ-Ox-zwZ" secondAttribute="leading" id="5Gj-JU-kGs"/>
                             <constraint firstItem="MZf-fi-I3D" firstAttribute="top" secondItem="ab2-Ek-mgG" secondAttribute="bottom" id="7bC-ZE-C7y"/>
                             <constraint firstItem="FiZ-Ox-zwZ" firstAttribute="trailing" secondItem="MZf-fi-I3D" secondAttribute="trailing" id="BfB-3B-FEu"/>
+                            <constraint firstItem="FiZ-Ox-zwZ" firstAttribute="trailing" secondItem="2D3-cL-Qo3" secondAttribute="trailing" constant="12" id="JwT-Tg-eZD"/>
+                            <constraint firstItem="2D3-cL-Qo3" firstAttribute="leading" secondItem="FiZ-Ox-zwZ" secondAttribute="leading" constant="12" id="Ufq-KX-c3d"/>
                             <constraint firstItem="ab2-Ek-mgG" firstAttribute="trailing" secondItem="FiZ-Ox-zwZ" secondAttribute="trailing" id="bxI-ty-ZSk"/>
                             <constraint firstItem="FiZ-Ox-zwZ" firstAttribute="bottom" secondItem="MZf-fi-I3D" secondAttribute="bottom" id="cES-oP-yRV"/>
                             <constraint firstItem="ab2-Ek-mgG" firstAttribute="top" secondItem="FiZ-Ox-zwZ" secondAttribute="top" id="ely-XX-4cw"/>
+                            <constraint firstItem="2D3-cL-Qo3" firstAttribute="top" secondItem="ab2-Ek-mgG" secondAttribute="bottom" constant="20" id="fvP-2j-uxJ"/>
                             <constraint firstItem="MZf-fi-I3D" firstAttribute="leading" secondItem="FiZ-Ox-zwZ" secondAttribute="leading" id="g7q-aE-BBa"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="FiZ-Ox-zwZ"/>
                     </view>
                     <connections>
+                        <outlet property="noNotiLbl" destination="2D3-cL-Qo3" id="y6g-Tn-9ra"/>
                         <outlet property="tableView" destination="MZf-fi-I3D" id="Nf1-ee-VAJ"/>
                     </connections>
                 </viewController>

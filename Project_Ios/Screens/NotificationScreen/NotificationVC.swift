@@ -14,6 +14,14 @@ protocol NotificationVCProtocol {
     
     func hideLoading()
     
+    func showNotificationList()
+    
+    func hideNotificationList()
+    
+    func showNoNotificationLbl(message: String)
+    
+    func hideNoNotificationLbl()
+    
     func onGetNotificationsSuccess(notifications: [Notification])
     
     func onShowError(error: AppError)
@@ -21,10 +29,11 @@ protocol NotificationVCProtocol {
 }
 
 class NotificationVC: UIViewController, NotificationVCProtocol {
-    
+ 
     var presenter: NotiPresenterProtocol?
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var noNotiLbl: UILabel!
     
     var notifications = [Notification]()
     
@@ -52,6 +61,23 @@ class NotificationVC: UIViewController, NotificationVCProtocol {
     
     func onShowError(error: AppError) {
         showError(message: error.description)
+    }
+    
+    func showNotificationList() {
+        tableView.isHidden = false
+    }
+    
+    func hideNotificationList() {
+        tableView.isHidden = true
+    }
+    
+    func showNoNotificationLbl(message: String) {
+        noNotiLbl.isHidden = false
+        noNotiLbl.text = message
+    }
+    
+    func hideNoNotificationLbl() {
+        noNotiLbl.isHidden = true
     }
     
     //MARK: Actions

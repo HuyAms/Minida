@@ -39,6 +39,11 @@ class VoucherCell: UITableViewCell {
         logoImg.load(imgUrl: voucher.imgPath)
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        qrCodeView.isHidden = true
+    }
+    
     @objc private func changeQRCodeVisibility(_ sender: UITapGestureRecognizer) {
         if (qrCodeView.isHidden) {
             UIView.transition(with: self.cellContentView, duration: 0.7, options: .transitionFlipFromRight, animations: {

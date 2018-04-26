@@ -10,13 +10,16 @@ import Foundation
 
 protocol PaymentPresenterProtocol {
     func buyPoint(amount: Int, source: String, completion: @escaping (User?, AppError?) -> Void)
+    
+    func getMe()
 }
 
 class PaymentPresenter: PaymentPresenterProtocol {
-    
+ 
     weak var view: PaymentVCProtocol?
     
     var paymentService: PaymentServiceProtocol = PaymentService()
+    var userService: UserServiceProtocol = UserService()
     
     init(view: PaymentVCProtocol) {
         self.view = view
@@ -32,6 +35,20 @@ class PaymentPresenter: PaymentPresenterProtocol {
                 completion(user, nil)
             case .error(let error):
                 completion(nil, error)
+            }
+        }
+    }
+    
+    func getMe() {
+        guard let token = KeyChainUtil.share.getToken() else {return}
+        self.view?.showLoading()
+        userService.getUserMe(token: token) { [weak self] (response) in
+            self?.view?.hideLoading()
+            switch response {
+            case .success(let user):
+                self?.view?.onGetMeSuccess(user: user)
+            case .error(let error):
+                self?.view?.onGetMeError(error: error)
             }
         }
     }

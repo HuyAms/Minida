@@ -1782,6 +1782,8 @@
                     </view>
                     <connections>
                         <outlet property="addCardBtn" destination="i03-V7-q8a" id="oCC-51-S0w"/>
+                        <outlet property="nameLbl" destination="wL2-fa-5Xc" id="ifM-dz-BOc"/>
+                        <outlet property="pointLbl" destination="ggz-Kw-agF" id="jU1-PR-tAA"/>
                         <outlet property="tableView" destination="Cah-1U-wBd" id="Ew4-hF-rmz"/>
                         <outlet property="userNameLbl" destination="wL2-fa-5Xc" id="0Sx-WE-MIx"/>
                         <outlet property="userPointLbl" destination="ggz-Kw-agF" id="wQs-x5-Fz9"/>

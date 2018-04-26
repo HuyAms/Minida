@@ -10,9 +10,7 @@ import UIKit
 
 protocol ReceiptVCProtocol: class {
     
-    func onFetchItemSuccess(item: ItemDetail)
-    
-    func onFetchSellerSuccess(seller: User)
+    func onGetOrderSuccess(order: OrderDetail)
     
     func onShowError(error: AppError)
 
@@ -22,8 +20,8 @@ protocol ReceiptVCProtocol: class {
 }
 
 class ReceiptVC: UIViewController, ReceiptVCProtocol {
-    
-    var order: Order?
+ 
+    var orderId: String?
     var email: String?
     var phoneNumber: Int?
     
@@ -40,41 +38,26 @@ class ReceiptVC: UIViewController, ReceiptVCProtocol {
         super.viewDidLoad()
         presenter = ReceiptPresenter(view: self)
         
-        if let order = self.order {
-            let sellerId = order.seller
-            let itemId = order.item
-            
-            presenter?.performGetItem(itemId: itemId)
-            presenter?.performGetSeller(userId: sellerId)
-            
-            let time = AppUtil.shared.formantTimeStamp(isoDate: order.time)
-            receiptTimeLbl.text = time
+        if let orderId = self.orderId {
+            presenter?.performGetOrder(orderId: orderId)
         }
+    }
+    
+    func onGetOrderSuccess(order: OrderDetail) {
+        itemImageView.load(imgUrl: order.item.imgPath)
+        itemNameLbl.text = order.item.itemName
+        itemPriceLbl.text = String(order.item.price)
+        
+        sellerNameLbl.text = order.seller.username
+        self.email = order.seller.email
+        self.phoneNumber = order.seller.phoneNumber
+        
+        let time = AppUtil.shared.formantTimeStamp(isoDate: order.time)
+        receiptTimeLbl.text = time
     }
     
     func onShowError(error: AppError) {
         showError(message: error.description)
-    }
-    
-    func onFetchItemSuccess(item: ItemDetail) {
-        itemImageView.load(imgUrl: item.imgPath)
-        itemNameLbl.text = item.itemName
-        
-        let price = item.price
-        switch price {
-        case 0:
-            itemPriceLbl.text = "FREE"
-        case 1:
-            itemPriceLbl.text = "\(String(item.price)) point"
-        default:
-            itemPriceLbl.text = "\(String(item.price)) points"
-        }
-    }
-    
-    func onFetchSellerSuccess(seller: User) {
-        sellerNameLbl.text = seller.username
-        email = seller.email
-        phoneNumber = seller.phoneNumber
     }
     
     func showLoading() {

@@ -95,9 +95,9 @@ class HomeVC: UIViewController, HomeVCProtocol {
         categoryVC.delegate = self
     }
     
-    private func goToReceiptScreen(order: Order) {
+    private func goToReceiptScreen(orderId: String) {
         guard let receiptVC = storyboard?.instantiateViewController(withIdentifier: AppStoryBoard.receiptVC.identifier) as? ReceiptVC else {return}
-        receiptVC.order = order
+        receiptVC.orderId = orderId
         present(receiptVC, animated: true, completion: nil)
     }
     
@@ -166,7 +166,7 @@ class HomeVC: UIViewController, HomeVCProtocol {
     }
     
     func onBuyItemSuccess(order: Order) {
-        goToReceiptScreen(order: order)
+        goToReceiptScreen(orderId: order._id)
     }
     
     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {

@@ -278,9 +278,8 @@ class ProfileVC: UIViewController, ProfileViewProtocol {
     }
     
     private func goToReceiptScreen(orderDetail: OrderDetail) {
-         let order = Order(_id: orderDetail._id, item: orderDetail.item._id, seller: orderDetail.seller._id, buyer: orderDetail.buyer._id, time: orderDetail.time)
         guard let receiptVC = storyboard?.instantiateViewController(withIdentifier: AppStoryBoard.receiptVC.identifier) as? ReceiptVC else {return}
-        receiptVC.order = order
+        receiptVC.orderId = orderDetail._id
         present(receiptVC, animated: true, completion: nil)
     }
 }

@@ -10,48 +10,33 @@ import Foundation
 
 protocol ReceiptPresenterProtocol {
     
-    func performGetSeller(userId: String)
-    
-    func performGetItem(itemId: String)
+    func performGetOrder(orderId: String)
     
 }
 
 class ReceiptPresenter: ReceiptPresenterProtocol {
     
-    var itemService: ItemServiceProtocol = ItemService()
-    var userService: UserServiceProtocol = UserService()
+    var orderService: OrderServiceProtocol = OrderService()
+    
     weak var view: ReceiptVCProtocol?
     
     init(view: ReceiptVCProtocol) {
         self.view = view
     }
     
-    func performGetSeller(userId: String) {
-        guard let token = KeyChainUtil.share.getToken() else {print("Error get token"); return}
-        userService.getUserById(id: userId, token: token) { [weak self] response in
+    func performGetOrder(orderId: String) {
+        view?.showLoading()
+        orderService.getOrderById(orderId: orderId) {[weak self] (response) in
+            self?.view?.hideLoading()
             switch response {
-            case .success(let seller):
-                self?.view?.onFetchSellerSuccess(seller: seller)
-                self?.view?.hideLoading()
+            case .success(let order):
+                self?.view?.onGetOrderSuccess(order: order)
             case .error(let error):
                 self?.view?.onShowError(error: error)
-                self?.view?.hideLoading()
             }
         }
     }
     
-    func performGetItem(itemId: String) {
-        itemService.getItemById(id: itemId) { [weak self] response in
-            switch response {
-            case .success(let item):
-                self?.view?.onFetchItemSuccess(item: item)
-                self?.view?.hideLoading()
-            case .error(let error):
-                self?.view?.onShowError(error: error)
-                self?.view?.hideLoading()
-            }
-        }
-    }
     
 }
 

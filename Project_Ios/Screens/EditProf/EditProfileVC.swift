@@ -23,7 +23,7 @@ protocol EditProfileViewProtocol: class {
     
 }
 
-class EditProfileVC: UIViewController, EditProfileViewProtocol {
+class EditProfileVC: UIViewController, EditProfileViewProtocol{
     
     //MARK: Outlets
     @IBOutlet weak var nameTextField: UITextField!
@@ -40,14 +40,57 @@ class EditProfileVC: UIViewController, EditProfileViewProtocol {
     
     //MARK: Properties
     var presenter: EditProfilePresenterProtocol?
-    
+    var image: UIImage?
   
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter = EditProfilePresenter(view: self)
         presenter?.loadUserInfo()
         // Do any additional setup after loading the view.
+        
+        //Add tap gesture to avatarImage -> when tapped -> user choose img
+        let avatarTapGesture = UITapGestureRecognizer(target: self
+            , action: #selector(EditProfileVC.imageTap(_:)))
+        avatarImage.addGestureRecognizer(avatarTapGesture)
+        
+        
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
+    //MARK: UIImagePickerView functions
+    @objc func imageTap(_ sender: UITapGestureRecognizer) {
+        print("Image was tapped")
+        // Show options for the source picker only if the camera is available.
+        guard UIImagePickerController.isSourceTypeAvailable(.camera) else {
+            presentPhotoPicker(sourceType: .photoLibrary)
+            return
+        }
+        
+        let photoSourcePicker = UIAlertController()
+        let takePhoto = UIAlertAction(title: "Take Photo", style: .default) { [unowned self] _ in
+            self.presentPhotoPicker(sourceType: .camera)
+        }
+        let choosePhoto = UIAlertAction(title: "Choose Photo", style: .default) { [unowned self] _ in
+            self.presentPhotoPicker(sourceType: .photoLibrary)
+        }
+        
+        photoSourcePicker.addAction(takePhoto)
+        photoSourcePicker.addAction(choosePhoto)
+        photoSourcePicker.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        present(photoSourcePicker, animated: true)
+    }
+    
+    func presentPhotoPicker(sourceType: UIImagePickerControllerSourceType) {
+        let picker = UIImagePickerController()
+        picker.delegate = self
+        picker.sourceType = sourceType
+        present(picker, animated: true)
+    }
+
     
     
     //MARK: Protocols
@@ -102,5 +145,19 @@ class EditProfileVC: UIViewController, EditProfileViewProtocol {
         dismiss(animated: true, completion: nil)
     }
     
-    
 }
+
+extension EditProfileVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    // MARK: - Handling Image Picker Selection
+
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String: Any]) {
+        picker.dismiss(animated: true)
+        
+        // We always expect 'imagePickerController(:didFinishPickingMediaWithInfo:)' to supply the original image.
+        image = info[UIImagePickerControllerOriginalImage] as? UIImage
+        avatarImage.image = image
+        
+        //updateClassifications(for: image!)
+    }
+}
+

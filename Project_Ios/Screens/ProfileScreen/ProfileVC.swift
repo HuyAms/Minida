@@ -63,15 +63,12 @@ class ProfileVC: UIViewController, ProfileViewProtocol {
     @IBOutlet weak var avatarView: UIView!
     
     
-    var profileItemLoadState: ProfileItemLoadState = .myAvailableItems
-    
     //MARK: Properties
     var presenter: ProfilePresenterProtocol?
     fileprivate let itemsPerRow: CGFloat = 3
-    fileprivate var currentVC: UIViewController!
     var myItems = [Item]()
+    var profileItemLoadState: ProfileItemLoadState = .myAvailableItems
     var orderDetails = [OrderDetail]()
-    var image: UIImage?
     
     func onLoadDataSuccess(userData: User) {
         userNameLabel.text = userData.username
@@ -94,11 +91,6 @@ class ProfileVC: UIViewController, ProfileViewProtocol {
         
         setActiveTab(profileItemLoadState: profileItemLoadState)
         
-        //Add tap gesture to avatarImage -> when tapped -> user choose img
-        let avatarTapGesture = UITapGestureRecognizer(target: self
-            , action: #selector(ProfileVC.imageTap(_:)))
-        avatarView.addGestureRecognizer(avatarTapGesture)
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -115,39 +107,6 @@ class ProfileVC: UIViewController, ProfileViewProtocol {
             presenter?.performLoadBought()
         }
     }
-    
-    //MARK: UIImagePickerView functions
-    @objc func imageTap(_ sender: UITapGestureRecognizer) {
-        print("Image was tapped")
-        // Show options for the source picker only if the camera is available.
-        guard UIImagePickerController.isSourceTypeAvailable(.camera) else {
-            presentPhotoPicker(sourceType: .photoLibrary)
-            return
-        }
-        
-        let photoSourcePicker = UIAlertController()
-        let takePhoto = UIAlertAction(title: "Take Photo", style: .default) { [unowned self] _ in
-            self.presentPhotoPicker(sourceType: .camera)
-        }
-        let choosePhoto = UIAlertAction(title: "Choose Photo", style: .default) { [unowned self] _ in
-            self.presentPhotoPicker(sourceType: .photoLibrary)
-        }
-        
-        photoSourcePicker.addAction(takePhoto)
-        photoSourcePicker.addAction(choosePhoto)
-        photoSourcePicker.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        
-        present(photoSourcePicker, animated: true)
-    }
-    
-    func presentPhotoPicker(sourceType: UIImagePickerControllerSourceType) {
-        let picker = UIImagePickerController()
-        picker.delegate = self
-        picker.sourceType = sourceType
-        present(picker, animated: true)
-    }
-    
-    
     
 
     //MARK: Actions
@@ -328,19 +287,5 @@ extension ProfileVC: UICollectionViewDelegate, UICollectionViewDataSource, UICol
         default:
             return
         }
-    }
-}
-
-extension ProfileVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    // MARK: - Handling Image Picker Selection
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String: Any]) {
-        picker.dismiss(animated: true)
-        
-        // We always expect 'imagePickerController(:didFinishPickingMediaWithInfo:)' to supply the original image.
-        image = info[UIImagePickerControllerOriginalImage] as? UIImage
-        avatarImage.image = image
-        
-        //updateClassifications(for: image!)
     }
 }

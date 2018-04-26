@@ -334,6 +334,9 @@
                                             <constraint firstAttribute="width" constant="30" id="do5-w9-M2I"/>
                                         </constraints>
                                         <state key="normal" image="notification-icon"/>
+                                        <connections>
+                                            <action selector="notiBtnWasPressed:" destination="L0B-qw-G26" eventType="touchUpInside" id="wCZ-b1-JUb"/>
+                                        </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1GE-WE-uPa" userLabel="Menu Placeholder">
                                         <rect key="frame" x="12" y="15" width="40" height="40"/>
@@ -1792,10 +1795,10 @@
             </objects>
             <point key="canvasLocation" x="1831" y="-707"/>
         </scene>
-        <!--View Controller-->
+        <!--NotificationVC-->
         <scene sceneID="P9a-Hx-6Ji">
             <objects>
-                <viewController id="NqZ-d3-sJU" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="notificationScreen" id="NqZ-d3-sJU" customClass="NotificationVC" customModule="Project_Ios" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cii-Gk-CaU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1818,6 +1821,7 @@
                                         <state key="normal" title="Button" image="cancel-icon"/>
                                         <connections>
                                             <action selector="cancelBtnWasPressed:" destination="cw1-VV-tKn" eventType="touchUpInside" id="4rD-Ra-52G"/>
+                                            <action selector="closeBtnWasPressed:" destination="NqZ-d3-sJU" eventType="touchUpInside" id="uhw-qB-yzV"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1834,11 +1838,11 @@
                                 <rect key="frame" x="0.0" y="90" width="375" height="577"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="100" id="hwI-CG-Bse">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="notificationCell" rowHeight="100" id="hwI-CG-Bse" customClass="NotificationCell" customModule="Project_Ios" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hwI-CG-Bse" id="Nbv-72-FLh">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar-example-icon" translatesAutoresizingMaskIntoConstraints="NO" id="BsV-mR-oad">
@@ -1880,6 +1884,11 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.92156862750000001" green="0.91764705879999997" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <outlet property="notiDescriptionLbl" destination="i2S-5D-SS4" id="xVQ-HY-ct9"/>
+                                            <outlet property="notiImageView" destination="BsV-mR-oad" id="5ik-qE-sDa"/>
+                                            <outlet property="notiTimeLbl" destination="XAa-6o-xc2" id="GVE-Cr-CvF"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -1896,6 +1905,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="FiZ-Ox-zwZ"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="MZf-fi-I3D" id="Nf1-ee-VAJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="730-C7-PqO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

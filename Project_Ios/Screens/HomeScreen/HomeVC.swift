@@ -101,11 +101,19 @@ class HomeVC: UIViewController, HomeVCProtocol {
         present(receiptVC, animated: true, completion: nil)
     }
     
+    private func goToNotiScreen() {
+        guard let notificationVC = storyboard?.instantiateViewController(withIdentifier: AppStoryBoard.notificationVC.identifier) as? NotificationVC else {return}
+        present(notificationVC, animated: true, completion: nil)
+    }
+    
     //MARK: Actions
     @IBAction func categoryBtnWasPressed(_ sender: Any) {
         goToCategoryScreen()
     }
     
+    @IBAction func notiBtnWasPressed(_ sender: UIButton) {
+        goToNotiScreen()
+    }
     
     func dismissKeyboard() {
         view.endEditing(true)

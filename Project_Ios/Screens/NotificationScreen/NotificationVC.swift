@@ -58,6 +58,13 @@ class NotificationVC: UIViewController, NotificationVCProtocol {
     @IBAction func closeBtnWasPressed(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
+    
+    //MARK: Helper
+    private func goToReceiptScreen(orderId: String) {
+        guard let receiptVC = storyboard?.instantiateViewController(withIdentifier: AppStoryBoard.receiptVC.identifier) as? ReceiptVC else {return}
+        receiptVC.orderId = orderId
+        present(receiptVC, animated: true, completion: nil)
+    }
 }
 
 extension NotificationVC: UITableViewDelegate, UITableViewDataSource {
@@ -80,6 +87,11 @@ extension NotificationVC: UITableViewDelegate, UITableViewDataSource {
         cell.config(notification: notificaton)
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let notification = notifications[indexPath.row]
+        goToReceiptScreen(orderId: notification.order)
     }
 
 }

@@ -1529,6 +1529,7 @@
                     <connections>
                         <outlet property="allMyItemBtn" destination="2E5-gA-Y5P" id="SuH-SA-Ovy"/>
                         <outlet property="avatarImage" destination="RsN-R0-DG9" id="dFo-W6-b9Q"/>
+                        <outlet property="avatarView" destination="yA3-u9-EN2" id="WJk-PT-wYg"/>
                         <outlet property="boughtItemBtn" destination="cba-tT-yu9" id="daR-tm-JYQ"/>
                         <outlet property="noItemLbl" destination="Rpa-dd-Be3" id="gZj-Py-hN6"/>
                         <outlet property="pointLabel" destination="WOm-6m-Nhq" id="cAZ-C7-fnA"/>
@@ -1842,7 +1843,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hwI-CG-Bse" id="Nbv-72-FLh">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar-example-icon" translatesAutoresizingMaskIntoConstraints="NO" id="BsV-mR-oad">

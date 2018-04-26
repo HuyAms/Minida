@@ -37,7 +37,7 @@ class ReceiptVC: UIViewController, ReceiptVCProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter = ReceiptPresenter(view: self)
-        
+   
         if let orderId = self.orderId {
             presenter?.performGetOrder(orderId: orderId)
         }
@@ -68,6 +68,19 @@ class ReceiptVC: UIViewController, ReceiptVCProtocol {
         hideLoadingIndicator()
     }
     
+    //Helper
+    func openEmail() {
+        guard let email = self.email else {return}
+        if let url = URL(string: "mailto:\(email)") {
+            UIApplication.shared.open(url)
+        }
+    }
+    
+    func makePhoneCall() {
+        guard let phoneNumber = self.phoneNumber else {return}
+        guard let phone = URL(string: "tel://" + String(phoneNumber)) else {return}
+        UIApplication.shared.open(phone, options: [:], completionHandler: nil)
+    }
     
     //MARK: Actions
     @IBAction func closeBtnWasPressed(_ sender: UIButton) {
@@ -77,22 +90,18 @@ class ReceiptVC: UIViewController, ReceiptVCProtocol {
     @IBAction func contactBtnWasPressed(_ sender: UIButton) {
         
         let alertViewController = UIAlertController(title: "Contact", message: "How do you want to contact?", preferredStyle: .actionSheet)
-        let emailAction = UIAlertAction(title: "Email", style: .default) { (action) in
-            guard let email = self.email else {return}
-            if let url = URL(string: "mailto:\(email)") {
-                UIApplication.shared.open(url)
-            }
+        let emailAction = UIAlertAction(title: "Email", style: .default) { [weak self](action) in
+            self?.openEmail()
         }
-        let callAction = UIAlertAction(title: "Phone Number", style: .default) { (action) in
-            guard let phoneNumber = self.phoneNumber else {return}
-            guard let phone = URL(string: "tel://" + String(phoneNumber)) else {return}
-            UIApplication.shared.open(phone, options: [:], completionHandler: nil)
-            print("phone number chosen")
+        let callAction = UIAlertAction(title: "Phone Number", style: .default) { [weak self](action) in
+            self?.makePhoneCall()
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
         alertViewController.addAction(callAction)
         alertViewController.addAction(emailAction)
         alertViewController.addAction(cancelAction)
+        
         present(alertViewController, animated: true)
     }
 }

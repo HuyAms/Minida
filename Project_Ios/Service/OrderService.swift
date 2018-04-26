@@ -172,8 +172,6 @@ class OrderService: OrderServiceProtocol {
             URL(string: URLConst.BASE_URL + URLConst.ORDER_PATH + orderId)!,
             method: .get)
             .responseJSON { response in
-                print("ORDER DETAIL: \(response)")
-
                 switch response.result {
                 case .success:
                     do {

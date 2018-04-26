@@ -50,6 +50,7 @@ class HomeItemCell: FoldingCell {
             detailPriceLbl.text = String(itemHome.price)
             smallPriceLbl.text = String(itemHome.price)
         }
+        
 
         //timeLbl.text = itemHome.time
         descriptionLbl.text = itemHome.description
@@ -75,6 +76,16 @@ class HomeItemCell: FoldingCell {
         default:
             categoryImageView.image = UIImage.getOthersIconBlack()
             detailCategoryImgView.image = UIImage.getOthersIconWhite()
+        }
+        
+        let tapGuesture = UITapGestureRecognizer(target: self
+            , action: #selector(HomeItemCell.imgTapHandler(_:)))
+        smallItemImageView.addGestureRecognizer(tapGuesture)
+    }
+    
+    @objc private func imgTapHandler(_ sender: UITapGestureRecognizer) {
+        if let onImgButtonTapped = self.onImgButtonTapped {
+            onImgButtonTapped()
         }
     }
     

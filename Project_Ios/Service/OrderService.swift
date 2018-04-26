@@ -141,7 +141,6 @@ class OrderService: OrderServiceProtocol {
             method: .post,
             headers: headers)
             .responseJSON { response in
-                print(response)
                 switch response.result {
                 case .success:
                     do {

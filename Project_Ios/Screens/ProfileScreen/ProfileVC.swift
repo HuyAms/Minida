@@ -183,9 +183,8 @@ class ProfileVC: UIViewController, ProfileViewProtocol {
     }
     
     func onGetMyItemSuccess(myItems: [Item]) {
-        print(myItems)
         let numberOfRecycles = myItems.count
-        recycleLabel.text = String(numberOfRecycles)
+        //recycleLabel.text = String(numberOfRecycles)
         self.myItems = myItems
         userItemCollectionView.reloadData()
     }
@@ -199,7 +198,6 @@ class ProfileVC: UIViewController, ProfileViewProtocol {
     }
     
     func onGetSoldItemsSuccess(orderDetails: [OrderDetail]) {
-        print(orderDetails)
         self.orderDetails = orderDetails
         var soldItems = [Item]()
         orderDetails.forEach { (orderDetail) in
@@ -210,7 +208,6 @@ class ProfileVC: UIViewController, ProfileViewProtocol {
     }
     
     func onGetBoughtItemsSuccess(orderDetails: [OrderDetail]) {
-        print(orderDetails)
         self.orderDetails = orderDetails
         var boughtItems = [Item]()
         orderDetails.forEach { (orderDetail) in

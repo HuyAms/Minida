@@ -70,16 +70,17 @@ class AuthPresenter: AuthPresenterProtocol {
              view?.showLoading()
             authService.login(username: userName, password: password, completion: { [weak self] response in
                 switch response {
-                case .success(let token):
-                    //Save the token in keychain
-                    KeyChainUtil.share.setToken(token: token)
+                case .success(let authResponse):
+                    //Save the token and userId
+                    KeyChainUtil.share.setToken(token: authResponse.token)
+                    KeyChainUtil.share.setUserId(userId: authResponse.userId)
                     KeyChainUtil.share.setLogInSate()
                     KeyChainUtil.share.setUserName(username: userName)
                     self?.view?.onSuccess()
                     self?.view?.hideLoading()
                 case .error(let error):
                     self?.view?.onShowError(error: error)
-                    self?.view?.hideLoading() //put self here is not the right way
+                    self?.view?.hideLoading()
                 }
             })
             
@@ -95,9 +96,10 @@ class AuthPresenter: AuthPresenterProtocol {
             view?.showLoading()
             authService.register(username: userName, password: password, email: email, phoneNumber: phoneNumber, completion: { [weak self] response in
                 switch response {
-                case .success(let token):
-                    //Save the token in defaultUsers
-                    KeyChainUtil.share.setToken(token: token)
+                case .success(let authResponse):
+                    //Save the token and userId
+                    KeyChainUtil.share.setToken(token: authResponse.token)
+                    KeyChainUtil.share.setUserId(userId: authResponse.userId)
                     KeyChainUtil.share.setLogInSate()
                     KeyChainUtil.share.setUserName(username: userName)
                     self?.view?.onSuccess()
@@ -122,6 +124,7 @@ class AuthPresenter: AuthPresenterProtocol {
     
     func changeAccount() {
         KeyChainUtil.share.removeToken()
+        KeyChainUtil.share.removeUserId()
         self.view?.onChangeAccountSuccess()
         view?.hideChangeAccountBtn()
     }

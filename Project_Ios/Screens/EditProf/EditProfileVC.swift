@@ -37,7 +37,6 @@ class EditProfileVC: UIViewController, EditProfileViewProtocol{
     
     var avatarPath: String?
     
-    
     //MARK: Properties
     var presenter: EditProfilePresenterProtocol?
     var image: UIImage?

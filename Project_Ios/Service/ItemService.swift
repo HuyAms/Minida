@@ -25,7 +25,7 @@ protocol ItemServiceProtocol {
     
     func editItem(id: String, token: String, itemName: String?, description: String?, price: Int?, itemCategory: String?, imgPath: String?, lat: Double?, lng: Double?, completion: @escaping (ServerResponse<Item>) -> Void)
     
-    func deleteItem(id: String, token: String, completion: @escaping (ServerResponse<Item>) -> Void)
+    func deleteItem(id: String, token: String, completion: @escaping (ServerResponse<ItemDetail>) -> Void)
 }
 
 
@@ -281,7 +281,7 @@ class ItemService: ItemServiceProtocol {
         }
     }
     
-    func deleteItem(id: String, token: String, completion: @escaping (ServerResponse<Item>) -> Void) {
+    func deleteItem(id: String, token: String, completion: @escaping (ServerResponse<ItemDetail>) -> Void) {
         let headers: HTTPHeaders = ["authorization": token]
         Alamofire.request(
             URL(string: URLConst.BASE_URL + URLConst.ITEM_PATH + id)!,
@@ -291,7 +291,7 @@ class ItemService: ItemServiceProtocol {
                 switch response.result {
                 case .success:
                     do {
-                        let serverResponse = try self.jsonDecoder.decode(Response<Item>.self, from: response.data!)
+                        let serverResponse = try self.jsonDecoder.decode(Response<ItemDetail>.self, from: response.data!)
                         let status = serverResponse.status
                         switch status {
                         case 200:

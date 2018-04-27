@@ -18,10 +18,12 @@ protocol HomePresenterProtocol {
     
     func performBuyItem(itemId: String)
     
+    func performDeleteItem(itemId: String)
+    
 }
 
 class HomePresenter: HomePresenterProtocol {
-    
+
     weak var view: HomeVCProtocol?
     var itemService: ItemServiceProtocol = ItemService()
     var orderService: OrderServiceProtocol = OrderService()
@@ -90,6 +92,20 @@ class HomePresenter: HomePresenterProtocol {
                 self?.view?.hideLoading()
             }
         })
+    }
+    
+    func performDeleteItem(itemId: String) {
+        view?.showLoading()
+        guard let token = KeyChainUtil.share.getToken() else {print("Error get token"); return}
+        itemService.deleteItem(id: itemId, token: token) { [weak self] (response) in
+            self?.view?.hideLoading()
+            switch response {
+            case .success(_):
+                self?.view?.onDeleteItemSuccess()
+            case .error(let error):
+                self?.view?.onShowError(error: error)
+            }
+        }
     }
 }
 

@@ -27,13 +27,18 @@ class HomeItemCell: FoldingCell {
     @IBOutlet weak var sellerImgView: UIImageView!
     @IBOutlet weak var sellerNameLbl: UILabel!
     @IBOutlet weak var sellerRankLbl: UILabel!
+    @IBOutlet weak var deleteBtn: UIButton!
     
     var onBuyButtonTapped: (() -> Void)? = nil
     var onImgButtonTapped: (() -> Void)? = nil
     var onAvaTapped: (() -> Void)? = nil
+    var onDeleteTapped: (() -> Void)? = nil
+    var sellerId: String?
 
     
     func config(itemHome: ItemDetail) {
+        sellerId = itemHome.seller._id
+        deleteBtn.isHidden = !isMyItem()
         smallItemNameLbl.text = itemHome.itemName
         detailNameLbl.text = itemHome.itemName
         
@@ -84,7 +89,19 @@ class HomeItemCell: FoldingCell {
         
     }
     
+    override func prepareForReuse() {
+        deleteBtn.isHidden = !isMyItem()
+    }
+    
     //MARK: Helper
+    
+    func isMyItem() -> Bool {
+        if let myId = KeyChainUtil.share.getUserId(), let sellerId = self.sellerId {
+            return myId == sellerId
+        } else {
+            return false
+        }
+    }
     
     func setUpTapGesture() {
         let imgTapGesture = UITapGestureRecognizer(target: self
@@ -118,6 +135,12 @@ class HomeItemCell: FoldingCell {
     @IBAction func imgButtonWasPressed(_ sender: Any) {
         if let onImgButtonTapped = self.onImgButtonTapped {
             onImgButtonTapped()
+        }
+    }
+    
+    @IBAction func deleteBtnWasPressed(_ sender: Any) {
+        if let onDeleteTapped = self.onDeleteTapped {
+            onDeleteTapped()
         }
     }
     

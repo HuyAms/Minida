@@ -13,6 +13,7 @@ class KeyChainUtil: UserDefaultsProtocol {
     static let share = KeyChainUtil() //Try to create a singleton here
     private let service = "com.team7.minida"
     private let tokenKey = "tokenKey"
+    private let userIdKey = "userIdKey"
     
     var keychain: Keychain {
         return Keychain(service: service)
@@ -41,6 +42,34 @@ class KeyChainUtil: UserDefaultsProtocol {
     func removeToken() {
         do {
             try keychain.remove(tokenKey)
+        } catch let error {
+            print("error: \(error)")
+        }
+    }
+    
+    func setUserId(userId: String) {
+        do {
+            try keychain.set(userId, key: userIdKey)
+        }
+        catch let error {
+            print(error)
+        }
+    }
+    
+    func getUserId() -> String? {
+        do {
+            let token = try keychain.get(userIdKey)
+            return token
+        }
+        catch let error {
+            print(error)
+            return nil
+        }
+    }
+    
+    func removeUserId() {
+        do {
+            try keychain.remove(userIdKey)
         } catch let error {
             print("error: \(error)")
         }

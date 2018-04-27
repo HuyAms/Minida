@@ -404,13 +404,6 @@
                                                                 <constraint firstAttribute="width" constant="30" id="pSw-ux-rcb"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="more-black-icon" translatesAutoresizingMaskIntoConstraints="NO" id="sQP-RK-UMA">
-                                                            <rect key="frame" x="314" y="8" width="20" height="20"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" constant="20" id="8iz-ub-k9a"/>
-                                                                <constraint firstAttribute="height" constant="20" id="Oq4-1r-fIJ"/>
-                                                            </constraints>
-                                                        </imageView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="0iv-pN-Tok">
                                                             <rect key="frame" x="172" y="87" width="155" height="30"/>
                                                             <subviews>
@@ -429,6 +422,20 @@
                                                                 </imageView>
                                                             </subviews>
                                                         </stackView>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oYy-OE-eEN">
+                                                            <rect key="frame" x="311" y="8" width="20" height="20"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="20" id="OfI-GS-ehg"/>
+                                                                <constraint firstAttribute="width" constant="20" id="yxU-BE-ddI"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                            <state key="normal" image="delete-icon">
+                                                                <color key="titleColor" red="1" green="0.20784313730000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                            </state>
+                                                            <connections>
+                                                                <action selector="deleteBtnWasPressed:" destination="OHJ-Kc-aTK" eventType="touchUpInside" id="Ykf-T0-TVB"/>
+                                                            </connections>
+                                                        </button>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.92156862750000001" green="0.91764705879999997" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
@@ -438,7 +445,6 @@
                                                         <constraint firstItem="18f-uO-czl" firstAttribute="leading" secondItem="Q77-ns-4AM" secondAttribute="trailing" constant="10" id="EiO-NF-Th0"/>
                                                         <constraint firstAttribute="bottom" secondItem="BLX-A6-W8H" secondAttribute="bottom" constant="8" id="GaA-d4-pBd"/>
                                                         <constraint firstAttribute="height" constant="125" id="Hl8-XX-jkS"/>
-                                                        <constraint firstItem="sQP-RK-UMA" firstAttribute="top" secondItem="TU2-jk-LgV" secondAttribute="top" constant="8" id="J8G-Fm-sQB"/>
                                                         <constraint firstAttribute="bottom" secondItem="Q77-ns-4AM" secondAttribute="bottom" id="KKa-UM-jb5"/>
                                                         <constraint firstItem="0iv-pN-Tok" firstAttribute="leading" secondItem="BLX-A6-W8H" secondAttribute="trailing" constant="8" id="L1q-72-PGZ"/>
                                                         <constraint firstItem="BLX-A6-W8H" firstAttribute="leading" secondItem="Q77-ns-4AM" secondAttribute="trailing" constant="8" id="Ltg-qo-2Ap"/>
@@ -446,8 +452,9 @@
                                                         <constraint firstItem="Q77-ns-4AM" firstAttribute="leading" secondItem="TU2-jk-LgV" secondAttribute="leading" id="T1D-uc-Gmo"/>
                                                         <constraint firstItem="18f-uO-czl" firstAttribute="top" secondItem="TU2-jk-LgV" secondAttribute="top" constant="8" id="XZl-g5-fb3"/>
                                                         <constraint firstItem="Q77-ns-4AM" firstAttribute="top" secondItem="TU2-jk-LgV" secondAttribute="top" id="iCF-SX-u8g"/>
+                                                        <constraint firstAttribute="trailing" secondItem="oYy-OE-eEN" secondAttribute="trailing" constant="4" id="qu3-q2-LhT"/>
+                                                        <constraint firstItem="oYy-OE-eEN" firstAttribute="top" secondItem="TU2-jk-LgV" secondAttribute="top" constant="8" id="sjJ-kH-j7V"/>
                                                         <constraint firstItem="BLX-A6-W8H" firstAttribute="leading" secondItem="Q77-ns-4AM" secondAttribute="trailing" constant="8" id="w2g-SX-PQu"/>
-                                                        <constraint firstAttribute="trailing" secondItem="sQP-RK-UMA" secondAttribute="trailing" constant="1" id="xC7-2l-VHU"/>
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uxF-vt-YFr" userLabel="Container">
@@ -686,6 +693,7 @@
                                             <outlet property="categoryImageView" destination="BLX-A6-W8H" id="7Le-mK-824"/>
                                             <outlet property="containerView" destination="uxF-vt-YFr" id="GtO-Hq-vIt"/>
                                             <outlet property="containerViewTop" destination="O0V-Yr-cel" id="sph-xt-rYc"/>
+                                            <outlet property="deleteBtn" destination="oYy-OE-eEN" id="BMj-zO-h90"/>
                                             <outlet property="descriptionLbl" destination="9rN-G0-c5e" id="Ptq-XW-fO6"/>
                                             <outlet property="detailCategoryImgView" destination="SGd-VJ-iwA" id="bQh-SZ-0wy"/>
                                             <outlet property="detailItemImgView" destination="ymO-rn-C6k" id="fS7-Dh-nxs"/>
@@ -3048,6 +3056,7 @@
         <image name="clothes-category-black-icon" width="512" height="512"/>
         <image name="coupon-icon" width="512" height="512"/>
         <image name="credit-card-icon" width="30" height="30"/>
+        <image name="delete-icon" width="24" height="24"/>
         <image name="device-category-black-icon" width="512" height="512"/>
         <image name="first" width="30" height="30"/>
         <image name="free-category-black-icon" width="512" height="512"/>
@@ -3058,7 +3067,6 @@
         <image name="item-icon" width="640" height="640"/>
         <image name="logout" width="512" height="512"/>
         <image name="menu-icon" width="512" height="512"/>
-        <image name="more-black-icon" width="512" height="512"/>
         <image name="my-location-icon" width="512" height="512"/>
         <image name="next-black-icon" width="512" height="512"/>
         <image name="notification-icon" width="512" height="512"/>

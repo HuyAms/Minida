@@ -11,16 +11,16 @@ import Alamofire
 
 protocol AuthServiceProtocol {
     
-    func login(username: String, password: String,  completion: @escaping (ServerResponse<String>) -> Void)
+    func login(username: String, password: String,  completion: @escaping (ServerResponse<AuthResponse>) -> Void)
     
-    func register(username: String, password: String, email: String, phoneNumber: String, completion: @escaping (ServerResponse<String>) -> Void)
+    func register(username: String, password: String, email: String, phoneNumber: String, completion: @escaping (ServerResponse<AuthResponse>) -> Void)
 }
 
 class AuthService: AuthServiceProtocol {
     
     let jsonDecoder = JSONDecoder()
     
-    func login(username: String, password: String, completion: @escaping (ServerResponse<String>) -> Void) {
+    func login(username: String, password: String, completion: @escaping (ServerResponse<AuthResponse>) -> Void) {
         let parameters: Parameters = ["username": username, "password": password]
         Alamofire.request(
             URL(string: URLConst.BASE_URL + URLConst.AUTH_PATH)!,
@@ -34,8 +34,8 @@ class AuthService: AuthServiceProtocol {
                         let status = serverResponse.status
                         switch status {
                         case 200:
-                            guard let token = serverResponse.data?.token else {fatalError("Register token error")}
-                            completion(ServerResponse.success(token))
+                            guard let authResponse = serverResponse.data else {fatalError("Register token error")}
+                            completion(ServerResponse.success(authResponse))
                         default:
                             guard let code = serverResponse.code else {print("Error: server code"); return}
                             let appError = AppError(code: code, status: status)
@@ -54,7 +54,7 @@ class AuthService: AuthServiceProtocol {
         
     }
     
-    func register(username: String, password: String, email: String, phoneNumber: String, completion: @escaping (ServerResponse<String>) -> Void) {
+    func register(username: String, password: String, email: String, phoneNumber: String, completion: @escaping (ServerResponse<AuthResponse>) -> Void) {
         let parameters: Parameters = ["username": username, "password": password, "email": email, "phoneNumber": phoneNumber]
         Alamofire.request(
             URL(string: URLConst.BASE_URL + URLConst.USER_PATH)!,
@@ -68,8 +68,8 @@ class AuthService: AuthServiceProtocol {
                         let status = authResponse.status
                         switch status {
                         case 200:
-                            guard let token = authResponse.data?.token else {fatalError("Register token error")}
-                            completion(ServerResponse.success(token))
+                            guard let authResponse = authResponse.data else {fatalError("Register token error")}
+                            completion(ServerResponse.success(authResponse))
                         default:
                             guard let code = authResponse.code else {print("Error: server code"); return}
                             let appError = AppError(code: code, status: status)

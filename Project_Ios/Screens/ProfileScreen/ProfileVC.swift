@@ -203,7 +203,6 @@ class ProfileVC: UIViewController, ProfileViewProtocol {
     }
     
     
-    
     @objc func qrTapHandler(_ sender: UITapGestureRecognizer) {
         UIView.transition(with: self.qrCodeView, duration: 0.7 , options: .transitionCrossDissolve, animations: {
             self.qrCodeView.isHidden = true

@@ -25,11 +25,12 @@ protocol HomeVCProtocol: class {
     
     func onBuyItemSuccess(order: Order)
     
+    func onDeleteItemSuccess()
+    
 }
 
 class HomeVC: UIViewController, HomeVCProtocol {
- 
-    
+
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var notFoundLbl: UILabel!
@@ -159,6 +160,11 @@ class HomeVC: UIViewController, HomeVCProtocol {
       
     }
     
+    func onDeleteItemSuccess() {
+        presenter?.performGetAvailableItems()
+        tableView.reloadData()
+    }
+    
     func onShowFilteredItems(homeItems: [ItemDetail]) {
         tableView.isHidden = false
         notFoundLbl.isHidden = true
@@ -247,14 +253,13 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
         
         cell.onBuyButtonTapped = { [weak self]() in            
             let alertViewController = UIAlertController(title: "Buy", message: "Do you want to buy this item?", preferredStyle: .actionSheet)
-            let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
+            let okAction = UIAlertAction(title: "Yes", style: .default) { (action) in
                 self?.presenter?.performBuyItem(itemId: itemId)
             }
             let cancleAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
             alertViewController.addAction(okAction)
             alertViewController.addAction(cancleAction)
             self?.present(alertViewController, animated: true)
-            
         }
         
         cell.onImgButtonTapped = { [weak self]() in
@@ -266,6 +271,17 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
         
         cell.onAvaTapped = { [weak self]() in
             self?.goToProfileScreen(userId: homeItem.seller._id)
+        }
+        
+        cell.onDeleteTapped = { [weak self]() in
+            let alertViewController = UIAlertController(title: "Delete", message: "Do you want to delete this item?", preferredStyle: .actionSheet)
+            let okAction = UIAlertAction(title: "Yes", style: .default) { (action) in
+                self?.presenter?.performDeleteItem(itemId: itemId)
+            }
+            let cancleAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            alertViewController.addAction(okAction)
+            alertViewController.addAction(cancleAction)
+            self?.present(alertViewController, animated: true)
         }
         
         let durations: [TimeInterval] = [0.26, 0.2, 0.2]

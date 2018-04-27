@@ -28,6 +28,7 @@ class HomeItemCell: FoldingCell {
     @IBOutlet weak var sellerNameLbl: UILabel!
     @IBOutlet weak var sellerRankLbl: UILabel!
     @IBOutlet weak var deleteBtn: UIButton!
+    @IBOutlet weak var rankIcon: UIImageView!
     
     var onBuyButtonTapped: (() -> Void)? = nil
     var onImgButtonTapped: (() -> Void)? = nil
@@ -59,7 +60,8 @@ class HomeItemCell: FoldingCell {
         }
         
 
-        //timeLbl.text = itemHome.time
+        rankIcon.image = UIImage.getBadgeIcon(badge: Badge(badge: itemHome.seller.badge))
+        timeLbl.text = AppUtil.shared.formantTimeStamp(isoDate: itemHome.time)
         descriptionLbl.text = itemHome.description
         sellerNameLbl.text = itemHome.seller.username
         

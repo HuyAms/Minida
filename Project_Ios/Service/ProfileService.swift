@@ -10,7 +10,6 @@ import Foundation
 import Alamofire
 
 protocol ProfileServiceProtocol {
-    
     func loadProfileData(token: String, completion: @escaping (ServerResponse<User>) -> Void)
     func loadMyItems(token: String, completion: @escaping (ServerResponse<[Item]>) -> Void)
     func updateProfileData(token: String, username: String, email: String, phoneNumber: Int, avatarPath: String?, password: String, completion: @escaping (ServerResponse<User>) -> Void)

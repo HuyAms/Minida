@@ -14,6 +14,11 @@ enum ProfileItemLoadState {
     case boughtItems
 }
 
+enum ProfileLoadState {
+    case myProfile
+    case userProfile
+}
+
 protocol ProfileViewProtocol: class {
     
     func onLoadDataSuccess(userData: User)
@@ -24,7 +29,7 @@ protocol ProfileViewProtocol: class {
     
     func hideLoading()
     
-    func onGetMyItemSuccess(myItems: [Item])
+    func onGetMyItemSuccess(items: [Item])
     
     func onGetMyItemError(error: AppError)
     
@@ -44,9 +49,13 @@ protocol ProfileViewProtocol: class {
     
     func showNoItemLabel(message: String)
     
+    func setUpLoadMyProfile()
+    
+    func setUpLoadUserProfile()
 }
 
 class ProfileVC: UIViewController, ProfileViewProtocol {
+ 
     //MARK: Outlets
     @IBOutlet weak var badgeImage: UIImageView!
     @IBOutlet weak var pointLabel: UILabel!
@@ -60,14 +69,19 @@ class ProfileVC: UIViewController, ProfileViewProtocol {
     @IBOutlet weak var soldItemBtn: UIButton!
     @IBOutlet weak var allMyItemBtn: UIButton!
     @IBOutlet weak var qrCodeView: UIView!
-    
+    @IBOutlet weak var logOutBtn: UIButton!
+    @IBOutlet weak var closeBtn: UIButton!
+    @IBOutlet weak var editProfileBtn: UIButton!
+    @IBOutlet weak var boardViewBtn: UIButton!
     
     //MARK: Properties
     var presenter: ProfilePresenterProtocol?
     fileprivate let itemsPerRow: CGFloat = 3
-    var myItems = [Item]()
+    fileprivate var myItems = [Item]()
     var profileItemLoadState: ProfileItemLoadState = .myAvailableItems
-    var orderDetails = [OrderDetail]()
+    var profileLoadState: ProfileLoadState = .myProfile
+    var userId: String? = nil
+    fileprivate var orderDetails = [OrderDetail]()
     
     func onLoadDataSuccess(userData: User) {
         userNameLabel.text = userData.username
@@ -100,17 +114,29 @@ class ProfileVC: UIViewController, ProfileViewProtocol {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        presenter?.loadUserInfo()
-        presenter?.loadMyItems()
         
-        switch profileItemLoadState {
-        case .myAvailableItems:
-            presenter?.loadMyItems()
-        case .soldItems:
-            presenter?.performLoadSold()
-        case .boughtItems:
-            presenter?.performLoadBought()
+        switch profileLoadState {
+        case .myProfile:
+            presenter?.loadUserInfo()
+            switch profileItemLoadState {
+            case .myAvailableItems:
+                presenter?.loadMyItems()
+            case .soldItems:
+                presenter?.performLoadSold()
+            case .boughtItems:
+                presenter?.performLoadBought()
+            }
+        case .userProfile:
+            if let userId = self.userId {
+                presenter?.loadUserInfo(userId: userId)
+                presenter?.loadUserItems(userId: userId)
+            }
         }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        profileLoadState = .myProfile
+        userId = nil
     }
     
 
@@ -125,6 +151,10 @@ class ProfileVC: UIViewController, ProfileViewProtocol {
         alertViewController.addAction(okAction)
         alertViewController.addAction(cancleAction)
         present(alertViewController, animated: true)
+    }
+    
+    @IBAction func closeBtnWasPressed(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func myItemsBtnWasPressed(_ sender: UIButton) {
@@ -181,8 +211,6 @@ class ProfileVC: UIViewController, ProfileViewProtocol {
     }
     
     
-    
-    
     //MARK: Protocols
     func onLogoutSuccess() {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -205,10 +233,31 @@ class ProfileVC: UIViewController, ProfileViewProtocol {
         hideLoadingIndicator()
     }
     
-    func onGetMyItemSuccess(myItems: [Item]) {
+    
+    func setUpLoadMyProfile() {
+        allMyItemBtn.isHidden = false
+        soldItemBtn.isHidden = false
+        boughtItemBtn.isHidden = false
+        editProfileBtn.isHidden = false
+        boardViewBtn.isHidden = false
+        logOutBtn.isHidden = false
+        closeBtn.isHidden = true
+    }
+    
+    func setUpLoadUserProfile() {
+        allMyItemBtn.isHidden = true
+        soldItemBtn.isHidden = true
+        boughtItemBtn.isHidden = true
+        editProfileBtn.isHidden = true
+        boardViewBtn.isHidden = true
+        logOutBtn.isHidden = true
+        closeBtn.isHidden = false
+    }
+    
+    func onGetMyItemSuccess(items: [Item]) {
         let numberOfRecycles = myItems.count
         //recycleLabel.text = String(numberOfRecycles)
-        self.myItems = myItems
+        self.myItems = items
         userItemCollectionView.reloadData()
     }
     

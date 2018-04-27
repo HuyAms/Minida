@@ -106,6 +106,13 @@ class HomeVC: UIViewController, HomeVCProtocol {
         present(notificationVC, animated: true, completion: nil)
     }
     
+    private func goToProfileScreen(userId: String) {
+        guard let profileVC = storyboard?.instantiateViewController(withIdentifier: AppStoryBoard.profileVC.identifier) as? ProfileVC else {return}
+        profileVC.userId = userId
+        profileVC.profileLoadState = .userProfile
+        present(profileVC, animated: true, completion: nil)
+    }
+    
     //MARK: Actions
     @IBAction func categoryBtnWasPressed(_ sender: Any) {
         goToCategoryScreen()
@@ -201,7 +208,6 @@ class HomeVC: UIViewController, HomeVCProtocol {
                 }
             }
         } else {
-            print("GET all")
             presenter?.performGetAvailableItems()
             
         }
@@ -256,6 +262,10 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
             imgModal.config(imgPath: homeItem.imgPath)
             imgModal.modalPresentationStyle = .custom
             self?.present(imgModal, animated: false, completion: nil)
+        }
+        
+        cell.onAvaTapped = { [weak self]() in
+            self?.goToProfileScreen(userId: homeItem.seller._id)
         }
         
         let durations: [TimeInterval] = [0.26, 0.2, 0.2]

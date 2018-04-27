@@ -11,7 +11,7 @@ import Alamofire
 
 protocol UserServiceProtocol {
     
-    func getUserById(id: String, token: String, completion: @escaping (ServerResponse<User>) -> Void)
+    func getUserById(id: String, completion: @escaping (ServerResponse<User>) -> Void)
     
     func getUserMe(token: String, completion: @escaping (ServerResponse<User>) -> Void)
     
@@ -22,12 +22,10 @@ class UserService: UserServiceProtocol {
     
     let jsonDecoder = JSONDecoder()
     
-    func getUserById(id: String, token: String, completion: @escaping (ServerResponse<User>) -> Void) {
-        let headers: HTTPHeaders = ["authorization": token]
+    func getUserById(id: String, completion: @escaping (ServerResponse<User>) -> Void) {
         Alamofire.request(
             URL(string: "https://fin-recycler.herokuapp.com/api/users/" + id)!,
-            method: .get,
-            headers: headers)
+            method: .get)
             .responseJSON { response in
                 switch response.result {
                 case .success:

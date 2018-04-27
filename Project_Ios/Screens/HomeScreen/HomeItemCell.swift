@@ -30,6 +30,8 @@ class HomeItemCell: FoldingCell {
     
     var onBuyButtonTapped: (() -> Void)? = nil
     var onImgButtonTapped: (() -> Void)? = nil
+    var onAvaTapped: (() -> Void)? = nil
+
     
     func config(itemHome: ItemDetail) {
         smallItemNameLbl.text = itemHome.itemName
@@ -78,14 +80,31 @@ class HomeItemCell: FoldingCell {
             detailCategoryImgView.image = UIImage.getOthersIconWhite()
         }
         
-        let tapGuesture = UITapGestureRecognizer(target: self
+        setUpTapGesture()
+        
+    }
+    
+    //MARK: Helper
+    
+    func setUpTapGesture() {
+        let imgTapGesture = UITapGestureRecognizer(target: self
             , action: #selector(HomeItemCell.imgTapHandler(_:)))
-        smallItemImageView.addGestureRecognizer(tapGuesture)
+        smallItemImageView.addGestureRecognizer(imgTapGesture)
+        
+        let avaTabGesture = UITapGestureRecognizer(target: self
+            , action: #selector(HomeItemCell.avaTapHandler(_:)))
+        sellerImgView.addGestureRecognizer(avaTabGesture)
     }
     
     @objc private func imgTapHandler(_ sender: UITapGestureRecognizer) {
         if let onImgButtonTapped = self.onImgButtonTapped {
             onImgButtonTapped()
+        }
+    }
+    
+    @objc private func avaTapHandler(_ sender: UITapGestureRecognizer) {
+        if let onAvaTapped = self.onAvaTapped {
+            onAvaTapped()
         }
     }
     
@@ -109,12 +128,6 @@ class HomeItemCell: FoldingCell {
         
         containerView.layer.cornerRadius = 10
         containerView.layer.masksToBounds = true
-    }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
     }
     
     override func animationDuration(_ itemIndex: NSInteger, type _: FoldingCell.AnimationType) -> TimeInterval {

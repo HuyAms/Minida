@@ -75,11 +75,6 @@ extension MainVC: MenuVCDelegate {
     
     private func setUpViewControllers() {
         
-        //menuContainer.layer.frame = CGRect(x: 30, y: 30, width: 20, height: 20)
-        //let b = menuContainer.bounds
-        //menuContainer.bounds = CGRect(x: b.origin.x - 40, y: b.origin.y - 40, width: b.size.width - 20, height: b.size.height - 20)
-
-        
         guard let homeVC = storyboard?.instantiateViewController(withIdentifier: AppStoryBoard.homeVC.identifier) else {return}
         guard let mapVC = storyboard?.instantiateViewController(withIdentifier: AppStoryBoard.mapVC.identifier) else {return}
         guard let profileVC = storyboard?.instantiateViewController(withIdentifier: AppStoryBoard.profileVC.identifier) else {return}

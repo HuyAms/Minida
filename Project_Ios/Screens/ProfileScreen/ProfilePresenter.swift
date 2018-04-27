@@ -12,7 +12,11 @@ protocol ProfilePresenterProtocol {
     
     func loadUserInfo()
     
+    func loadUserInfo(userId: String)
+    
     func loadMyItems()
+    
+    func loadUserItems(userId: String)
     
     func logout()
     
@@ -25,11 +29,11 @@ protocol ProfilePresenterProtocol {
 
 class ProfilePresenter: ProfilePresenterProtocol {
    
-    
     weak var view: ProfileViewProtocol?
     var userService: UserServiceProtocol = UserService()
     var profileService: ProfileServiceProtocol = ProfileService()
     var orderService: OrderServiceProtocol = OrderService()
+    var itemService: ItemServiceProtocol = ItemService()
     
     init(view: ProfileViewProtocol) {
         self.view = view
@@ -46,41 +50,67 @@ class ProfilePresenter: ProfilePresenterProtocol {
     
     func loadUserInfo() {
         view?.showLoading()
+        self.view?.setUpLoadMyProfile()
         guard let token = KeyChainUtil.share.getToken() else {return}
-        profileService.loadProfileData(token: token) { (response) in
-            switch response{
+        profileService.loadProfileData(token: token) {[weak self] (response) in
+            self?.view?.hideLoading()
+            switch response {
             case.success(let user):
-                self.view?.hideLoading()
-                self.view?.onLoadDataSuccess(userData: user)
+                self?.view?.onLoadDataSuccess(userData: user)
             case .error(let error):
-                self.view?.hideLoading()
-                self.view?.onLoadDataError(error: error)
+                self?.view?.onLoadDataError(error: error)
+            }
+        }
+    }
+    func loadUserItems(userId: String) {
+         view?.showLoading()
+        itemService.getItemsByUserId(id: userId) {  [weak self] (response) in
+            self?.view?.hideLoading()
+            switch response{
+            case.success(let items):
+                if items.count > 0 {
+                    self?.view?.hideNoItemLabel()
+                    self?.view?.showCollectionView()
+                    self?.view?.onGetMyItemSuccess(items: items)
+                } else {
+                    self?.view?.hideCollectionView()
+                    self?.view?.showNoItemLabel(message: "This user has no items on sale")
+                }
+            case .error(let error):
+                self?.view?.onGetMyItemError(error: error)
             }
         }
     }
     
+    
     func loadMyItems() {
         view?.showLoading()
         guard let token = KeyChainUtil.share.getToken() else {return}
-        profileService.loadMyItems(token: token) { (response) in
+        profileService.loadMyItems(token: token) { [weak self] (response) in
+            self?.view?.hideLoading()
             switch response{
             case.success(let myItems):
-                self.view?.hideLoading()
-                self.view?.onGetMyItemSuccess(myItems: myItems)
+                if myItems.count > 0 {
+                    self?.view?.hideNoItemLabel()
+                    self?.view?.showCollectionView()
+                    self?.view?.onGetMyItemSuccess(items: myItems)
+                } else {
+                     self?.view?.hideCollectionView()
+                     self?.view?.showNoItemLabel(message: "You have no items on sale")
+                }
                 
                 let numberOfRecycles = myItems.count
                 switch numberOfRecycles {
                 case 0..<4:
-                    self.view?.setRank(rank: Rank.beginner)
+                    self?.view?.setRank(rank: Rank.beginner)
                 case 5..<11:
-                    self.view?.setRank(rank: Rank.intermediate)
+                    self?.view?.setRank(rank: Rank.intermediate)
                 default:
-                    self.view?.setRank(rank: Rank.pro)
+                    self?.view?.setRank(rank: Rank.pro)
                 }
                 
             case .error(let error):
-                self.view?.hideLoading()
-                self.view?.onGetMyItemError(error: error)
+                self?.view?.onGetMyItemError(error: error)
             }
         }
     }
@@ -89,12 +119,18 @@ class ProfilePresenter: ProfilePresenterProtocol {
         view?.showLoading()
         guard let token = KeyChainUtil.share.getToken() else {return}
         orderService.getItemsBoughtByMe(token: token) { [weak self] response in
+            self?.view?.hideLoading()
             switch response {
-            case .success(let orderDetail):
-                self?.view?.hideLoading()
-                self?.view?.onGetBoughtItemsSuccess(orderDetails: orderDetail)
+            case .success(let orderDetails):
+                if orderDetails.count > 0 {
+                    self?.view?.hideNoItemLabel()
+                    self?.view?.showCollectionView()
+                    self?.view?.onGetBoughtItemsSuccess(orderDetails: orderDetails)
+                } else {
+                    self?.view?.hideCollectionView()
+                    self?.view?.showNoItemLabel(message: "You have not bought any item yet")
+                }
             case .error(let error):
-                self?.view?.hideLoading()
                 self?.view?.onGetMyItemError(error: error)
             }
             
@@ -105,15 +141,34 @@ class ProfilePresenter: ProfilePresenterProtocol {
         view?.showLoading()
         guard let token = KeyChainUtil.share.getToken() else {return}
         orderService.getItemsSoldByMe(token: token) { [weak self] response in
+            self?.view?.hideLoading()
             switch response {
-            case .success(let orderDetail):
-                self?.view?.hideLoading()
-                self?.view?.onGetSoldItemsSuccess(orderDetails: orderDetail)
+            case .success(let orderDetails):
+                if orderDetails.count > 0 {
+                    self?.view?.hideNoItemLabel()
+                    self?.view?.showCollectionView()
+                    self?.view?.onGetSoldItemsSuccess(orderDetails: orderDetails)
+                } else {
+                    self?.view?.hideCollectionView()
+                    self?.view?.showNoItemLabel(message: "You have not sold any item yet")
+                }
             case .error(let error):
-                self?.view?.hideLoading()
                 self?.view?.onGetMyItemError(error: error)
             }
-            
+        }
+    }
+    
+    func loadUserInfo(userId: String) {
+        self.view?.showLoading()
+        self.view?.setUpLoadUserProfile()
+        userService.getUserById(id: userId) { [weak self] (response) in
+            self?.view?.hideLoading()
+            switch response {
+            case.success(let user):
+                self?.view?.onLoadDataSuccess(userData: user)
+            case .error(let error):
+                self?.view?.onLoadDataError(error: error)
+            }
         }
     }
     

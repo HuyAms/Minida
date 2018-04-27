@@ -24,7 +24,7 @@ protocol HomeVCProtocol: class {
     func onShowFilteringNoResult()
     
     func onBuyItemSuccess(order: Order)
-
+    
 }
 
 class HomeVC: UIViewController, HomeVCProtocol {
@@ -95,10 +95,22 @@ class HomeVC: UIViewController, HomeVCProtocol {
         categoryVC.delegate = self
     }
     
-    private func goToReceiptScreen(order: Order) {
+    private func goToReceiptScreen(orderId: String) {
         guard let receiptVC = storyboard?.instantiateViewController(withIdentifier: AppStoryBoard.receiptVC.identifier) as? ReceiptVC else {return}
-        receiptVC.order = order
+        receiptVC.orderId = orderId
         present(receiptVC, animated: true, completion: nil)
+    }
+    
+    private func goToNotiScreen() {
+        guard let notificationVC = storyboard?.instantiateViewController(withIdentifier: AppStoryBoard.notificationVC.identifier) as? NotificationVC else {return}
+        present(notificationVC, animated: true, completion: nil)
+    }
+    
+    private func goToProfileScreen(userId: String) {
+        guard let profileVC = storyboard?.instantiateViewController(withIdentifier: AppStoryBoard.profileVC.identifier) as? ProfileVC else {return}
+        profileVC.userId = userId
+        profileVC.profileLoadState = .userProfile
+        present(profileVC, animated: true, completion: nil)
     }
     
     //MARK: Actions
@@ -106,6 +118,9 @@ class HomeVC: UIViewController, HomeVCProtocol {
         goToCategoryScreen()
     }
     
+    @IBAction func notiBtnWasPressed(_ sender: UIButton) {
+        goToNotiScreen()
+    }
     
     func dismissKeyboard() {
         view.endEditing(true)
@@ -158,7 +173,7 @@ class HomeVC: UIViewController, HomeVCProtocol {
     }
     
     func onBuyItemSuccess(order: Order) {
-        goToReceiptScreen(order: order)
+        goToReceiptScreen(orderId: order._id)
     }
     
     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
@@ -193,7 +208,6 @@ class HomeVC: UIViewController, HomeVCProtocol {
                 }
             }
         } else {
-            print("GET all")
             presenter?.performGetAvailableItems()
             
         }
@@ -227,13 +241,11 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
         } else {
             homeItem = items[indexPath.row]
         }
+        
         let itemId = homeItem._id
-
         cell.config(itemHome: homeItem)
         
-        cell.onBuyButtonTapped = { [weak self]() in
-            print("buy button was tapped at \(indexPath.row)")
-            
+        cell.onBuyButtonTapped = { [weak self]() in            
             let alertViewController = UIAlertController(title: "Buy", message: "Do you want to buy this item?", preferredStyle: .actionSheet)
             let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
                 self?.presenter?.performBuyItem(itemId: itemId)
@@ -243,6 +255,17 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
             alertViewController.addAction(cancleAction)
             self?.present(alertViewController, animated: true)
             
+        }
+        
+        cell.onImgButtonTapped = { [weak self]() in
+            let imgModal = ImageModalVC()
+            imgModal.config(imgPath: homeItem.imgPath)
+            imgModal.modalPresentationStyle = .custom
+            self?.present(imgModal, animated: false, completion: nil)
+        }
+        
+        cell.onAvaTapped = { [weak self]() in
+            self?.goToProfileScreen(userId: homeItem.seller._id)
         }
         
         let durations: [TimeInterval] = [0.26, 0.2, 0.2]
@@ -256,7 +279,7 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+                
         let cell = tableView.cellForRow(at: indexPath) as! FoldingCell
         
         if cell.isAnimating() {
@@ -279,7 +302,6 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
             tableView.beginUpdates()
             tableView.endUpdates()
         }, completion: nil)
-        
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {

@@ -19,7 +19,7 @@ protocol OrderServiceProtocol {
     
     func buyVoucher(token: String, voucherId: String, completion: @escaping (ServerResponse<VoucherOrder>) -> Void)
     
-    func getOrderById(itemId: String, completion: @escaping (ServerResponse<OrderDetail>) -> Void)
+    func getOrderById(orderId: String, completion: @escaping (ServerResponse<OrderDetail>) -> Void)
     
     func createOrder(token: String, itemId: String, completion: @escaping (ServerResponse<Order>) -> Void)
 }
@@ -141,7 +141,6 @@ class OrderService: OrderServiceProtocol {
             method: .post,
             headers: headers)
             .responseJSON { response in
-                print(response)
                 switch response.result {
                 case .success:
                     do {
@@ -168,9 +167,9 @@ class OrderService: OrderServiceProtocol {
         }
     }
     
-    func getOrderById(itemId: String, completion: @escaping (ServerResponse<OrderDetail>) -> Void) {
+    func getOrderById(orderId: String, completion: @escaping (ServerResponse<OrderDetail>) -> Void) {
         Alamofire.request(
-            URL(string: URLConst.BASE_URL + URLConst.BOUGHT_PATH)!,
+            URL(string: URLConst.BASE_URL + URLConst.ORDER_PATH + orderId)!,
             method: .get)
             .responseJSON { response in
                 switch response.result {

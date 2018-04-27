@@ -11,6 +11,10 @@ import Stripe
 
 protocol PaymentVCProtocol: class {
     
+    func onGetMeSuccess(user: User)
+    
+    func onGetMeError(error: AppError)
+    
     func showLoading()
     
     func hideLoading()
@@ -22,6 +26,9 @@ class PaymentVC: UIViewController, PaymentVCProtocol {
     var presenter: PaymentPresenterProtocol?
     
     let paymentEuroOptions = [5, 10, 25, 50, 100, 200]
+    
+    @IBOutlet weak var pointLbl: UILabel!
+    @IBOutlet weak var nameLbl: UILabel!
     
     // Controllers
     private let customerContext: STPCustomerContext
@@ -64,7 +71,11 @@ class PaymentVC: UIViewController, PaymentVCProtocol {
         presenter = PaymentPresenter(view: self)
         
         reloadAddCardButtonContent()
-        // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        presenter?.getMe()
     }
 
     //MARK: Button handlers
@@ -98,6 +109,18 @@ class PaymentVC: UIViewController, PaymentVCProtocol {
     func hideLoading() {
         hideLoadingIndicator()
     }
+    
+    func onGetMeSuccess(user: User) {
+        userNameLbl.text = user.username
+        if let point = user.point {
+            pointLbl.text = String(point)
+        }
+    }
+    
+    func onGetMeError(error: AppError) {
+        showError(message: error.description)
+    }
+
 }
 
 extension PaymentVC: STPPaymentContextDelegate {

@@ -68,6 +68,7 @@ class AuthVC: UIViewController, AuthViewProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         presenter = AuthPresenter(view: self)
         delegateTextField()
         presenter?.checkToken()
@@ -78,6 +79,7 @@ class AuthVC: UIViewController, AuthViewProtocol {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        UIApplication.shared.statusBarStyle = .default
         animateAuthForm()
     }
     
@@ -249,6 +251,7 @@ class AuthVC: UIViewController, AuthViewProtocol {
     }
     
     func goToMainVC() {
+        UIApplication.shared.statusBarStyle = .lightContent
         guard let mainVC = storyboard?.instantiateViewController(withIdentifier: AppStoryBoard.mainVC.identifier) else {return}
         present(mainVC, animated: true, completion: nil)
     }

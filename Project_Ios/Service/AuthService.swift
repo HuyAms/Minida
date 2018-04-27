@@ -27,10 +27,8 @@ class AuthService: AuthServiceProtocol {
             method: .post,
             parameters: parameters)
             .responseJSON { response in
-                //print(response)
                 switch response.result {
                 case .success:
-                    print(response)
                     do {
                         let serverResponse = try self.jsonDecoder.decode(Response<AuthResponse>.self, from: response.data!)
                         let status = serverResponse.status
@@ -65,7 +63,6 @@ class AuthService: AuthServiceProtocol {
             .responseJSON { response in
                 switch response.result {
                 case .success:
-                    print(response)
                     do {
                         let authResponse = try self.jsonDecoder.decode(Response<AuthResponse>.self, from: response.data!)
                         let status = authResponse.status

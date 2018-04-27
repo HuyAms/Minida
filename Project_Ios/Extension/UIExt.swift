@@ -44,14 +44,14 @@ extension UIViewController {
         SVProgressHUD.dismiss()
     }
     
-    func showError(title: String = "Opps", message: String, closeBtnText: String = "OK") {
+    func showError(title: String = "Oops!", message: String, closeBtnText: String = "OK") {
         let alertModal = AlertModalVC()
         alertModal.config(title: title, message: message, buttonText: closeBtnText, alertType: .error)
         alertModal.modalPresentationStyle = .custom
         present(alertModal, animated: false, completion: nil)
     }
     
-    func showSuccess(title: String = "Great", message: String, closeBtnText: String = "OK") {
+    func showSuccess(title: String = "Great!", message: String, closeBtnText: String = "OK") {
         let alertModal = AlertModalVC()
         alertModal.config(title: title, message: message, buttonText: closeBtnText, alertType: .success)
         alertModal.modalPresentationStyle = .custom
@@ -63,8 +63,10 @@ extension UIViewController {
 
 extension UIImageView {
     func load(imgUrl: String) {
-        let url = URL(string: imgUrl)
-        self.kf.setImage(with: url)
+        if !imgUrl.isEmpty {
+            let url = URL(string: imgUrl)
+            self.kf.setImage(with: url)
+        }
     }
 }
 

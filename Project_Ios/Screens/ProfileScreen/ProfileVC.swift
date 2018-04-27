@@ -59,7 +59,7 @@ class ProfileVC: UIViewController, ProfileViewProtocol {
     @IBOutlet weak var boughtItemBtn: UIButton!
     @IBOutlet weak var soldItemBtn: UIButton!
     @IBOutlet weak var allMyItemBtn: UIButton!
-    @IBOutlet weak var avatarView: UIView!
+    @IBOutlet weak var qrCodeView: UIView!
     
     
     //MARK: Properties
@@ -90,7 +90,13 @@ class ProfileVC: UIViewController, ProfileViewProtocol {
         
         setActiveTab(profileItemLoadState: profileItemLoadState)
         
+        let avaGesture = UITapGestureRecognizer(target: self, action: #selector(ProfileVC.avatarTapHandler(_:)))
+        avatarImage.addGestureRecognizer(avaGesture)
+        
+        let qrGesture = UITapGestureRecognizer(target: self, action: #selector(ProfileVC.qrTapHandler(_:)))
+        qrCodeView.addGestureRecognizer(qrGesture)
     }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -159,6 +165,22 @@ class ProfileVC: UIViewController, ProfileViewProtocol {
             boughtItemBtn.backgroundColor = UIColor.appDarkColor
         }
     }
+    
+    @objc func avatarTapHandler(_ sender: UITapGestureRecognizer) {
+        UIView.transition(with: self.qrCodeView, duration: 0.7 , options: .transitionCrossDissolve, animations: {
+            self.qrCodeView.isHidden = false
+        }, completion: nil)
+    }
+    
+    
+    
+    @objc func qrTapHandler(_ sender: UITapGestureRecognizer) {
+        UIView.transition(with: self.qrCodeView, duration: 0.7 , options: .transitionCrossDissolve, animations: {
+            self.qrCodeView.isHidden = true
+        }, completion: nil)
+    }
+    
+    
     
     
     //MARK: Protocols

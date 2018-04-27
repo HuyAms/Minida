@@ -1,16 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dOO-jT-cIB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dOO-jT-cIB">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Avenir.ttc">
+            <string>Avenir-Book</string>
+            <string>Avenir-Heavy</string>
+            <string>Avenir-Light</string>
+            <string>Avenir-Medium</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--OnboardingVC-->
         <scene sceneID="eOg-gQ-86R">
@@ -579,7 +587,7 @@
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cgx-Ob-0UA">
                                                                     <rect key="frame" x="4" y="62.5" width="327" height="62.5"/>
                                                                     <subviews>
-                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default-avatar-icon" translatesAutoresizingMaskIntoConstraints="NO" id="z10-w5-5M6">
+                                                                        <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default-avatar-icon" translatesAutoresizingMaskIntoConstraints="NO" id="z10-w5-5M6">
                                                                             <rect key="frame" x="8" y="1.5" width="60" height="60"/>
                                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <constraints>
@@ -892,7 +900,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <color key="separatorColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" misplaced="YES" id="yyC-yJ-A9z">
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="yyC-yJ-A9z">
                             <rect key="frame" x="0.0" y="0.0" width="42" height="90"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
@@ -1245,7 +1253,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xbw-HZ-dqL" userLabel="Profile View">
                                 <rect key="frame" x="0.0" y="90" width="375" height="175"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="x6u-O6-FkV" userLabel="Info Stack">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="x6u-O6-FkV" userLabel="Info Stack">
                                         <rect key="frame" x="68" y="120" width="240" height="49.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="YgU-3b-fsd">
@@ -1552,6 +1560,7 @@
                         <outlet property="logOutBtn" destination="Uc6-Mq-cn3" id="dZ0-cC-Jfm"/>
                         <outlet property="noItemLbl" destination="Rpa-dd-Be3" id="gZj-Py-hN6"/>
                         <outlet property="pointLabel" destination="WOm-6m-Nhq" id="cAZ-C7-fnA"/>
+                        <outlet property="pointStack" destination="YgU-3b-fsd" id="SIP-6L-Scs"/>
                         <outlet property="qrCodeView" destination="rBD-zJ-cOg" id="d1o-3x-7Xs"/>
                         <outlet property="recycleLabel" destination="Mwc-t0-QPr" id="vnJ-mG-s9c"/>
                         <outlet property="soldItemBtn" destination="Vjy-x9-btS" id="WLm-hd-chH"/>
@@ -2326,7 +2335,7 @@
                                         </constraints>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="jIi-Y4-iht" userLabel="Name Stack View">
-                                        <rect key="frame" x="8" y="383" width="359" height="60"/>
+                                        <rect key="frame" x="8" y="383" width="375" height="60"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3se-i0-LVU">
                                                 <rect key="frame" x="0.0" y="0.0" width="65" height="60"/>
@@ -2337,7 +2346,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Exid Full Moon album with signature" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vPh-eV-QA5">
-                                                <rect key="frame" x="70" y="0.0" width="289" height="60"/>
+                                                <rect key="frame" x="70" y="0.0" width="375" height="60"/>
                                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -2347,15 +2356,15 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="sng-oi-RMB" userLabel="Price Stack View">
-                                        <rect key="frame" x="8" y="451" width="359" height="28"/>
+                                        <rect key="frame" x="8" y="451" width="375" height="28"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EGy-zY-Zvb">
-                                                <rect key="frame" x="0.0" y="0.0" width="129" height="28"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="134.5" height="28"/>
                                                 <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="21"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100 points" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rRE-2q-oXq">
-                                                <rect key="frame" x="129" y="0.0" width="230" height="28"/>
+                                                <rect key="frame" x="126.5" y="0.0" width="240.5" height="28"/>
                                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -3379,10 +3388,10 @@
         <image name="clothes-category-black-icon" width="512" height="512"/>
         <image name="coupon-icon" width="512" height="512"/>
         <image name="credit-card-icon" width="30" height="30"/>
-        <image name="delete-icon" width="24" height="24"/>
         <image name="default-avatar-icon" width="146" height="146"/>
         <image name="default-badge-icon" width="256" height="256"/>
         <image name="default-image-icon" width="400" height="300"/>
+        <image name="delete-icon" width="24" height="24"/>
         <image name="device-category-black-icon" width="512" height="512"/>
         <image name="earth-badge-icon" width="256" height="256"/>
         <image name="first" width="30" height="30"/>
@@ -3396,7 +3405,6 @@
         <image name="mars-badge-icon" width="256" height="256"/>
         <image name="menu-icon" width="512" height="512"/>
         <image name="mercury-badge-icon" width="256" height="256"/>
-        <image name="more-black-icon" width="512" height="512"/>
         <image name="my-location-icon" width="512" height="512"/>
         <image name="neptune-badge-icon" width="256" height="256"/>
         <image name="next-black-icon" width="512" height="512"/>

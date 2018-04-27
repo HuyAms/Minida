@@ -73,6 +73,7 @@ class ProfileVC: UIViewController, ProfileViewProtocol {
     @IBOutlet weak var closeBtn: UIButton!
     @IBOutlet weak var editProfileBtn: UIButton!
     @IBOutlet weak var boardViewBtn: UIButton!
+    @IBOutlet weak var pointStack: UIStackView!
     
     //MARK: Properties
     var presenter: ProfilePresenterProtocol?
@@ -234,6 +235,7 @@ class ProfileVC: UIViewController, ProfileViewProtocol {
     
     
     func setUpLoadMyProfile() {
+        pointStack.isHidden = false
         allMyItemBtn.isHidden = false
         soldItemBtn.isHidden = false
         boughtItemBtn.isHidden = false
@@ -244,6 +246,7 @@ class ProfileVC: UIViewController, ProfileViewProtocol {
     }
     
     func setUpLoadUserProfile() {
+        pointStack.isHidden = true
         allMyItemBtn.isHidden = true
         soldItemBtn.isHidden = true
         boughtItemBtn.isHidden = true

@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UIApplication.shared.statusBarStyle = .lightContent
 
-//        setAppRootController()
+        setAppRootController()
         setUpStripe()
         
         if CLLocationManager.locationServicesEnabled() {

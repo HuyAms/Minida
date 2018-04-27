@@ -166,6 +166,11 @@ class ProfileVC: UIViewController, ProfileViewProtocol {
         present(editProfileVC, animated: true, completion: nil)
     }
     
+    @IBAction func leaderBoardBtnWasPressed(_ sender: Any) {
+        guard let leaderBoardVC = storyboard?.instantiateViewController(withIdentifier: AppStoryBoard.leaderBoardVC.identifier) as? LeaderBoardVC else {return}
+        present(leaderBoardVC, animated: true, completion: nil)
+    }
+    
     //MARK: Helper
     func setActiveTab(profileItemLoadState: ProfileItemLoadState) {
         allMyItemBtn.backgroundColor = UIColor.appLightColor

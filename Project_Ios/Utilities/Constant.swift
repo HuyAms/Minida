@@ -33,6 +33,8 @@ class URLConst {
     
     static let USER_ME_PATH = "/api/users/me"
     static let ITEMS_ME_PATH = "/api/items/me"
+    
+    static let USER_TOP_PATH = "/api/users/top"
 }
 
 class KEY {

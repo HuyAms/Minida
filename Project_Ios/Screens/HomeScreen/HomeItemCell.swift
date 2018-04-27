@@ -41,7 +41,7 @@ class HomeItemCell: FoldingCell {
         deleteBtn.isHidden = !isMyItem()
         smallItemNameLbl.text = itemHome.itemName
         detailNameLbl.text = itemHome.itemName
-        
+        sellerRankLbl.text = itemHome.seller.badge
         smallItemImageView.load(imgUrl: itemHome.imgPath)
         detailItemImgView.load(imgUrl: itemHome.imgPath)
         

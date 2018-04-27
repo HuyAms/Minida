@@ -1,16 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dOO-jT-cIB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dOO-jT-cIB">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Avenir.ttc">
+            <string>Avenir-Book</string>
+            <string>Avenir-Heavy</string>
+            <string>Avenir-Light</string>
+            <string>Avenir-Medium</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--OnboardingVC-->
         <scene sceneID="eOg-gQ-86R">
@@ -1339,6 +1347,7 @@
                     <connections>
                         <outlet property="allMyItemBtn" destination="2E5-gA-Y5P" id="SuH-SA-Ovy"/>
                         <outlet property="avatarImage" destination="RsN-R0-DG9" id="dFo-W6-b9Q"/>
+                        <outlet property="badgeImage" destination="ouB-Ut-sD5" id="IkQ-BF-GYs"/>
                         <outlet property="boardViewBtn" destination="APk-TA-Qjv" id="JB5-tp-cEB"/>
                         <outlet property="boughtItemBtn" destination="cba-tT-yu9" id="daR-tm-JYQ"/>
                         <outlet property="closeBtn" destination="RRd-Iy-EeU" id="6QS-Up-Hvb"/>
@@ -2158,7 +2167,7 @@
                                         </constraints>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="jIi-Y4-iht" userLabel="Name Stack View">
-                                        <rect key="frame" x="8" y="383" width="359" height="60"/>
+                                        <rect key="frame" x="8" y="383" width="375" height="60"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3se-i0-LVU">
                                                 <rect key="frame" x="0.0" y="0.0" width="65" height="60"/>
@@ -2169,7 +2178,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Exid Full Moon album with signature" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vPh-eV-QA5">
-                                                <rect key="frame" x="70" y="0.0" width="289" height="60"/>
+                                                <rect key="frame" x="70" y="0.0" width="375" height="60"/>
                                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -2179,15 +2188,15 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="sng-oi-RMB" userLabel="Price Stack View">
-                                        <rect key="frame" x="8" y="451" width="359" height="28"/>
+                                        <rect key="frame" x="8" y="451" width="375" height="28"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EGy-zY-Zvb">
-                                                <rect key="frame" x="0.0" y="0.0" width="129" height="28"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="134.5" height="28"/>
                                                 <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="21"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100 points" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rRE-2q-oXq">
-                                                <rect key="frame" x="129" y="0.0" width="230" height="28"/>
+                                                <rect key="frame" x="126.5" y="0.0" width="240.5" height="28"/>
                                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
                                                 <nil key="highlightedColor"/>
                                             </label>

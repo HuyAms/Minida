@@ -137,5 +137,26 @@ extension UIImage {
     static func getSuccessIcon() -> UIImage {
         return UIImage(named: "success-icon")!
     }
+    
+    static func getBadgeIcon(badge: Badge) -> UIImage {
+        switch badge {
+        case .mercury:
+            return UIImage(named: "mercury-badge-icon")!
+        case .mars:
+            return UIImage(named: "mars-badge-icon")!
+        case .venus:
+            return UIImage(named: "venus-badge-icon")!
+        case .earth:
+            return UIImage(named: "earth-badge-icon")!
+        case .neptune:
+            return UIImage(named: "neptune-badge-icon")!
+        case .uranus:
+            return UIImage(named: "uranus-badge-icon")!
+        case .saturn:
+            return UIImage(named: "saturn-badge-icon")!
+        case .jupiter:
+            return UIImage(named: "jupiter-badge-icon")!
+        }
+    }
 }
 

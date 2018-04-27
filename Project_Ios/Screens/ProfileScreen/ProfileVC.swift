@@ -37,8 +37,6 @@ protocol ProfileViewProtocol: class {
     
     func onGetBoughtItemsSuccess(orderDetails: [OrderDetail])
     
-    func setRank(rank: Rank)
-    
     func onLogoutSuccess()
     
     func hideCollectionView()
@@ -83,19 +81,6 @@ class ProfileVC: UIViewController, ProfileViewProtocol {
     var profileLoadState: ProfileLoadState = .myProfile
     var userId: String? = nil
     fileprivate var orderDetails = [OrderDetail]()
-    
-    func onLoadDataSuccess(userData: User) {
-        userNameLabel.text = userData.username
-        
-        if let point = userData.point {
-            pointLabel.text = String(point)
-        }
-        
-        if let avatarIcon = userData.avatarPath {
-            avatarImage.load(imgUrl: avatarIcon)
-        }
-        
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -212,6 +197,23 @@ class ProfileVC: UIViewController, ProfileViewProtocol {
     
     
     //MARK: Protocols
+    
+    func onLoadDataSuccess(userData: User) {
+        userNameLabel.text = userData.username
+        
+        if let point = userData.point {
+            pointLabel.text = String(point)
+        }
+        
+        if let avatarIcon = userData.avatarPath {
+            avatarImage.load(imgUrl: avatarIcon)
+        }
+        
+        recycleLabel.text = String(userData.numberOfRecycledItems)
+        userRankLabel.text = userData.badge
+        badgeImage.image = UIImage.getBadgeIcon(badge: Badge(badge: userData.badge))
+    }
+    
     func onLogoutSuccess() {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.window = UIWindow(frame: UIScreen.main.bounds)
@@ -257,14 +259,8 @@ class ProfileVC: UIViewController, ProfileViewProtocol {
     }
     
     func onGetMyItemSuccess(items: [Item]) {
-        let numberOfRecycles = myItems.count
-        //recycleLabel.text = String(numberOfRecycles)
         self.myItems = items
         userItemCollectionView.reloadData()
-    }
-    
-    func setRank(rank: Rank) {
-        userRankLabel.text = rank.description
     }
     
     func onGetMyItemError(error: AppError) {

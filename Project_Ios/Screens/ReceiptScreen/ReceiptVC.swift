@@ -39,7 +39,7 @@ class ReceiptVC: UIViewController, ReceiptVCProtocol {
         presenter = ReceiptPresenter(view: self)
    
         if let orderId = self.orderId {
-            presenter?.performGetOrder(orderId: orderId)
+        presenter?.performGetOrder(orderId: orderId)
         }
     }
     
@@ -47,7 +47,7 @@ class ReceiptVC: UIViewController, ReceiptVCProtocol {
         itemImageView.load(imgUrl: order.item.imgPath)
         itemNameLbl.text = order.item.itemName
         itemPriceLbl.text = String(order.item.price)
-        
+        sellerBadgeLbl.text = order.seller.badge
         sellerNameLbl.text = order.seller.username
         self.email = order.seller.email
         self.phoneNumber = order.seller.phoneNumber

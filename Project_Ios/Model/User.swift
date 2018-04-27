@@ -15,5 +15,7 @@ struct User: Codable {
     var email: String?
     var phoneNumber: Int?
     var avatarPath: String?
+    var badge: String
+    var numberOfRecycledItems: Int
 }
 

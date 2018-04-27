@@ -98,17 +98,6 @@ class ProfilePresenter: ProfilePresenterProtocol {
                      self?.view?.hideCollectionView()
                      self?.view?.showNoItemLabel(message: "You have no items on sale")
                 }
-                
-                let numberOfRecycles = myItems.count
-                switch numberOfRecycles {
-                case 0..<4:
-                    self?.view?.setRank(rank: Rank.beginner)
-                case 5..<11:
-                    self?.view?.setRank(rank: Rank.intermediate)
-                default:
-                    self?.view?.setRank(rank: Rank.pro)
-                }
-                
             case .error(let error):
                 self?.view?.onGetMyItemError(error: error)
             }

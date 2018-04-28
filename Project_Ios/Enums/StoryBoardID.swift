@@ -21,6 +21,7 @@ enum AppStoryBoard: String{
     case receiptVC = "receiptScreen"
     case editProfileVC = "editProfileScreen"
     case notificationVC = "notificationScreen"
+    case leaderBoardVC = "leaderBoardScreen"
     
     var identifier: String {
         return self.rawValue
@@ -33,6 +34,7 @@ enum AppTableCell: String {
     case voucherCell = "voucherCell"
     case profileCell = "profileCell"
     case notificationCell = "notificationCell"
+    case leaderBoardCell = "leaderBoardCell"
     
     var identifier: String {
         return self.rawValue

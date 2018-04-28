@@ -27,10 +27,8 @@ class EditProfileVC: UIViewController, EditProfileViewProtocol{
     
     //MARK: Outlets
     @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var phoneTextField: UITextField!
-    @IBOutlet weak var changeProfilePictureButton: UIButton!
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var avatarImage: UIImageView!
@@ -61,7 +59,6 @@ class EditProfileVC: UIViewController, EditProfileViewProtocol{
     
     //MARK: UIImagePickerView functions
     @objc func imageTap(_ sender: UITapGestureRecognizer) {
-        print("Image was tapped")
         // Show options for the source picker only if the camera is available.
         guard UIImagePickerController.isSourceTypeAvailable(.camera) else {
             presentPhotoPicker(sourceType: .photoLibrary)
@@ -133,11 +130,10 @@ class EditProfileVC: UIViewController, EditProfileViewProtocol{
     
     @IBAction func saveBtnWasPressed(_ sender: Any) {
         let username = nameTextField.text ?? ""
-        let password = passwordTextField.text ?? ""
         let phoneNumber = phoneTextField.text ?? ""
         let avatarPath = self.avatarPath
         let email = emailTextField.text ?? ""
-        presenter?.updateUser(username: username, password: password, phoneNumber: phoneNumber, avatarPath: avatarPath, email: email)
+        presenter?.updateUser(username: username, phoneNumber: phoneNumber, avatarPath: avatarPath, email: email)
     }
     
     @IBAction func cancelBtnWasPressed(_ sender: Any) {

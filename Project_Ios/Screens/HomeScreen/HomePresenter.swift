@@ -101,7 +101,7 @@ class HomePresenter: HomePresenterProtocol {
             self?.view?.hideLoading()
             switch response {
             case .success(_):
-                self?.view?.onDeleteItemSuccess()
+                self?.view?.onDeleteItemSuccess(message: "Delete item successfully")
             case .error(let error):
                 self?.view?.onShowError(error: error)
             }

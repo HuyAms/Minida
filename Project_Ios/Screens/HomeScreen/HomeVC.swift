@@ -25,7 +25,7 @@ protocol HomeVCProtocol: class {
     
     func onBuyItemSuccess(order: Order)
     
-    func onDeleteItemSuccess()
+    func onDeleteItemSuccess(message: String)
     
 }
 
@@ -171,9 +171,10 @@ class HomeVC: UIViewController, HomeVCProtocol {
       
     }
     
-    func onDeleteItemSuccess() {
+    func onDeleteItemSuccess(message: String) {
         presenter?.performGetAvailableItems()
         tableView.reloadData()
+        showSuccess(message: message)
     }
     
     func onShowFilteredItems(homeItems: [ItemDetail]) {

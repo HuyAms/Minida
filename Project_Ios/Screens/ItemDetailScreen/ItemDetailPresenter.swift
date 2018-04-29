@@ -14,6 +14,8 @@ protocol ItemDetailPresenterProtocol {
     
     func performBuyItem(itemId: String)
     
+    func performDeleteItem(itemId: String)
+    
 }
 
 class ItemDetailPresenter: ItemDetailPresenterProtocol {
@@ -24,6 +26,21 @@ class ItemDetailPresenter: ItemDetailPresenterProtocol {
     
     init(view: ItemDetailVCProtocol) {
         self.view = view
+    }
+    
+    
+    func performDeleteItem(itemId: String) {
+        view?.showLoading()
+        guard let token = KeyChainUtil.share.getToken() else {print("Error get token"); return}
+        itemService.deleteItem(id: itemId, token: token) { [weak self] (response) in
+            self?.view?.hideLoading()
+            switch response {
+            case .success(_):
+                self?.view?.onDeleteItemSuccess(message: "Delete item successfully")
+            case .error(let error):
+                self?.view?.onShowError(error: error)
+            }
+        }
     }
     
     func performBuyItem(itemId: String) {

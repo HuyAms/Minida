@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		057BD3A800CDEAE19B0B8C65 /* Pods_Project_Ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90E06613BC85805563AA2732 /* Pods_Project_Ios.framework */; };
 		1203BB4F208CCCF900A1959C /* VoucherVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1203BB4E208CCCF900A1959C /* VoucherVC.swift */; };
-		120767A1208DC4D3005F9BA7 /* View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 120767A0208DC4D3005F9BA7 /* View.xib */; };
 		1242BBAC207564C500857661 /* UIExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1242BBAB207564C500857661 /* UIExt.swift */; };
 		1242BBAF2075686C00857661 /* StoryBoardID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1242BBAE2075686C00857661 /* StoryBoardID.swift */; };
 		1251F84C2086AABC0058EF88 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1251F84B2086AABB0058EF88 /* HomeVC.swift */; };
@@ -103,7 +102,6 @@
 
 /* Begin PBXFileReference section */
 		1203BB4E208CCCF900A1959C /* VoucherVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoucherVC.swift; sourceTree = "<group>"; };
-		120767A0208DC4D3005F9BA7 /* View.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = View.xib; sourceTree = "<group>"; };
 		1242BBAB207564C500857661 /* UIExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIExt.swift; sourceTree = "<group>"; };
 		1242BBAE2075686C00857661 /* StoryBoardID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryBoardID.swift; sourceTree = "<group>"; };
 		1251F84B2086AABB0058EF88 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
@@ -230,7 +228,6 @@
 				6ADA4B8F2095948B00D899B4 /* MinidaPickerView.xib */,
 				6A151B6D2091114800570350 /* ImageModalVC.xib */,
 				6A61EC59208E174900FA8E91 /* AlertModalVC.xib */,
-				120767A0208DC4D3005F9BA7 /* View.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -615,7 +612,6 @@
 			files = (
 				6ADA4B912095948B00D899B4 /* MinidaPickerView.xib in Resources */,
 				6A61EC5B208E174A00FA8E91 /* AlertModalVC.xib in Resources */,
-				120767A1208DC4D3005F9BA7 /* View.xib in Resources */,
 				12C53E0720754AB8005824E3 /* LaunchScreen.storyboard in Resources */,
 				12C53E0420754AB8005824E3 /* Assets.xcassets in Resources */,
 				6A151B6F2091114800570350 /* ImageModalVC.xib in Resources */,

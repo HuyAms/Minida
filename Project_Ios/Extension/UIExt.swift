@@ -51,9 +51,9 @@ extension UIViewController {
         present(alertModal, animated: false, completion: nil)
     }
     
-    func showSuccess(title: String = "Great!", message: String, closeBtnText: String = "OK") {
+    func showSuccess(title: String = "Great!", message: String, closeBtnText: String = "OK", completion: (()->Void)? = nil) {
         let alertModal = AlertModalVC()
-        alertModal.config(title: title, message: message, buttonText: closeBtnText, alertType: .success)
+        alertModal.config(title: title, message: message, buttonText: closeBtnText, alertType: .success, completion: completion)
         alertModal.modalPresentationStyle = .custom
         present(alertModal, animated: false, completion: nil)
     }

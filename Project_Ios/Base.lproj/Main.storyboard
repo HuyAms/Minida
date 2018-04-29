@@ -1919,13 +1919,23 @@
                                         <state key="normal" title="Button" image="cancel-icon"/>
                                         <connections>
                                             <action selector="cancelBtnWasPressed:" destination="cw1-VV-tKn" eventType="touchUpInside" id="Egl-Mi-6u2"/>
+                                            <action selector="closeBtnWasPressed:" destination="YvF-NM-mjn" eventType="touchUpInside" id="1MX-25-VHJ"/>
+                                        </connections>
+                                    </button>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rhm-bP-Zo6">
+                                        <rect key="frame" x="339" y="23" width="24" height="24"/>
+                                        <state key="normal" image="delete-icon"/>
+                                        <connections>
+                                            <action selector="deleteBtnWasPressed:" destination="YvF-NM-mjn" eventType="touchUpInside" id="8lc-oH-c0t"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.30196078431372547" green="0.27843137254901962" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstItem="Rhm-bP-Zo6" firstAttribute="centerY" secondItem="yhb-Rc-8he" secondAttribute="centerY" id="CCH-TQ-FRp"/>
                                     <constraint firstItem="yhb-Rc-8he" firstAttribute="centerY" secondItem="riW-eG-Gzh" secondAttribute="centerY" id="Hzv-MI-s0h"/>
                                     <constraint firstItem="3Tp-vW-nwy" firstAttribute="leading" secondItem="riW-eG-Gzh" secondAttribute="leading" constant="12" id="Lnp-Vy-zP3"/>
+                                    <constraint firstAttribute="trailing" secondItem="Rhm-bP-Zo6" secondAttribute="trailing" constant="12" id="aZG-Mo-E2q"/>
                                     <constraint firstAttribute="height" constant="70" id="eka-Xd-czY"/>
                                     <constraint firstItem="yhb-Rc-8he" firstAttribute="centerX" secondItem="riW-eG-Gzh" secondAttribute="centerX" id="hKV-SY-HVX"/>
                                     <constraint firstItem="3Tp-vW-nwy" firstAttribute="centerY" secondItem="yhb-Rc-8he" secondAttribute="centerY" id="lAY-3H-Xu5"/>
@@ -2083,6 +2093,7 @@
                         <outlet property="avatarImgView" destination="fif-jo-4a1" id="eTd-bM-eq8"/>
                         <outlet property="badgeImgView" destination="biV-3Z-0oV" id="DDf-gh-Kuq"/>
                         <outlet property="badgeLbl" destination="K9L-oS-apW" id="ZHa-5f-X80"/>
+                        <outlet property="deleteBtn" destination="Rhm-bP-Zo6" id="il5-Dd-fer"/>
                         <outlet property="descriptionLbl" destination="rWi-Ev-Egy" id="Kd1-Kz-hoM"/>
                         <outlet property="itemNameLbl" destination="yhb-Rc-8he" id="HdR-1Z-LoP"/>
                         <outlet property="numberPointLbl" destination="KZa-8f-zPb" id="YSd-KO-a3e"/>
@@ -2285,7 +2296,7 @@
                                                 </constraints>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lvy-EZ-zPi">
-                                                <rect key="frame" x="24" y="740" width="327" height="40"/>
+                                                <rect key="frame" x="24" y="738.5" width="327" height="40"/>
                                                 <color key="backgroundColor" red="0.48627450979999998" green="0.44705882349999998" blue="0.72156862749999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="20"/>
                                                 <state key="normal" title="Post">
@@ -2314,10 +2325,10 @@
                                             <constraint firstItem="dxA-hB-e8o" firstAttribute="top" secondItem="uDg-MG-5TZ" secondAttribute="bottom" constant="24" id="MEq-xN-3Vf"/>
                                             <constraint firstAttribute="trailing" secondItem="Lvy-EZ-zPi" secondAttribute="trailing" constant="24" id="Oi3-Lt-YI4"/>
                                             <constraint firstItem="MAB-9f-42q" firstAttribute="width" secondItem="MAB-9f-42q" secondAttribute="height" multiplier="1:1" id="POO-L0-3Xw"/>
+                                            <constraint firstItem="Lvy-EZ-zPi" firstAttribute="top" secondItem="J8V-Oc-abP" secondAttribute="bottom" constant="35" id="Ppb-Ll-zPW"/>
                                             <constraint firstItem="ODa-Yn-mIg" firstAttribute="top" secondItem="djT-sr-snQ" secondAttribute="bottom" constant="20" id="Qsl-nq-bAr"/>
                                             <constraint firstItem="uDg-MG-5TZ" firstAttribute="leading" secondItem="9o7-H3-MnH" secondAttribute="leading" constant="24" id="TXf-oh-HQP"/>
                                             <constraint firstItem="wAy-BB-j3t" firstAttribute="leading" secondItem="9o7-H3-MnH" secondAttribute="leading" constant="24" id="X1h-uO-SG8"/>
-                                            <constraint firstAttribute="bottom" secondItem="Lvy-EZ-zPi" secondAttribute="bottom" constant="40" id="YdH-8O-B3J"/>
                                             <constraint firstItem="uDg-MG-5TZ" firstAttribute="top" secondItem="GdQ-oJ-rOy" secondAttribute="bottom" constant="5" id="Zrf-bf-Xxd"/>
                                             <constraint firstItem="djT-sr-snQ" firstAttribute="top" secondItem="wAy-BB-j3t" secondAttribute="bottom" constant="5" id="ao5-Yi-Zmd"/>
                                             <constraint firstItem="djT-sr-snQ" firstAttribute="leading" secondItem="9o7-H3-MnH" secondAttribute="leading" constant="24" id="hCZ-88-iWp"/>

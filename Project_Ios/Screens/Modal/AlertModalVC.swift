@@ -25,12 +25,14 @@ class AlertModalVC: UIViewController {
     var modalMessage: String?
     var modalButtonText: String?
     var modalAlertType:AlertType?
+    var completion: (()->Void)?
     
-    func config(title: String, message: String, buttonText: String, alertType: AlertType) {
+    func config(title: String, message: String, buttonText: String, alertType: AlertType, completion: (()->Void)? = nil) {
         modalTitle = title
         modalMessage = message
         modalButtonText = buttonText
         modalAlertType = alertType
+        self.completion = completion
     }
     
     override func viewDidLoad() {
@@ -54,7 +56,7 @@ class AlertModalVC: UIViewController {
     }
     
     @IBAction func btnWasPressed(_ sender: Any) {
-        dismiss(animated: false, completion: nil)
+        dismiss(animated: false, completion: completion)
     }
     
 }

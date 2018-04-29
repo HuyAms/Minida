@@ -19,6 +19,8 @@ protocol ItemDetailVCProtocol: class {
     func onShowError(error: AppError)
     
     func onGetItemSuccess(item: ItemDetail)
+    
+    func onDeleteItemSuccess(message: String)
 }
 
 class ItemDetailVC: UIViewController, ItemDetailVCProtocol{
@@ -31,6 +33,7 @@ class ItemDetailVC: UIViewController, ItemDetailVCProtocol{
     @IBOutlet weak var usernameLbl: UILabel!
     @IBOutlet weak var badgeImgView: UIImageView!
     @IBOutlet weak var avatarImgView: UIImageView!
+    @IBOutlet weak var deleteBtn: UIButton!
     
     var presenter: ItemDetailPresenterProtocol?
     var itemId: String?
@@ -58,6 +61,20 @@ class ItemDetailVC: UIViewController, ItemDetailVCProtocol{
         self.present(alertViewController, animated: true)
     }
     
+    @IBAction func deleteBtnWasPressed(_ sender: Any) {
+        let alertViewController = UIAlertController(title: "Delete", message: "Do you want to delete this item?", preferredStyle: .actionSheet)
+        let okAction = UIAlertAction(title: "Yes", style: .default) { (action) in
+            if let itemId = self.itemId {
+                self.presenter?.performDeleteItem(itemId: itemId)
+            }
+        }
+        let cancleAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alertViewController.addAction(okAction)
+        alertViewController.addAction(cancleAction)
+        self.present(alertViewController, animated: true)
+    }
+    
+    
     @IBAction func closeBtnWasPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
@@ -76,6 +93,13 @@ class ItemDetailVC: UIViewController, ItemDetailVCProtocol{
     
     func hideLoading() {
         hideLoadingIndicator()
+    }
+    
+    func onDeleteItemSuccess(message: String) {
+        print("ON DELETE SUCCESS")
+        showSuccess(title: "Great", message: message, closeBtnText: "OK") {
+            self.dismiss(animated: false, completion: nil)
+        }
     }
     
     func onShowError(error: AppError) {
@@ -101,6 +125,12 @@ class ItemDetailVC: UIViewController, ItemDetailVCProtocol{
             numberPointLbl.text = "\(price) point"
         } else {
             numberPointLbl.text = "\(price) points"
+        }
+        
+        if let myId = KeyChainUtil.share.getUserId() {
+            if myId == item.seller._id {
+                deleteBtn.isHidden = false
+            }
         }
     }
     

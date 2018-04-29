@@ -22,6 +22,7 @@ enum AppStoryBoard: String{
     case editProfileVC = "editProfileScreen"
     case notificationVC = "notificationScreen"
     case leaderBoardVC = "leaderBoardScreen"
+    case itemDetailVC = "itemDetailScreen"
     
     var identifier: String {
         return self.rawValue

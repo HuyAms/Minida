@@ -24,6 +24,8 @@
 		6A13AD072093D7A500B415EF /* LeaderBoardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A13AD062093D7A500B415EF /* LeaderBoardVC.swift */; };
 		6A13AD0B2093D7F000B415EF /* LeaderBoardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A13AD0A2093D7F000B415EF /* LeaderBoardCell.swift */; };
 		6A13AD0D2093D80700B415EF /* LeaderBoardPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A13AD0C2093D80700B415EF /* LeaderBoardPresenter.swift */; };
+		6A13AD10209569C500B415EF /* ItemDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A13AD0F209569C500B415EF /* ItemDetailPresenter.swift */; };
+		6A13AD12209569E900B415EF /* ItemDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A13AD11209569E900B415EF /* ItemDetailVC.swift */; };
 		6A151B6E2091114800570350 /* ImageModalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A151B6C2091114800570350 /* ImageModalVC.swift */; };
 		6A151B6F2091114800570350 /* ImageModalVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A151B6D2091114800570350 /* ImageModalVC.xib */; };
 		6A2A165A2088BE960096F0AD /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A2A16592088BE960096F0AD /* UserService.swift */; };
@@ -115,6 +117,8 @@
 		6A13AD062093D7A500B415EF /* LeaderBoardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoardVC.swift; sourceTree = "<group>"; };
 		6A13AD0A2093D7F000B415EF /* LeaderBoardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoardCell.swift; sourceTree = "<group>"; };
 		6A13AD0C2093D80700B415EF /* LeaderBoardPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoardPresenter.swift; sourceTree = "<group>"; };
+		6A13AD0F209569C500B415EF /* ItemDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailPresenter.swift; sourceTree = "<group>"; };
+		6A13AD11209569E900B415EF /* ItemDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailVC.swift; sourceTree = "<group>"; };
 		6A151B6C2091114800570350 /* ImageModalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModalVC.swift; sourceTree = "<group>"; };
 		6A151B6D2091114800570350 /* ImageModalVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ImageModalVC.xib; path = ../Screens/Modal/ImageModalVC.xib; sourceTree = "<group>"; };
 		6A2A16592088BE960096F0AD /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
@@ -221,6 +225,7 @@
 		1242BBA52075620500857661 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				6A13AD0E2095699D00B415EF /* ItemDetailScreen */,
 				6A13AD042093D77F00B415EF /* LeaderBoardScreen */,
 				6A9C4C172091B31100A5C5AA /* NotificationScreen */,
 				C3513CF02090A6930098F1DF /* EditProfileScreen */,
@@ -347,6 +352,15 @@
 				6A13AD0C2093D80700B415EF /* LeaderBoardPresenter.swift */,
 			);
 			path = LeaderBoardScreen;
+			sourceTree = "<group>";
+		};
+		6A13AD0E2095699D00B415EF /* ItemDetailScreen */ = {
+			isa = PBXGroup;
+			children = (
+				6A13AD0F209569C500B415EF /* ItemDetailPresenter.swift */,
+				6A13AD11209569E900B415EF /* ItemDetailVC.swift */,
+			);
+			path = ItemDetailScreen;
 			sourceTree = "<group>";
 		};
 		6A2D1F70207DE17900852FCE /* Utilities */ = {
@@ -675,6 +689,7 @@
 				6A31B3B7207E2E5300BDE03F /* Constant.swift in Sources */,
 				C3E1A95720833B8200DF3D72 /* MainVC.swift in Sources */,
 				6A3E3251208F49FF00100924 /* ReceiptVC.swift in Sources */,
+				6A13AD12209569E900B415EF /* ItemDetailVC.swift in Sources */,
 				C3513CF42090A6E30098F1DF /* EditProfilePresenter.swift in Sources */,
 				6AE2D6DE20875EB800EAA747 /* ItemService.swift in Sources */,
 				6A61EC49208D12F700FA8E91 /* VoucherService.swift in Sources */,
@@ -685,6 +700,7 @@
 				6AF5D1E4208F0DDF00ACCCC2 /* Order.swift in Sources */,
 				6A9C4C1D2091B3C000A5C5AA /* NotificationCell.swift in Sources */,
 				6AF76132207F73B600498CC1 /* OnboardingVC.swift in Sources */,
+				6A13AD10209569C500B415EF /* ItemDetailPresenter.swift in Sources */,
 				1242BBAC207564C500857661 /* UIExt.swift in Sources */,
 				C3513CE6208DBEE30098F1DF /* ProfileCell.swift in Sources */,
 				6A31B3B2207E246D00BDE03F /* ServerResponse.swift in Sources */,

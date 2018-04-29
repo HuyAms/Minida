@@ -314,6 +314,12 @@ class ProfileVC: UIViewController, ProfileViewProtocol {
         receiptVC.orderId = orderDetail._id
         present(receiptVC, animated: true, completion: nil)
     }
+    
+    private func goToItemDetailScreen(itemId: String) {
+        guard let itemDetailVC = storyboard?.instantiateViewController(withIdentifier: AppStoryBoard.itemDetailVC.identifier) as? ItemDetailVC else {return}
+        itemDetailVC.itemId = itemId
+        present(itemDetailVC, animated: true, completion: nil)
+    }
 }
 
 extension ProfileVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -358,6 +364,7 @@ extension ProfileVC: UICollectionViewDelegate, UICollectionViewDataSource, UICol
             let orderDetail = orderDetails[indexPath.row]
             goToReceiptScreen(orderDetail: orderDetail)
         default:
+            goToItemDetailScreen(itemId: myItems[indexPath.row]._id)
             return
         }
     }

@@ -14,7 +14,7 @@ protocol CategoryDelegate {
 
 class CategoryVC: UIViewController {
     
-    var delegate: CategoryDelegate? 
+    var delegate: CategoryDelegate?
     
     //MARK: Outlets
     @IBOutlet weak var freeCategoryView: UIView!

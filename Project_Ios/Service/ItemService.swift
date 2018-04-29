@@ -208,7 +208,11 @@ class ItemService: ItemServiceProtocol {
     }
     
     func postItemForSale(token: String, itemName: String, description: String, price: Int, itemCategory: String, imgPath: String, lat: Double?, lng: Double?, completion: @escaping (ServerResponse<Item>) -> Void) {
-        let parameters: Parameters = ["itemName": itemName, "description": description, "price": price, "itemCategory": itemCategory, "imgPath": imgPath, "lat": lat ?? "", "lng": lng ?? ""]
+        var parameters: Parameters = ["itemName": itemName, "description": description, "price": price, "category": itemCategory, "imgPath": imgPath]
+        if let myLat = lat, let myLng = lng {
+            parameters["lat"] = myLat
+            parameters["lng"] = myLng
+        }
         let headers: HTTPHeaders = ["authorization": token]
         Alamofire.request(
             URL(string: URLConst.BASE_URL + URLConst.ITEM_PATH)!,
@@ -229,7 +233,7 @@ class ItemService: ItemServiceProtocol {
                             guard let code = serverResponse.code else {print("Error: server code"); return}
                             let appError = AppError(code: code, status: status)
                             completion(ServerResponse.error(error: appError))
-                            debugPrint("default case: Error creating new item")
+                            debugPrint("default case: \(response)")
                         }
                     } catch(let error) {
                         debugPrint(error)

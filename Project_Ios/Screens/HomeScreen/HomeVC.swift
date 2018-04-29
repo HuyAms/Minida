@@ -31,6 +31,7 @@ protocol HomeVCProtocol: class {
 
 class HomeVC: UIViewController, HomeVCProtocol {
 
+    @IBOutlet weak var addBtn: UIButton!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var notFoundLbl: UILabel!
@@ -114,6 +115,11 @@ class HomeVC: UIViewController, HomeVCProtocol {
         present(profileVC, animated: true, completion: nil)
     }
     
+    private func goToPostScreen() {
+        guard let postVC = storyboard?.instantiateViewController(withIdentifier: AppStoryBoard.postVC.identifier) as? PostVC else {return}
+        present(postVC, animated: true, completion: nil)
+    }
+    
     //MARK: Actions
     @IBAction func categoryBtnWasPressed(_ sender: Any) {
         goToCategoryScreen()
@@ -121,6 +127,11 @@ class HomeVC: UIViewController, HomeVCProtocol {
     
     @IBAction func notiBtnWasPressed(_ sender: UIButton) {
         goToNotiScreen()
+    }
+    
+    
+    @IBAction func addBtnWasPressed(_ sender: Any) {
+        goToPostScreen()
     }
     
     func dismissKeyboard() {

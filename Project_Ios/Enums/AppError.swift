@@ -17,8 +17,10 @@ enum AppError: Error {
     
     //Server Error
     case emptyItem
+    case emptyImage
     case invalidPhoneNumber
     case invalidEmail
+    case invalidPrice
     case notEnoughPoints
     case usernameIsUsed
     case phoneNumberIsUsed
@@ -81,10 +83,14 @@ extension AppError {
         switch self {
         case .emptyField:
             return "Field should not be empty"
+        case .emptyImage:
+            return "Image should not be empty"
         case .noInternetConnection:
             return "No internet connection"
         case .invalidPhoneNumber:
             return "Invalid phone number"
+        case .invalidPrice:
+            return "Invalid price"
         case .invalidEmail:
             return "Invalid email"
         case .notEnoughPoints:

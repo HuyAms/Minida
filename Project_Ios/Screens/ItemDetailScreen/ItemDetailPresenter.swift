@@ -18,7 +18,7 @@ protocol ItemDetailPresenterProtocol {
 
 class ItemDetailPresenter: ItemDetailPresenterProtocol {
     
-    fileprivate var view: ItemDetailVCProtocol?
+    fileprivate weak var view: ItemDetailVCProtocol?
     fileprivate var itemService: ItemServiceProtocol = ItemService()
     fileprivate var orderService: OrderServiceProtocol = OrderService()
     

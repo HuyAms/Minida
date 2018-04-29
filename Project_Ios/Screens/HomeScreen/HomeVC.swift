@@ -232,7 +232,7 @@ class HomeVC: UIViewController, HomeVCProtocol {
 }
 
 // MARK: - TableView
-extension HomeVC: UITableViewDelegate, UITableViewDataSource {
+extension HomeVC: UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -329,6 +329,7 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
             tableView.beginUpdates()
             tableView.endUpdates()
         }, completion: nil)
+        
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -344,6 +345,29 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
         } else {
             cell.unfold(true, animated: false, completion: nil)
         }
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        UIView.transition(with: self.addBtn, duration: 0.3, options: .transitionCrossDissolve, animations: {
+            self.addBtn.isHidden = true
+        }, completion: nil)
+    }
+    
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if !decelerate {
+            scrollViewDidEndDecelerating(scrollView)
+        }
+    }
+    
+    func scrollViewDidScrollToTop(_ scrollView: UIScrollView) {
+        scrollViewDidEndDecelerating(scrollView)
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        UIView.transition(with: self.addBtn, duration: 0.3, options: .transitionCrossDissolve, animations: {
+            self.addBtn.isHidden = false
+        }, completion: nil)
     }
 }
 

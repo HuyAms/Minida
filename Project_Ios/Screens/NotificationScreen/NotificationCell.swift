@@ -39,8 +39,9 @@ class NotificationCell: UITableViewCell {
             let sellerName = notification.notiBody.username
             notiDescriptionLbl.text = "You have bought \(boughtItem) from \(sellerName)"
         case .meSeller:
-            guard let buyerAvaImg = notification.notiBody.avatarPath else {return}
-            notiImageView.load(imgUrl: buyerAvaImg)
+            if let buyerAvaImg = notification.notiBody.avatarPath {
+                notiImageView.load(imgUrl: buyerAvaImg)
+            }
             let soldItem = notification.item.itemName
             let buyerName = notification.notiBody.username
             notiDescriptionLbl.text = "You have sold \(soldItem) to \(buyerName)"

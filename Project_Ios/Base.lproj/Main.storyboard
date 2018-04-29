@@ -1442,7 +1442,7 @@
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ihP-sb-bfC">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="577"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="sectionIndexBackgroundColor" red="0.30196078430000001" green="0.2784313725" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="leaderBoardCell" rowHeight="100" id="DzE-vS-WOz" customClass="LeaderBoardCell" customModule="Project_Ios" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="375" height="100"/>
@@ -1493,6 +1493,7 @@
                                                             </subviews>
                                                         </stackView>
                                                     </subviews>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstItem="Ul5-nn-qaN" firstAttribute="leading" secondItem="Z3g-tj-o2E" secondAttribute="trailing" constant="8" id="16D-Vg-ypm"/>
                                                         <constraint firstItem="Ul5-nn-qaN" firstAttribute="centerY" secondItem="4Fi-xe-rGE" secondAttribute="centerY" id="Chc-cy-3F4"/>
@@ -1505,7 +1506,7 @@
                                                         <constraint firstItem="T08-3f-bqT" firstAttribute="centerY" secondItem="4Fi-xe-rGE" secondAttribute="centerY" id="zYQ-Zw-89s"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
-                                                <color key="backgroundColor" red="0.92156862750000001" green="0.91764705879999997" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <connections>
                                                     <outlet property="avatarImgView" destination="T08-3f-bqT" id="cdL-oL-JSL"/>
                                                     <outlet property="badgeIcon" destination="Ul5-nn-qaN" id="jJ4-7i-7Jf"/>
@@ -1517,7 +1518,7 @@
                                         </prototypes>
                                     </tableView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.92156862750000001" green="0.91764705879999997" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.30196078430000001" green="0.2784313725" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="ihP-sb-bfC" secondAttribute="bottom" id="CFH-XH-9Yg"/>
                                     <constraint firstAttribute="trailing" secondItem="ihP-sb-bfC" secondAttribute="trailing" id="Jdt-ny-yUi"/>

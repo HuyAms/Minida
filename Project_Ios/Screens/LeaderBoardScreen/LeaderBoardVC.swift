@@ -36,6 +36,17 @@ class LeaderBoardVC: UIViewController, LeaderBoardVCProtocol {
     
     var presenter: LeaderBoardPresenterProtocol?
     var topUsers = [User]()
+    
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action:
+            #selector(HomeVC.handleRefresh(_:)),
+                                 for: UIControlEvents.valueChanged)
+        refreshControl.tintColor = UIColor.white
+        refreshControl.backgroundColor = UIColor.appLightColor
+        
+        return refreshControl
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +54,7 @@ class LeaderBoardVC: UIViewController, LeaderBoardVCProtocol {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.tableFooterView = UIView()
+        tableView.addSubview(self.refreshControl)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -70,11 +82,17 @@ class LeaderBoardVC: UIViewController, LeaderBoardVCProtocol {
     }
     
     func showLoading() {
-        showLoadingIndicator()
+        if !refreshControl.isRefreshing {
+            showLoadingIndicator()
+        }
     }
     
     func hideLoading() {
-        hideLoadingIndicator()
+        if refreshControl.isRefreshing {
+            refreshControl.endRefreshing()
+        } else {
+            hideLoadingIndicator()
+        }
     }
     
     func showTopUserView() {
@@ -100,6 +118,10 @@ class LeaderBoardVC: UIViewController, LeaderBoardVCProtocol {
     
     func onShowError(error: AppError) {
         showError(message: error.description)
+    }
+    
+    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+        presenter?.getLeaderBoardUsers()
     }
 }
 

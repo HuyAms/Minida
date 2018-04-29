@@ -14,7 +14,7 @@ protocol EditProfilePresenterProtocol {
     
     func performGetUserById()
     
-    func updateUser(username: String, password: String, phoneNumber: String, avatarPath: String?, email: String)
+    func updateUser(username: String, phoneNumber: String, avatarPath: String?, email: String)
 }
 
 class EditProfilePresenter: EditProfilePresenterProtocol {
@@ -43,9 +43,9 @@ class EditProfilePresenter: EditProfilePresenterProtocol {
         }
     }
     
-    func updateUser(username: String, password: String, phoneNumber: String, avatarPath: String?, email: String) {
+    func updateUser(username: String, phoneNumber: String, avatarPath: String?, email: String) {
         
-        if username.isEmpty || password.isEmpty || email.isEmpty || phoneNumber.isEmpty {
+        if username.isEmpty  || email.isEmpty || phoneNumber.isEmpty {
             self.view?.hideLoading()
             self.view?.onShowError(error: AppError.emptyField)
             return
@@ -59,7 +59,7 @@ class EditProfilePresenter: EditProfilePresenterProtocol {
         }
 
         guard let token = KeyChainUtil.share.getToken() else {return}
-        profileService.updateProfileData(token: token, username: username, email: email, phoneNumber: phoneNumber, avatarPath: avatarPath, password: password) { (response) in
+        profileService.updateProfileData(token: token, username: username, email: email, phoneNumber: phoneNumber, avatarPath: avatarPath) { (response) in
             switch response{
             case.success(let user):
                 self.view?.hideLoading()

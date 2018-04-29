@@ -12,7 +12,7 @@ import Alamofire
 protocol ProfileServiceProtocol {
     func loadProfileData(token: String, completion: @escaping (ServerResponse<User>) -> Void)
     func loadMyItems(token: String, completion: @escaping (ServerResponse<[Item]>) -> Void)
-    func updateProfileData(token: String, username: String, email: String, phoneNumber: Int, avatarPath: String?, password: String, completion: @escaping (ServerResponse<User>) -> Void)
+    func updateProfileData(token: String, username: String, email: String, phoneNumber: Int, avatarPath: String?, completion: @escaping (ServerResponse<User>) -> Void)
     
 }
 
@@ -94,7 +94,7 @@ class ProfileService: ProfileServiceProtocol {
         }
     }
     
-    func updateProfileData(token: String, username: String, email: String, phoneNumber: Int, avatarPath: String?, password: String, completion: @escaping (ServerResponse<User>) -> Void) {
+    func updateProfileData(token: String, username: String, email: String, phoneNumber: Int, avatarPath: String?, completion: @escaping (ServerResponse<User>) -> Void) {
         let headers: HTTPHeaders = [
             "authorization": token
         ]
@@ -102,7 +102,6 @@ class ProfileService: ProfileServiceProtocol {
             "username": username,
             "email": email,
             "phoneNumber": phoneNumber,
-            "password": password,
             "avatarPath": avatarPath ?? ""
         ]
         Alamofire.request(

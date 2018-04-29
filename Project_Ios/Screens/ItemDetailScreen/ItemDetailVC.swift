@@ -96,7 +96,6 @@ class ItemDetailVC: UIViewController, ItemDetailVCProtocol{
     }
     
     func onDeleteItemSuccess(message: String) {
-        print("ON DELETE SUCCESS")
         showSuccess(title: "Great", message: message, closeBtnText: "OK") {
             self.dismiss(animated: false, completion: nil)
         }
@@ -121,10 +120,8 @@ class ItemDetailVC: UIViewController, ItemDetailVCProtocol{
         let price = item.price
         if price == 0 {
             numberPointLbl.text = "FREE"
-        } else if price == 1 {
-            numberPointLbl.text = "\(price) point"
         } else {
-            numberPointLbl.text = "\(price) points"
+            numberPointLbl.text = "\(price)"
         }
         
         if let myId = KeyChainUtil.share.getUserId() {

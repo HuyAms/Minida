@@ -120,11 +120,6 @@ class ProfileVC: UIViewController, ProfileViewProtocol {
         }
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        profileLoadState = .myProfile
-        userId = nil
-    }
-    
 
     //MARK: Actions
     @IBAction func logOutBtnWasPressed(_ sender: Any) {

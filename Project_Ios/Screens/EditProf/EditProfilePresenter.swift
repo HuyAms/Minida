@@ -15,6 +15,9 @@ protocol EditProfilePresenterProtocol {
     func performGetUserById()
     
     func updateUser(username: String, phoneNumber: String, avatarPath: String?, email: String)
+    
+    func upLoadPicture(imgData: Data?)
+
 }
 
 class EditProfilePresenter: EditProfilePresenterProtocol {
@@ -23,6 +26,8 @@ class EditProfilePresenter: EditProfilePresenterProtocol {
     weak var view: EditProfileViewProtocol?
     var userService: UserServiceProtocol = UserService()
     var profileService: ProfileServiceProtocol = ProfileService()
+    let uploadImgService: UpLoadImgServiceProtocol = UploadImgService()
+
     
     init(view: EditProfileViewProtocol) {
         self.view = view
@@ -74,6 +79,31 @@ class EditProfilePresenter: EditProfilePresenterProtocol {
     func performGetUserById() {
         
     }
+    
+    func upLoadPicture(imgData: Data?) {
+        guard let token = KeyChainUtil.share.getToken() else {
+            print("Empty token")
+            return
+        }
+        
+        guard let imgData = imgData  else {
+            view?.onShowError(error: .emptyImage)
+            return
+        }
+        
+        view?.showLoading()
+        uploadImgService.uploadImg(token: token, imgData: imgData) { [weak self](response) in
+            self?.view?.hideLoading()
+            switch response {
+            case .success(let upLoadResponse):
+                let imgPath = "\(URLConst.BASE_URL)/photos/\(upLoadResponse.filename)"
+                self?.view?.onUploadImageSuccess(newAvatarPath: imgPath)
+            case .error(let error):
+                self?.view?.onShowError(error: error)
+            }
+        }
+    }
+    
     
 
 }

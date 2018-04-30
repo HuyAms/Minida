@@ -21,6 +21,8 @@ protocol EditProfileViewProtocol: class {
     
     func hideLoading()
     
+    func onUploadImageSuccess(newAvatarPath: String)
+    
 }
 
 class EditProfileVC: UIViewController, EditProfileViewProtocol{
@@ -37,7 +39,7 @@ class EditProfileVC: UIViewController, EditProfileViewProtocol{
     
     //MARK: Properties
     var presenter: EditProfilePresenterProtocol?
-    var image: UIImage?
+    var changedAvatar: UIImage?
   
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -88,7 +90,6 @@ class EditProfileVC: UIViewController, EditProfileViewProtocol{
     }
 
     
-    
     //MARK: Protocols
     func onLoadDataSuccess(userData: User) {
         avatarPath = userData.avatarPath
@@ -126,15 +127,39 @@ class EditProfileVC: UIViewController, EditProfileViewProtocol{
         hideLoadingIndicator()
     }
     
+    func onUploadImageSuccess(newAvatarPath: String) {
+        let username = nameTextField.text ?? ""
+        let phoneNumber = phoneTextField.text ?? ""
+        let email = emailTextField.text ?? ""
+        presenter?.updateUser(username: username, phoneNumber: phoneNumber, avatarPath: newAvatarPath, email: email)
+    }
+    
     //MARK: Actions
     
     @IBAction func saveBtnWasPressed(_ sender: Any) {
-        let username = nameTextField.text ?? ""
-        let phoneNumber = phoneTextField.text ?? ""
-        let avatarPath = self.avatarPath
-        let email = emailTextField.text ?? ""
-        presenter?.updateUser(username: username, phoneNumber: phoneNumber, avatarPath: avatarPath, email: email)
+        
+        
+        if let changedAvatar = self.changedAvatar {
+            // When user changes their avatar, upload new avatar and get new avatarPath and upload it, after save new user info.
+            var imageData: Data?
+            
+            if let imgFile = changedAvatar {
+                imageData = UIImageJPEGRepresentation(imgFile, 1.0)!
+            }
+            presenter?.upLoadPicture(imgData: imageData)
+            
+        } else {
+            // User has not changed their avatar, we do not need to upload new picture. Save user info with old avatar path.
+            let avatarPath = self.avatarPath
+            let username = nameTextField.text ?? ""
+            let phoneNumber = phoneTextField.text ?? ""
+            let email = emailTextField.text ?? ""
+            presenter?.updateUser(username: username, phoneNumber: phoneNumber, avatarPath: avatarPath, email: email)
+        }
     }
+    
+    //onUploadImgSuccess(newAvaPath: String)
+    
     
     @IBAction func cancelBtnWasPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
@@ -149,8 +174,8 @@ extension EditProfileVC: UIImagePickerControllerDelegate, UINavigationController
         picker.dismiss(animated: true)
         
         // We always expect 'imagePickerController(:didFinishPickingMediaWithInfo:)' to supply the original image.
-        image = info[UIImagePickerControllerOriginalImage] as? UIImage
-        avatarImage.image = image
+        changedAvatar = info[UIImagePickerControllerOriginalImage] as? UIImage
+        avatarImage.image = changedAvatar
         
         //updateClassifications(for: image!)
     }

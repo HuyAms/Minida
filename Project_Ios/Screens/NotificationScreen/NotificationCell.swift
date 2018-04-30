@@ -29,9 +29,11 @@ class NotificationCell: UITableViewCell {
     @IBOutlet weak var notiImageView: UIImageView!
     @IBOutlet weak var notiDescriptionLbl: UILabel!
     @IBOutlet weak var notiTimeLbl: UILabel!
+    var notiType: NotiType?
     
     func config(notification: Notification) {
         let notiType = NotiType(notiType: notification.notiType)
+        self.notiType = notiType
         switch notiType {
         case .meBuyer:
             notiImageView.load(imgUrl: notification.item.imgPath)
@@ -52,10 +54,15 @@ class NotificationCell: UITableViewCell {
         
     }
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        
-        
+    override func prepareForReuse() {
+        if let notiType = self.notiType {
+            switch notiType {
+            case .meBuyer:
+                notiImageView.image = UIImage.getItemDefaultIcon()
+            case .meSeller:
+                notiImageView.image = UIImage.getAvaDefaultIcon()
+            }
+        }
     }
 }
 

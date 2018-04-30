@@ -141,11 +141,8 @@ class EditProfileVC: UIViewController, EditProfileViewProtocol{
         
         if let changedAvatar = self.changedAvatar {
             // When user changes their avatar, upload new avatar and get new avatarPath and upload it, after save new user info.
-            var imageData: Data?
+            let imageData = UIImageJPEGRepresentation(changedAvatar, 1.0)!
             
-            if let imgFile = changedAvatar {
-                imageData = UIImageJPEGRepresentation(imgFile, 1.0)!
-            }
             presenter?.upLoadPicture(imgData: imageData)
             
         } else {

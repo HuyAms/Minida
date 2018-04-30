@@ -172,7 +172,7 @@ class PostVC: UIViewController, PostVCProtocol {
         var imageData: Data?
         
         if let imgFile = itemImg {
-            imageData = UIImageJPEGRepresentation(imgFile, 0.9)!
+            imageData = UIImageJPEGRepresentation(imgFile, 1.0)!
         }
         
         presenter?.upLoadPicture(imgData: imageData)

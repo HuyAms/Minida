@@ -121,8 +121,10 @@ class ItemDetailVC: UIViewController, ItemDetailVCProtocol{
         let price = item.price
         if price == 0 {
             numberPointLbl.text = "FREE"
+        } else if price == 1 {
+            numberPointLbl.text = "\(price) point"
         } else {
-            numberPointLbl.text = "\(price)"
+            numberPointLbl.text = "\(price) points"
         }
         
         if let myId = KeyChainUtil.share.getUserId() {

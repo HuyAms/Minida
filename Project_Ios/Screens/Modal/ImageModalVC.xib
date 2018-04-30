@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -28,7 +28,7 @@
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A96-mj-lAC">
-                    <rect key="frame" x="12" y="20" width="30" height="30"/>
+                    <rect key="frame" x="12" y="32" width="30" height="30"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="30" id="KYh-Lj-gzu"/>
                         <constraint firstAttribute="height" constant="30" id="XH8-JH-vG5"/>
@@ -58,7 +58,7 @@
                 <constraint firstItem="X3P-2g-W30" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="CVK-pt-dig"/>
                 <constraint firstItem="X3P-2g-W30" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="NUl-Ud-Kbf"/>
                 <constraint firstItem="X3P-2g-W30" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="P6U-nx-1yj"/>
-                <constraint firstItem="A96-mj-lAC" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Tfb-OS-IJO"/>
+                <constraint firstItem="A96-mj-lAC" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="12" id="V6L-vB-fBH"/>
                 <constraint firstItem="uqH-su-7uU" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="aqa-Yn-6hG"/>
                 <constraint firstItem="A96-mj-lAC" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="12" id="hBA-9Q-Y4r"/>
                 <constraint firstItem="uqH-su-7uU" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="n0k-hM-Qeg"/>

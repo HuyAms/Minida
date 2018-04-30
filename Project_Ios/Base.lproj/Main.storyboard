@@ -383,7 +383,7 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TU2-jk-LgV" userLabel="Foreground" customClass="RotatedView" customModule="FoldingCell">
                                                     <rect key="frame" x="20" y="10" width="335" height="125"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default-image-icon" translatesAutoresizingMaskIntoConstraints="NO" id="Q77-ns-4AM">
+                                                        <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default-image-icon" translatesAutoresizingMaskIntoConstraints="NO" id="Q77-ns-4AM">
                                                             <rect key="frame" x="0.0" y="0.0" width="126" height="125"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="125" id="TtZ-9t-1aD"/>
@@ -2100,6 +2100,7 @@
                         <outlet property="badgeLbl" destination="K9L-oS-apW" id="ZHa-5f-X80"/>
                         <outlet property="deleteBtn" destination="Rhm-bP-Zo6" id="il5-Dd-fer"/>
                         <outlet property="descriptionLbl" destination="rWi-Ev-Egy" id="Kd1-Kz-hoM"/>
+                        <outlet property="itemImgView" destination="WKt-E5-G1L" id="bV6-Ot-C3c"/>
                         <outlet property="itemNameLbl" destination="yhb-Rc-8he" id="HdR-1Z-LoP"/>
                         <outlet property="numberPointLbl" destination="KZa-8f-zPb" id="YSd-KO-a3e"/>
                         <outlet property="timeLbl" destination="9Wl-pH-dKw" id="4Aa-Pr-lTp"/>

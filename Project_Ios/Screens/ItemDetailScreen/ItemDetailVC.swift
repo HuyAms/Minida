@@ -34,6 +34,7 @@ class ItemDetailVC: UIViewController, ItemDetailVCProtocol{
     @IBOutlet weak var badgeImgView: UIImageView!
     @IBOutlet weak var avatarImgView: UIImageView!
     @IBOutlet weak var deleteBtn: UIButton!
+    @IBOutlet weak var itemImgView: UIImageView!
     
     var presenter: ItemDetailPresenterProtocol?
     var itemId: String?
@@ -112,7 +113,7 @@ class ItemDetailVC: UIViewController, ItemDetailVCProtocol{
         badgeLbl.text = item.seller.badge
         usernameLbl.text = item.seller.username
         badgeImgView.image = UIImage.getBadgeIcon(badge: Badge(badge: item.seller.badge))
-        
+        itemImgView.load(imgUrl: item.imgPath)
         if let avatarPath = item.seller.avatarPath {
             avatarImgView.load(imgUrl: avatarPath)
         }

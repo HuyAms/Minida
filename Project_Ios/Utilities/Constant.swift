@@ -142,6 +142,14 @@ extension UIImage {
         return UIImage(named: "success-icon")!
     }
     
+    static func getItemDefaultIcon() -> UIImage {
+        return UIImage(named: "default-image-icon")!
+    }
+    
+    static func getAvaDefaultIcon() -> UIImage {
+        return UIImage(named: "default-avatar-icon")!
+    }
+    
     static func getBadgeIcon(badge: Badge) -> UIImage {
         switch badge {
         case .mercury:

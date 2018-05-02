@@ -66,6 +66,7 @@
 		6ADA4B932095AD7000D899B4 /* PostPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADA4B922095AD7000D899B4 /* PostPresenter.swift */; };
 		6ADA4B952095AF4400D899B4 /* UploadImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADA4B942095AF4400D899B4 /* UploadImageService.swift */; };
 		6ADA4B972095C86500D899B4 /* UploadPhotoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADA4B962095C86500D899B4 /* UploadPhotoResponse.swift */; };
+		6ADA4B99209A582D00D899B4 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADA4B98209A582D00D899B4 /* TabBarController.swift */; };
 		6AE2D6DC20875EAE00EAA747 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AE2D6DB20875EAE00EAA747 /* HomePresenter.swift */; };
 		6AE2D6DE20875EB800EAA747 /* ItemService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AE2D6DD20875EB800EAA747 /* ItemService.swift */; };
 		6AE2D6E02087640800EAA747 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AE2D6DF2087640800EAA747 /* Item.swift */; };
@@ -162,6 +163,7 @@
 		6ADA4B922095AD7000D899B4 /* PostPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPresenter.swift; sourceTree = "<group>"; };
 		6ADA4B942095AF4400D899B4 /* UploadImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImageService.swift; sourceTree = "<group>"; };
 		6ADA4B962095C86500D899B4 /* UploadPhotoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadPhotoResponse.swift; sourceTree = "<group>"; };
+		6ADA4B98209A582D00D899B4 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		6AE2D6DB20875EAE00EAA747 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		6AE2D6DD20875EB800EAA747 /* ItemService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemService.swift; sourceTree = "<group>"; };
 		6AE2D6DF2087640800EAA747 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 				6AF76130207F739700498CC1 /* OnboardingScreen */,
 				6A2D1F77207E5DB500852FCE /* MapScreen */,
 				6A31B3B5207E28DE00BDE03F /* AuthScreen */,
+				6ADA4B98209A582D00D899B4 /* TabBarController.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -752,6 +755,7 @@
 				6A31B3B0207E22AD00BDE03F /* User.swift in Sources */,
 				6AF5D1E6208F0DE800ACCCC2 /* Notification.swift in Sources */,
 				12C53DFD20754AB8005824E3 /* MapVC.swift in Sources */,
+				6ADA4B99209A582D00D899B4 /* TabBarController.swift in Sources */,
 				6A3E3253208F4DD600100924 /* ReceiptPresenter.swift in Sources */,
 				6A2D1F82207E758600852FCE /* MapMarkerView.swift in Sources */,
 				6A13AD072093D7A500B415EF /* LeaderBoardVC.swift in Sources */,

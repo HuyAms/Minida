@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import CoreLocation
 import Stripe
 
 @UIApplicationMain
@@ -15,23 +14,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     
-    lazy var locationManager: CLLocationManager = {
-        var _locationManager = CLLocationManager()
-        _locationManager.delegate = self
-        _locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        return _locationManager
-    }()
-    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         UIApplication.shared.statusBarStyle = .lightContent
 
         setAppRootController()
         setUpStripe()
-        
-        if CLLocationManager.locationServicesEnabled() {
-            locationManager.startUpdatingLocation()
-        }
         
         return true
     }
@@ -65,26 +53,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         window?.rootViewController = rootVC
         window?.makeKeyAndVisible()
-    }
-    
-}
-
-extension AppDelegate: CLLocationManagerDelegate {
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let location = locations.last else {return}
-        KeyChainUtil.share.setMyLat(lat: location.coordinate.latitude)
-        KeyChainUtil.share.setMyLng(lng: location.coordinate.longitude)
-        KeyChainUtil.share.setMyLocationState()
-        manager.stopUpdatingLocation()
-    }
-    
-    func checkLocationAuthorizationStatus() {
-        if CLLocationManager.authorizationStatus() != .authorizedWhenInUse {
-            locationManager.requestWhenInUseAuthorization()
-        } else {
-            locationManager.startUpdatingLocation()
-        }
     }
     
 }

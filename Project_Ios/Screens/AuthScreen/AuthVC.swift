@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import CoreLocation
 
 protocol AuthViewProtocol: class {
     
@@ -65,6 +65,12 @@ class AuthVC: UIViewController, AuthViewProtocol {
     //MARK: Properties
     var presenter: AuthPresenterProtocol?
     var isSignIn = true
+    lazy var locationManager: CLLocationManager = {
+        var _locationManager = CLLocationManager()
+        _locationManager.delegate = self
+        _locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        return _locationManager
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,6 +79,7 @@ class AuthVC: UIViewController, AuthViewProtocol {
         delegateTextField()
         presenter?.checkToken()
         presenter?.checkBiometricAuthAvailable()
+        checkLocationAuthorizationStatus()
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(AuthVC.dismissKeyboard))
         view.addGestureRecognizer(tapGesture)
@@ -223,7 +230,6 @@ class AuthVC: UIViewController, AuthViewProtocol {
     func setUserName(userName: String) {
         usernameTextField.text = userName
         //changeAccountBtn.isHidden = false
-        
     }
     
     func onChangeAccountSuccess() {
@@ -265,4 +271,36 @@ extension AuthVC: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         errorLabel.text = ""
     }
+}
+
+extension AuthVC: CLLocationManagerDelegate {
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let location = locations.last else {return}
+        KeyChainUtil.share.setMyLat(lat: location.coordinate.latitude)
+        KeyChainUtil.share.setMyLng(lng: location.coordinate.longitude)
+        KeyChainUtil.share.setMyLocationState()
+        manager.stopUpdatingLocation()
+    }
+    
+    func checkLocationAuthorizationStatus() {
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.startUpdatingLocation()
+        } else {
+            locationManager.requestWhenInUseAuthorization()
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        switch status {
+        case .notDetermined:
+            locationManager.requestWhenInUseAuthorization()
+        case .restricted, .denied:
+            locationManager.startUpdatingLocation()
+            locationManager.delegate = nil
+        case .authorizedAlways, .authorizedWhenInUse:
+            locationManager.startUpdatingLocation()
+        }
+    }
+    
 }

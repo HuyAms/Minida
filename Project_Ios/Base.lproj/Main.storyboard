@@ -623,8 +623,8 @@
                                                                         <constraint firstAttribute="trailing" secondItem="eWS-uk-lqG" secondAttribute="trailing" constant="3" id="nFz-NM-fAH"/>
                                                                     </constraints>
                                                                 </view>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9rN-G0-c5e">
-                                                                    <rect key="frame" x="4" y="0.0" width="327" height="62.5"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="9rN-G0-c5e">
+                                                                    <rect key="frame" x="8" y="0.0" width="319" height="62.5"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="62" id="QcN-w0-9Ji"/>
                                                                     </constraints>
@@ -636,13 +636,13 @@
                                                             <color key="backgroundColor" red="0.92156862750000001" green="0.91764705879999997" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="trailing" secondItem="9rN-G0-c5e" secondAttribute="trailing" constant="4" id="2J7-vY-8F9"/>
+                                                                <constraint firstAttribute="trailing" secondItem="9rN-G0-c5e" secondAttribute="trailing" constant="8" id="2J7-vY-8F9"/>
                                                                 <constraint firstItem="Cgx-Ob-0UA" firstAttribute="leading" secondItem="Qdp-pN-ZgI" secondAttribute="leading" constant="4" id="LW4-QV-eea"/>
                                                                 <constraint firstAttribute="trailing" secondItem="Cgx-Ob-0UA" secondAttribute="trailing" constant="4" id="YlW-8W-F9i"/>
                                                                 <constraint firstAttribute="height" constant="125" id="juC-zU-WDq"/>
                                                                 <constraint firstItem="9rN-G0-c5e" firstAttribute="top" secondItem="Qdp-pN-ZgI" secondAttribute="top" id="kY7-GU-XKl"/>
                                                                 <constraint firstItem="Cgx-Ob-0UA" firstAttribute="top" secondItem="9rN-G0-c5e" secondAttribute="bottom" id="sbO-qr-Ab0"/>
-                                                                <constraint firstItem="9rN-G0-c5e" firstAttribute="leading" secondItem="Qdp-pN-ZgI" secondAttribute="leading" constant="4" id="w8i-E8-iQU"/>
+                                                                <constraint firstItem="9rN-G0-c5e" firstAttribute="leading" secondItem="Qdp-pN-ZgI" secondAttribute="leading" constant="8" id="w8i-E8-iQU"/>
                                                             </constraints>
                                                         </view>
                                                     </subviews>

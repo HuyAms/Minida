@@ -975,6 +975,7 @@
 			baseConfigurationReference = A62BE4410FE6EBAB1977BABF /* Pods-Project_Ios.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6V67VT3VM7;
 				INFOPLIST_FILE = Project_Ios/Info.plist;
@@ -992,6 +993,7 @@
 			baseConfigurationReference = 6C94714BDD9F266D7F091819 /* Pods-Project_Ios.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6V67VT3VM7;
 				INFOPLIST_FILE = Project_Ios/Info.plist;

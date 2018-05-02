@@ -51,11 +51,15 @@ class NotificationVC: UIViewController, NotificationVCProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter = NotificationPresenter(view: self)
-        presenter?.performGetMyNotifications()
         tableView.addSubview(self.refreshControl)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        presenter?.performGetMyNotifications()
     }
     
     //MARK: Protocols

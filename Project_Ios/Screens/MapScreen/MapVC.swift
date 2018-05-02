@@ -42,9 +42,11 @@ class MapVC: UIViewController , MapViewProtocol {
         presenter = MapPresenter(view: self)
         
         presenter?.loadCenterInfo()
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         setUpLocation()
-      
     }
     
     //MARK: ACTION
@@ -56,7 +58,6 @@ class MapVC: UIViewController , MapViewProtocol {
         if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
           mapView.showsUserLocation = true
         }
-        
         presenter?.getMyLocation()
     }
     

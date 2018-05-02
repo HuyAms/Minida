@@ -88,7 +88,7 @@ extension AppError {
         case .noInternetConnection:
             return "No internet connection"
         case .invalidPhoneNumber:
-            return "Invalid phone number"
+            return "Phone number must have 10 numbers"
         case .invalidPrice:
             return "Invalid price"
         case .invalidEmail:

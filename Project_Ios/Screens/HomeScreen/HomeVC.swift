@@ -96,16 +96,17 @@ class HomeVC: UIViewController, HomeVCProtocol {
         categoryVC.delegate = self
     }
     
+    private func goToVoucherScreen() {
+        guard let voucherVC = storyboard?.instantiateViewController(withIdentifier: AppStoryBoard.voucherVC.identifier) as? VoucherVC else {return}
+        present(voucherVC, animated: true, completion: nil)
+    }
+    
     private func goToReceiptScreen(orderId: String) {
         guard let receiptVC = storyboard?.instantiateViewController(withIdentifier: AppStoryBoard.receiptVC.identifier) as? ReceiptVC else {return}
         receiptVC.orderId = orderId
         present(receiptVC, animated: true, completion: nil)
     }
     
-    private func goToNotiScreen() {
-        guard let notificationVC = storyboard?.instantiateViewController(withIdentifier: AppStoryBoard.notificationVC.identifier) as? NotificationVC else {return}
-        present(notificationVC, animated: true, completion: nil)
-    }
     
     private func goToProfileScreen(userId: String) {
         guard let profileVC = storyboard?.instantiateViewController(withIdentifier: AppStoryBoard.profileVC.identifier) as? ProfileVC else {return}
@@ -124,8 +125,8 @@ class HomeVC: UIViewController, HomeVCProtocol {
         goToCategoryScreen()
     }
     
-    @IBAction func notiBtnWasPressed(_ sender: UIButton) {
-        goToNotiScreen()
+    @IBAction func voucherBtnWasPressed(_ sender: Any) {
+        goToVoucherScreen()
     }
     
     func dismissKeyboard() {

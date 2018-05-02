@@ -79,6 +79,11 @@ class VoucherVC: UIViewController, VoucherVCProtocol {
         }
     }
     
+    @IBAction func closeBtnWasPressed(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
     //MARK: Protocols
     
     func showLoading() {

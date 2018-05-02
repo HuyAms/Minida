@@ -78,11 +78,14 @@ class PaymentVC: UIViewController, PaymentVCProtocol {
         presenter?.getMe()
     }
 
-    //MARK: Button handlers
+    //MARK: Action
     @IBAction func addCardBtnWasPressed(_ sender: Any) {
         presentPaymentMethodsViewController()
     }
     
+    @IBAction func closeBtnWasPressed(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
     
     // MARK: Helpers
     private func presentPaymentMethodsViewController() {

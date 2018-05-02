@@ -72,6 +72,7 @@ class ProfileVC: UIViewController, ProfileViewProtocol {
     @IBOutlet weak var editProfileBtn: UIButton!
     @IBOutlet weak var boardViewBtn: UIButton!
     @IBOutlet weak var pointStack: UIStackView!
+    @IBOutlet weak var addPointStack: UIStackView!
     
     //MARK: Properties
     var presenter: ProfilePresenterProtocol?
@@ -133,6 +134,12 @@ class ProfileVC: UIViewController, ProfileViewProtocol {
         alertViewController.addAction(cancleAction)
         present(alertViewController, animated: true)
     }
+    
+    @IBAction func paymentBtnWasPressed(_ sender: Any) {
+        guard let paymentVC = storyboard?.instantiateViewController(withIdentifier: AppStoryBoard.paymentVC.identifier) as? PaymentVC else {return}
+        present(paymentVC, animated: true, completion: nil)
+    }
+    
     
     @IBAction func closeBtnWasPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
@@ -245,6 +252,7 @@ class ProfileVC: UIViewController, ProfileViewProtocol {
         boardViewBtn.isHidden = false
         logOutBtn.isHidden = false
         closeBtn.isHidden = true
+        addPointStack.isHidden = false
     }
     
     func setUpLoadUserProfile() {
@@ -256,6 +264,7 @@ class ProfileVC: UIViewController, ProfileViewProtocol {
         boardViewBtn.isHidden = true
         logOutBtn.isHidden = true
         closeBtn.isHidden = false
+        addPointStack.isHidden = true
     }
     
     func onGetMyItemSuccess(items: [Item]) {

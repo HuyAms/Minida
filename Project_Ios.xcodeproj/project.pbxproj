@@ -86,8 +86,6 @@
 		C3984166208B4C0A00DE5FD4 /* PaymentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3984165208B4C0A00DE5FD4 /* PaymentVC.swift */; };
 		C3984168208B682F00DE5FD4 /* PaymentPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3984167208B682F00DE5FD4 /* PaymentPresenter.swift */; };
 		C398416A208BDF3B00DE5FD4 /* PaymentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3984169208BDF3B00DE5FD4 /* PaymentCell.swift */; };
-		C3E1A95520833AA100DF3D72 /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E1A95420833AA100DF3D72 /* MenuVC.swift */; };
-		C3E1A95720833B8200DF3D72 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E1A95620833B8200DF3D72 /* MainVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -187,8 +185,6 @@
 		C3984165208B4C0A00DE5FD4 /* PaymentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentVC.swift; sourceTree = "<group>"; };
 		C3984167208B682F00DE5FD4 /* PaymentPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentPresenter.swift; sourceTree = "<group>"; };
 		C3984169208BDF3B00DE5FD4 /* PaymentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentCell.swift; sourceTree = "<group>"; };
-		C3E1A95420833AA100DF3D72 /* MenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; };
-		C3E1A95620833B8200DF3D72 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		E415342BCB41B244486FA38E /* Pods_Project_IosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Project_IosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -250,8 +246,6 @@
 				6AF76130207F739700498CC1 /* OnboardingScreen */,
 				6A2D1F77207E5DB500852FCE /* MapScreen */,
 				6A31B3B5207E28DE00BDE03F /* AuthScreen */,
-				C3E1A95420833AA100DF3D72 /* MenuVC.swift */,
-				C3E1A95620833B8200DF3D72 /* MainVC.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -710,7 +704,6 @@
 				C3984168208B682F00DE5FD4 /* PaymentPresenter.swift in Sources */,
 				6AE2D6DC20875EAE00EAA747 /* HomePresenter.swift in Sources */,
 				6A31B3B7207E2E5300BDE03F /* Constant.swift in Sources */,
-				C3E1A95720833B8200DF3D72 /* MainVC.swift in Sources */,
 				6A3E3251208F49FF00100924 /* ReceiptVC.swift in Sources */,
 				6A13AD12209569E900B415EF /* ItemDetailVC.swift in Sources */,
 				C3513CF42090A6E30098F1DF /* EditProfilePresenter.swift in Sources */,
@@ -757,7 +750,6 @@
 				6ADA4B972095C86500D899B4 /* UploadPhotoResponse.swift in Sources */,
 				6A31B3AE207E229B00BDE03F /* Response.swift in Sources */,
 				6A31B3B0207E22AD00BDE03F /* User.swift in Sources */,
-				C3E1A95520833AA100DF3D72 /* MenuVC.swift in Sources */,
 				6AF5D1E6208F0DE800ACCCC2 /* Notification.swift in Sources */,
 				12C53DFD20754AB8005824E3 /* MapVC.swift in Sources */,
 				6A3E3253208F4DD600100924 /* ReceiptPresenter.swift in Sources */,

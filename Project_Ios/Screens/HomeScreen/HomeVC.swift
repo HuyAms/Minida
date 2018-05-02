@@ -31,7 +31,6 @@ protocol HomeVCProtocol: class {
 
 class HomeVC: UIViewController, HomeVCProtocol {
 
-    @IBOutlet weak var addBtn: UIButton!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var notFoundLbl: UILabel!
@@ -127,11 +126,6 @@ class HomeVC: UIViewController, HomeVCProtocol {
     
     @IBAction func notiBtnWasPressed(_ sender: UIButton) {
         goToNotiScreen()
-    }
-    
-    
-    @IBAction func addBtnWasPressed(_ sender: Any) {
-        goToPostScreen()
     }
     
     func dismissKeyboard() {
@@ -346,29 +340,6 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource, UIScrollViewDelega
         } else {
             cell.unfold(true, animated: false, completion: nil)
         }
-    }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        UIView.transition(with: self.addBtn, duration: 0.3, options: .transitionCrossDissolve, animations: {
-            self.addBtn.isHidden = true
-        }, completion: nil)
-    }
-    
-    
-    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        if !decelerate {
-            scrollViewDidEndDecelerating(scrollView)
-        }
-    }
-    
-    func scrollViewDidScrollToTop(_ scrollView: UIScrollView) {
-        scrollViewDidEndDecelerating(scrollView)
-    }
-    
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        UIView.transition(with: self.addBtn, duration: 0.3, options: .transitionCrossDissolve, animations: {
-            self.addBtn.isHidden = false
-        }, completion: nil)
     }
 }
 

@@ -103,11 +103,6 @@ class NotificationVC: UIViewController, NotificationVCProtocol {
         presenter?.performGetMyNotifications()
     }
     
-    //MARK: Actions
-    @IBAction func closeBtnWasPressed(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
-    }
-    
     //MARK: Helper
     private func goToReceiptScreen(orderId: String) {
         guard let receiptVC = storyboard?.instantiateViewController(withIdentifier: AppStoryBoard.receiptVC.identifier) as? ReceiptVC else {return}

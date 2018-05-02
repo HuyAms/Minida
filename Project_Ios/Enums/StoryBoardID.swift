@@ -9,7 +9,7 @@
 import Foundation
 
 enum AppStoryBoard: String{
-    case mainVC = "mainScreen"
+    case mainVC = "tabbarScreen"
     case authVC = "authScreen"
     case onBoardingVC = "onboardingScreen"
     case profileVC = "profileScreen"

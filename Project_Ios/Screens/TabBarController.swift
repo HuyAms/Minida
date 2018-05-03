@@ -10,10 +10,17 @@ import UIKit
 
 class TabBarController: UITabBarController, UITabBarControllerDelegate {
     private var currentTabIndex = 0
+    private let nc = NotificationCenter.default
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.delegate = self
+        nc.addObserver(self, selector: #selector(onPostSucess), name: NSNotification.Name("postSuccess"), object: nil)
+    }
+    
+    @objc func onPostSucess(notification: NSNotification) {
+        self.selectedIndex = 0
+        currentTabIndex = 0
     }
     
     override func viewWillAppear(_ animated: Bool) {

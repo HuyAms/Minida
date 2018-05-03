@@ -213,6 +213,7 @@ class ProfileVC: UIViewController, ProfileViewProtocol {
         }
         
         if let avatarIcon = userData.avatarPath {
+            print("AVATAR: \(avatarIcon)")
             avatarImage.load(imgUrl: avatarIcon)
         }
         

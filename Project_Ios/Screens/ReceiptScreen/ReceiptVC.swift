@@ -78,7 +78,7 @@ class ReceiptVC: UIViewController, ReceiptVCProtocol {
     
     func makePhoneCall() {
         guard let phoneNumber = self.phoneNumber else {return}
-        guard let phone = URL(string: "tel://" + String(phoneNumber)) else {return}
+        guard let phone = URL(string: "tel://0" + String(phoneNumber)) else {return}
         UIApplication.shared.open(phone, options: [:], completionHandler: nil)
     }
     

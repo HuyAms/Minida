@@ -52,7 +52,8 @@ class EditProfileVC: UIViewController, EditProfileViewProtocol{
             , action: #selector(EditProfileVC.imageTap(_:)))
         avatarImage.addGestureRecognizer(avatarTapGesture)
         
-        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(EditProfileVC.dismissKeyboard))
+        view.addGestureRecognizer(tapGesture)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -107,7 +108,7 @@ class EditProfileVC: UIViewController, EditProfileViewProtocol{
         emailTextField.text = userData.email
         
         if let phoneNumber = userData.phoneNumber {
-            phoneTextField.text = String(phoneNumber)
+            phoneTextField.text = "0" + String(phoneNumber)
         }
         
         if let avatarIcon = userData.avatarPath {
@@ -132,6 +133,10 @@ class EditProfileVC: UIViewController, EditProfileViewProtocol{
         let phoneNumber = phoneTextField.text ?? ""
         let email = emailTextField.text ?? ""
         presenter?.updateUser(username: username, phoneNumber: phoneNumber, avatarPath: newAvatarPath, email: email)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     //MARK: Actions
@@ -173,8 +178,6 @@ extension EditProfileVC: UIImagePickerControllerDelegate, UINavigationController
         // We always expect 'imagePickerController(:didFinishPickingMediaWithInfo:)' to supply the original image.
         changedAvatar = info[UIImagePickerControllerOriginalImage] as? UIImage
         avatarImage.image = changedAvatar
-        
-        //updateClassifications(for: image!)
     }
 }
 

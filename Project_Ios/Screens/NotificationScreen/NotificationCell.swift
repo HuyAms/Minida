@@ -34,16 +34,13 @@ class NotificationCell: UITableViewCell {
     func config(notification: Notification) {
         let notiType = NotiType(notiType: notification.notiType)
         self.notiType = notiType
+        notiImageView.load(imgUrl: notification.item.imgPath)
         switch notiType {
         case .meBuyer:
-            notiImageView.load(imgUrl: notification.item.imgPath)
             let boughtItem = notification.item.itemName
             let sellerName = notification.notiBody.username
             notiDescriptionLbl.text = "You have bought \(boughtItem) from \(sellerName)"
         case .meSeller:
-            if let buyerAvaImg = notification.notiBody.avatarPath {
-                notiImageView.load(imgUrl: buyerAvaImg)
-            }
             let soldItem = notification.item.itemName
             let buyerName = notification.notiBody.username
             notiDescriptionLbl.text = "You have sold \(soldItem) to \(buyerName)"
@@ -52,17 +49,6 @@ class NotificationCell: UITableViewCell {
         let time = AppUtil.shared.formantTimeStamp(isoDate: notification.time)
         notiTimeLbl.text = time
         
-    }
-    
-    override func prepareForReuse() {
-        if let notiType = self.notiType {
-            switch notiType {
-            case .meBuyer:
-                notiImageView.image = UIImage.getItemDefaultIcon()
-            case .meSeller:
-                notiImageView.image = UIImage.getAvaDefaultIcon()
-            }
-        }
     }
 }
 

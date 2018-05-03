@@ -41,8 +41,8 @@ class PostVC: UIViewController, PostVCProtocol {
     var presenter: PostPresenterProtocol?
     var categorySelectedRow: Int?
     var itemImg: UIImage?
+    let nc = NotificationCenter.default
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         self.presenter = PostPresenter(view: self)
@@ -165,6 +165,7 @@ class PostVC: UIViewController, PostVCProtocol {
     }
     
     func onPostSuccess() {
+        nc.post(name: NSNotification.Name("postSuccess"), object: nil)
         dismiss(animated: true, completion: nil)
     }
     

@@ -14,7 +14,6 @@ target 'Project_Ios' do
   pod 'YALSideMenu'
   pod 'FoldingCell'
   pod 'Stripe'
-  pod 'MXParallaxHeader'
 
   target 'Project_IosTests' do
     inherit! :search_paths

@@ -458,25 +458,37 @@
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H7w-3d-OcX">
                                                                     <rect key="frame" x="0.0" y="0.0" width="335" height="35"/>
                                                                     <subviews>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Item name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6UZ-mw-6yt">
-                                                                            <rect key="frame" x="52" y="8" width="235" height="21"/>
-                                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6UZ-mw-6yt">
+                                                                            <rect key="frame" x="48" y="6" width="239" height="23.5"/>
                                                                             <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
                                                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="other-category-icon" translatesAutoresizingMaskIntoConstraints="NO" id="SGd-VJ-iwA">
+                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="other-category-icon" translatesAutoresizingMaskIntoConstraints="NO" id="SGd-VJ-iwA">
                                                                             <rect key="frame" x="8" y="7" width="20" height="20"/>
-                                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="height" constant="20" id="Lg4-5X-w19"/>
+                                                                                <constraint firstAttribute="width" constant="20" id="zwz-er-qLK"/>
+                                                                            </constraints>
                                                                         </imageView>
-                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="Hg5-Tj-14V">
+                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="Hg5-Tj-14V">
                                                                             <rect key="frame" x="307" y="7" width="20" height="20"/>
-                                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="height" constant="20" id="Iwd-TM-Ucy"/>
+                                                                                <constraint firstAttribute="width" constant="20" id="wZh-K9-ue3"/>
+                                                                            </constraints>
                                                                         </imageView>
                                                                     </subviews>
                                                                     <color key="backgroundColor" red="0.30196078430000001" green="0.2784313725" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <constraints>
+                                                                        <constraint firstItem="SGd-VJ-iwA" firstAttribute="centerY" secondItem="H7w-3d-OcX" secondAttribute="centerY" id="96E-FQ-x6E"/>
                                                                         <constraint firstAttribute="height" constant="35" id="DOg-Vo-AFD"/>
+                                                                        <constraint firstItem="6UZ-mw-6yt" firstAttribute="leading" secondItem="SGd-VJ-iwA" secondAttribute="trailing" constant="20" id="Fux-Hc-Cmh"/>
+                                                                        <constraint firstAttribute="trailing" secondItem="Hg5-Tj-14V" secondAttribute="trailing" constant="8" id="HAs-Lv-Qya"/>
+                                                                        <constraint firstItem="SGd-VJ-iwA" firstAttribute="leading" secondItem="H7w-3d-OcX" secondAttribute="leading" constant="8" id="Nzf-rQ-arJ"/>
+                                                                        <constraint firstItem="Hg5-Tj-14V" firstAttribute="centerY" secondItem="H7w-3d-OcX" secondAttribute="centerY" id="Qia-58-q00"/>
+                                                                        <constraint firstItem="Hg5-Tj-14V" firstAttribute="leading" secondItem="6UZ-mw-6yt" secondAttribute="trailing" constant="20" id="pM2-r2-8Pu"/>
+                                                                        <constraint firstItem="6UZ-mw-6yt" firstAttribute="centerY" secondItem="H7w-3d-OcX" secondAttribute="centerY" id="xBZ-Ve-efb"/>
                                                                     </constraints>
                                                                 </view>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default-image-icon" translatesAutoresizingMaskIntoConstraints="NO" id="ymO-rn-C6k">
@@ -971,7 +983,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.92156862750000001" green="0.91764705879999997" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="O2B-7W-Kbb" secondAttribute="trailing" constant="20" id="3hc-Dp-Bl4"/>
                                     <constraint firstAttribute="bottom" secondItem="Bzf-YO-cfU" secondAttribute="bottom" id="TyU-9H-hPs"/>

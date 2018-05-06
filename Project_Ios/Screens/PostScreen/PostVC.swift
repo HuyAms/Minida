@@ -32,7 +32,12 @@ class PostVC: UIViewController, PostVCProtocol {
     @IBOutlet weak var errorLbl: UILabel!
     @IBOutlet weak var itemImgView: UIImageView!
     @IBOutlet weak var scrollView: UIScrollView!
-    
+    @IBOutlet weak var titleLbl: UILabel!
+    @IBOutlet weak var nameLbl: UILabel!
+    @IBOutlet weak var descriptionLbl: UILabel!
+    @IBOutlet weak var priceLbl: UILabel!
+    @IBOutlet weak var postBtn: UIButton!
+    @IBOutlet weak var categoryLbl: UILabel!
     @IBOutlet weak var categoryBtn: UIButton!
     @IBOutlet weak var itemNameTextField: UITextField!
     
@@ -62,6 +67,7 @@ class PostVC: UIViewController, PostVCProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
         self.presenter = PostPresenter(view: self)
         delegateTextField()
         
@@ -188,16 +194,16 @@ class PostVC: UIViewController, PostVCProtocol {
         }
         
         let photoSourcePicker = UIAlertController()
-        let takePhoto = UIAlertAction(title: "Take Photo", style: .default) { [unowned self] _ in
+        let takePhoto = UIAlertAction(title: "Take Photo".localized, style: .default) { [unowned self] _ in
             self.presentPhotoPicker(sourceType: .camera)
         }
-        let choosePhoto = UIAlertAction(title: "Choose Photo", style: .default) { [unowned self] _ in
+        let choosePhoto = UIAlertAction(title: "Choose Photo".localized, style: .default) { [unowned self] _ in
             self.presentPhotoPicker(sourceType: .photoLibrary)
         }
         
         photoSourcePicker.addAction(takePhoto)
         photoSourcePicker.addAction(choosePhoto)
-        photoSourcePicker.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        photoSourcePicker.addAction(UIAlertAction(title: "Cancel".localized, style: .cancel, handler: nil))
         
         present(photoSourcePicker, animated: true)
     }
@@ -262,7 +268,7 @@ extension PostVC: MinidaPickerDataSource, MinidaPickerDelegate {
     }
 
     func minidaPickerView(_ minidaPickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return categories[row]
+        return categories[row].localized
     }
 
     func numberOfComponents(in minidaPickerView: UIPickerView) -> Int {
@@ -275,7 +281,7 @@ extension PostVC: MinidaPickerDataSource, MinidaPickerDelegate {
     
     func minidaPickerViewDone(selectedRow: Int) {
         categorySelectedRow = selectedRow
-        categoryBtn.setTitle(categories[selectedRow], for: .normal)
+        categoryBtn.setTitle(categories[selectedRow].localized, for: .normal)
         minidaPickerView.dismiss()
         errorLbl.isHidden = true
     }
@@ -301,6 +307,21 @@ extension PostVC: UIImagePickerControllerDelegate, UINavigationControllerDelegat
 extension PostVC: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         errorLbl.isHidden = true
+    }
+}
+
+extension PostVC {
+    func setupUI() {
+        postBtn.setTitle("Post".localized, for: .normal)
+        titleLbl.text = "Post".localized
+        nameLbl.text = "Name".localized
+        descriptionLbl.text = "Description".localized
+        priceLbl.text = "Price".localized
+        categoryLbl.text = "Category".localized
+        categoryBtn.setTitle("Choose Category".localized, for: .normal)
+        itemNameTextField.placeholder = "Name".localized
+        descriptionTextField.placeholder = "Description".localized
+        priceTextField.placeholder = "Price".localized
     }
 }
 

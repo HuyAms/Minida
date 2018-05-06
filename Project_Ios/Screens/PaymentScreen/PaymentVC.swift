@@ -27,9 +27,9 @@ class PaymentVC: UIViewController, PaymentVCProtocol {
     
     let paymentEuroOptions = [5, 10, 25, 50, 100, 200]
     
-    @IBOutlet weak var pointLbl: UILabel!
-    @IBOutlet weak var nameLbl: UILabel!
+  
     
+
     // Controllers
     private let customerContext: STPCustomerContext
     private let paymentContext: STPPaymentContext
@@ -45,9 +45,14 @@ class PaymentVC: UIViewController, PaymentVCProtocol {
     
     //MARK: Outlet
     @IBOutlet weak var addCardBtn: UIButton?
-    @IBOutlet weak var userPointLbl: UILabel!
     @IBOutlet weak var userNameLbl: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var pointNumberLbl: UILabel!
+    @IBOutlet weak var usernameLbl: UILabel!
+    @IBOutlet weak var titleLbl: UILabel!
+    @IBOutlet weak var nameLbl: UILabel!
+    @IBOutlet weak var instructLbl: UILabel!
+    @IBOutlet weak var pointLbl: UILabel!
     
     
     // MARK: Init
@@ -66,6 +71,7 @@ class PaymentVC: UIViewController, PaymentVCProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
         tableView.dataSource = self
         tableView.delegate = self
         presenter = PaymentPresenter(view: self)
@@ -101,7 +107,7 @@ class PaymentVC: UIViewController, PaymentVCProtocol {
             addCardBtn?.setImage(selectedPaymentMethod.image, for: .normal)
             addCardBtn?.setTitle(selectedPaymentMethod.label, for: .normal)
         } else {
-             addCardBtn?.setTitle("Add card", for: .normal)
+             addCardBtn?.setTitle("Add Card".localized, for: .normal)
         }
     }
     
@@ -116,12 +122,22 @@ class PaymentVC: UIViewController, PaymentVCProtocol {
     func onGetMeSuccess(user: User) {
         userNameLbl.text = user.username
         if let point = user.point {
-            pointLbl.text = String(point)
+            pointNumberLbl.text = String(point)
         }
     }
     
     func onGetMeError(error: AppError) {
         showError(message: error.description)
+    }
+    
+    //MARK: Helper
+    func setupUI() {
+        titleLbl.text = "Point Purchase".localized
+        nameLbl.text = "Name:".localized
+        pointLbl.text = "Point:".localized
+        userNameLbl.text = "username".localized
+        instructLbl.text = "Please select your payment method".localized
+        
     }
 
 }

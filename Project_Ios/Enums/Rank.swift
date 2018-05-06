@@ -19,7 +19,7 @@ enum Badge: String {
     case jupiter = "Jupiter"
     
     var description: String {
-        return self.rawValue
+        return self.rawValue.localized
     }
     
     init(badge: String) {

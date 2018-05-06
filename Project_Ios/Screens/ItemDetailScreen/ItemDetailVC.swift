@@ -35,12 +35,14 @@ class ItemDetailVC: UIViewController, ItemDetailVCProtocol{
     @IBOutlet weak var avatarImgView: UIImageView!
     @IBOutlet weak var deleteBtn: UIButton!
     @IBOutlet weak var itemImgView: UIImageView!
+    @IBOutlet weak var buyBtn: UIButton!
     
     var presenter: ItemDetailPresenterProtocol?
     var itemId: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
         self.presenter = ItemDetailPresenter(view: self)
         if let itemId = self.itemId {
             presenter?.getItem(itemId: itemId)
@@ -50,26 +52,26 @@ class ItemDetailVC: UIViewController, ItemDetailVCProtocol{
     
     //MARK: Action
     @IBAction func buyBtnWasPressed(_ sender: Any) {
-        let alertViewController = UIAlertController(title: "Buy", message: "Do you want to buy this item?", preferredStyle: .actionSheet)
-        let okAction = UIAlertAction(title: "Yes", style: .default) { (action) in
+        let alertViewController = UIAlertController(title: "Buy".localized, message: "Do you want to buy this item?".localized, preferredStyle: .actionSheet)
+        let okAction = UIAlertAction(title: "Yes".localized, style: .default) { (action) in
             if let itemId = self.itemId {
                 self.presenter?.performBuyItem(itemId: itemId)
             }
         }
-        let cancleAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let cancleAction = UIAlertAction(title: "Cancel".localized, style: .cancel, handler: nil)
         alertViewController.addAction(okAction)
         alertViewController.addAction(cancleAction)
         self.present(alertViewController, animated: true)
     }
     
     @IBAction func deleteBtnWasPressed(_ sender: Any) {
-        let alertViewController = UIAlertController(title: "Delete", message: "Do you want to delete this item?", preferredStyle: .actionSheet)
-        let okAction = UIAlertAction(title: "Yes", style: .default) { (action) in
+        let alertViewController = UIAlertController(title: "Delete".localized, message: "Do you want to delete this item?".localized, preferredStyle: .actionSheet)
+        let okAction = UIAlertAction(title: "Yes".localized, style: .default) { (action) in
             if let itemId = self.itemId {
                 self.presenter?.performDeleteItem(itemId: itemId)
             }
         }
-        let cancleAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let cancleAction = UIAlertAction(title: "Cancel".localized, style: .cancel, handler: nil)
         alertViewController.addAction(okAction)
         alertViewController.addAction(cancleAction)
         self.present(alertViewController, animated: true)
@@ -85,6 +87,11 @@ class ItemDetailVC: UIViewController, ItemDetailVCProtocol{
         guard let receiptVC = storyboard?.instantiateViewController(withIdentifier: AppStoryBoard.receiptVC.identifier) as? ReceiptVC else {return}
         receiptVC.orderId = orderId
         present(receiptVC, animated: true, completion: nil)
+    }
+    
+    private func setupUI() {
+        buyBtn.setTitle("Buy".localized, for: .normal)
+        itemNameLbl.text = "Item Name"
     }
     
     //MARK: Protocol
@@ -110,7 +117,7 @@ class ItemDetailVC: UIViewController, ItemDetailVCProtocol{
         itemNameLbl.text = item.itemName
         descriptionLbl.text = item.description
         timeLbl.text = AppUtil.shared.formantTimeStamp(isoDate: item.time)
-        badgeLbl.text = item.seller.badge
+        badgeLbl.text = Badge(badge: item.seller.badge).description
         usernameLbl.text = item.seller.username
         badgeImgView.image = UIImage.getBadgeIcon(badge: Badge(badge: item.seller.badge))
         itemImgView.load(imgUrl: item.imgPath)
@@ -120,7 +127,7 @@ class ItemDetailVC: UIViewController, ItemDetailVCProtocol{
         
         let price = item.price
         if price == 0 {
-            numberPointLbl.text = "FREE"
+            numberPointLbl.text = "FREE".localized
         } else if price == 1 {
             numberPointLbl.text = "\(price) point"
         } else {

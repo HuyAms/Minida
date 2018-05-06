@@ -74,7 +74,7 @@ class AuthVC: UIViewController, AuthViewProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupUI()
         presenter = AuthPresenter(view: self)
         delegateTextField()
         presenter?.checkToken()
@@ -123,13 +123,13 @@ class AuthVC: UIViewController, AuthViewProtocol {
         if isSignIn {
            //Register clicked
             isSignIn = false
-            authStatusLbl.text = "SIGN UP"
+            authStatusLbl.text = "SIGN UP".localized
             
             hideIdBtn()
             hideChangeAccountBtn()
             usernameTextField.text = ""
             passwordTextField.text = ""
-            authSwitchBtn.setTitle("Already have an account?", for: .normal)
+            authSwitchBtn.setTitle("Already have an account?".localized, for: .normal)
             
             UIView.transition(with: self.emailStack, duration: 0.5, options: .transitionCurlDown, animations: {
                 self.emailStack.isHidden = false
@@ -142,8 +142,8 @@ class AuthVC: UIViewController, AuthViewProtocol {
         } else {
              //Sign in clicked
             isSignIn = true
-            authStatusLbl.text = "SIGN IN"
-            authSwitchBtn.setTitle("Don't have an account?", for: .normal)
+            authStatusLbl.text = "SIGN IN".localized
+            authSwitchBtn.setTitle("Don't have an account?".localized, for: .normal)
             presenter?.checkToken()
             self.presenter?.checkBiometricAuthAvailable()
             
@@ -304,3 +304,19 @@ extension AuthVC: CLLocationManagerDelegate {
     }
     
 }
+
+extension AuthVC {
+    func setupUI() {
+        authStatusLbl.text = "SIGN IN".localized
+        errorLabel.text = "Error".localized
+        usernameTextField.placeholder = "Username".localized
+        passwordTextField.placeholder = "Password".localized
+        emailTextField.placeholder = "Email".localized
+        phonenumberTextField.placeholder = "Phone Number".localized
+        changeAccountBtn.setTitle("Sign in with another account".localized, for: .normal)
+        performSignUpBtn.setTitle("Confirm".localized, for: .normal)
+        authSwitchBtn.setTitle("Don't have an account?".localized, for: .normal)
+    }
+}
+
+

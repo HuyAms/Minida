@@ -39,11 +39,13 @@ class NotificationCell: UITableViewCell {
         case .meBuyer:
             let boughtItem = notification.item.itemName
             let sellerName = notification.notiBody.username
-            notiDescriptionLbl.text = "You have bought \(boughtItem) from \(sellerName)"
+            let notiMess = String.localizedStringWithFormat(NSLocalizedString("You have bought %@ from %@", comment: ""), boughtItem, sellerName)
+            notiDescriptionLbl.text = notiMess
         case .meSeller:
             let soldItem = notification.item.itemName
             let buyerName = notification.notiBody.username
-            notiDescriptionLbl.text = "You have sold \(soldItem) to \(buyerName)"
+            let notiMess = String.localizedStringWithFormat(NSLocalizedString("You have sold %@ to %@", comment: ""), soldItem, buyerName)
+            notiDescriptionLbl.text = notiMess
         }
         
         let time = AppUtil.shared.formantTimeStamp(isoDate: notification.time)

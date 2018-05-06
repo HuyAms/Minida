@@ -33,6 +33,7 @@ class LeaderBoardVC: UIViewController, LeaderBoardVCProtocol {
     @IBOutlet weak var topUsersView: UIView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var badgeView: UIView!
+    @IBOutlet weak var titleLbl: UILabel!
     
     var presenter: LeaderBoardPresenterProtocol?
     var topUsers = [User]()
@@ -50,6 +51,7 @@ class LeaderBoardVC: UIViewController, LeaderBoardVCProtocol {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
         presenter = LeaderBoardPresenter(view: self)
         tableView.dataSource = self
         tableView.delegate = self
@@ -122,6 +124,12 @@ class LeaderBoardVC: UIViewController, LeaderBoardVCProtocol {
     
     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
         presenter?.getLeaderBoardUsers()
+    }
+    
+    func setupUI() {
+        titleLbl.text = "Leaderboard".localized
+        segmentControl.setTitle("Top 10".localized, forSegmentAt: 0)
+        segmentControl.setTitle("Badge".localized, forSegmentAt: 1)
     }
 }
 

@@ -1,24 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="L0p-Ck-ml9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="L0p-Ck-ml9">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="Avenir.ttc">
-            <string>Avenir-Book</string>
-            <string>Avenir-Heavy</string>
-            <string>Avenir-Light</string>
-            <string>Avenir-Medium</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--OnboardingVC-->
         <scene sceneID="eOg-gQ-86R">
@@ -321,7 +313,7 @@
                                             <constraint firstAttribute="width" constant="30" id="6so-3T-MQe"/>
                                             <constraint firstAttribute="height" constant="30" id="gap-ea-cIu"/>
                                         </constraints>
-                                        <state key="normal" image="category-icon"/>
+                                        <state key="normal" image="all-category-icon"/>
                                         <connections>
                                             <action selector="categoryBtnWasPressed:" destination="L0B-qw-G26" eventType="touchUpInside" id="u6I-lv-nsR"/>
                                         </connections>
@@ -2492,7 +2484,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="36" id="qM1-ba-D8i"/>
                                         </constraints>
-                                        <state key="normal" title="    Add Card" image="credit-card-icon">
+                                        <state key="normal" title="    Add Card" image="wallet-icon">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
@@ -3178,7 +3170,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="all-category-black-icon" translatesAutoresizingMaskIntoConstraints="NO" id="su2-td-eKZ">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="all-category-black-icon" translatesAutoresizingMaskIntoConstraints="NO" id="su2-td-eKZ">
                                                 <rect key="frame" x="23" y="8" width="80" height="80"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="80" id="X8t-2c-NJQ"/>
@@ -3390,7 +3382,6 @@
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="107" id="i4D-fu-8XQ"/>
                                             <constraint firstAttribute="bottom" secondItem="bfa-yw-EqP" secondAttribute="bottom" id="mDw-g6-ZGk"/>
                                             <constraint firstAttribute="trailing" secondItem="bfa-yw-EqP" secondAttribute="trailing" constant="8" id="mIJ-7y-MPB"/>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="126" id="nAX-0d-Saw"/>
                                             <constraint firstAttribute="height" constant="109" id="ovV-YW-HeC"/>
                                             <constraint firstItem="bfa-yw-EqP" firstAttribute="leading" secondItem="nsa-au-cSu" secondAttribute="leading" constant="8" id="xIi-jL-Sii"/>
                                         </constraints>
@@ -3795,25 +3786,24 @@
     </scenes>
     <resources>
         <image name="Touch-icon-lg" width="138" height="137"/>
-        <image name="accessories-category-black-icon" width="512" height="512"/>
-        <image name="all-category-black-icon" width="512" height="512"/>
+        <image name="accessories-category-black-icon" width="540" height="540"/>
+        <image name="all-category-black-icon" width="520" height="520"/>
+        <image name="all-category-icon" width="30" height="30"/>
         <image name="cancel-icon" width="512" height="512"/>
-        <image name="category-icon" width="512" height="512"/>
         <image name="clock-black-icon" width="48" height="48"/>
-        <image name="clothes-category-black-icon" width="512" height="512"/>
+        <image name="clothes-category-black-icon" width="540" height="540"/>
         <image name="coupon-icon" width="48" height="48"/>
-        <image name="credit-card-icon" width="30" height="30"/>
         <image name="default-avatar-icon" width="146" height="146"/>
         <image name="default-badge-icon" width="256" height="256"/>
         <image name="default-image-icon" width="400" height="300"/>
         <image name="default-post-background" width="400" height="400"/>
         <image name="delete-icon" width="24" height="24"/>
-        <image name="device-category-black-icon" width="512" height="512"/>
+        <image name="device-category-black-icon" width="540" height="540"/>
         <image name="earth-badge-icon" width="256" height="256"/>
-        <image name="edit-avatar-icon" width="512" height="512"/>
-        <image name="free-category-black-icon" width="512" height="512"/>
+        <image name="edit-avatar-icon" width="500" height="500"/>
+        <image name="free-category-black-icon" width="500" height="500"/>
         <image name="home-page-icon" width="25" height="25"/>
-        <image name="homewares-category-black-icon" width="512" height="512"/>
+        <image name="homewares-category-black-icon" width="540" height="540"/>
         <image name="icon-map" width="25" height="25"/>
         <image name="info-black-icon" width="48" height="48"/>
         <image name="jupiter-category-icon" width="256" height="256"/>
@@ -3823,8 +3813,8 @@
         <image name="my-location-icon" width="512" height="512"/>
         <image name="neptune-badge-icon" width="256" height="256"/>
         <image name="notification-icon" width="25" height="25"/>
-        <image name="other-category-black-icon" width="512" height="512"/>
-        <image name="other-category-icon" width="512" height="512"/>
+        <image name="other-category-black-icon" width="540" height="540"/>
+        <image name="other-category-icon" width="500" height="500"/>
         <image name="pay-point-icon" width="48" height="48"/>
         <image name="post-icon" width="25" height="25"/>
         <image name="profile-icon" width="25" height="25"/>
@@ -3834,10 +3824,11 @@
         <image name="star" width="330" height="326"/>
         <image name="success-icon" width="512" height="512"/>
         <image name="uranus-badge-icon" width="256" height="256"/>
-        <image name="vehicles-category-black-icon" width="512" height="512"/>
+        <image name="vehicles-category-black-icon" width="540" height="540"/>
         <image name="venus-badge-icon" width="256" height="256"/>
         <image name="voucher-avatar-logo" width="507" height="512"/>
         <image name="voucher-frame-StarbuckColor" width="347" height="91"/>
+        <image name="wallet-icon" width="30" height="30"/>
         <image name="wallpaper-image" width="375" height="250"/>
     </resources>
     <color key="tintColor" red="0.30196078430000001" green="0.2784313725" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

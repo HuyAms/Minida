@@ -51,20 +51,6 @@ class PostVC: UIViewController, PostVCProtocol {
     var itemImg: UIImage?
     let nc = NotificationCenter.default
     
-    lazy var classificationRequest: VNCoreMLRequest = {
-        do {
-            let model = try VNCoreMLModel(for: minidaModel2Numbers().model)
-            
-            let request = VNCoreMLRequest(model: model, completionHandler: { [weak self] request, error in
-                self?.processClassifications(for: request, error: error)
-            })
-            request.imageCropAndScaleOption = .centerCrop
-            return request
-        } catch {
-            fatalError("Failed to load Vision ML model: \(error)")
-        }
-    }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -111,47 +97,6 @@ class PostVC: UIViewController, PostVCProtocol {
         
         presenter?.validateData(itemName: itemName, itemDescription: itemDescription, itemPrice: itemPrice, itemCategory: itemCategory)
     }
-    
-    //MARK: ML
-    func updateClassifications(for image: UIImage) {
-        
-        let orientation = CGImagePropertyOrientation(rawValue: UInt32(image.imageOrientation.rawValue))
-        guard let ciImage = CIImage(image: image) else { fatalError("Unable to create \(CIImage.self) from \(image).") }
-        
-        DispatchQueue.global(qos: .userInitiated).async {
-            let handler = VNImageRequestHandler(ciImage: ciImage, orientation: orientation!)
-            do {
-                try handler.perform([self.classificationRequest])
-                
-            } catch {
-                print("Failed to perform classification.\n\(error.localizedDescription)")
-            }
-        }
-    }
-    
-    func processClassifications(for request: VNRequest, error: Error?) {
-        DispatchQueue.main.async {
-            guard let results = request.results else {
-                return
-            }
-            let classifications = results as! [VNClassificationObservation]
-            
-            if classifications.isEmpty {
-                
-            } else {
-                // Display top classifications ranked by confidence in the UI.
-                let topClassifications = classifications.prefix(1)
-                let descriptions = topClassifications.map { classification -> String in
-                    // Formats the classification for display; e.g. "(0.37) cliff, drop, drop-off".
-                    let categoryIdentifier = Int(classification.identifier)!
-                    self.minidaPickerViewDone(selectedRow: categoryIdentifier)
-                    return String(format: "  (%.2f) %@", classification.confidence, classification.identifier)
-                }
-                print("Classification:\n" + descriptions.joined(separator: "\n"))
-            }
-        }
-    }
-    
     
     //MARK: Helper
     @objc func dismissKeyboard() {
@@ -299,7 +244,6 @@ extension PostVC: UIImagePickerControllerDelegate, UINavigationControllerDelegat
             print("no image to classify")
             return
         }
-        updateClassifications(for: image)
         errorLbl.isHidden = true
     }
 }

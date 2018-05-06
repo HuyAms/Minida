@@ -70,7 +70,7 @@ extension OnboardingVC: PaperOnboardingDataSource, PaperOnboardingDelegate {
                                descriptionFont: descFont),
             OnboardingItemInfo(informationImage: #imageLiteral(resourceName: "onBoarding3"),
                                title: "Enjoy the selection!",
-                               description: "Minida offers you a wide variety of items and vouchers  to choose from!",
+                               description: "Minida offers you a wide variety of items and vouchers to choose from!",
                                pageIcon: #imageLiteral(resourceName: "first"),
                                color: bgColor,
                                titleColor: fontColor,

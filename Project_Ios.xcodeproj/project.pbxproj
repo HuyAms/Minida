@@ -60,6 +60,7 @@
 		6A9FECC62089B2DB00FB28D5 /* OrderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A9FECC52089B2DB00FB28D5 /* OrderService.swift */; };
 		6A9FECC82089B32200FB28D5 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A9FECC72089B32200FB28D5 /* NotificationService.swift */; };
 		6AA3D3752080A32B00CA24D3 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA3D3742080A32B00CA24D3 /* ProfileVC.swift */; };
+		6AC0D231209C760F005B5A87 /* minidaModel2Numbers.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 6AC0D230209C760F005B5A87 /* minidaModel2Numbers.mlmodel */; };
 		6ADA4B8D2095879200D899B4 /* PostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADA4B8C2095879200D899B4 /* PostVC.swift */; };
 		6ADA4B902095948B00D899B4 /* MinidaPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADA4B8E2095948B00D899B4 /* MinidaPickerView.swift */; };
 		6ADA4B912095948B00D899B4 /* MinidaPickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6ADA4B8F2095948B00D899B4 /* MinidaPickerView.xib */; };
@@ -157,6 +158,7 @@
 		6A9FECC52089B2DB00FB28D5 /* OrderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderService.swift; sourceTree = "<group>"; };
 		6A9FECC72089B32200FB28D5 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		6AA3D3742080A32B00CA24D3 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		6AC0D230209C760F005B5A87 /* minidaModel2Numbers.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = minidaModel2Numbers.mlmodel; sourceTree = "<group>"; };
 		6ADA4B8C2095879200D899B4 /* PostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostVC.swift; sourceTree = "<group>"; };
 		6ADA4B8E2095948B00D899B4 /* MinidaPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinidaPickerView.swift; sourceTree = "<group>"; };
 		6ADA4B8F2095948B00D899B4 /* MinidaPickerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MinidaPickerView.xib; sourceTree = "<group>"; };
@@ -308,6 +310,7 @@
 			isa = PBXGroup;
 			children = (
 				12C53DFA20754AB8005824E3 /* AppDelegate.swift */,
+				6AC0D230209C760F005B5A87 /* minidaModel2Numbers.mlmodel */,
 				1207679F208DC4C3005F9BA7 /* View */,
 				6A31B3A5207E21F100BDE03F /* Model */,
 				6A31B3A4207E21E600BDE03F /* Service */,
@@ -787,6 +790,7 @@
 				6A2D1F7C207E5E9500852FCE /* RecycleCentersService.swift in Sources */,
 				C361BA262086A7170070AB46 /* TableCellExt.swift in Sources */,
 				6ADA4B8D2095879200D899B4 /* PostVC.swift in Sources */,
+				6AC0D231209C760F005B5A87 /* minidaModel2Numbers.mlmodel in Sources */,
 				C3984166208B4C0A00DE5FD4 /* PaymentVC.swift in Sources */,
 				6A31B3B4207E277700BDE03F /* AppError.swift in Sources */,
 				6A9C4C192091B3A100A5C5AA /* NotificationVC.swift in Sources */,

@@ -22,6 +22,8 @@ xcuserdata/
 *.moved-aside
 *.xccheckout
 *.xcscmblueprint
+Project_Ios/minidaModel2Numbers.mlmodel
+
 
 ## Obj-C/Swift specific
 *.hmap

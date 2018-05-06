@@ -1,16 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="L0p-Ck-ml9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="L0p-Ck-ml9">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Avenir.ttc">
+            <string>Avenir-Book</string>
+            <string>Avenir-Heavy</string>
+            <string>Avenir-Light</string>
+            <string>Avenir-Medium</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--OnboardingVC-->
         <scene sceneID="eOg-gQ-86R">
@@ -847,8 +855,9 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zJp-ef-4Hs">
                                 <rect key="frame" x="0.0" y="90" width="375" height="577"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="edit-avatar-icon" translatesAutoresizingMaskIntoConstraints="NO" id="IcN-wd-AWI">
-                                        <rect key="frame" x="137" y="8" width="100" height="100"/>
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default-avatar-icon" translatesAutoresizingMaskIntoConstraints="NO" id="IcN-wd-AWI">
+                                        <rect key="frame" x="137" y="20" width="100" height="100"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="h0h-2w-gip"/>
                                             <constraint firstAttribute="width" constant="100" id="xFW-GK-5i8"/>
@@ -860,10 +869,10 @@
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="O2B-7W-Kbb">
-                                        <rect key="frame" x="20" y="128" width="335" height="0.0"/>
+                                        <rect key="frame" x="20" y="140" width="335" height="0.0"/>
                                         <subviews>
                                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error Message" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IjC-aE-bLa">
-                                                <rect key="frame" x="-20" y="-218" width="109" height="0.0"/>
+                                                <rect key="frame" x="-20" y="-230" width="109" height="0.0"/>
                                                 <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="17"/>
                                                 <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -871,7 +880,7 @@
                                         </subviews>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bzf-YO-cfU" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="128" width="375" height="449"/>
+                                        <rect key="frame" x="0.0" y="140" width="375" height="437"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LyA-V3-atW" userLabel="Line">
                                                 <rect key="frame" x="0.0" y="138" width="375" height="1"/>
@@ -998,7 +1007,7 @@
                                     <constraint firstItem="O2B-7W-Kbb" firstAttribute="leading" secondItem="zJp-ef-4Hs" secondAttribute="leading" constant="20" id="YdF-wg-aw5"/>
                                     <constraint firstItem="Bzf-YO-cfU" firstAttribute="top" secondItem="O2B-7W-Kbb" secondAttribute="top" id="cye-Cn-Lmn"/>
                                     <constraint firstAttribute="trailing" secondItem="Bzf-YO-cfU" secondAttribute="trailing" id="hBY-9Q-9zy"/>
-                                    <constraint firstItem="IcN-wd-AWI" firstAttribute="top" secondItem="zJp-ef-4Hs" secondAttribute="top" constant="8" id="izU-9E-Ehw"/>
+                                    <constraint firstItem="IcN-wd-AWI" firstAttribute="top" secondItem="zJp-ef-4Hs" secondAttribute="top" constant="20" id="izU-9E-Ehw"/>
                                     <constraint firstItem="Bzf-YO-cfU" firstAttribute="leading" secondItem="zJp-ef-4Hs" secondAttribute="leading" id="v1L-Zc-iub"/>
                                     <constraint firstItem="IcN-wd-AWI" firstAttribute="centerX" secondItem="zJp-ef-4Hs" secondAttribute="centerX" id="wND-ZS-0fD"/>
                                     <constraint firstItem="O2B-7W-Kbb" firstAttribute="bottom" secondItem="IcN-wd-AWI" secondAttribute="bottom" constant="20" id="wuI-bX-HpF"/>
@@ -3800,7 +3809,6 @@
         <image name="delete-icon" width="24" height="24"/>
         <image name="device-category-black-icon" width="540" height="540"/>
         <image name="earth-badge-icon" width="256" height="256"/>
-        <image name="edit-avatar-icon" width="500" height="500"/>
         <image name="free-category-black-icon" width="500" height="500"/>
         <image name="home-page-icon" width="25" height="25"/>
         <image name="homewares-category-black-icon" width="540" height="540"/>

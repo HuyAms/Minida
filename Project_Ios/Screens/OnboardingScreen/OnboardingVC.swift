@@ -43,17 +43,16 @@ extension OnboardingVC: PaperOnboardingDataSource, PaperOnboardingDelegate {
     }
     
     func onboardingItem(at index: Int) -> OnboardingItemInfo {
-        let bgColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        let fontColor = #colorLiteral(red: 0.3098687066, green: 0.2559407552, blue: 0.5042588976, alpha: 1)
-        //let bgTwo = #colorLiteral(red: 0.9994240403, green: 0.9855536819, blue: 0, alpha: 1)
+        let bgColor = UIColor(red: 235.0 / 255.0, green: 234.0 / 255.0, blue: 244.0 / 255.0, alpha: 1.0)
+        let fontColor = UIColor(red: 70.0 / 255.0, green: 65.0 / 255.0, blue: 125.0 / 255.0, alpha: 1.0) 
         
         let titleFont = UIFont(name: "AppleSDGothicNeo-SemiBold", size: 30)!
         let descFont = UIFont(name: "AppleSDGothicNeo-Light", size: 20)!
         
         return [
             OnboardingItemInfo(informationImage: #imageLiteral(resourceName: "onBoarding1"),
-                               title: "Sell and Donate...",
-                               description: "..your items that you do not use anymore.",
+                               title: "Welcome to Minida!",
+                               description: "Minida is an online marketplace for your unused items. Sell them to other users or donate to a recycling center near you!",
                                pageIcon: #imageLiteral(resourceName: "first"),
                                color: bgColor,
                                titleColor: fontColor,
@@ -61,8 +60,8 @@ extension OnboardingVC: PaperOnboardingDataSource, PaperOnboardingDelegate {
                                titleFont: titleFont,
                                descriptionFont: descFont),
             OnboardingItemInfo(informationImage: #imageLiteral(resourceName: "onBoarding2"),
-                               title: "Receive Points...",
-                               description: "...for donating and selling items.",
+                               title: "Acquire Points",
+                               description: "All purchases are done with points. Get points by selling and donating items or just use a paycard!",
                                pageIcon: #imageLiteral(resourceName: "first"),
                                color: bgColor,
                                titleColor: fontColor,
@@ -71,7 +70,7 @@ extension OnboardingVC: PaperOnboardingDataSource, PaperOnboardingDelegate {
                                descriptionFont: descFont),
             OnboardingItemInfo(informationImage: #imageLiteral(resourceName: "onBoarding3"),
                                title: "Enjoy the selection!",
-                               description: "Our users are selling a wide variety of items that might be the treasure you are trying to find.",
+                               description: "Minida offers you a wide variety of items and vouchers  to choose from!",
                                pageIcon: #imageLiteral(resourceName: "first"),
                                color: bgColor,
                                titleColor: fontColor,

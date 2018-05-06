@@ -21,7 +21,7 @@
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>6</integer>
+			<integer>5</integer>
 		</dict>
 		<key>Kingfisher.xcscheme</key>
 		<dict>
@@ -33,7 +33,7 @@
 		<key>MXParallaxHeader.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>5</integer>
+			<integer>6</integer>
 		</dict>
 		<key>Pods-Project_Ios.xcscheme</key>
 		<dict>

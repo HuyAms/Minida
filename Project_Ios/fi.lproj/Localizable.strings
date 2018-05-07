@@ -183,8 +183,11 @@
 "Voucher"="Kupongit";
 "All"="Kaikki";
 "My Voucher"="Omat";
-"Exchange"="Vaihto";
+"Exchange"="Osta";
 "%d points" = "%d pistettä";
+"Buy voucher successfully" = "Kuponki ostettu";
+"Payment" = "Osto";
+"This voucher costs you %d points" = "Tämä kuponki maksaa sinulle %d pistettä";
 
 /*
  *================= PAYMENT SCREEN ==========================

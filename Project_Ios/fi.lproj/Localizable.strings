@@ -12,7 +12,7 @@
  */
 "Error"="Virhe";
 "Item name should not be empty"="Tuotteella täytyy olla nimi";
-"Invalid category"="Virheellinen luokka";
+"Invalid category"="Virheellinen kategoria";
 "Invalid email"="Antamasi sähköpostiosoite on väärä.";
 "Phone number must have 10 numbers"="Puhelinnumerossa täytyy olla 10 numeroa.";
 "You do not have permission to edit this item"="Sinulla ei ole oikeuksia muokata tätä tuotetta.";

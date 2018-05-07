@@ -197,9 +197,9 @@
 "Point:"="Pisteet:";
 "Please select your payment method"="Valitse maksutapa";
 "Add Card"="Lisää maksukortti";
-"Add"="Lisää";
-"Add %d points"="Lisää %d pistettä";
-"Pay Now"="Maksa nyt";
+"Add"="Osta";
+"Add %d points"="%d pistettä";
+"Pay Now"="Hyväksy maksu";
 "Payment"="Maksutapa";
 "%d points cost you %d €"="%d pistettä maksaa sinulle %d €";
 "You now have %d points"="Sinulla on nyt %d pistettä";
@@ -226,4 +226,16 @@
  *================= ITEM DETAIL SCREEN ==========================
  */
 "Item Name"="Tuotteen nimi";
+
+/*
+ *================= ONBOARDING SCREEN ==========================
+ */
+"Welcome to Minida!" = "Tervetuloa Minidaan!";
+"Minida is an online marketplace for second-hand items. Sell them to other users or donate to a recycling center near you!" = "Minida on kauppapaikka käytetyille tuotteille. Voit myydä tuotteita muille käyttäjille tai lahjoittaa tuotteita kierrätyskeskukseen.";
+"Acquire Points" = "Saa pisteitä";
+"All purchases are done with points. Get points by selling and donating items, or buy them with a paycard." = "Kaikki ostokset tehdään pisteiden avulla. Saat pisteitä myymällä tuotteitasi. Voit myös ostaa pisteitä pankkikortilla.";
+"Enjoy the selection!" = "Nauti valikoimasta!";
+"The users of Minida offer a wide variety of items and vouchers to choose from!" = "Minidan käyttäjillä on monenlaisia tuotteita tarjolla. Tee löytöjä!";
+"Let's Get Started!" = "Aloitetaan!";
+
 

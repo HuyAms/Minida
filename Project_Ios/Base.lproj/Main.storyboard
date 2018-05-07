@@ -1885,10 +1885,18 @@
                     </view>
                     <connections>
                         <outlet property="badgeView" destination="KUF-OO-MBQ" id="bGt-GZ-6fg"/>
+                        <outlet property="earthBadgeLbl" destination="nDu-97-Lni" id="XS3-KE-ozo"/>
+                        <outlet property="jupiterBadgeLbl" destination="3wO-vu-LC1" id="HTX-Eg-SuQ"/>
+                        <outlet property="marsBadgeLbl" destination="cpO-Ig-nV1" id="Lox-jJ-jTl"/>
+                        <outlet property="mercuryBadgeLbl" destination="VSO-yn-ayh" id="vAH-fm-hSe"/>
+                        <outlet property="neptuneBadgeLbl" destination="OVT-nd-2Ii" id="L0K-M7-tHm"/>
+                        <outlet property="saturnBadgeLbl" destination="43c-I0-uEs" id="2mq-Jc-qZC"/>
                         <outlet property="segmentControl" destination="eFG-J5-4eJ" id="7vU-OG-iCX"/>
                         <outlet property="tableView" destination="ihP-sb-bfC" id="T5f-It-w21"/>
                         <outlet property="titleLbl" destination="89a-pp-q9T" id="hpf-gg-QfH"/>
                         <outlet property="topUsersView" destination="dwM-hT-f3d" id="DHV-Vz-fqQ"/>
+                        <outlet property="uranusBadgeLbl" destination="v2C-qz-IRs" id="edj-Cc-VO0"/>
+                        <outlet property="venusBadgeLbl" destination="1E9-Hi-lI2" id="yp0-oi-Npd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f6V-WM-Neh" userLabel="First Responder" sceneMemberID="firstResponder"/>

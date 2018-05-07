@@ -35,6 +35,15 @@ class LeaderBoardVC: UIViewController, LeaderBoardVCProtocol {
     @IBOutlet weak var badgeView: UIView!
     @IBOutlet weak var titleLbl: UILabel!
     
+    @IBOutlet weak var mercuryBadgeLbl: UILabel!
+    @IBOutlet weak var marsBadgeLbl: UILabel!
+    @IBOutlet weak var venusBadgeLbl: UILabel!
+    @IBOutlet weak var earthBadgeLbl: UILabel!
+    @IBOutlet weak var neptuneBadgeLbl: UILabel!
+    @IBOutlet weak var uranusBadgeLbl: UILabel!
+    @IBOutlet weak var saturnBadgeLbl: UILabel!
+    @IBOutlet weak var jupiterBadgeLbl: UILabel!
+    
     var presenter: LeaderBoardPresenterProtocol?
     var topUsers = [User]()
     
@@ -130,6 +139,15 @@ class LeaderBoardVC: UIViewController, LeaderBoardVCProtocol {
         titleLbl.text = "Leaderboard".localized
         segmentControl.setTitle("Top 10".localized, forSegmentAt: 0)
         segmentControl.setTitle("Badge".localized, forSegmentAt: 1)
+        
+        mercuryBadgeLbl.text = "Mercury badage = %d recycles".localized(arguments: 0)
+         marsBadgeLbl.text = "Mars badage = %d recycles".localized(arguments: 3)
+         venusBadgeLbl.text = "Venus badage = %d recycles".localized(arguments: 5)
+         earthBadgeLbl.text = "Earth badage = %d recycles".localized(arguments: 10)
+         neptuneBadgeLbl.text = "Neptune badage = %d recycles".localized(arguments: 15)
+         uranusBadgeLbl.text = "Uranus badage = %d recycles".localized(arguments: 20)
+         saturnBadgeLbl.text = "Saturn badage = %d recycles".localized(arguments: 30)
+         jupiterBadgeLbl.text = "Jupiter badage = %d recycles".localized(arguments: 50)
     }
 }
 

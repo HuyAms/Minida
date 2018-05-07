@@ -29,7 +29,6 @@ protocol MinidaPickerDataSource {
 class MinidaPickerView: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     @IBOutlet weak var pickerView: UIPickerView!
     
-    var categories: [String] = ["clothes", "devices", "accessories", "homewares", "vehicles", "others"]
     var delegate: MinidaPickerDelegate?
     var datasource: MinidaPickerDataSource?
     var selectedRow = 0

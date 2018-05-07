@@ -18,6 +18,7 @@
 "You do not have permission to edit this item"="Sinulla ei ole oikeuksia muokata tätä tuotetta.";
 "This item has not beet deleted"="Tämä tuote on myyty";
 "You cannot buy your own item"="Et voi ostaa omaa tuotettasi";
+"Could not request point"="Pisteitä ei voitu hakea";
 "You do not have enough points to buy this item"="Sinulla ei ole tarpeeksi pisteitä ostaaksesi tämän tuotteen.";
 "This username has already been used"="Käyttäjätunnus on jo olemassa";
 "This email has already been used"="Sähköpostiosoite on jo olemassa";
@@ -84,6 +85,9 @@
 "Cancel"="Peruuta";
 "Yes"="Kyllä";
 "OK"="OK";
+"Success"="Hyväksytty";
+"Great!"="Hyvä!";
+"Oops!"="Hups!";
 
 /*
  *================= AUTH SCREEN ==========================
@@ -163,6 +167,15 @@
  *================= LEADER BOARD SCREEN ==========================
  */
 "Top 10"="10 Parasta";
+"%d recycled items"="%d kierrätettyä tuotetta";
+"Mars badage = %d recycles"="Mars-merkki = %d kierrätystä";
+"Mercury badage = %d recycles"="Merkurius-merkki = %d kierrätystä";
+"Venus badage = %d recycles"="Venus-merkki = %d kierrätystä";
+"Earth badage = %d recycles"="Maa-merkki = %d kierrätystä";
+"Neptune badage = %d recycles"="Neptunus-merkki = %d kierrätystä";
+"Uranus badage = %d recycles"="Uranus-merkki = %d kierrätystä";
+"Saturn badage = %d recycles"="Saturnus-merkki = %d kierrätystä";
+"Jupiter badage = %d recycles"="Jupiter-merkki = %d kierrätystä";
 
 /*
  *================= VOUCHER SCREEN ==========================
@@ -170,7 +183,7 @@
 "Voucher"="Kupongit";
 "All"="Kaikki";
 "My Voucher"="Omat";
-"Exchange"="";
+"Exchange"="Vaihto";
 "%d points" = "%d pisteet";
 
 /*
@@ -183,6 +196,10 @@
 "Add Card"="Lisää maksukortti";
 "Add"="Lisää";
 "Add %d points"="Lisää %d pistettä";
+"Pay Now"="Maksa nyt";
+"Payment"="Maksutapa";
+"%d points cost you %d €"="%d pistettä maksaa sinulle %d €";
+"You now have %d points"="Sinulla on nyt %d pistettä";
 
 /*
  *================= RECEIPT SCREEN ==========================

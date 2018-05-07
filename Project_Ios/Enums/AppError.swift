@@ -29,6 +29,7 @@ enum AppError: Error {
     case cannotFindItem
     case cannotFindVoucher
     case buyOwnItem
+    case cannotRequestPoint
     case unknown
 
 }
@@ -109,6 +110,8 @@ extension AppError {
             return "You cannot buy your own item".localized
         case .cannotFindVoucher:
             return "This voucher is not available".localized
+        case .cannotRequestPoint:
+             return "Could not request point".localized
         case .unknown:
             return "Unknown error".localized
         default:

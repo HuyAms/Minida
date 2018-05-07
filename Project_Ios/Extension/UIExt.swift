@@ -44,14 +44,14 @@ extension UIViewController {
         SVProgressHUD.dismiss()
     }
     
-    func showError(title: String = "Oops!", message: String, closeBtnText: String = "OK") {
+    func showError(title: String = "Oops!".localized, message: String, closeBtnText: String = "OK".localized) {
         let alertModal = AlertModalVC()
         alertModal.config(title: title, message: message, buttonText: closeBtnText, alertType: .error)
         alertModal.modalPresentationStyle = .custom
         present(alertModal, animated: false, completion: nil)
     }
     
-    func showSuccess(title: String = "Great!", message: String, closeBtnText: String = "OK", completion: (()->Void)? = nil) {
+    func showSuccess(title: String = "Great!".localized, message: String, closeBtnText: String = "OK".localized, completion: (()->Void)? = nil) {
         let alertModal = AlertModalVC()
         alertModal.config(title: title, message: message, buttonText: closeBtnText, alertType: .success, completion: completion)
         alertModal.modalPresentationStyle = .custom

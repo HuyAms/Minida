@@ -140,14 +140,14 @@ class LeaderBoardVC: UIViewController, LeaderBoardVCProtocol {
         segmentControl.setTitle("Top 10".localized, forSegmentAt: 0)
         segmentControl.setTitle("Badge".localized, forSegmentAt: 1)
         
-        mercuryBadgeLbl.text = "Mercury badage = %d recycles".localized(arguments: 0)
-         marsBadgeLbl.text = "Mars badage = %d recycles".localized(arguments: 3)
-         venusBadgeLbl.text = "Venus badage = %d recycles".localized(arguments: 5)
-         earthBadgeLbl.text = "Earth badage = %d recycles".localized(arguments: 10)
-         neptuneBadgeLbl.text = "Neptune badage = %d recycles".localized(arguments: 15)
-         uranusBadgeLbl.text = "Uranus badage = %d recycles".localized(arguments: 20)
-         saturnBadgeLbl.text = "Saturn badage = %d recycles".localized(arguments: 30)
-         jupiterBadgeLbl.text = "Jupiter badage = %d recycles".localized(arguments: 50)
+        mercuryBadgeLbl.text = "Mercury badge = %d recycles".localized(arguments: 0)
+         marsBadgeLbl.text = "Mars badge = %d recycles".localized(arguments: 3)
+         venusBadgeLbl.text = "Venus badge = %d recycles".localized(arguments: 5)
+         earthBadgeLbl.text = "Earth badge = %d recycles".localized(arguments: 10)
+         neptuneBadgeLbl.text = "Neptune badge = %d recycles".localized(arguments: 15)
+         uranusBadgeLbl.text = "Uranus badge = %d recycles".localized(arguments: 20)
+         saturnBadgeLbl.text = "Saturn badge = %d recycles".localized(arguments: 30)
+         jupiterBadgeLbl.text = "Jupiter badge = %d recycles".localized(arguments: 50)
     }
 }
 

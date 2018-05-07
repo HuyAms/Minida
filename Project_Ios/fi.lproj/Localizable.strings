@@ -168,14 +168,14 @@
  */
 "Top 10"="10 Parasta";
 "%d recycled items"="%d kierrätettyä tuotetta";
-"Mars badage = %d recycles"="Mars-merkki = %d kierrätystä";
-"Mercury badage = %d recycles"="Merkurius-merkki = %d kierrätystä";
-"Venus badage = %d recycles"="Venus-merkki = %d kierrätystä";
-"Earth badage = %d recycles"="Maa-merkki = %d kierrätystä";
-"Neptune badage = %d recycles"="Neptunus-merkki = %d kierrätystä";
-"Uranus badage = %d recycles"="Uranus-merkki = %d kierrätystä";
-"Saturn badage = %d recycles"="Saturnus-merkki = %d kierrätystä";
-"Jupiter badage = %d recycles"="Jupiter-merkki = %d kierrätystä";
+"Mars badge = %d recycles"="Mars = %d kierrätystä";
+"Mercury badge = %d recycles"="Merkurius = %d kierrätystä";
+"Venus badge = %d recycles"="Venus = %d kierrätystä";
+"Earth badge = %d recycles"="Maa = %d kierrätystä";
+"Neptune badge = %d recycles"="Neptunus = %d kierrätystä";
+"Uranus badge = %d recycles"="Uranus = %d kierrätystä";
+"Saturn badge = %d recycles"="Saturnus = %d kierrätystä";
+"Jupiter badge = %d recycles"="Jupiter = %d kierrätystä";
 
 /*
  *================= VOUCHER SCREEN ==========================

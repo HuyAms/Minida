@@ -183,8 +183,13 @@
 "Voucher"="Kupongit";
 "All"="Kaikki";
 "My Voucher"="Omat";
+<<<<<<< HEAD
 "Exchange"="Vaihto";
+"%d points" = "%d pisteet";
+=======
+"Exchange"="";
 "%d points" = "%d pistettä";
+>>>>>>> 56b7ad0866eced77588bfba7db18312a84208dd7
 
 /*
  *================= PAYMENT SCREEN ==========================

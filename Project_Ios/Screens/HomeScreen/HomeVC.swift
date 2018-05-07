@@ -378,6 +378,6 @@ extension HomeVC: CategoryDelegate {
     
     func setupUI() {
         searchBar.placeholder = "Search Items".localized
-        notFoundLbl.text = "No such item found"
+        notFoundLbl.text = "No such item found".localized
     }
 }

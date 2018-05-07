@@ -25,7 +25,7 @@
 "Username does not exist"="Käyttäjätunnusta ei ole olemassa";
 "Password is not correct"="Antamasi salasana on väärä";
 "No internet connection"="Ei internet-yhteyttä";
-"Item has not been deleted"="Tuotetta ei ole poistettu";
+"Item has been deleted"="Tuote on poistettu";
 "There was a problem verifying your identity."="Identiteetin vahvistuksessa oli ongelma.";
 "You pressed cancel"="Painoit peruuta.";
 "You pressed password."="Painoit salasanaa.";
@@ -171,7 +171,7 @@
 "All"="Kaikki";
 "My Voucher"="Omat";
 "Exchange"="";
-"%d points" = "%d pisteet";
+"%d points" = "%d pistettä";
 
 /*
  *================= PAYMENT SCREEN ==========================

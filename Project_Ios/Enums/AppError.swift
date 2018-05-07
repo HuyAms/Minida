@@ -102,9 +102,9 @@ extension AppError {
         case .usernameDoesNotExist:
             return "Username does not exist".localized
         case .incorrectPassword:
-            return "Password is incorrect".localized
+            return "Password is not correct".localized
         case .cannotFindItem:
-            return "Item has not beet deleted".localized
+            return "Item has been deleted".localized
         case .buyOwnItem:
             return "You cannot buy your own item".localized
         case .cannotFindVoucher:

@@ -170,7 +170,7 @@ extension PaymentVC: STPPaymentContextDelegate {
                 return
             }
             
-            self?.showSuccess(title: "Success", message: "You now have \(String(describing: point)) points", closeBtnText: "OK")
+            self?.showSuccess(title: "Success".localized, message: "You now have %d points".localized(arguments: point), closeBtnText: "OK".localized)
             
             completion(nil)
         })
@@ -179,12 +179,12 @@ extension PaymentVC: STPPaymentContextDelegate {
     func paymentContext(_ paymentContext: STPPaymentContext, didFinishWith status: STPPaymentStatus, error: Error?) {
         switch status {
         case .success:
-            print("success")
+            print("paypoint successfully")
         case .error:
             if let error = error as? AppError {
                 showError(message: error.description)
             } else {
-                showError(message: "Could not request point")
+                showError(message: AppError.cannotRequestPoint.description)
             }
         case .userCancellation:
             return
@@ -212,12 +212,13 @@ extension PaymentVC: UITableViewDelegate, UITableViewDataSource {
         cell.config(euro: euro)
         
         cell.onButtonTapped = { [weak self] () in
-            let alertViewController = UIAlertController(title: "Payment", message: "\(point) points cost you \(euro) €", preferredStyle: .actionSheet)
-            let okAction = UIAlertAction(title: "Pay Now", style: .default) { (action) in
+            let message = String.localizedStringWithFormat(NSLocalizedString("%d points cost you %d €", comment: ""), point, euro)
+            let alertViewController = UIAlertController(title: "Payment".localized, message: message, preferredStyle: .actionSheet)
+            let okAction = UIAlertAction(title: "Pay Now".localized, style: .default) { (action) in
                 self?.price = euro
                 self?.paymentContext.requestPayment()
             }
-            let cancleAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            let cancleAction = UIAlertAction(title: "Cancel".localized, style: .cancel, handler: nil)
             alertViewController.addAction(okAction)
             alertViewController.addAction(cancleAction)
             self?.present(alertViewController, animated: true)

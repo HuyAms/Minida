@@ -12,7 +12,7 @@
  */
 "Error"="Virhe";
 "Item name should not be empty"="Tuotteella täytyy olla nimi";
-"Invalid category"="Virheellinen kategoria";
+"Invalid category"="Virheellinen luokka";
 "Invalid email"="Antamasi sähköpostiosoite on väärä.";
 "Phone number must have 10 numbers"="Puhelinnumerossa täytyy olla 10 numeroa.";
 "You do not have permission to edit this item"="Sinulla ei ole oikeuksia muokata tätä tuotetta.";
@@ -168,14 +168,14 @@
  */
 "Top 10"="10 Parasta";
 "%d recycled items"="%d kierrätettyä tuotetta";
-"Mars badge = %d recycles"="Mars = %d kierrätystä";
-"Mercury badge = %d recycles"="Merkurius = %d kierrätystä";
-"Venus badge = %d recycles"="Venus = %d kierrätystä";
-"Earth badge = %d recycles"="Maa = %d kierrätystä";
-"Neptune badge = %d recycles"="Neptunus = %d kierrätystä";
-"Uranus badge = %d recycles"="Uranus = %d kierrätystä";
-"Saturn badge = %d recycles"="Saturnus = %d kierrätystä";
-"Jupiter badge = %d recycles"="Jupiter = %d kierrätystä";
+"Mars badage = %d recycles"="Mars-merkki = %d kierrätystä";
+"Mercury badage = %d recycles"="Merkurius-merkki = %d kierrätystä";
+"Venus badage = %d recycles"="Venus-merkki = %d kierrätystä";
+"Earth badage = %d recycles"="Maa-merkki = %d kierrätystä";
+"Neptune badage = %d recycles"="Neptunus-merkki = %d kierrätystä";
+"Uranus badage = %d recycles"="Uranus-merkki = %d kierrätystä";
+"Saturn badage = %d recycles"="Saturnus-merkki = %d kierrätystä";
+"Jupiter badage = %d recycles"="Jupiter-merkki = %d kierrätystä";
 
 /*
  *================= VOUCHER SCREEN ==========================
@@ -183,11 +183,13 @@
 "Voucher"="Kupongit";
 "All"="Kaikki";
 "My Voucher"="Omat";
-"Exchange"="Osta";
+<<<<<<< HEAD
+"Exchange"="Vaihto";
+"%d points" = "%d pisteet";
+=======
+"Exchange"="";
 "%d points" = "%d pistettä";
-"Buy voucher successfully" = "Kuponki ostettu";
-"Payment" = "Osto";
-"This voucher costs you %d points" = "Tämä kuponki maksaa sinulle %d pistettä";
+>>>>>>> 56b7ad0866eced77588bfba7db18312a84208dd7
 
 /*
  *================= PAYMENT SCREEN ==========================
@@ -197,9 +199,9 @@
 "Point:"="Pisteet:";
 "Please select your payment method"="Valitse maksutapa";
 "Add Card"="Lisää maksukortti";
-"Add"="Osta";
-"Add %d points"="%d pistettä";
-"Pay Now"="Hyväksy maksu";
+"Add"="Lisää";
+"Add %d points"="Lisää %d pistettä";
+"Pay Now"="Maksa nyt";
 "Payment"="Maksutapa";
 "%d points cost you %d €"="%d pistettä maksaa sinulle %d €";
 "You now have %d points"="Sinulla on nyt %d pistettä";
@@ -226,16 +228,4 @@
  *================= ITEM DETAIL SCREEN ==========================
  */
 "Item Name"="Tuotteen nimi";
-
-/*
- *================= ONBOARDING SCREEN ==========================
- */
-"Welcome to Minida!" = "Tervetuloa Minidaan!";
-"Minida is an online marketplace for second-hand items. Sell them to other users or donate to a recycling center near you!" = "Minida on kauppapaikka käytetyille tuotteille. Voit myydä tuotteita muille käyttäjille tai lahjoittaa tuotteita kierrätyskeskukseen.";
-"Acquire Points" = "Saa pisteitä";
-"All purchases are done with points. Get points by selling and donating items, or buy them with a paycard." = "Kaikki ostokset tehdään pisteiden avulla. Saat pisteitä myymällä tuotteitasi. Voit myös ostaa pisteitä pankkikortilla.";
-"Enjoy the selection!" = "Nauti valikoimasta!";
-"The users of Minida offer a wide variety of items and vouchers to choose from!" = "Minidan käyttäjillä on monenlaisia tuotteita tarjolla. Tee löytöjä!";
-"Let's Get Started!" = "Aloitetaan!";
-
 

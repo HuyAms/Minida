@@ -240,7 +240,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TJl-fD-0F7">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TJl-fD-0F7">
                                 <rect key="frame" x="45" y="543" width="285" height="30"/>
                                 <state key="normal" title="Sign in with another account">
                                     <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1202,7 +1202,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="xkH-sl-6hZ">
                                                 <rect key="frame" x="33" y="0.0" width="70" height="76"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Badge" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gZk-IJ-Qp1">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Badge" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="gZk-IJ-Qp1">
                                                         <rect key="frame" x="0.0" y="0.0" width="70" height="21"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="21" id="ong-q0-2rL"/>
@@ -1875,10 +1875,18 @@
                     </view>
                     <connections>
                         <outlet property="badgeView" destination="KUF-OO-MBQ" id="bGt-GZ-6fg"/>
+                        <outlet property="earthBadgeLbl" destination="nDu-97-Lni" id="XS3-KE-ozo"/>
+                        <outlet property="jupiterBadgeLbl" destination="3wO-vu-LC1" id="HTX-Eg-SuQ"/>
+                        <outlet property="marsBadgeLbl" destination="cpO-Ig-nV1" id="Lox-jJ-jTl"/>
+                        <outlet property="mercuryBadgeLbl" destination="VSO-yn-ayh" id="vAH-fm-hSe"/>
+                        <outlet property="neptuneBadgeLbl" destination="OVT-nd-2Ii" id="L0K-M7-tHm"/>
+                        <outlet property="saturnBadgeLbl" destination="43c-I0-uEs" id="2mq-Jc-qZC"/>
                         <outlet property="segmentControl" destination="eFG-J5-4eJ" id="7vU-OG-iCX"/>
                         <outlet property="tableView" destination="ihP-sb-bfC" id="T5f-It-w21"/>
                         <outlet property="titleLbl" destination="89a-pp-q9T" id="hpf-gg-QfH"/>
                         <outlet property="topUsersView" destination="dwM-hT-f3d" id="DHV-Vz-fqQ"/>
+                        <outlet property="uranusBadgeLbl" destination="v2C-qz-IRs" id="edj-Cc-VO0"/>
+                        <outlet property="venusBadgeLbl" destination="1E9-Hi-lI2" id="yp0-oi-Npd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f6V-WM-Neh" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2541,7 +2549,7 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add 5 points" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JUn-Gs-BX9">
                                                     <rect key="frame" x="23" y="19" width="154" height="27"/>
-                                                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="20"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -2971,7 +2979,7 @@
                                                                         <action selector="exchangeBtnWasPressed:" destination="L8d-e2-OYm" eventType="touchUpInside" id="0Ik-xP-kEi"/>
                                                                     </connections>
                                                                 </button>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30 points" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0OV-MO-ib7">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30 points" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="0OV-MO-ib7">
                                                                     <rect key="frame" x="0.0" y="31" width="71" height="26"/>
                                                                     <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="14"/>
                                                                     <nil key="highlightedColor"/>

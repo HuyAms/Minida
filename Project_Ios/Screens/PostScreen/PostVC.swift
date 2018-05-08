@@ -51,6 +51,20 @@ class PostVC: UIViewController, PostVCProtocol {
     var itemImg: UIImage?
     let nc = NotificationCenter.default
     
+    lazy var classificationRequest: VNCoreMLRequest = {
+        do {
+            let model = try VNCoreMLModel(for: minidaModel2Numbers().model)
+            
+            let request = VNCoreMLRequest(model: model, completionHandler: { [weak self] request, error in
+                self?.processClassifications(for: request, error: error)
+            })
+            request.imageCropAndScaleOption = .centerCrop
+            return request
+        } catch {
+            fatalError("Failed to load Vision ML model: \(error)")
+        }
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()

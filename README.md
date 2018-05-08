@@ -20,13 +20,6 @@
 [Download](https://drive.google.com/open?id=1OVYOl5WrDjH139XIub1uYJfGx2rDH6L4) <br/>
 Instructions: Download the file and place is inside the Project_Ios folder
 
-## TODO list:
-
-## MLmodel
-[Download](https://drive.google.com/open?id=1OVYOl5WrDjH139XIub1uYJfGx2rDH6L4) <br/>
- <br/>
-Instructions: Download the file and place it inside the Project_Ios folder
->>>>>>> fe844633cc2c134a0947e2f5a18b8972c249ce67
 
 | Login     | Register   | Home     |
 | :-------------: | :-------------: | :-------------: |

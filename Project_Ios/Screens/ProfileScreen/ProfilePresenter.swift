@@ -74,7 +74,7 @@ class ProfilePresenter: ProfilePresenterProtocol {
                     self?.view?.onGetMyItemSuccess(items: items)
                 } else {
                     self?.view?.hideCollectionView()
-                    self?.view?.showNoItemLabel(message: "This user has no items on sale")
+                    self?.view?.showNoItemLabel(message: "This user has no items on sale".localized)
                 }
             case .error(let error):
                 self?.view?.onGetMyItemError(error: error)
@@ -96,7 +96,7 @@ class ProfilePresenter: ProfilePresenterProtocol {
                     self?.view?.onGetMyItemSuccess(items: myItems)
                 } else {
                      self?.view?.hideCollectionView()
-                     self?.view?.showNoItemLabel(message: "You have no items on sale")
+                     self?.view?.showNoItemLabel(message: "You have no items on sale".localized)
                 }
             case .error(let error):
                 self?.view?.onGetMyItemError(error: error)
@@ -117,7 +117,7 @@ class ProfilePresenter: ProfilePresenterProtocol {
                     self?.view?.onGetBoughtItemsSuccess(orderDetails: orderDetails)
                 } else {
                     self?.view?.hideCollectionView()
-                    self?.view?.showNoItemLabel(message: "You have not bought any item yet")
+                    self?.view?.showNoItemLabel(message: "You have not bought any item yet".localized)
                 }
             case .error(let error):
                 self?.view?.onGetMyItemError(error: error)
@@ -139,7 +139,7 @@ class ProfilePresenter: ProfilePresenterProtocol {
                     self?.view?.onGetSoldItemsSuccess(orderDetails: orderDetails)
                 } else {
                     self?.view?.hideCollectionView()
-                    self?.view?.showNoItemLabel(message: "You have not sold any item yet")
+                    self?.view?.showNoItemLabel(message: "You have not sold any item yet".localized)
                 }
             case .error(let error):
                 self?.view?.onGetMyItemError(error: error)

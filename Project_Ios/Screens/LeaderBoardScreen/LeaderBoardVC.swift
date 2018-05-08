@@ -33,6 +33,16 @@ class LeaderBoardVC: UIViewController, LeaderBoardVCProtocol {
     @IBOutlet weak var topUsersView: UIView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var badgeView: UIView!
+    @IBOutlet weak var titleLbl: UILabel!
+    
+    @IBOutlet weak var mercuryBadgeLbl: UILabel!
+    @IBOutlet weak var marsBadgeLbl: UILabel!
+    @IBOutlet weak var venusBadgeLbl: UILabel!
+    @IBOutlet weak var earthBadgeLbl: UILabel!
+    @IBOutlet weak var neptuneBadgeLbl: UILabel!
+    @IBOutlet weak var uranusBadgeLbl: UILabel!
+    @IBOutlet weak var saturnBadgeLbl: UILabel!
+    @IBOutlet weak var jupiterBadgeLbl: UILabel!
     
     var presenter: LeaderBoardPresenterProtocol?
     var topUsers = [User]()
@@ -50,6 +60,7 @@ class LeaderBoardVC: UIViewController, LeaderBoardVCProtocol {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
         presenter = LeaderBoardPresenter(view: self)
         tableView.dataSource = self
         tableView.delegate = self
@@ -122,6 +133,21 @@ class LeaderBoardVC: UIViewController, LeaderBoardVCProtocol {
     
     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
         presenter?.getLeaderBoardUsers()
+    }
+    
+    func setupUI() {
+        titleLbl.text = "Leaderboard".localized
+        segmentControl.setTitle("Top 10".localized, forSegmentAt: 0)
+        segmentControl.setTitle("Badge".localized, forSegmentAt: 1)
+        
+        mercuryBadgeLbl.text = "Mercury badge = %d recycles".localized(arguments: 0)
+         marsBadgeLbl.text = "Mars badge = %d recycles".localized(arguments: 3)
+         venusBadgeLbl.text = "Venus badge = %d recycles".localized(arguments: 5)
+         earthBadgeLbl.text = "Earth badge = %d recycles".localized(arguments: 10)
+         neptuneBadgeLbl.text = "Neptune badge = %d recycles".localized(arguments: 15)
+         uranusBadgeLbl.text = "Uranus badge = %d recycles".localized(arguments: 20)
+         saturnBadgeLbl.text = "Saturn badge = %d recycles".localized(arguments: 30)
+         jupiterBadgeLbl.text = "Jupiter badge = %d recycles".localized(arguments: 50)
     }
 }
 

@@ -1,0 +1,231 @@
+/* 
+  Localizable.strings
+  Project_Ios
+
+  Created by iosdev on 6.5.2018.
+  Copyright © 2018 Dat Truong. All rights reserved.
+*/
+
+
+/*
+ *================= APP ERROR ==========================
+ */
+"Error"="Virhe";
+"Item name should not be empty"="Tuotteella täytyy olla nimi";
+"Invalid category"="Virheellinen luokka";
+"Invalid email"="Antamasi sähköpostiosoite on väärä.";
+"Phone number must have 10 numbers"="Puhelinnumerossa täytyy olla 10 numeroa.";
+"You do not have permission to edit this item"="Sinulla ei ole oikeuksia muokata tätä tuotetta.";
+"This item has not beet deleted"="Tämä tuote on myyty";
+"You cannot buy your own item"="Et voi ostaa omaa tuotettasi";
+"Could not request point"="Pisteitä ei voitu hakea";
+"You do not have enough points to buy this item"="Sinulla ei ole tarpeeksi pisteitä ostaaksesi tämän tuotteen.";
+"This username has already been used"="Käyttäjätunnus on jo olemassa";
+"This email has already been used"="Sähköpostiosoite on jo olemassa";
+"This phone number has already been used"="Puhelinnumero on jo olemassa";
+"Username does not exist"="Käyttäjätunnusta ei ole olemassa";
+"Password is not correct"="Antamasi salasana on väärä";
+"No internet connection"="Ei internet-yhteyttä";
+"Item has been deleted"="Tuote on poistettu";
+"There was a problem verifying your identity."="Identiteetin vahvistuksessa oli ongelma.";
+"You pressed cancel"="Painoit peruuta.";
+"You pressed password."="Painoit salasanaa.";
+"Face ID/ Touch ID is not available"="FaceID / TouchID ei ole saatavilla.";
+"Face ID/ Touch ID is not set up"="Face ID / Touch ID ei ole alustettu.";
+"Face ID/ Touch ID is locked"="Face ID / Touch ID on lukittu.";
+"Face ID/ Touch ID may not be configured"="Face ID / Touch ID asetuksia ei ole säädetty.";
+"Field should not be empty"="Tämä kenttä on pakollinen.";
+"This voucher is not available"="Tätä kuponkia ei ole saatavilla.";
+"Unknown error"="Tuntematon virhe.";
+
+/*
+ *================= CATEGORY ==========================
+ */
+"clothing"="vaatteet";
+"devices"="laitteet";
+"accessories"="korut";
+"homewares"="kodintavarat";
+"vehicles"="kulkuvälineet";
+"others"="muut";
+
+"Clothing"="Vaatteet";
+"Devices"="Laitteet";
+"Accessories"="Korut";
+"Homewares"="Kodintavarat";
+"Vehicles"="Kulkuvälineet";
+"Others"="Muut";
+"Free"="Ilmaiset";
+
+/*
+ *================= BADGE ==========================
+ */
+"Mercury"="Merkurius";
+"Mars"="Mars";
+"Venus"="Venus";
+"Earth"="Maa";
+"Neptune"="Neptunus";
+"Uranus"="Uranus";
+"Saturn"="Saturnus";
+"Jupiter"="Jupiter";
+
+/*
+ *================= TAB ITEM ==========================
+ */
+"Home"="Koti";
+"Map"="Kartta";
+"Post"="Lisää tuote";
+"Notification"="Ilmoitukset";
+"Profile"="Profiili";
+
+/*
+ *================= DIALOG ==========================
+ */
+"Choose Photo"="Valitse kuva";
+"Take Photo"="Ota kuva";
+"Cancel"="Peruuta";
+"Yes"="Kyllä";
+"OK"="OK";
+"Success"="Hyväksytty";
+"Great!"="Hyvä!";
+"Oops!"="Hups!";
+
+/*
+ *================= AUTH SCREEN ==========================
+ */
+"SIGN UP"="Rekisteröidy";
+"Already have an account?"="Onko sinulla jo tili?";
+"SIGN IN"="Kirjaudu sisään";
+"Don't have an account?"="Eikö sinulla ole tiliä?";
+"Username"="Käyttäjätunnus";
+"Password"="Salasana";
+"Email"="Sähköposti";
+"Phone Number"="Puhelinnumero";
+"Sign in with another account"="Kirjaudu toisella käyttäjällä";
+"Confirm"="Vahvista";
+
+/*
+ *================= HOME SCREEN ==========================
+ */
+"No such item found"="Ei hakutuloksia";
+"Search Items"="Haku";
+"Buy"="Osta";
+"Badge"="Taso";
+"Time:"="Päivä:";
+"Item name"="";
+"FREE"="Ilmainen";
+"Do you want to delete this item?"="Haluatko poistaa tämän tuotteen?";
+"Delete item successfully"="Tuote poistettu";
+"Delete"="Poista";
+"Buy"="Osta";
+"Do you want to buy this item?"="Haluatko ostaa tämän tuotteen?";
+
+
+/*
+ *================= POST SCREEN ==========================
+ */
+"Post"="Lisää tuote";
+"Name"="Nimi";
+"Description"="Kuvaus";
+"Price"="Hinta";
+"Category"="Kategoria";
+"Choose Category"="Valitse kategoria";
+
+/*
+ *================= MAP SCREEN ==========================
+ */
+"Recycling Center"="Kierrätyskeskukset";
+"Direction"="Suunta";
+"Open Apple Maps to get direction"="Avaa Apple Kartat saadaksesi reitin";
+
+/*
+ *================= NOTIFICATION SCREEN ==========================
+ */
+"You have no notifications"="Ei ilmoituksia";
+"You have bought %@ from %@"="Olet ostanut tuotteen %@ käyttäjältä %@";
+"You have sold %@ to %@"="Olet myynyt tuotteen %@ käyttäjälle %@";
+
+/*
+ *================= PROFILE SCREEN ==========================
+ */
+"Log out"="Kirjaudu ulos";
+"Are you sure you want to log out?"="Haluatko varmasti kirjautua ulos?";
+"This user has no items on sale"="Tällä käyttäjällä ei ole tuotteita myynnissä";
+"You have no items on sale"="Sinulla ei ole tuotteita myynnissä";
+"You have not bought any item yet"="Et ole ostanut vielä mitään tuotteita";
+"You have not sold any item yet"="Et ole myynyt vielä mitään tuotteita";
+"Add Point"="Osta pisteitä";
+"Badge"="Taso";
+"Points"="Pisteet";
+"Recycles"="Kierrätykset";
+"Edit Profile"="Muokkaa profiilia";
+"Leaderboard"="Pistetilasto";
+"On Sale"="Myynnissä";
+"Sold"="Myydyt";
+"Bought"="Ostetut";
+
+/*
+ *================= LEADER BOARD SCREEN ==========================
+ */
+"Top 10"="10 Parasta";
+"%d recycled items"="%d kierrätettyä tuotetta";
+"Mars badage = %d recycles"="Mars-merkki = %d kierrätystä";
+"Mercury badage = %d recycles"="Merkurius-merkki = %d kierrätystä";
+"Venus badage = %d recycles"="Venus-merkki = %d kierrätystä";
+"Earth badage = %d recycles"="Maa-merkki = %d kierrätystä";
+"Neptune badage = %d recycles"="Neptunus-merkki = %d kierrätystä";
+"Uranus badage = %d recycles"="Uranus-merkki = %d kierrätystä";
+"Saturn badage = %d recycles"="Saturnus-merkki = %d kierrätystä";
+"Jupiter badage = %d recycles"="Jupiter-merkki = %d kierrätystä";
+
+/*
+ *================= VOUCHER SCREEN ==========================
+ */
+"Voucher"="Kupongit";
+"All"="Kaikki";
+"My Voucher"="Omat";
+<<<<<<< HEAD
+"Exchange"="Vaihto";
+"%d points" = "%d pisteet";
+=======
+"Exchange"="";
+"%d points" = "%d pistettä";
+>>>>>>> 56b7ad0866eced77588bfba7db18312a84208dd7
+
+/*
+ *================= PAYMENT SCREEN ==========================
+ */
+"Point Purchase"="Osta pisteitä";
+"Name:"="Nimi:";
+"Point:"="Pisteet:";
+"Please select your payment method"="Valitse maksutapa";
+"Add Card"="Lisää maksukortti";
+"Add"="Lisää";
+"Add %d points"="Lisää %d pistettä";
+"Pay Now"="Maksa nyt";
+"Payment"="Maksutapa";
+"%d points cost you %d €"="%d pistettä maksaa sinulle %d €";
+"You now have %d points"="Sinulla on nyt %d pistettä";
+
+/*
+ *================= RECEIPT SCREEN ==========================
+ */
+"Receipt"="Kuitti";
+"Price:"="Hinta:";
+"Seller:"="Myyjä:";
+"Badge:"="Taso:";
+"Contact"="Ota yhteyttä";
+"How do you want to contact?"="Kuinka haluat ottaa yhteyttä?";
+
+/*
+ *================= EDIT PROFILE SCREEN ==========================
+ */
+"Edit Profile"="Muokkaa Profiilia";
+"Edit Name"="Muokkaa Nimeä";
+"Edit Email"="Muokkaa Sähköpostia";
+"Edit Phone"="Muokkaa Numeroa";
+
+/*
+ *================= ITEM DETAIL SCREEN ==========================
+ */
+"Item Name"="Tuotteen nimi";
+

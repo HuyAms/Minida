@@ -29,6 +29,8 @@ class HomeItemCell: FoldingCell {
     @IBOutlet weak var sellerRankLbl: UILabel!
     @IBOutlet weak var deleteBtn: UIButton!
     @IBOutlet weak var rankIcon: UIImageView!
+    @IBOutlet weak var timeTitleLbl: UILabel!
+    @IBOutlet weak var buyBtn: UIButton!
     
     var onBuyButtonTapped: (() -> Void)? = nil
     var onImgButtonTapped: (() -> Void)? = nil
@@ -42,7 +44,7 @@ class HomeItemCell: FoldingCell {
         deleteBtn.isHidden = !isMyItem()
         smallItemNameLbl.text = itemHome.itemName
         detailNameLbl.text = itemHome.itemName
-        sellerRankLbl.text = itemHome.seller.badge
+        sellerRankLbl.text = Badge(badge: itemHome.seller.badge).description
         smallItemImageView.load(imgUrl: itemHome.imgPath)
         detailItemImgView.load(imgUrl: itemHome.imgPath)
         
@@ -52,8 +54,8 @@ class HomeItemCell: FoldingCell {
         
         let price = itemHome.price
         if price == 0 {
-            detailPriceLbl.text = "FREE"
-            smallPriceLbl.text = "FREE"
+            detailPriceLbl.text = "FREE".localized
+            smallPriceLbl.text = "FREE".localized
         } else {
             detailPriceLbl.text = String(itemHome.price)
             smallPriceLbl.text = String(itemHome.price)
@@ -148,6 +150,7 @@ class HomeItemCell: FoldingCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        setupUI()
         foregroundView.layer.cornerRadius = 10
         foregroundView.layer.masksToBounds = true
         
@@ -158,6 +161,16 @@ class HomeItemCell: FoldingCell {
     override func animationDuration(_ itemIndex: NSInteger, type _: FoldingCell.AnimationType) -> TimeInterval {
         let durations = [0.26, 0.2, 0.2]
         return durations[itemIndex]
+    }
+    
+    func setupUI() {
+        smallItemNameLbl.text = "Item name".localized
+        detailNameLbl.text = "Item name".localized
+        sellerRankLbl.text = "Badge".localized
+        timeTitleLbl.text = "Time:".localized
+        sellerNameLbl.text = "Username".localized
+        descriptionLbl.text = "Description".localized
+        buyBtn.setTitle("Buy".localized, for: .normal)
     }
 
 }

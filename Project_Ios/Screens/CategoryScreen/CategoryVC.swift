@@ -25,10 +25,19 @@ class CategoryVC: UIViewController {
     @IBOutlet weak var vehicleView: UIView!
     @IBOutlet weak var deviceView: UIView!
     @IBOutlet weak var accessoriesView: UIView!
+    @IBOutlet weak var titleLbl: UILabel!
+    @IBOutlet weak var allLbl: UILabel!
+    @IBOutlet weak var freeLbl: UILabel!
+    @IBOutlet weak var homewaresLbl: UILabel!
+    @IBOutlet weak var accessoriesLbl: UILabel!
+    @IBOutlet weak var devicesLbl: UILabel!
+    @IBOutlet weak var vehiclesLbl: UILabel!
+    @IBOutlet weak var clothesLbl: UILabel!
+    @IBOutlet weak var othersLbl: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupUI()
         let allTapGesture = UITapGestureRecognizer(target: self
             , action: #selector(CategoryVC.allCategoryWasTapped(_:)))
         allView.addGestureRecognizer(allTapGesture)
@@ -99,6 +108,18 @@ class CategoryVC: UIViewController {
     func setCategory(category: Category) {
         delegate?.setCategory(category: category)
         dismiss(animated: true, completion: nil)
+    }
+    
+    func setupUI() {
+        titleLbl.text = "Category".localized
+        allLbl.text = "All".localized
+        freeLbl.text = "Free".localized
+        homewaresLbl.text = "Homewares".localized
+        accessoriesLbl.text = "Accessories".localized
+        vehiclesLbl.text = "Vehicles".localized
+        clothesLbl.text = "Clothing".localized
+        devicesLbl.text = "Devices".localized
+        othersLbl.text = "Others".localized
     }
     
     //MARK: Actions

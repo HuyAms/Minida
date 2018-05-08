@@ -14,9 +14,9 @@ class OnboardingVC: UIViewController {
     //MARK: Outlets
     @IBOutlet weak var onboardingOutlet: OnboardingOB!
     @IBOutlet weak var finishIntroBtn: UIButton!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
         if (KeyChainUtil.share.getSeeOnboardingState()) {
             print("Have seen onboarding")
         } else {
@@ -25,6 +25,10 @@ class OnboardingVC: UIViewController {
         
         onboardingOutlet.dataSource = self
         onboardingOutlet.delegate = self
+    }
+    
+    func setupUI() {
+        finishIntroBtn.setTitle("Let's Get Started!".localized, for: .normal)
     }
     
     // MARK: Actions
@@ -51,8 +55,8 @@ extension OnboardingVC: PaperOnboardingDataSource, PaperOnboardingDelegate {
         
         return [
             OnboardingItemInfo(informationImage: #imageLiteral(resourceName: "onBoarding1"),
-                               title: "Welcome to Minida!",
-                               description: "Minida is an online marketplace for your unused items. Sell them to other users or donate to a recycling center near you!",
+                               title: "Welcome to Minida!".localized,
+                               description: "Minida is an online marketplace for second-hand items. Sell them to other users or donate to a recycling center near you!".localized,
                                pageIcon: #imageLiteral(resourceName: "first"),
                                color: bgColor,
                                titleColor: fontColor,
@@ -60,8 +64,8 @@ extension OnboardingVC: PaperOnboardingDataSource, PaperOnboardingDelegate {
                                titleFont: titleFont,
                                descriptionFont: descFont),
             OnboardingItemInfo(informationImage: #imageLiteral(resourceName: "onBoarding2"),
-                               title: "Acquire Points",
-                               description: "All purchases are done with points. Get points by selling and donating items or just use a paycard!",
+                               title: "Acquire Points".localized,
+                               description: "All purchases are done with points. Get points by selling and donating items, or buy them with a paycard.".localized,
                                pageIcon: #imageLiteral(resourceName: "first"),
                                color: bgColor,
                                titleColor: fontColor,
@@ -69,8 +73,8 @@ extension OnboardingVC: PaperOnboardingDataSource, PaperOnboardingDelegate {
                                titleFont: titleFont,
                                descriptionFont: descFont),
             OnboardingItemInfo(informationImage: #imageLiteral(resourceName: "onBoarding3"),
-                               title: "Enjoy the selection!",
-                               description: "Minida offers you a wide variety of items and vouchers to choose from!",
+                               title: "Enjoy the selection!".localized,
+                               description: "The users of Minida offer a wide variety of items and vouchers to choose from!".localized,
                                pageIcon: #imageLiteral(resourceName: "first"),
                                color: bgColor,
                                titleColor: fontColor,

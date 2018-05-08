@@ -34,6 +34,10 @@ class EditProfileVC: UIViewController, EditProfileViewProtocol{
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var avatarImage: UIImageView!
+    @IBOutlet weak var nameLbl: UILabel!
+    @IBOutlet weak var emailLbl: UILabel!
+    @IBOutlet weak var phoneLbl: UILabel!
+    @IBOutlet weak var titleLbl: UILabel!
     
     var avatarPath: String?
     
@@ -43,11 +47,10 @@ class EditProfileVC: UIViewController, EditProfileViewProtocol{
   
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
         presenter = EditProfilePresenter(view: self)
         presenter?.loadUserInfo()
-        // Do any additional setup after loading the view.
-        
-        //Add tap gesture to avatarImage -> when tapped -> user choose img
+      
         let avatarTapGesture = UITapGestureRecognizer(target: self
             , action: #selector(EditProfileVC.imageTap(_:)))
         avatarImage.addGestureRecognizer(avatarTapGesture)
@@ -139,6 +142,16 @@ class EditProfileVC: UIViewController, EditProfileViewProtocol{
         view.endEditing(true)
     }
     
+    func setupUI() {
+        titleLbl.text = "Edit Profile".localized
+        nameLbl.text = "Name".localized
+        emailLbl.text = "Email".localized
+        phoneLbl.text = "Phone Number".localized
+        nameTextField.placeholder = "Edit Name".localized
+        emailTextField.placeholder = "Edit Email".localized
+        phoneTextField.placeholder = "Edit Phone".localized
+    }
+    
     //MARK: Actions
     
     @IBAction func saveBtnWasPressed(_ sender: Any) {
@@ -160,8 +173,6 @@ class EditProfileVC: UIViewController, EditProfileViewProtocol{
         }
     }
     
-    //onUploadImgSuccess(newAvaPath: String)
-    
     
     @IBAction func cancelBtnWasPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
@@ -170,12 +181,10 @@ class EditProfileVC: UIViewController, EditProfileViewProtocol{
 }
 
 extension EditProfileVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    // MARK: - Handling Image Picker Selection
 
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String: Any]) {
         picker.dismiss(animated: true)
-        
-        // We always expect 'imagePickerController(:didFinishPickingMediaWithInfo:)' to supply the original image.
+
         changedAvatar = info[UIImagePickerControllerOriginalImage] as? UIImage
         avatarImage.image = changedAvatar
     }

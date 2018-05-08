@@ -16,8 +16,14 @@ class PaymentCell: UITableViewCell {
     
 
     func config(euro: Int) {
-        pointLbl.text = String("Add \(euro * KEY.CURRENT_EXCHANGE) points")
+        let formatString = NSLocalizedString("Add %d points",
+                                             comment: "")
+        pointLbl.text = "Add %d points".localized(arguments: euro * KEY.CURRENT_EXCHANGE)
         euroLbl.text = String("\(euro) €")
+    }
+    
+    override func awakeFromNib() {
+        addBtn.setTitle("Add".localized, for: .normal)
     }
     
     @IBAction func addBtnWasPressed(_ sender: Any) {

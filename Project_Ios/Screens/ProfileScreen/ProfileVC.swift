@@ -56,8 +56,8 @@ class ProfileVC: UIViewController, ProfileViewProtocol {
  
     //MARK: Outlets
     @IBOutlet weak var badgeImage: UIImageView!
-    @IBOutlet weak var pointLabel: UILabel!
-    @IBOutlet weak var recycleLabel: UILabel!
+    @IBOutlet weak var pointNumberLbl: UILabel!
+    @IBOutlet weak var recycleNumberLbl: UILabel!
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var userRankLabel: UILabel!
     @IBOutlet weak var userItemCollectionView: UICollectionView!
@@ -65,7 +65,7 @@ class ProfileVC: UIViewController, ProfileViewProtocol {
     @IBOutlet weak var noItemLbl: UILabel!
     @IBOutlet weak var boughtItemBtn: UIButton!
     @IBOutlet weak var soldItemBtn: UIButton!
-    @IBOutlet weak var allMyItemBtn: UIButton!
+    @IBOutlet weak var onSaleBtn: UIButton!
     @IBOutlet weak var qrCodeView: UIView!
     @IBOutlet weak var logOutBtn: UIButton!
     @IBOutlet weak var closeBtn: UIButton!
@@ -73,6 +73,10 @@ class ProfileVC: UIViewController, ProfileViewProtocol {
     @IBOutlet weak var boardViewBtn: UIButton!
     @IBOutlet weak var pointStack: UIStackView!
     @IBOutlet weak var addPointStack: UIStackView!
+    @IBOutlet weak var addPointLbl: UILabel!
+    @IBOutlet weak var badgeLbl: UILabel!
+    @IBOutlet weak var pointsLbl: UILabel!
+    @IBOutlet weak var recyclesLbl: UILabel!
     
     //MARK: Properties
     var presenter: ProfilePresenterProtocol?
@@ -85,6 +89,7 @@ class ProfileVC: UIViewController, ProfileViewProtocol {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
         presenter = ProfilePresenter(view: self)
         userItemCollectionView.delegate = self
         userItemCollectionView.dataSource = self
@@ -125,11 +130,11 @@ class ProfileVC: UIViewController, ProfileViewProtocol {
     //MARK: Actions
     @IBAction func logOutBtnWasPressed(_ sender: Any) {
         
-        let alertViewController = UIAlertController(title: "Log out", message: "Are you sure you want to log out?", preferredStyle: .actionSheet)
-        let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
+        let alertViewController = UIAlertController(title: "Log out".localized, message: "Are you sure you want to log out?".localized, preferredStyle: .actionSheet)
+        let okAction = UIAlertAction(title: "OK".localized, style: .default) { (action) in
             self.presenter?.logout()
         }
-        let cancleAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let cancleAction = UIAlertAction(title: "Cancel".localized, style: .cancel, handler: nil)
         alertViewController.addAction(okAction)
         alertViewController.addAction(cancleAction)
         present(alertViewController, animated: true)
@@ -175,13 +180,13 @@ class ProfileVC: UIViewController, ProfileViewProtocol {
     
     //MARK: Helper
     func setActiveTab(profileItemLoadState: ProfileItemLoadState) {
-        allMyItemBtn.backgroundColor = UIColor.appLightColor
+        onSaleBtn.backgroundColor = UIColor.appLightColor
         soldItemBtn.backgroundColor = UIColor.appLightColor
         boughtItemBtn.backgroundColor = UIColor.appLightColor
     
         switch profileItemLoadState {
         case .myAvailableItems:
-            allMyItemBtn.backgroundColor = UIColor.appDarkColor
+            onSaleBtn.backgroundColor = UIColor.appDarkColor
         case .soldItems:
             soldItemBtn.backgroundColor = UIColor.appDarkColor
         case .boughtItems:
@@ -202,6 +207,42 @@ class ProfileVC: UIViewController, ProfileViewProtocol {
         }, completion: nil)
     }
     
+    func setUpLoadMyProfile() {
+        pointStack.isHidden = false
+        onSaleBtn.isHidden = false
+        soldItemBtn.isHidden = false
+        boughtItemBtn.isHidden = false
+        editProfileBtn.isHidden = false
+        boardViewBtn.isHidden = false
+        logOutBtn.isHidden = false
+        closeBtn.isHidden = true
+        addPointStack.isHidden = false
+    }
+    
+    func setUpLoadUserProfile() {
+        pointStack.isHidden = true
+        onSaleBtn.isHidden = true
+        soldItemBtn.isHidden = true
+        boughtItemBtn.isHidden = true
+        editProfileBtn.isHidden = true
+        boardViewBtn.isHidden = true
+        logOutBtn.isHidden = true
+        closeBtn.isHidden = false
+        addPointStack.isHidden = true
+    }
+    
+    func setupUI() {
+        addPointLbl.text = "Add Point".localized
+        badgeLbl.text = "Badge".localized
+        pointsLbl.text = "Points".localized
+        recyclesLbl.text = "Recycles".localized
+        editProfileBtn.setTitle("Edit Profile".localized, for: .normal)
+        boardViewBtn.setTitle("Leaderboard".localized, for: .normal)
+        onSaleBtn.setTitle("On Sale".localized, for: .normal)
+        soldItemBtn.setTitle("Sold".localized, for: .normal)
+        boughtItemBtn.setTitle("Bought".localized, for: .normal)
+    }
+    
     
     //MARK: Protocols
     
@@ -209,16 +250,15 @@ class ProfileVC: UIViewController, ProfileViewProtocol {
         userNameLabel.text = userData.username
         
         if let point = userData.point {
-            pointLabel.text = String(point)
+            pointNumberLbl.text = String(point)
         }
         
         if let avatarIcon = userData.avatarPath {
-            print("AVATAR: \(avatarIcon)")
             avatarImage.load(imgUrl: avatarIcon)
         }
         
-        recycleLabel.text = String(userData.numberOfRecycledItems)
-        userRankLabel.text = userData.badge
+        recycleNumberLbl.text = String(userData.numberOfRecycledItems)
+        userRankLabel.text = Badge(badge: userData.badge).description
         badgeImage.image = UIImage.getBadgeIcon(badge: Badge(badge: userData.badge))
     }
     
@@ -243,30 +283,6 @@ class ProfileVC: UIViewController, ProfileViewProtocol {
         hideLoadingIndicator()
     }
     
-    
-    func setUpLoadMyProfile() {
-        pointStack.isHidden = false
-        allMyItemBtn.isHidden = false
-        soldItemBtn.isHidden = false
-        boughtItemBtn.isHidden = false
-        editProfileBtn.isHidden = false
-        boardViewBtn.isHidden = false
-        logOutBtn.isHidden = false
-        closeBtn.isHidden = true
-        addPointStack.isHidden = false
-    }
-    
-    func setUpLoadUserProfile() {
-        pointStack.isHidden = true
-        allMyItemBtn.isHidden = true
-        soldItemBtn.isHidden = true
-        boughtItemBtn.isHidden = true
-        editProfileBtn.isHidden = true
-        boardViewBtn.isHidden = true
-        logOutBtn.isHidden = true
-        closeBtn.isHidden = false
-        addPointStack.isHidden = true
-    }
     
     func onGetMyItemSuccess(items: [Item]) {
         self.myItems = items

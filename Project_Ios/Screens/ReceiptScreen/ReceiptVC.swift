@@ -31,11 +31,19 @@ class ReceiptVC: UIViewController, ReceiptVCProtocol {
     @IBOutlet weak var sellerNameLbl: UILabel!
     @IBOutlet weak var sellerBadgeLbl: UILabel!
     @IBOutlet weak var receiptTimeLbl: UILabel!
+    @IBOutlet weak var nameLbl: UILabel!
+    @IBOutlet weak var priceLbl: UILabel!
+    @IBOutlet weak var sellerLbl: UILabel!
+    @IBOutlet weak var badgeLbl: UILabel!
+    @IBOutlet weak var timeLbl: UILabel!
+    @IBOutlet weak var titleLbl: UILabel!
+    @IBOutlet weak var contactBtn: UIButton!
     
     var presenter: ReceiptPresenterProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
         presenter = ReceiptPresenter(view: self)
    
         if let orderId = self.orderId {
@@ -47,7 +55,7 @@ class ReceiptVC: UIViewController, ReceiptVCProtocol {
         itemImageView.load(imgUrl: order.item.imgPath)
         itemNameLbl.text = order.item.itemName
         itemPriceLbl.text = String(order.item.price)
-        sellerBadgeLbl.text = order.seller.badge
+        sellerBadgeLbl.text = Badge(badge: order.seller.badge).description
         sellerNameLbl.text = order.seller.username
         self.email = order.seller.email
         self.phoneNumber = order.seller.phoneNumber
@@ -76,6 +84,16 @@ class ReceiptVC: UIViewController, ReceiptVCProtocol {
         }
     }
     
+    func setupUI() {
+        titleLbl.text = "Receipt".localized
+        priceLbl.text = "Price:".localized
+        nameLbl.text = "Name:".localized
+        badgeLbl.text = "Badge:".localized
+        sellerLbl.text = "Seller:".localized
+        timeLbl.text = "Time:".localized
+        contactBtn.setTitle("Contact".localized, for: .normal)
+    }
+    
     func makePhoneCall() {
         guard let phoneNumber = self.phoneNumber else {return}
         guard let phone = URL(string: "tel://0" + String(phoneNumber)) else {return}
@@ -89,14 +107,14 @@ class ReceiptVC: UIViewController, ReceiptVCProtocol {
     
     @IBAction func contactBtnWasPressed(_ sender: UIButton) {
         
-        let alertViewController = UIAlertController(title: "Contact", message: "How do you want to contact?", preferredStyle: .actionSheet)
-        let emailAction = UIAlertAction(title: "Email", style: .default) { [weak self](action) in
+        let alertViewController = UIAlertController(title: "Contact".localized, message: "How do you want to contact?".localized, preferredStyle: .actionSheet)
+        let emailAction = UIAlertAction(title: "Email".localized, style: .default) { [weak self](action) in
             self?.openEmail()
         }
-        let callAction = UIAlertAction(title: "Phone Number", style: .default) { [weak self](action) in
+        let callAction = UIAlertAction(title: "Phone Number".localized, style: .default) { [weak self](action) in
             self?.makePhoneCall()
         }
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: "Cancel".localized, style: .cancel, handler: nil)
         
         alertViewController.addAction(callAction)
         alertViewController.addAction(emailAction)

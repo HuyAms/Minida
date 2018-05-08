@@ -18,7 +18,7 @@ protocol NotificationVCProtocol {
     
     func hideNotificationList()
     
-    func showNoNotificationLbl(message: String)
+    func showNoNotificationLbl()
     
     func hideNoNotificationLbl()
     
@@ -32,6 +32,7 @@ class NotificationVC: UIViewController, NotificationVCProtocol {
  
     var presenter: NotiPresenterProtocol?
     
+    @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var noNotiLbl: UILabel!
     
@@ -50,6 +51,7 @@ class NotificationVC: UIViewController, NotificationVCProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
         presenter = NotificationPresenter(view: self)
         tableView.addSubview(self.refreshControl)
         tableView.delegate = self
@@ -94,9 +96,8 @@ class NotificationVC: UIViewController, NotificationVCProtocol {
         tableView.isHidden = true
     }
     
-    func showNoNotificationLbl(message: String) {
+    func showNoNotificationLbl() {
         noNotiLbl.isHidden = false
-        noNotiLbl.text = message
     }
     
     func hideNoNotificationLbl() {
@@ -112,6 +113,11 @@ class NotificationVC: UIViewController, NotificationVCProtocol {
         guard let receiptVC = storyboard?.instantiateViewController(withIdentifier: AppStoryBoard.receiptVC.identifier) as? ReceiptVC else {return}
         receiptVC.orderId = orderId
         present(receiptVC, animated: true, completion: nil)
+    }
+    
+    func setupUI() {
+        titleLbl.text = "Notification".localized
+        noNotiLbl.text = "You have no notifications".localized
     }
 }
 

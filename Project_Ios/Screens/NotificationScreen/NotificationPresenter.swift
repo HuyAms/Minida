@@ -35,7 +35,7 @@ class NotificationPresenter: NotiPresenterProtocol {
                      self?.view?.showNotificationList()
                 } else {
                      self?.view?.hideNotificationList()
-                     self?.view?.showNoNotificationLbl(message: "You have no notification")
+                     self?.view?.showNoNotificationLbl()
                 }
                 self?.view?.onGetNotificationsSuccess(notifications: notifications)
             case .error(let error):

@@ -1,0 +1,419 @@
+
+/* Class = "UILabel"; text = "30 points"; ObjectID = "0OV-MO-ib7"; */
+"0OV-MO-ib7.text" = "30 points";
+
+/* Class = "UISearchBar"; placeholder = "Search Items"; ObjectID = "0fx-9W-6Of"; */
+"0fx-9W-6Of.placeholder" = "Haku";
+
+/* Class = "UISearchBar"; 0fx-9W-6Of.scopeButtonTitles[0] = "Title"; ObjectID = "0fx-9W-6Of"; */
+"0fx-9W-6Of.scopeButtonTitles[0]" = "Title";
+
+/* Class = "UISearchBar"; 0fx-9W-6Of.scopeButtonTitles[1] = "Title"; ObjectID = "0fx-9W-6Of"; */
+"0fx-9W-6Of.scopeButtonTitles[1]" = "Title";
+
+/* Class = "UILabel"; text = "1"; ObjectID = "0kX-YE-gyK"; */
+"0kX-YE-gyK.text" = "1";
+
+/* Class = "UILabel"; text = "Voucher"; ObjectID = "0vC-Bs-tAr"; */
+"0vC-Bs-tAr.text" = "Kupongit";
+
+/* Class = "UILabel"; text = "Price:"; ObjectID = "12O-7P-ylP"; */
+"12O-7P-ylP.text" = "Hinta:";
+
+/* Class = "UILabel"; text = "Item name"; ObjectID = "18f-uO-czl"; */
+"18f-uO-czl.text" = "Tuotteen nimi";
+
+/* Class = "UILabel"; text = "Venus Badge = 5 recycles"; ObjectID = "1E9-Hi-lI2"; */
+"1E9-Hi-lI2.text" = "Venus Badge = 5 recycles";
+
+/* Class = "UITabBarItem"; title = "Home"; ObjectID = "1Hj-o4-fMp"; */
+"1Hj-o4-fMp.title" = "Koti";
+
+/* Class = "UILabel"; text = "Notification"; ObjectID = "1ce-qW-haH"; */
+"1ce-qW-haH.text" = "Ilmoitukset";
+
+/* Class = "UILabel"; text = "No items"; ObjectID = "2D3-cL-Qo3"; */
+"2D3-cL-Qo3.text" = "Ei tuotteita";
+
+/* Class = "UIButton"; normalTitle = "On Sale"; ObjectID = "2E5-gA-Y5P"; */
+"2E5-gA-Y5P.normalTitle" = "Myynnissä";
+
+/* Class = "UITextField"; placeholder = "Edit Phone"; ObjectID = "2px-qK-SjC"; */
+"2px-qK-SjC.placeholder" = "Muokkaa puhelinnumeroa";
+
+/* Class = "UILabel"; text = "Exid Full Moon album with signature"; ObjectID = "3Kz-uh-Y7y"; */
+"3Kz-uh-Y7y.text" = "Exid Full Moon album with signature";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "3Tp-vW-nwy"; */
+"3Tp-vW-nwy.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "3bg-BC-mKT"; */
+"3bg-BC-mKT.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Jupiter Badge = 50 recycles"; ObjectID = "3wO-vu-LC1"; */
+"3wO-vu-LC1.text" = "Jupiter Badge = 50 recycles";
+
+/* Class = "UILabel"; text = "Saturn Badge = 30 recycles"; ObjectID = "43c-I0-uEs"; */
+"43c-I0-uEs.text" = "Saturn Badge = 30 recycles";
+
+/* Class = "UIButton"; normalTitle = "Buy"; ObjectID = "5iG-Sz-VQE"; */
+"5iG-Sz-VQE.normalTitle" = "Osta";
+
+/* Class = "UILabel"; text = "Item name"; ObjectID = "6UZ-mw-6yt"; */
+"6UZ-mw-6yt.text" = "Tuotteen nimi";
+
+/* Class = "UILabel"; text = "Devices"; ObjectID = "6wI-3k-BH0"; */
+"6wI-3k-BH0.text" = "Devices";
+
+/* Class = "UITextField"; placeholder = "Description"; ObjectID = "7Ds-gT-ahp"; */
+"7Ds-gT-ahp.placeholder" = "Kuvaus";
+
+/* Class = "UILabel"; text = "Seo Hyerin"; ObjectID = "7F8-gH-VxI"; */
+"7F8-gH-VxI.text" = "Seo Hyerin";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "7X8-KT-rFT"; */
+"7X8-KT-rFT.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "7xU-mr-kP8"; */
+"7xU-mr-kP8.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Leaderboard"; ObjectID = "89a-pp-q9T"; */
+"89a-pp-q9T.text" = "Pistetilasto";
+
+/* Class = "UITextField"; placeholder = "Name"; ObjectID = "8ta-p5-nhf"; */
+"8ta-p5-nhf.placeholder" = "Nimi";
+
+/* Class = "UILabel"; text = "21/04/2018"; ObjectID = "9Wl-pH-dKw"; */
+"9Wl-pH-dKw.text" = "21/04/2018";
+
+/* Class = "UILabel"; text = "Nova 1"; ObjectID = "9hE-CD-OLD"; */
+"9hE-CD-OLD.text" = "Nova 1";
+
+/* Class = "UILabel"; text = "Description"; ObjectID = "9rN-G0-c5e"; */
+"9rN-G0-c5e.text" = "Kuvaus";
+
+/* Class = "UIButton"; normalTitle = "Leaderboard"; ObjectID = "APk-TA-Qjv"; */
+"APk-TA-Qjv.normalTitle" = "Pistetilasto";
+
+/* Class = "UILabel"; text = "Recycles"; ObjectID = "B7C-pD-GFc"; */
+"B7C-pD-GFc.text" = "Kierrätykset";
+
+/* Class = "UILabel"; text = "Name:"; ObjectID = "B8s-Sz-YfP"; */
+"B8s-Sz-YfP.text" = "Nimi:";
+
+/* Class = "UILabel"; text = "10 recycling"; ObjectID = "BJB-2Z-cYl"; */
+"BJB-2Z-cYl.text" = "10 recycling";
+
+/* Class = "UILabel"; text = "Please select your payment method"; ObjectID = "Bi9-0K-Xhb"; */
+"Bi9-0K-Xhb.text" = "Valitse maksutapa";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "Bss-yS-BWN"; */
+"Bss-yS-BWN.placeholder" = "Salasana";
+
+/* Class = "UILabel"; text = "Recycling Center"; ObjectID = "CeZ-3l-HhR"; */
+"CeZ-3l-HhR.text" = "Kierrätyskeskukset";
+
+/* Class = "UITextField"; placeholder = "Price"; ObjectID = "Dr9-OD-qJ7"; */
+"Dr9-OD-qJ7.placeholder" = "Hinta";
+
+/* Class = "UIButton"; normalTitle = "Confirm"; ObjectID = "GdJ-2P-zsi"; */
+"GdJ-2P-zsi.normalTitle" = "Vahvista";
+
+/* Class = "UITabBarItem"; title = "Post"; ObjectID = "Gf6-uF-77I"; */
+"Gf6-uF-77I.title" = "Lisää tuote";
+
+/* Class = "UITextField"; placeholder = "Edit Email"; ObjectID = "GjQ-ca-I4B"; */
+"GjQ-ca-I4B.placeholder" = "Muokkaa sähköpostia";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "IX2-TS-Uph"; */
+"IX2-TS-Uph.text" = "0";
+
+/* Class = "UILabel"; text = "Seller:"; ObjectID = "Ida-Ga-5Nh"; */
+"Ida-Ga-5Nh.text" = "Myyjä:";
+
+/* Class = "UILabel"; text = "Error Message"; ObjectID = "IjC-aE-bLa"; */
+"IjC-aE-bLa.text" = "Error Message";
+
+/* Class = "UILabel"; text = "Points"; ObjectID = "InY-Wb-vcF"; */
+"InY-Wb-vcF.text" = "Pisteet";
+
+/* Class = "UILabel"; text = "Badge:"; ObjectID = "Iya-bx-owV"; */
+"Iya-bx-owV.text" = "Taso:";
+
+/* Class = "UIButton"; normalTitle = "Choose Category"; ObjectID = "J8V-Oc-abP"; */
+"J8V-Oc-abP.normalTitle" = "Valitse kategoria";
+
+/* Class = "UILabel"; text = "Add 5 points"; ObjectID = "JUn-Gs-BX9"; */
+"JUn-Gs-BX9.text" = "Lisää 5 pistettä";
+
+/* Class = "UILabel"; text = "100 points"; ObjectID = "JlD-f8-bMC"; */
+"JlD-f8-bMC.text" = "Lisää 100 pistettä";
+
+/* Class = "UILabel"; text = "Badge Detail"; ObjectID = "K9L-oS-apW"; */
+"K9L-oS-apW.text" = "Taso";
+
+/* Class = "UILabel"; text = "Number"; ObjectID = "KZa-8f-zPb"; */
+"KZa-8f-zPb.text" = "Number";
+
+/* Class = "UILabel"; text = "Free"; ObjectID = "L29-dV-QIq"; */
+"L29-dV-QIq.text" = "Ilmainen";
+
+/* Class = "UIButton"; normalTitle = "Post"; ObjectID = "Lvy-EZ-zPi"; */
+"Lvy-EZ-zPi.normalTitle" = "Lisää tuote";
+
+/* Class = "UILabel"; text = "21/04/2018"; ObjectID = "LwT-YP-Yhe"; */
+"LwT-YP-Yhe.text" = "21/04/2018";
+
+/* Class = "UITextField"; placeholder = "Phone"; ObjectID = "MDM-B0-Y8V"; */
+"MDM-B0-Y8V.placeholder" = "Numero";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "Mwc-t0-QPr"; */
+"Mwc-t0-QPr.text" = "0";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "NDJ-zZ-1s9"; */
+"NDJ-zZ-1s9.text" = "Nimi";
+
+/* Class = "UILabel"; text = "Burger King"; ObjectID = "NUu-t3-SNm"; */
+"NUu-t3-SNm.text" = "Burger King";
+
+/* Class = "UILabel"; text = "Description"; ObjectID = "ODa-Yn-mIg"; */
+"ODa-Yn-mIg.text" = "Kuvaus";
+
+/* Class = "UILabel"; text = "Neptune Badge = 15 recycles"; ObjectID = "OVT-nd-2Ii"; */
+"OVT-nd-2Ii.text" = "Neptune Badge = 15 recycles";
+
+/* Class = "UILabel"; text = "Price"; ObjectID = "ObS-Or-jRn"; */
+"ObS-Or-jRn.text" = "Hinta";
+
+/* Class = "UILabel"; text = "Seo Hyerin"; ObjectID = "PzM-X9-LR6"; */
+"PzM-X9-LR6.text" = "Seo Hyerin";
+
+/* Class = "UILabel"; text = "Email"; ObjectID = "RFs-MI-1Bb"; */
+"RFs-MI-1Bb.text" = "Sähköposti:";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "RRd-Iy-EeU"; */
+"RRd-Iy-EeU.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "No items"; ObjectID = "Rpa-dd-Be3"; */
+"Rpa-dd-Be3.text" = "Ei tuotteita";
+
+/* Class = "UIButton"; normalTitle = "Let's Get Started!"; ObjectID = "SW3-uc-uJh"; */
+"SW3-uc-uJh.normalTitle" = "Aloitetaan!";
+
+/* Class = "UIButton"; normalTitle = "Sign in with another account"; ObjectID = "TJl-fD-0F7"; */
+"TJl-fD-0F7.normalTitle" = "Kirjaudu toisella käyttäjällä";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Uc6-Mq-cn3"; */
+"Uc6-Mq-cn3.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Don't have an account?"; ObjectID = "UgJ-fU-2Se"; */
+"UgJ-fU-2Se.normalTitle" = "Eikö sinulla ole tiliä?";
+
+/* Class = "UITextField"; placeholder = "Email"; ObjectID = "Ury-cC-o0O"; */
+"Ury-cC-o0O.placeholder" = "Sähköposti";
+
+/* Class = "UILabel"; text = "Mercury Badge = 0 recycles"; ObjectID = "VSO-yn-ayh"; */
+"VSO-yn-ayh.text" = "Mercury Badge = 0 recycles";
+
+/* Class = "UILabel"; text = "Username"; ObjectID = "Vew-9y-xjS"; */
+"Vew-9y-xjS.text" = "Käyttäjätunnus";
+
+/* Class = "UIButton"; normalTitle = "Sold"; ObjectID = "Vjy-x9-btS"; */
+"Vjy-x9-btS.normalTitle" = "Myydyt";
+
+/* Class = "UILabel"; text = "No such item found"; ObjectID = "VxB-V7-xYU"; */
+"VxB-V7-xYU.text" = "Ei hakutuloksia";
+
+/* Class = "UILabel"; text = "Time:"; ObjectID = "WFt-Jd-o8q"; */
+"WFt-Jd-o8q.text" = "Päivä:";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "WOm-6m-Nhq"; */
+"WOm-6m-Nhq.text" = "0";
+
+/* Class = "UILabel"; text = "20/04/2018 at 17:00"; ObjectID = "XAa-6o-xc2"; */
+"XAa-6o-xc2.text" = "20/04/2018 at 17:00";
+
+/* Class = "UILabel"; text = "Point:"; ObjectID = "XQb-zv-51l"; */
+"XQb-zv-51l.text" = "Point:";
+
+/* Class = "UITabBarItem"; title = "Profile"; ObjectID = "Xeb-JV-Sne"; */
+"Xeb-JV-Sne.title" = "Profiili";
+
+/* Class = "UILabel"; text = "SIGN IN"; ObjectID = "Y0t-Oi-6Ru"; */
+"Y0t-Oi-6Ru.text" = "Kirjaudu sisään";
+
+/* Class = "UITabBarItem"; title = "Notification"; ObjectID = "YJr-DO-kV1"; */
+"YJr-DO-kV1.title" = "Ilmoitukse"";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "aHg-mX-0G9"; */
+"aHg-mX-0G9.normalTitle" = "Button";
+
+/* Class = "UITabBarItem"; title = "Map"; ObjectID = "acW-dT-cKf"; */
+"acW-dT-cKf.title" = "Kartta";
+/* Class = "UILabel"; text = "apply on crispy chicken meal"; ObjectID = "agX-nn-bvK"; */
+"agX-nn-bvK.text" = "apply on crispy chicken meal";
+
+/* Class = "UILabel"; text = "Point Purchase"; ObjectID = "b7C-JQ-eXc"; */
+"b7C-JQ-eXc.text" = "Osta pisteitä";
+
+/* Class = "UILabel"; text = "Others"; ObjectID = "bfa-yw-EqP"; */
+"bfa-yw-EqP.text" = "Muut";
+
+/* Class = "UIButton"; normalTitle = "Bought"; ObjectID = "cba-tT-yu9"; */
+"cba-tT-yu9.normalTitle" = "Ostetut";
+
+/* Class = "UILabel"; text = "Mars Badge = 3 recycles"; ObjectID = "cpO-Ig-nV1"; */
+"cpO-Ig-nV1.text" = "Mars Badge = 3 recycles";
+
+/* Class = "UILabel"; text = "Phone"; ObjectID = "dXl-xJ-NtY"; */
+"dXl-xJ-NtY.text" = "Numero";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "dvl-yA-xwy"; */
+"dvl-yA-xwy.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Category"; ObjectID = "dvm-8l-wLi"; */
+"dvm-8l-wLi.text" = "Kategoria";
+
+/* Class = "UILabel"; text = "Category"; ObjectID = "dxA-hB-e8o"; */
+"dxA-hB-e8o.text" = "Kategoria";
+
+/* Class = "UILabel"; text = "Accessories"; ObjectID = "eDP-Zc-zA9"; */
+"eDP-Zc-zA9.text" = "Asusteet";
+
+/* Class = "UISegmentedControl"; eFG-J5-4eJ.segmentTitles[0] = "Top 10"; ObjectID = "eFG-J5-4eJ"; */
+"eFG-J5-4eJ.segmentTitles[0]" = "10 parasta";
+
+/* Class = "UISegmentedControl"; eFG-J5-4eJ.segmentTitles[1] = "Badges"; ObjectID = "eFG-J5-4eJ"; */
+"eFG-J5-4eJ.segmentTitles[1]" = "Badges";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "eFp-kA-dYT"; */
+"eFp-kA-dYT.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Vehicles"; ObjectID = "eIo-XD-Yez"; */
+"eIo-XD-Yez.text" = "Ajoneuvot";
+
+/* Class = "UILabel"; text = "All"; ObjectID = "egF-5f-Abh"; */
+"egF-5f-Abh.text" = "Kaikki";
+
+/* Class = "UIButton"; normalTitle = "Edit Profile"; ObjectID = "egx-iC-9NA"; */
+"egx-iC-9NA.normalTitle" = "Muokkaa Profiilia";
+
+/* Class = "UILabel"; text = "Add Point"; ObjectID = "fEf-yv-i1r"; */
+"fEf-yv-i1r.text" = "Osta Pisteitä";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "fK7-RW-r5H"; */
+"fK7-RW-r5H.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Badge"; ObjectID = "gZk-IJ-Qp1"; */
+"gZk-IJ-Qp1.text" = "Taso";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "ggz-Kw-agF"; */
+"ggz-Kw-agF.text" = "0";
+
+/* Class = "UILabel"; text = "Edit Profile"; ObjectID = "h5L-CB-0dj"; */
+"h5L-CB-0dj.text" = "Muokkaa Profiilia";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "hjx-51-pug"; */
+"hjx-51-pug.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Add Card"; ObjectID = "i03-V7-q8a"; */
+"i03-V7-q8a.normalTitle" = "Lisää Maksukortti";
+
+/* Class = "UILabel"; text = "Seo Hyerin bought your Full Moon Album with full signature"; ObjectID = "i2S-5D-SS4"; */
+"i2S-5D-SS4.text" = "Seo Hyerin bought your Full Moon Album with full signature";
+
+/* Class = "UILabel"; text = "Time:"; ObjectID = "j5g-d2-2xQ"; */
+"j5g-d2-2xQ.text" = "Päivä:";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "kjw-Ek-DTQ"; */
+"kjw-Ek-DTQ.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Name:"; ObjectID = "mPL-Lp-N2L"; */
+"mPL-Lp-N2L.text" = "Nimi:";
+
+/* Class = "UILabel"; text = "1€"; ObjectID = "md7-C6-5lb"; */
+"md7-C6-5lb.text" = "1€";
+
+/* Class = "UILabel"; text = "Earth Badge = 10 recycles"; ObjectID = "nDu-97-Lni"; */
+"nDu-97-Lni.text" = "Earth Badge = 10 recycles";
+
+/* Class = "UILabel"; text = "Clothes"; ObjectID = "nDw-nu-6Z4"; */
+"nDw-nu-6Z4.text" = "Vaatteet";
+
+/* Class = "UITextField"; placeholder = "Edit Name"; ObjectID = "oGC-h6-quY"; */
+"oGC-h6-quY.placeholder" = "Muokkaa nimeä";
+
+/* Class = "UILabel"; text = "Username"; ObjectID = "ot0-jU-QUU"; */
+"ot0-jU-QUU.text" = "Käyttäjätunnus";
+
+/* Class = "UILabel"; text = "Receipt"; ObjectID = "pAD-6b-T0g"; */
+"pAD-6b-T0g.text" = "Kuitti";
+
+/* Class = "UIButton"; normalTitle = "Add"; ObjectID = "psS-iy-JxL"; */
+"psS-iy-JxL.normalTitle" = "Lisää";
+
+/* Class = "UILabel"; text = "Your password is wrong"; ObjectID = "q40-RH-ksO"; */
+"q40-RH-ksO.text" = "Antamasi salasana on väärä";
+
+/* Class = "UISegmentedControl"; qZe-eG-TdE.segmentTitles[0] = "All"; ObjectID = "qZe-eG-TdE"; */
+"qZe-eG-TdE.segmentTitles[0]" = "Kaikki";
+
+/* Class = "UISegmentedControl"; qZe-eG-TdE.segmentTitles[1] = "My Voucher"; ObjectID = "qZe-eG-TdE"; */
+"qZe-eG-TdE.segmentTitles[1]" = "Omat";
+
+/* Class = "UILabel"; text = "Full Moon Album with full signature Full Moon Album with full signature Full"; ObjectID = "rWi-Ev-Egy"; */
+"rWi-Ev-Egy.text" = "Full Moon Album with full signature Full Moon Album with full signature Full";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "sCe-8z-6Rn"; */
+"sCe-8z-6Rn.text" = "0";
+
+/* Class = "UILabel"; text = "Homeware"; ObjectID = "su9-RY-tIm"; */
+"su9-RY-tIm.text" = "Kodintavarat";
+
+/* Class = "UILabel"; text = "Uranus Badge = 20 recycles"; ObjectID = "v2C-qz-IRs"; */
+"v2C-qz-IRs.text" = "Uranus Badge = 20 recycles";
+
+/* Class = "UILabel"; text = "Badge Detail"; ObjectID = "v6o-Rk-9by"; */
+"v6o-Rk-9by.text" = "Badge Detail";
+
+/* Class = "UIButton"; normalTitle = "Contact"; ObjectID = "vGe-Fv-fyO"; */
+"vGe-Fv-fyO.normalTitle" = "Ota yhteyttä";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "wAy-BB-j3t"; */
+"wAy-BB-j3t.text" = "Nimi";
+
+/* Class = "UIButton"; normalTitle = "Exchange"; ObjectID = "wFu-8U-iWb"; */
+"wFu-8U-iWb.normalTitle" = "Vaihto";
+
+/* Class = "UILabel"; text = "Seo Hyerin"; ObjectID = "wL2-fa-5Xc"; */
+"wL2-fa-5Xc.text" = "Seo Hyerin";
+
+/* Class = "UILabel"; text = "2 €"; ObjectID = "wxG-tI-RVI"; */
+"wxG-tI-RVI.text" = "2 €";
+
+/* Class = "UILabel"; text = "21/4/2018"; ObjectID = "xCg-mY-dMB"; */
+"xCg-mY-dMB.text" = "21/4/2018";
+
+/* Class = "UILabel"; text = "No voucher displayed"; ObjectID = "xS3-pK-ILd"; */
+"xS3-pK-ILd.text" = "Ei kuponkeja";
+
+/* Class = "UILabel"; text = "17/4/2018"; ObjectID = "xtH-Qj-3bf"; */
+"xtH-Qj-3bf.text" = "17/4/2018";
+
+/* Class = "UILabel"; text = "Error "; ObjectID = "xwX-ep-f9P"; */
+"xwX-ep-f9P.text" = "Error ";
+
+/* Class = "UILabel"; text = "Item Name"; ObjectID = "yhb-Rc-8he"; */
+"yhb-Rc-8he.text" = "Tuotteen nimi";
+
+/* Class = "UIButton"; normalTitle = "Buy"; ObjectID = "ynZ-hA-0eD"; */
+"ynZ-hA-0eD.normalTitle" = "Osta";
+
+/* Class = "UILabel"; text = "Post"; ObjectID = "zJf-KH-YFn"; */
+"zJf-KH-YFn.text" = "Lisää tuote";
+
+/* Class = "UITextField"; placeholder = "Username"; ObjectID = "zKc-qW-M4G"; */
+"zKc-qW-M4G.placeholder" = "Käyttäjänimi";
+
+/* Class = "UILabel"; text = "Username"; ObjectID = "zYV-FC-6EH"; */
+"zYV-FC-6EH.text" = "Käyttäjänimi";

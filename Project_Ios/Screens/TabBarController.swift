@@ -14,6 +14,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
         self.delegate = self
         nc.addObserver(self, selector: #selector(onPostSucess), name: NSNotification.Name("postSuccess"), object: nil)
     }
@@ -44,5 +45,12 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
             return true
         }
     }
-
+    
+    func setupUI() {
+        tabBar.items![0].title = "Home".localized
+        tabBar.items![1].title = "Map".localized
+        tabBar.items![2].title = "Post".localized
+        tabBar.items![3].title = "Notification".localized
+        tabBar.items![4].title = "Profile".localized
+    }
 }

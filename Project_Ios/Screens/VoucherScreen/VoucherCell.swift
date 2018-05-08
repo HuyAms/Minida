@@ -17,6 +17,10 @@ class VoucherCell: UITableViewCell {
     @IBOutlet weak var qrCodeView: UIView!
     @IBOutlet weak var cellContentView: UIView!
     
+    override func awakeFromNib() {
+        exchangeBtn.setTitle("Exchange".localized, for: .normal)
+    }
+    
     func config(voucher: Voucher, voucherLoadingState: VoucherLoadingState) {
         self.voucherLoadingState = voucherLoadingState
         
@@ -33,7 +37,7 @@ class VoucherCell: UITableViewCell {
         
         discountLbl.text = voucher.discount
         nameLbl.text = voucher.name
-        priceLbl.text = "\(String(voucher.price)) points"
+        priceLbl.text = "%d points".localized(arguments: voucher.price)
         descriptionLbl.text = voucher.description
         dateLbl.text = AppUtil.shared.formantTimeStamp(isoDate: voucher.expiration)
         logoImg.load(imgUrl: voucher.imgPath)

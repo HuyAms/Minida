@@ -45,6 +45,7 @@ class VoucherVC: UIViewController, VoucherVCProtocol {
         return refreshControl
     }()
 
+    @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet weak var noVoucherLbl: UILabel!
     @IBOutlet weak var segmentControl: UISegmentedControl!
     @IBOutlet weak var tableView: UITableView!
@@ -52,6 +53,7 @@ class VoucherVC: UIViewController, VoucherVCProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
         self.presenter = VoucherPresenter(view: self)
         tableView.delegate = self
         tableView.dataSource = self
@@ -117,7 +119,7 @@ class VoucherVC: UIViewController, VoucherVCProtocol {
     }
     
     func onBuyVoucherSuccess() {
-        showSuccess(message: "Buy voucher successfully")
+        showSuccess(message: "Buy voucher successfully".localized)
     }
     
     func onBuyVoucherError(error: AppError) {
@@ -131,6 +133,12 @@ class VoucherVC: UIViewController, VoucherVCProtocol {
         default:
             presenter?.loadMyVouchers()
         }
+    }
+    
+    func setupUI() {
+        titleLbl.text = "Voucher".localized
+        segmentControl.setTitle("All".localized, forSegmentAt: 0)
+        segmentControl.setTitle("My Voucher".localized, forSegmentAt: 1)
     }
     
 }
@@ -153,11 +161,11 @@ extension VoucherVC: UITableViewDelegate, UITableViewDataSource {
         cell.config(voucher: voucher, voucherLoadingState: voucherLoadingState)
         
         cell.onButtonTapped = { [weak self] () in
-            let alertViewController = UIAlertController(title: "Payment", message: "This voucher costs you \(voucher.price) points", preferredStyle: .actionSheet)
+            let alertViewController = UIAlertController(title: "Payment".localized, message: "This voucher costs you %d points".localized(arguments: voucher.price), preferredStyle: .actionSheet)
             let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
                 self?.presenter?.buyVouchers(voucherId: voucher._id)
             }
-            let cancleAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            let cancleAction = UIAlertAction(title: "Cancel".localized, style: .cancel, handler: nil)
             alertViewController.addAction(okAction)
             alertViewController.addAction(cancleAction)
             self?.present(alertViewController, animated: true)

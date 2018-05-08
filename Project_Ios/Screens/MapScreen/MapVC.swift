@@ -30,6 +30,7 @@ class MapVC: UIViewController , MapViewProtocol {
     //MARK: Outlet
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var myLocationBtn: UIButton!
+    @IBOutlet weak var titleLbl: UILabel!
     
     var presenter: MapPresenterProtocol?
     
@@ -38,6 +39,7 @@ class MapVC: UIViewController , MapViewProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
         mapView.delegate = self
         presenter = MapPresenter(view: self)
         
@@ -102,11 +104,11 @@ extension MapVC: MKMapViewDelegate {
         let location = view.annotation as! MapItem
         let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
         
-        let alertViewController = UIAlertController(title: "Direction", message: "Open Apple Maps to get direction", preferredStyle: .actionSheet)
-        let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
+        let alertViewController = UIAlertController(title: "Direction".localized, message: "Open Apple Maps to get direction".localized, preferredStyle: .actionSheet)
+        let okAction = UIAlertAction(title: "OK".localized, style: .default) { (action) in
             location.mapItem().openInMaps(launchOptions: launchOptions)
         }
-        let cancleAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let cancleAction = UIAlertAction(title: "Cancel".localized, style: .cancel, handler: nil)
         alertViewController.addAction(okAction)
         alertViewController.addAction(cancleAction)
         self.present(alertViewController, animated: true)
@@ -115,6 +117,10 @@ extension MapVC: MKMapViewDelegate {
     func centerMapOnLocation(location: CLLocation) {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius, regionRadius)
         mapView.setRegion(coordinateRegion, animated: true)
+    }
+    
+    func setupUI() {
+        titleLbl.text = "Recycling Center".localized
     }
 }
 

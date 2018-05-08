@@ -18,7 +18,7 @@ class LeaderBoardCell: UITableViewCell {
     func config(index: Int, user: User) {
         userNameLbl.text = user.username
         indexLbl.text = String(index)
-        numberRecycledItemLbl.text = "\(String(user.numberOfRecycledItems)) recycled items"
+        numberRecycledItemLbl.text = "%d recycled items".localized(arguments: user.numberOfRecycledItems)
         if let avatarPath = user.avatarPath {
              avatarImgView.load(imgUrl: avatarPath)
         }

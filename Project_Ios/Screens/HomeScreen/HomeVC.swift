@@ -62,6 +62,7 @@ class HomeVC: UIViewController, HomeVCProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
         tableView.delegate = self
         tableView.dataSource = self
         tableView.addSubview(self.refreshControl)
@@ -259,11 +260,11 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource, UIScrollViewDelega
         cell.config(itemHome: homeItem)
         
         cell.onBuyButtonTapped = { [weak self]() in            
-            let alertViewController = UIAlertController(title: "Buy", message: "Do you want to buy this item?", preferredStyle: .actionSheet)
-            let okAction = UIAlertAction(title: "Yes", style: .default) { (action) in
+            let alertViewController = UIAlertController(title: "Buy".localized, message: "Do you want to buy this item?".localized, preferredStyle: .actionSheet)
+            let okAction = UIAlertAction(title: "Yes".localized, style: .default) { (action) in
                 self?.presenter?.performBuyItem(itemId: itemId)
             }
-            let cancleAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            let cancleAction = UIAlertAction(title: "Cancel".localized, style: .cancel, handler: nil)
             alertViewController.addAction(okAction)
             alertViewController.addAction(cancleAction)
             self?.present(alertViewController, animated: true)
@@ -281,11 +282,11 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource, UIScrollViewDelega
         }
         
         cell.onDeleteTapped = { [weak self]() in
-            let alertViewController = UIAlertController(title: "Delete", message: "Do you want to delete this item?", preferredStyle: .actionSheet)
-            let okAction = UIAlertAction(title: "Yes", style: .default) { (action) in
+            let alertViewController = UIAlertController(title: "Delete".localized, message: "Do you want to delete this item?".localized, preferredStyle: .actionSheet)
+            let okAction = UIAlertAction(title: "Yes".localized, style: .default) { (action) in
                 self?.presenter?.performDeleteItem(itemId: itemId)
             }
-            let cancleAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            let cancleAction = UIAlertAction(title: "Cancel".localized, style: .cancel, handler: nil)
             alertViewController.addAction(okAction)
             alertViewController.addAction(cancleAction)
             self?.present(alertViewController, animated: true)
@@ -373,5 +374,10 @@ extension HomeVC: UISearchBarDelegate {
 extension HomeVC: CategoryDelegate {
     func setCategory(category: Category) {
         chosenCategory = category
+    }
+    
+    func setupUI() {
+        searchBar.placeholder = "Search Items".localized
+        notFoundLbl.text = "No such item found".localized
     }
 }

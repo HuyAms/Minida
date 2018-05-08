@@ -29,6 +29,7 @@ enum AppError: Error {
     case cannotFindItem
     case cannotFindVoucher
     case buyOwnItem
+    case cannotRequestPoint
     case unknown
 
 }
@@ -82,37 +83,39 @@ extension AppError {
     var description: String {
         switch self {
         case .emptyField:
-            return "Field should not be empty"
+            return "Field should not be empty".localized
         case .emptyImage:
-            return "Image should not be empty"
+            return "Image should not be empty".localized
         case .noInternetConnection:
-            return "No internet connection"
+            return "No internet connection".localized
         case .invalidPhoneNumber:
-            return "Phone number must have 10 numbers"
+            return "Phone number must have 10 numbers".localized
         case .invalidPrice:
-            return "Invalid price"
+            return "Invalid price".localized
         case .invalidEmail:
-            return "Invalid email"
+            return "Invalid email".localized
         case .notEnoughPoints:
-            return "You do not have enough points to buy this item"
+            return "You do not have enough points to buy this item".localized
         case .usernameIsUsed:
-            return "This username has already been used"
+            return "This username has already been used".localized
         case .phoneNumberIsUsed:
-            return "This phone number has already been used"
+            return "This phone number has already been used".localized
         case .usernameDoesNotExist:
-            return "Username does not exist"
+            return "Username does not exist".localized
         case .incorrectPassword:
-            return "Password is incorrect"
+            return "Password is not correct".localized
         case .cannotFindItem:
-            return "Item has not beet deleted"
+            return "Item has been deleted".localized
         case .buyOwnItem:
-            return "You cannot buy your own item"
+            return "You cannot buy your own item".localized
         case .cannotFindVoucher:
-            return "This voucher is not available"
+            return "This voucher is not available".localized
+        case .cannotRequestPoint:
+             return "Could not request point".localized
         case .unknown:
-            return "Unknown error"
+            return "Unknown error".localized
         default:
-            return "Unknown Error"
+            return "Unknown Error".localized
         }
     }
 }

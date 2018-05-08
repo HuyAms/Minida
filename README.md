@@ -22,12 +22,6 @@ Instructions: Download the file and place is inside the Project_Ios folder
 
 ## TODO list:
 
-=======
-:white_check_mark: Upload item screen <br/>
-:white_check_mark: Buy item screen <br/>
-:white_check_mark: Localization <br/>
-:white_check_mark: Notification <br/>
-
 ## MLmodel
 [Download](https://drive.google.com/open?id=1OVYOl5WrDjH139XIub1uYJfGx2rDH6L4) <br/>
  <br/>

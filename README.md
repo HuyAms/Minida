@@ -13,6 +13,7 @@
 
 ## MLmodel
 [Download](https://drive.google.com/open?id=1OVYOl5WrDjH139XIub1uYJfGx2rDH6L4)
+Instructions: Download the file and place is inside the Project_Ios folder
 
 ## TODO list:
 :white_large_square: Upload item screen <br/>

@@ -10,16 +10,18 @@
 :white_check_mark: Simple Animation and Custom View <br/>
 :white_check_mark: Payment using [Stripe](https://stripe.com/fi) <br/>
 :white_check_mark:  Usage of libraries:<br/>
+:white_check_mark:  Localization<br/>
+:white_check_mark:  Notification<br/>
+:white_check_mark:  Buy item screen<br/>
+:white_check_mark:  Upload item screen<br/>
+
 
 ## MLmodel
 [Download](https://drive.google.com/open?id=1OVYOl5WrDjH139XIub1uYJfGx2rDH6L4) <br/>
 Instructions: Download the file and place is inside the Project_Ios folder
 
 ## TODO list:
-:white_large_square: Upload item screen <br/>
-:white_large_square: Buy item screen <br/>
-:white_large_square: Localization <br/>
-:white_large_square: Notification <br/>
+
 
 | Login     | Register   | Home     |
 | :-------------: | :-------------: | :-------------: |
@@ -32,3 +34,7 @@ Instructions: Download the file and place is inside the Project_Ios folder
 | Category    | Payment    | Add Card     | 
 | :-------------: | :-------------: | :-------------: |
 | ![Menu](art/category.png) | ![Payment](art/payment.png) | ![Add Card](art/card.png) |
+
+| Notification    | Upload    | Leader Board     | 
+| :-------------: | :-------------: | :-------------: |
+| ![Notification](art/notification.png) | ![Upload](art/post.png) | ![Leader Board](art/leaderboard.png) |

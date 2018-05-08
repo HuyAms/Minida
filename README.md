@@ -11,6 +11,9 @@
 :white_check_mark: Payment using [Stripe](https://stripe.com/fi) <br/>
 :white_check_mark:  Usage of libraries:<br/>
 
+## MLmodel
+[Download](https://drive.google.com/open?id=1OVYOl5WrDjH139XIub1uYJfGx2rDH6L4)
+
 ## TODO list:
 :white_large_square: Upload item screen <br/>
 :white_large_square: Buy item screen <br/>
